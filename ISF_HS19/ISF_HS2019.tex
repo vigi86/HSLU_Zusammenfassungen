@@ -1,25 +1,24 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage{ngerman}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
+\usepackage{enumitem, fancyhdr, graphicx, lastpage, sectsty, xcolor}
 \usepackage[hidelinks]{hyperref}
-\usepackage{enumitem}
 %\usepackage{authblk}
 
+\definecolor{dunkelblau}{rgb}{0.2,0.2,0.8}
+\subsectionfont{\color{dunkelblau}}
+
 \title{ISF HS 2019}
-\author{Victor Fernández}
+\author{Victor Fernández\\Pavaskar Parameswaran}
 \date{Dezember 2019}
 
 
 \addtolength{\oddsidemargin}{-.875in}
 \addtolength{\evensidemargin}{-.875in}
 \addtolength{\textwidth}{1.75in}
-
 \addtolength{\topmargin}{-.875in}
 \addtolength{\textheight}{1.75in}
 
-
+% muss nach Änderung der margin kommen!
 \pagestyle{fancy}
 \fancyhf{} %reset
 \fancyhead[L]{HSLU}
@@ -28,12 +27,13 @@
 \fancyfoot[L]{}
 \fancyfoot[C]{}
 \fancyfoot[R]{}
-\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
 
 %******
 \begin{document}
 \maketitle
 \thispagestyle{empty}
+\section*{Vorwort}Diese Zusammenfassung entstand in einer Gruppe während der Lernphase des HS 2019. Alle Fragen aus der Stoffabgrenzung tragen eine {\color{dunkelblau}blaue Farbe} und stehen als Unterkapitel. Das Dokument ist Open Source und jeder der möchte und signifikant beiträgt, darf sich als Autor anhängen. Die Source ist \underline{\href{https://github.com/vigi86/HSLU_Zusammenfassungen/tree/master/ISF_HS19}{dieses GitHub-Repo}}. Dies ist mein erstes \LaTeX{}-Dokument überhaupt. Nichts desto trotz wurde auf eine klare Strukturierung und Lesbarkeit des Dokumentes Wert gelegt.
 \tableofcontents
 \thispagestyle{empty}
 \pagebreak
@@ -45,7 +45,7 @@
 Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen.
 Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
 \paragraph*{Missbrauch}Informationen müssen vor Missbrauch geschützt werden
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
     \includegraphics[width=8cm]{images/Wissenspyramide.png}
     \caption{Wissenspyramide}
@@ -73,7 +73,6 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
         \item Missbrauch der IT-Infrastruktur
     \end{itemize}
 \end{itemize}
-
 
 \subsection*{Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
@@ -133,11 +132,91 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 
 \part{Angriffe (SW~05-06)}
 \section{Angriffe auf Webanwendungen}
-\paragraph*{TODO}
+\paragraph*{Bedrohungen auf Anwendungsebene}Webanwendung, Session, Headers, CSRF
 \subsection*{Sie wissen was eine Webanwendung ausmacht, wie HTTP funktioniert}
-\paragraph*{TODO}
+Was unterscheidet eine Webanwendung aus Sicherheitssicht zu anderen Anwendungen?
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Kommuniziert über HTTP mit einem Server
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item zustandsloses Protokoll
+    \end{itemize}
+    \item Läuft in einem Browser
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Mehrere Webanwendungen können parallel im gleichen Browser laufen
+        \item Die Webanwendung \textsl{erbt} vom Browser implementierte Features
+        bzw. muss diese richtig ansprechen
+    \end{itemize}
+\end{itemize}
+\paragraph*{HTTP}Der Browser kommuniziert mit dem Webserver über das \textbf{Hypertext Transfer Protokoll (HTTP)}. HTTP besteht aus \textsl{Requests} und \textsl{Reponses}.
+\paragraph*{HTTP-Request-Methoden}Die häufigsten HTTP-Request-Methoden sind \textbf{GET} und \textbf{POST}.
+Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
+\paragraph*{GET} https://www.hslu.ch/?p=5 HTTP/1.1 User-Agent: Mozilla/5.0
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Message Body: kein
+    \item Ruft Daten vom Server ab
+    \item Sollte Serverzustand nicht verändern
+\end{itemize}
+\paragraph*{POST}https://www.hslu.ch/ HTTP/1.1 User-Agent: Mozilla/5.0
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Message Body: id=123\&pwd=password
+    \item Darf Serverzustand verändern
+    \item Wird nicht gecachet
+\end{itemize}
+\paragraph*{Häufigste Reponse-Codes}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item 200 OK
+    \item 204 No Content
+    \item 301 Moved Permanently
+    \item 302 Found (Vorher: "`Moved temporarely"')
+    \item 304 Not Modified
+    \item 400 Bad Request
+    \item 403 Forbidden
+    \item 404 Not Found
+    \item 500 Internal Server Error
+\end{itemize}
+\paragraph*{HTTP Zustand} HTTP ist ein zustandsloses Protokoll, d.h. es hat kein `Gedächtnis', bzw. Erinnerung.
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=12cm]{images/HTTPZustand0.png}
+    \caption{HTTP zustandslos}
+    \label{HTTPZustandslos}
+    \end{center}
+\end{figure}\\
+Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen per weiteren Requests mitzuschicken. Die Zustände werde mit einem Cookie oder einem "`Hidden field"' erfasst.
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=12cm]{images/HTTPZustand1.png}
+    \caption{HTTP Zustand per Request (hidden field)}
+    \label{HTTPZustand}
+    \end{center}
+\end{figure}
+\paragraph*{Cookies}Cookies sind kurze Textdaten, welche vom Server als Header an den Browser übermittelt werden und von diesem ebenso als Header bei requests wieder mitgesendet werden. Cookies werden vom Browser verwaltet. Die meistgenutzte Möglichkeit ist es, ein Cookie zu setzen. Jedoch dürfen auch Cookies nicht client-seitig angepasst werden können!
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=12cm]{images/HTTPCookie.png}
+    \caption{Einsatz eines Cookies}
+    \label{HTTPCookie}
+    \end{center}
+\end{figure}
+\paragraph*{Cookie Eigenschaften}Die Eigenschaften von Cookies sind:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Persistent} (mit Ablaufdatum) oder \textbf{Session-Cookie} (ohne Ablaufdatum)
+    \item \textbf{Secure} (wird nur über HTTPS übertragen)
+    \item \textbf{HTTP Only} (darf nur von HTTP gelesen werden)
+    \item \textbf{Same Site} (wird nicht bei Cross-Domain-Aurfrufen mitgesendet, z.B. `embedded' Link, Image)
+\end{itemize}
+
 \subsection*{Sie wissen was eine Session ist und welche Eigenschaften einer Session bei welchen Angriffen wichtig sind bzw wie sie gegen gewisse Angriffe Schutz bieten}
-\paragraph*{TODO}
+\paragraph*{Session} Eine Session ist der Zeitraum, in dem ein Client eine stehende Verbindung mit einem Server hat; vom Login bis zum Logout. Der Server vergibt dem Client eine eindeutige Session-ID. Die Sitzungsdaten (z.B. Warenkorb) werden im Server gespeichert. Bei jedem Request gibt der Client seine Session-ID mit, damit der Server beim Response die zugehörigen Daten dieser ID übermitteln kann. Es gibt auch Sessions ohne stehende Verbindung (ohne Login). Dies wird zu Statistikzwecken verwendet, beispielsweise um die Bewegung des Besuchers auf der Website zu verfolgen. Oder aber auch um einen Warenkorb ohne Login verwenden zu können.
+\paragraph*{Schwaches Session-Management:} Was ist das?
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item der Sessionwert ist vorhersagbar
+    \item der Sessionwert kann vom Client gesetzt werden
+    \item die Cookie-Attribute `Secure', `HttpOnly' oder `Same Site' sind nicht gesetzt
+    \item Cookie-Domain oder -Pfad sind nicht so eingeschränkt wie möglich
+    \item die Session wird bei einem Logout nicht invalidiert
+    \item die Session hat kein server-seitiges Timeout (Inaktivitäts- und absolutes Timeout)
+\end{itemize}
 \subsection*{Sie kennen sicherheitsrelevante Header}
 \paragraph*{TODO}
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
