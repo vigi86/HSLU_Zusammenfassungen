@@ -4,6 +4,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
 %\usepackage{authblk}
 
 \title{ISF HS 2019}
@@ -51,13 +52,37 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \label{Wissenspyramide}
     \end{center}
 \end{figure}
+
+
 \subsection*{Motivation / Bedrohungen}
-\paragraph*{TODO}
+\paragraph*{Was gefährdet die Informationen?} Welche Gefährdungen/Bedrohungen gibt es?
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Nicht vorsätzliche (zufällige) Gefährdungen/Bedrohungen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Naturgewalten (Blitz, Hagel, Unwetter, Erdrutsche, Hochwasser, etc.)
+        \item Ausfall von Strom oder Telekommunikation
+        \item Technische Pannen, z.B. Fehler von Hard- und/oder Software
+        \item Bedienerfehler / Fahrlässigkeit der Mitarbeitenden
+    \end{itemize}
+    \item Vorsätzliche Gefährdungen/Bedrohungen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Bösartiger Code (Viren, Würmer, Trojaner, etc.)
+        \item Informationsdiebstahl
+        \item Angriffe (von Skript-Kiddies bis Hacker)
+        \item Wirtschaftsspionage ("`was die Konkurrenz wissen möchte"')
+        \item Missbrauch der IT-Infrastruktur
+    \end{itemize}
+\end{itemize}
+
+
 \subsection*{Grundbegriffe}
-\textbf{Zutritts-, Zugangs-, Zugriffskontrolle}\\
-\textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)\\
-\textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)\\
-\textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)
+\textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)
+    \item \textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)
+    \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)
+\end{itemize}
+
 
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
@@ -80,6 +105,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie kennen die "`Best-practices"' zu Passwortsicherheit und wissen, gegen welche Angriffe diese schützen}
 \paragraph*{TODO}
 
+
 \section{Asymmetrische Kryptographie}
 \subsection*{Sie verstehen was Public-Key-Kryptographie ist, worauf deren Sicherheit basiert und wie sie zur Verschlüsselung, für Signaturen und zur Authentisierung verwendet werden kann}
 \paragraph*{TODO}
@@ -94,6 +120,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie wissen wie hybride Verschlüsselung bzw hybride Signaturen funktionieren}
 \paragraph*{TODO}
 
+
 \section{Zertifikate und SSL-TLS}
 \subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
 \paragraph*{TODO}
@@ -101,6 +128,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \paragraph*{TODO}
 \subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}
 \paragraph*{TODO}
+
+
 
 \part{Angriffe (SW~05-06)}
 \section{Angriffe auf Webanwendungen}
@@ -114,6 +143,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
 \paragraph*{TODO}
 
+
 \section{Angriffe auf Protokollebene}
 \subsection*{Sie kennen die Grundbegriffe der Anwendungssicherheit}
 \paragraph*{TODO}
@@ -121,6 +151,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \paragraph*{TODO}
 \subsection*{Sie verstehen wie ein Cross-Site-Scripting/SQL-injection/Social-Engineering-Angriff abläuft und wie man sich dagegen schützen kann}
 \paragraph*{TODO}
+
+
 
 \part{Management (SW~07-09)}
 \section{Standards \& Frameworks, ISMS}
@@ -134,6 +166,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \paragraph*{TODO}
 \subsection*{Sie kennen die Struktur und Grundziele des NIST CyberSecurityFrameworks}
 \paragraph*{TODO}
+
 
 \section{Risiko-Management und IT-Grundschutz}
 \subsection*{Das Risikoanalyse-Verfahren verstehen}
@@ -149,6 +182,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie können die Teilschritte zum Aufbau eines Sicherheitskonzeptes nach IT-Grundschutz durchführen, kombinierte Risikoanalyse}
 \paragraph*{TODO}
 
+
 \section{Awarness}
 \subsection*{Sie verstehen die Wichtigkeit der \flqq Awareness \frqq}
 \paragraph*{TODO}
@@ -156,6 +190,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \paragraph*{TODO}
 \subsection*{Sie kennen die relevanten Erfolgsfaktorender Mitarbeiter-Sensibilisierung und -Schulung und können diese in einer Kampagne umsetzen}
 \paragraph*{TODO}
+
+
 
 \part{Access Control (SW~10)}
 \section{Access Control}
@@ -166,6 +202,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
 \paragraph*{TODO}
 
+
 \part{Multi-Party-Computation (SW~11)}
 \subsection*{Sie kennen einfache Beispiele von verteilten sicheren Berechnungen und verstehen wie die entsprechenden Protokolle ablaufen}
 \paragraph*{TODO}
@@ -174,11 +211,14 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie wissen welche Eigenschaften elektronisches Geld ausmachen und kennen die technischen Grundlagen von Bitcoin}
 \paragraph*{TODO}
 
+
 \section{Cryptographic Protocols}
 \section{Secret Sharing}
 \section{Zero Knowledge Proof}
 \subsection*{Sie wissen was Zero-Knowledge-Proofs sind und wie diese ablaufen}
 \paragraph*{TODO}
+
+
 
 \part{Quantum (SW~12)}
 \subsection*{Sie wissen was ein Quantencomputer ist und was ihn von einem "`klassischen"' Computer unterscheidet}
@@ -188,6 +228,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie verstehen wie Quantenschlüsselaustausch funktionert}
 \paragraph*{TODO}
 
+
 \section{Quantum Computing and Quantum Cryptography}
 \part{WAF, Federations (SW~13)}
 \section{Firewalls}
@@ -196,9 +237,12 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Sie verstehen die Funktionsweise einer WAF und wie sie eine Webanwendung vor Angriffen schützen kann}
 \paragraph*{TODO}
 
+
 \section{Federations}
 \subsection*{Sie verstehen wie Authentisierung mit Identity Federation abläuft, was die Voraussetzungen dafür sind und was die Vor- und Nachteile von Federations sind}
 \paragraph*{TODO}
+
+
 
 \part{Talks (SW~14)}
 \section{Malware}
