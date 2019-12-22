@@ -1,8 +1,12 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
-\usepackage{enumitem, fancyhdr, graphicx, lastpage}
+\usepackage{lastpage}
+\usepackage{enumitem, fancyhdr, graphicx}
 \usepackage[hidelinks]{hyperref}
+%\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+%\usepackage{biblatex}
+%\addbibresource{bibliography.bib}
 %\usepackage{authblk}
 
 \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
@@ -34,7 +38,7 @@
 \begin{document}
 \maketitle
 \thispagestyle{empty}
-\section*{Vorwort}Diese Zusammenfassung entstand in einer Gruppe während der Lernphase des HS 2019. Alle Fragen aus der Stoffabgrenzung tragen eine {\color{dunkelblau}blaue Farbe} und stehen als Unterkapitel. Das Dokument ist Open Source und jeder der möchte und signifikant beiträgt, darf sich als Autor anhängen. Die Source ist \underline{\href{https://github.com/vigi86/HSLU_Zusammenfassungen/tree/master/ISF_HS19}{dieses GitHub-Repo}}. Dies ist mein erstes \LaTeX{}-Dokument überhaupt. Nichts desto trotz wurde auf eine klare Strukturierung und Lesbarkeit des Dokumentes Wert gelegt.
+\section*{Vorwort}Diese Zusammenfassung entstand in einer Gruppe während der Lernphase des HS 2019. Alle Fragen aus der Stoffabgrenzung tragen eine {\color{dunkelblau}blaue Farbe} und stehen als Unterkapitel. Das Dokument ist Open Source und jeder der möchte und signifikant beiträgt, darf sich als Autor anhängen. Die Source ist \underline{\href{https://github.com/vigi86/HSLU_Zusammenfassungen/tree/master/ISF_HS19}{dieses GitHub-Repo}}\footnote{https://github.com/vigi86/HSLU\_Zusammenfassungen/tree/master/ISF\_HS19}. Dies ist mein erstes \LaTeX{}-Dokument überhaupt. Nichts desto trotz wurde auf eine klare Strukturierung und Lesbarkeit des Dokumentes Wert gelegt.
 \tableofcontents
 \thispagestyle{empty}
 \pagebreak
@@ -158,7 +162,8 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 \paragraph*{TODO}BILD one-time pad
 
 \subsection*{Sie wissen welche modernen Verschlüsselungsalgorithmen in der Praxis verwendet werden und was deren Eigenschaften sind}
-\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext. Beispielsweise ist OTP informationstheoretisch sicher.\newline
+\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.%\footcite{renner2006}
+ Beispielsweise ist OTP informationstheoretisch sicher. \newline
 Formal:
 \begin{math}
     P(M=m) = P(M=m|C=c)
@@ -341,17 +346,41 @@ Der Sessionwert wird nach einem Login oder Loginschritt nicht geändert. Ein  an
 Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie kennen sicherheitsrelevante Header}
-\paragraph*{sicherheitsrelevante Response-Header}
+\paragraph*{Sicherheitsrelevante Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{HSTS:} \texttt{Strict-Transport-Security:\\
-    max-age=31536000; includeSubDomains}\\
+    \item \textbf{HSTS:} \texttt{Strict-Transport-Security: max-age=31536000; includeSubDomains}\\
     Seite wird nur via HTTPS aufgerufen. \texttt{max-age} muss hoch gesetzt werden!
-    \item \textbf{Frame-Options:}\texttt{}
+    \item \textbf{Frame-Options:} \texttt{X-Frame-Options: deny}\\
+    Verbietet das Einbinden der Seite in einem Frame oder erlaub es nur für bestimmte Domains
+    \item \textbf{XSS-Protection:} \texttt{X-XSS-Protection: 1; mode=block}\\
+    Filtert und säubert oder blockeirt die Anzeige der Seide, wenn ein XSS-Angriff endeckt wird
+    \item \textbf{Content-Type-Options:} \texttt{X-Content-Type-Options: nosniff}\\
+    Verhindert, dass der Content als einen anderen MIME-Type interpretiert wird als angegeben
+    \item \textbf{CSP:} \texttt{Content-Security-Policy: script-src 'self'}\\
+    Definiert, welche Resourcen (z.B. Bilder, Scripts, Fonts, etc.) von wo eingebunden werden können
+    \item \textbf{CORS} \texttt{Access-Control-Allow-Origin: http://foo.example}\\
+    Cross-Origin Resource Sharing (CORS) ist ein Mechanismus, der Webbrowsern oder auch anderen Webclients Cross-Origin-Requests ermöglicht. Zugriffe dieser Art sind normalerweise durch die Same-Origin-Policy (SOP) untersagt. CORS ist ein Kompromiss zugunsten grösserer Flexibilität im Internet unter Berücksichtigung möglichst hoher Sicherheitsmassnahmen.
+    \item \textbf{Caching-Options} {\color{red}TODO: hat jemand Infos?}
+    \item \textbf{HPKP ({\color{red}deprecated!}):} \texttt{Public-Key-Pins:\\
+    pin-sha256=d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=;\\
+    pin-sha256=Ë9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=;\\
+    report-uri=http://example.com/pkp-report;\\
+    max-age=10000; includeSubDomains}\\
+    HTTP Public Key Pinning: Nur das Serverzertifikat mit dem korrekten Fingerprint wird akzeptiert. Wurde wieder abgekündigt und die meisten Browser unterstützen es nicht mehr.
 \end{enumerate}
+
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
-\paragraph*{TODO}
+\paragraph*{CSRF - Cross-Site Request Forgery}Was ist das?\\
+Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzusetzen und  dadurch eine Aktion auf dem Server auszulösen. Ist der Benutzer zu dem Zeitpunkt eingeloggt, wird das Cookie automatisch mitgeschickt.
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=8cm]{images/CSRF.png}
+    \caption{Cross-Site Request Forgery}
+    \label{CSRF}
+    \end{center}
+\end{figure}
 
-
+\pagebreak
 \section{Angriffe auf Protokollebene}
 \subsection*{Sie kennen die Grundbegriffe der Anwendungssicherheit}
 \paragraph*{TODO}
@@ -458,4 +487,10 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 \paragraph*{TODO}
 \subsection*{Sie kennen Beispiele von Angriffen, welche mittels Machine-Learning auf einer WAF erkannt werden konnten}
 \paragraph*{TODO}
+
+%\newpage
+%\printbibheading
+%\printbibliography[type=book,heading=subbibliography,title={Bücher}]
+%\printbibliography[notype=book,heading=subbibliography,title={Andere Quellen}]
+%\printbibliography
 \end{document}
