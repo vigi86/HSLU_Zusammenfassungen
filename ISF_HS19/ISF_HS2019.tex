@@ -2,7 +2,7 @@
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{enumitem, fancyhdr, graphicx}
+\usepackage{enumitem, fancyhdr, graphicx, float}
 \usepackage[hidelinks]{hyperref}
 %\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 %\usepackage{biblatex}
@@ -50,7 +50,7 @@
 Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen.
 Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
 \paragraph*{Missbrauch}Informationen müssen vor Missbrauch geschützt werden
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Wissenspyramide.png}
     \caption{Wissenspyramide (Wikipedia)}
@@ -91,10 +91,10 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
-\paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles.
+\paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
 \subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}
-\paragraph*{Zeichencodierung}Kodierung (=Encoding) heisst, einen Wert mit Symbolen eines Zeichensatzes darzustellen. Beispiel:\\
-\begin{tabular}{ |ll|}
+\paragraph*{Zeichencodierung}Kodierung (=Encoding) heisst, einen Wert mit Symbolen eines Zeichensatzes darzustellen. Beispiel:\newline %bleibt
+\begin{tabular}{|ll|}
     \hline
         Dezimalsystem & 100\\
         Binärsystem & 1100100\\
@@ -106,43 +106,99 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 {\color{red}\textbf{Achtung: Kodierung $\neq$ Verschlüsselung}}
 \paragraph*{Symmetrische Verschlüsselung}Bei symmetrischen Verschlüsselungsverfahren gibt es im Gegensatz zu den asymmetrischen Verfahren, \textbf{nur einen einzigen Schlüssel}. Dieser Schlüssel ist für die Verschlüsselung, als auch für die Entschlüsselung zuständig.
 \paragraph*{Secret Key Verschlüsselung}Secret Key (`Symmetrische') Verschlüsselung wird zwischen zwei Parteien verwendet, welche einen \textbf{gemeinsamen Schlüssel} besitzen. Ausserdem wird sie oft verwendet, wenn der gleiche Benutzer ein Dokument verschlüsseln und zu einem späteren Zeitpunkt wieder entschlüsseln muss.
-\paragraph*{TODO}BILD\\
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=14cm]{images/secretkey.png}
+    \caption{Alice verschlüsselt, Bob entschlüsselt mit dem gemeinsamen Schlüssel}
+    \label{secretkey}
+    \end{center}
+\end{figure}
 
+\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.%\footcite{renner2006}
+ Beispielsweise ist OTP informationstheoretisch sicher. \newline %bleibt
+Formal:
+\begin{math}
+    P(M=m) = P(M=m|C=c)
+\end{math} {\color{red}Erklärung der Variabeln??}
 
-Private Key: Ein Kennwort, das benutzt wird, um einen Klartext zu verschlüsseln und so einen Geheimtext zu erhalten.
-\paragraph*{TODO}BILDER
+\paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
+\paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
 
-
-Jeder kann den öffentlichen Schlüssel zum Verschlüsseln verwenden. Nur der Besitzer des privaten Schlüssels kann entschlüsseln.
+\paragraph*{Angriffsarten}Bei der Sicherheit von modernen Verschlüsselungssystemen wird zwischen den Angriffs-möglichkeiten des Angreifers unterschieden:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Ciphertext only attack:} Angreifer erhält nur den zu entschlüsselnden Geheimtext
+    \begin{figure}[ht]
+        \begin{center}
+        \includegraphics[width=8cm]{images/coa.png}
+        \caption{nur Geheimtext}
+        \label{coa}
+        \end{center}
+    \end{figure}
+    \item \textbf{Known plaintext attack:} Angreifer erhält zusätzlich andere Klartext-Geheimtext-Paare
+    \begin{figure}[ht]
+        \begin{center}
+        \includegraphics[width=8cm]{images/kpa.png}
+        \caption{Klartext-Geheimtext-Paare}
+        \label{kpa}
+        \end{center}
+    \end{figure}
+    \item \textbf{Chosen plaintext attack:} Angreifer kann zusätzliche Klartexte wählen, zu denen er auch die Geheimtexte erhält
+    \begin{figure}[ht]
+        \begin{center}
+        \includegraphics[width=8cm]{images/cpa.png}
+        \caption{Klartexte und Geheimtexte}
+        \label{cpa}
+        \end{center}
+    \end{figure}
+\end{itemize}
 
 \subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Ceasar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}
 \paragraph*{Cesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
 \textbf{Vorteil:} es ist \textbf{einfach}.\\
 \textbf{Nachteil:} es ist \textbf{unsicher}, da es sehr schnell geknackt werden kann.\\
 \textbf{Schwachstelle:} Die in der natürlichen Sprache ungleiche Verteilung der Buchstaben wird durch diese Art der Verschlüsselung nicht verborgen, so dass eine Häufigkeitsanalyse (Frequenzanalyse) das Wirken einer einfachen monoalphabetischen Substitution enthüllt.
-\paragraph*{TODO}BILD: Schematische Darstellung einer Verschiebechiffre mit Verschiebung um 3 Buchstaben.\\
-
-\noindent
-Das folgende Diagramm zeigt die Häufigkeitsverteilung der Buchstaben in einem längeren Text in deutscher Sprache:
-\paragraph*{TODO}BILD
-\paragraph*{TODO}Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im Deutschen üblicherweise der Fall ist. Wird der Text mit dem Schlüssel 10 (oder anders gesagt, mit dem Schlüsselbuchstaben J) chiffriert, erhält man einen Geheimtext, der folgende Häufigkeitsverteilung besitzt: (BILD)
-
-
-Der häufigste Buchstabe ist hier O, gefolgt von X und S. Man erkennt auf den ersten Blick die Verschiebung des deutschen "`Häufigkeitsgebirges"' um zehn Stellen nach hinten und besitzt damit den Schlüssel. Voraussetzung ist lediglich, dass man die Verteilung der Zeichen des Urtextes vorhersagen kann.
-
-
-Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse verzichten, kann man auch die Tatsache ausnutzen, dass bei der Cäsar-Chiffre nur eine sehr kleine Anzahl möglicher Schlüssel in Frage kommt. Da die Größe des Schlüsselraums nur 25 beträgt, was einer "`Schlüssellänge"' von nicht einmal 5~bit entspricht, liegt nach Ausprobieren spätestens nach dem 25. Versuch der Klartext vor.
 
 \paragraph*{Cesar cipher: Vorgang}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Verschiebt jeden Buchstaben des Alphabets um eine bestimmte Anzahl Stellen
-    \item Soll bereits von Julius Caesar verwendet worden sein
+    \item Soll bereits von Julius Caesar verwendet worden sein, daher der Name
     \item Der Schlüssel wird entweder als Anzahl Stellen, um die verschoben wird, oder als Buchstaben, auf den `A' verschoben wird angegeben
     \item Variante: ROT13 (Verschlüsselung = Entschlüsselung)
     \item Problem 1: Schlüssellänge (nur 26 verschiedene Schlüssel)
     \item Problem 2: Frequenzanalyse
 \end{itemize}
-\paragraph*{TODO}BILD aus Folie mit Cesar Verschiebung
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/cesar.png}
+    \caption{Cesar cipher mit Verschiebung um 3 Stellen}
+    \label{cesar}
+    \end{center}
+\end{figure}
+
+
+\noindent
+Das folgende Diagramm zeigt die Häufigkeitsverteilung der Buchstaben in einem längeren Text in deutscher Sprache:
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=10cm]{images/frequency0.png}
+    \caption{Frequenzanalyse unchiffriert}
+    \label{frequencynormal}
+    \end{center}
+\end{figure}
+\noindent
+Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im Deutschen üblicherweise der Fall ist. Wird der Text mit dem Schlüssel 10 (oder anders gesagt, mit dem Schlüsselbuchstaben J) chiffriert, erhält man einen Geheimtext, der folgende Häufigkeitsverteilung besitzt:
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=10cm]{images/frequency1.png}
+    \caption{Frequenz um 10 Stellen verschoben}
+    \label{frequencycesar}
+    \end{center}
+\end{figure}
+\noindent
+Der häufigste Buchstabe ist hier O, gefolgt von X und S. Man erkennt auf den ersten Blick die Verschiebung des deutschen "`Häufigkeitsgebirges"' um zehn Stellen nach hinten und besitzt damit den Schlüssel. Voraussetzung ist lediglich, dass man die Verteilung der Zeichen des Urtextes vorhersagen kann.
+\noindent
+Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse verzichten, kann man auch die Tatsache ausnutzen, dass bei der Cäsar-Chiffre nur eine sehr kleine Anzahl möglicher Schlüssel in Frage kommt. Da die Größe des Schlüsselraums nur 25 beträgt, was einer "`Schlüssellänge"' von nicht einmal 5~bit entspricht, liegt nach Ausprobieren spätestens nach dem 25. Versuch der Klartext vor.
+
 \paragraph*{Vigenère cipher}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Schlüssel: Wort der Länge $L$
@@ -150,7 +206,13 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \item Anzahl mögliche Schlüssel: $26^L$
     \item Problem: Frequenzanalyse jeder $L$'ten Stelle
 \end{itemize}
-\paragraph*{TODO}BILD Vigenère cipher
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/vigenere.png}
+    \caption{Vigenère cipher}
+    \label{vigenere}
+    \end{center}
+\end{figure}
 \paragraph*{One-time pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
@@ -159,45 +221,95 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \item Ist sicher, d.h. Geheimtext verrät keinerlei (zusätzliche) Information über den Klartext
     \item Intuitiv: Für einen bestimmten Geheimtext sind \textbf{alle} Klartexte (dierser Länge) möglich
 \end{itemize}
-\paragraph*{TODO}BILD one-time pad
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/otp.png}
+    \caption{Funktionsweise des OTP}
+    \label{otp}
+    \end{center}
+\end{figure}
 
 \subsection*{Sie wissen welche modernen Verschlüsselungsalgorithmen in der Praxis verwendet werden und was deren Eigenschaften sind}
-\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.%\footcite{renner2006}
- Beispielsweise ist OTP informationstheoretisch sicher. \newline
-Formal:
-\begin{math}
-    P(M=m) = P(M=m|C=c)
-\end{math} {\color{red}Erklärung der Variabeln??}
-\paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
-\paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
-\paragraph*{Angriffsarten}Bei der Sicherheit von modernen Verschlüsselungssystemen wird zwischen den Angriffs-möglichkeiten des Angreifers unterschieden:
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Ciphertext only attack:} Angreifer erhält nur den zu entschlüsselnden Geheimtext
-    \item \textbf{Known plaintext attack:} Angreifer erhält zusätzlich andere Klartext-Geheimtext-Paare
-    \item \textbf{Chosen plaintext attack:} Angreifer kann zusätzliche Klartexte wählen, zu denen er auch die Geheimtexte erhält
-\end{itemize}
-\paragraph*{TODO}ev. BILD zu Angriffsarten
+\paragraph*{TODO}
 
 \subsection*{Sie verstehen was eine Hashfunktion ist und welche Eigenschaften eine kryptographische Hashfunktion ausmachen, bzw. was es heisst, wenn eine Hashfunktion gebrochen ist}
-\paragraph*{TODO}
+\paragraph*{Hashfunktion}Eine Hashfunktion ist eine Abbildung, die eine grosse Eingabemenge (die Schlüssel) auf eine kleinere Zielmenge (die Hashwerte) abbildet. Die Eingabemenge kann Elemente unterschiedlicher Längen enthalten, die Elemente der Zielmenge haben dagegen meist eine feste Länge.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/hash1.png}
+    \caption{einfaches Beispiel einer Hashfunktion}
+    \label{hash1}
+    \end{center}
+\end{figure}
+\noindent
+Auf der linken Seite sehen wir 4 Passwörter von beispielsweise 4 Mitarbeitern eines Unternehmens. Die Hashfunktion  wandelt nun diese Passwörter in eine Zeichenfolge (dem Hashwert) mit einer festen Länge (hier 3 Zeichen) um. Für das Passwort "`Superman"' bekommt man den Hashwert 123, dem Passwort "`Robocop"' wird de Hashwert 567 zugeordnet, genauso wie dem Passwort "`Catwoman"' und "`Terminator"' bekommt 785.
+Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedliche Passwörter) auf Zeichen fester Länge (im Beispiel 3 Zeichen). Sie werden also in eine kleine, kompakte Form gebracht.
+
+\paragraph*{Zusatzinfo zum Hashwert}Der Hashwert ist das Ergebnis, das mittels einer Hashfunktion berechnet wurde. Man definiert eine feste Länge, wie lang ein Hashwert immer sein darf. Oft wird der Hashwert als eine hexadezimale Zeichenkette codiert, d.h. der Hashwert besteht aus einer Kombination von Zahlen und Buchstaben zwischen 0 und 9 sowie A bis F (als Ersatz für die Zahlen 10 bis 15). Ein Hashwert aus 10 hexadezimalen Zeichen könnte so aussehen: "`3d180ab86e"'.
+\paragraph*{Eigenschaft einer Hashfunktion}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Einwegfunktion: Aus dem Hashwert darf nicht der originale Inhalt erzeugt werden können. In unserem Beispiel darf es nicht möglich sein, aus dem Hashwert "`123"' den Ursprungstext "`Superman"' zu erzeugen.
+    \item Kollisionssicherheit: Den unterschiedlichen Texten darf nicht derselbe Hashwert zugeordnet sein. Ist diese Voraussetzung erfüllt, so spricht man auch von kryptografischen Hashfunktionen. In unserem Beispiel liegt eine Kollision vor, da die Passwörter "`Robocop"' und "`Catwoman"' denselben Hashwert haben. Damit ist die Hashfunktion im Bild nicht kollisionssicher und es handelt sich nicht um eine kryptografische Hashfunktion.
+    \item Schnelligkeit: Das Verfahren zu Berechnung des Hashwertes muss schnell sein.
+\end{itemize}
+\paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
+Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
+Passwort "`Superman” = MD5-Hash: "`527d60cd4715db174ad56cda34ab2dce"'.
+Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern erstellen und es durch den Hashgenerator jagen. Wenn er nun die Datenbank mit den Hashwerten der Plattform stiehlt, kann er die Hashwerte mit seiner Liste vergleichen. Findet er in der geklauten Liste den Hashwert "`527d60cd4715db174ad56cda34ab2dce"', so weiss er, dass dieser Hashwert dem Passwort "`Superman"' zugeordnet ist. Solche Listen nennt man \textbf{rainbow tables}.
+\paragraph*{Hashfunktionen}Algorithmen\newline %bleibt
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    Name&Block Länge&Output Länge&Bemerkung\\
+    \hline
+    MD5&512&128&gebrochen\\
+    SHA-1&512&160&gebrochen\\
+    SHA-256&512&256& \\
+    SHA-384&1024&384& \\
+    SHA-512&1024&512& \\
+    SHA3-256&1088&256& \\
+    SHA3-384&832&384& \\
+    SHA3-512&576&512& \\
+    \hline
+\end{tabular}
 
 \subsection*{Sie kennen moderne Hashfunktionen und wissen welche Eigenschaften diese haben}
 \paragraph*{TODO}
 
 \subsection*{Sie kennen Anwendungen von Hashfunktionen}
-\paragraph*{TODO}
+Verwendung von Hashfunktionen
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Identifikation einer Datei in peer-to-peer Netzwerken
+    \item Fehlererkennung
+    \item Itegritätsprüfung
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Symmetric Key Solution: Message Authentication Code (MAC) durch einen `keyed hash'
+        \item Asymmetic Key Solution: Digital Signature durch Signatur des Hashwertes
+    \end{itemize}
+    \item "`Proof of work"' in Blockchain
+\end{itemize}
 
 \subsection*{Sie wissen was ein keyed Hash (HMAC) ist und wofür dieser verwendet werden kann}
-\paragraph*{TODO}
+\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5, und einem geheimen Schlüssel basiert.
 
 \subsection*{Sie kennen die "`Best-practices"' zu Passwortsicherheit und wissen, gegen welche Angriffe diese schützen}
-\paragraph*{TODO}
+\paragraph*{Passwortsicherheit}Best practices
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Gespeichert wird nur der \textbf{Hashwert} des Passwortes
+    \item Ziel: Admin oder Angreifer mit Zugang zur DB erhalten das Passwort nicht
+\end{itemize}
+Oder noch besser:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+     \item Das Passwort wird gemeinsam mit einem \textbf{Salt} gehasht, welcher mit dem Hash in der DB abgelegt wird. Der Salt muss nicht geheim, aber einzigartig (\textsl{unique}) sein.
+    \item Ziel: Aufgrund der einzigartigen DB-Einträge ist nicht erkennbar, ob zwei Benutzer dasselbe Passwort haben. Zusätzlich kann ein Angreifer nicht die häufigsten Passwörter hashen und danach vergleichen, welcher Benutzer in der DB dieses Passwort verwendet hat. Er muss jeden Eintrag einzeln angreifen.
+    \item Als Hashfunktion wird eine langsame und resourcen-intensive Hashfunktion verwendet, z.B. Scrypt.
+    \item Ziel: Verlangsamen einer Offline-Attacke auf die Passwort-Hashes.
+\end{itemize}
 
 \section{Asymmetrische Kryptographie}
-\paragraph*{Asymmetische Verschlüsselung}In der asymmetrischen Kryptografie (Verschlüsselung) arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem \textbf{Schlüsselpaar}. Bestehend aus einem \textbf{öffentlichen} und einem \textbf{privaten Schlüssel}. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder \mbox{Public-Key-Verfahren}.
+\paragraph*{Asymmetische Verschlüsselung}In der asymmetrischen Kryptographie (Verschlüsselung) arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem \textbf{Schlüsselpaar}. Bestehend aus einem \textbf{öffentlichen} und einem \textbf{privaten Schlüssel}. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder \mbox{Public-Key-Verfahren}.
 \subsection*{Sie verstehen was Public-Key-Kryptographie ist, worauf deren Sicherheit basiert und wie sie zur Verschlüsselung, für Signaturen und zur Authentisierung verwendet werden kann}
 \paragraph*{Public Key Verschlüsselung}Basiert auf Funktionen, welche einfach zu berechnen sind, deren Umkehrfunktion aber (vermutlich) schwierig zu berechnen ist.
-Beispiel:\newline
+Beispiel:\newline %bleibt
 \noindent
 \begin{tabular}{|ll|}
     \hline
@@ -223,12 +335,59 @@ Beispiel:\newline
 
 
 \section{Zertifikate und SSL-TLS}
+
 \subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
-\paragraph*{TODO}
+Problematik: Wie ordnet man ein Public Key einer bestimmten Person / Entität zu?
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/mitma.png}
+    \caption{Eve als man in the middle}
+    \label{mitma}
+    \end{center}
+\end{figure}
+\paragraph*{Direct Trust}
+Alice vertraut der Authentizität von Bob's Public Key, durch direktes Überprüfen, normalerweise über den Fingerprint des Key's.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=9cm]{images/directtrust.png}
+    \caption{Alice vertraut Bob durch direkte Überprüfung}
+    \label{directtrust}
+    \end{center}
+\end{figure}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Persönliche Überprüfung
+    \item Vorinstalliert in System oder Software (z.B. Public Key von Google-Server in Chrome, Apps, VPN-Clients)
+    \item Publiziert auf Webseite oder in Zeitung
+\end{itemize}
+Benötigt jedoch einen authentischen Kanal zum Etablieren des Trust.
+
+\paragraph*{Web of Trust (WOT)}
+Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie signiert wurde, dessen Public Key wiederum von Bob signiert wurde, dem sie vertraut.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/wot.png}
+    \caption{Alice vertraut Dave indirekt durch Vertrauensnetz}
+    \label{wot}
+    \end{center}
+\end{figure}
 \subsection*{Sie wissen was eine Public-Key-Infrastruktur, eine Certificate Authority und ein Zertifikat ist, wofür und wie diese verwendet werden und wie Zertifikate ausgestellt und revoziert werden}
 \paragraph*{TODO}
-\subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}
-\paragraph*{TODO}
+\subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}SSL-TLS erreicht
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Authentisierung des Servers gegenüber dem Client
+    \item \textsl{Optional}: Authentisierung des Clients gegenüber dem Server (`mutual SSL')
+    \item Verschlüsselung und Authentisierung der Daten
+\end{itemize}
+Das SSL/TLS-Protokoll läuft in \underline{zwei Phasen} ab:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Handshake}: vereinbart mittels Public-Key-Kryptographie einen Schlüssel
+    \item \textbf{Datenaustausch}: verwendet Secret-Key-Kryptographie zum Verschlüsseln und Authentisieren
+\end{itemize}
+Beispiele für SSL/TLS-ciphers:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \texttt{TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA}
+    \item \texttt{TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384}
+\end{itemize}
 
 
 
@@ -278,15 +437,15 @@ User-Agent: Mozilla/5.0}
     \item 500 Internal Server Error
 \end{itemize}
 \paragraph*{HTTP Zustand} HTTP ist ein zustandsloses Protokoll, d.h. es hat kein `Gedächtnis', bzw. Erinnerung.
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/HTTPZustand0.png}
     \caption{HTTP zustandslos}
     \label{HTTPZustandslos}
     \end{center}
-\end{figure}\\
+\end{figure}
 Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen per weiteren Requests mitzuschicken. Die Zustände werde mit einem Cookie oder einem "`Hidden field"' erfasst.
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/HTTPZustand1.png}
     \caption{HTTP Zustand per Request (hidden field)}
@@ -294,7 +453,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \end{center}
 \end{figure}
 \paragraph*{Cookies}Cookies sind kurze Textdaten, welche vom Server als Header an den Browser übermittelt werden und von diesem ebenso als Header bei requests wieder mitgesendet werden. Cookies werden vom Browser verwaltet. Die meistgenutzte Möglichkeit ist es, ein Cookie zu setzen. Jedoch dürfen auch Cookies nicht client-seitig angepasst werden können!
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/HTTPCookie.png}
     \caption{Einsatz eines Cookies}
@@ -310,7 +469,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
 \end{itemize}
 
 \subsection*{Sie wissen was eine Session ist und welche Eigenschaften einer Session bei welchen Angriffen wichtig sind bzw wie sie gegen gewisse Angriffe Schutz bieten}
-\paragraph*{Session} Eine Session ist der Zeitraum, in dem ein Client eine stehende Verbindung mit einem Server hat; vom Login bis zum Logout. Der Server vergibt dem Client eine eindeutige Session-ID. Die Sitzungsdaten (z.B. Warenkorb) werden im Server gespeichert. Bei jedem Request gibt der Client seine Session-ID mit, damit der Server beim Response die zugehörigen Daten dieser ID übermitteln kann. Es gibt auch Sessions ohne stehende Verbindung (ohne Login). Dies wird zu Statistikzwecken verwendet, beispielsweise um die Bewegung des Besuchers auf der Website zu verfolgen. Oder aber auch um einen Warenkorb ohne Login verwenden zu können.
+\paragraph*{Session} Eine Session ist der Zeitraum, in dem ein Client eine stehende Verbindung mit einem Server hat; vom Login bis zum Logout. Der Server vergibt dem Client eine eindeutige Session-ID. Die Sitzungsdaten (z.B. Warenkorb) werden im Server gespeichert. Bei jedem Request gibt der Client seine Session-ID mit, damit der Server beim Response die zugehörigen Daten dieser ID übermitteln kann. Es gibt auch Sessions ohne stehende Verbindung (ohne Login). Dies wird zu Statistikzwecken verwendet, z.B. um die Bewegung des Besuchers auf der Website zu verfolgen. Oder aber auch um einen Warenkorb ohne Login verwenden zu können.
 \paragraph*{Schwaches Session-Management}Was ist das?
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item der Sessionwert ist vorhersagbar
@@ -372,15 +531,19 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
 \paragraph*{CSRF - Cross-Site Request Forgery}Was ist das?\\
 Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzusetzen und  dadurch eine Aktion auf dem Server auszulösen. Ist der Benutzer zu dem Zeitpunkt eingeloggt, wird das Cookie automatisch mitgeschickt.
-\begin{figure}[h]
+\begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/CSRF.png}
+    \includegraphics[width=10cm]{images/CSRF.png}
     \caption{Cross-Site Request Forgery}
     \label{CSRF}
     \end{center}
 \end{figure}
+\paragraph*{CSRF - Cross-Site Request Forgery}Was kann man dagegen tun?
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{CSRF-Token:} ein Secret als Teil des Form Field oder Header mitgeben (Secret darf nicht vorhersagbar sein)
+    \item \textbf{Zusätzlich:} Same-Site-Attribut setzten
+\end{itemize}
 
-\pagebreak
 \section{Angriffe auf Protokollebene}
 \subsection*{Sie kennen die Grundbegriffe der Anwendungssicherheit}
 \paragraph*{TODO}
