@@ -43,12 +43,15 @@
 \thispagestyle{empty}
 \pagebreak
 
+
+%%%%%%%%%%
 \part{Einführung (SW~01)}
 \section{Einführung}
 \subsection*{Einführung in das Thema "`Management von Informationssicherheit"'}
 \paragraph*{Daten, Information und Wissen}
 Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen.
 Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
+
 \paragraph*{Missbrauch}Informationen müssen vor Missbrauch geschützt werden
 \begin{figure}[H]
     \begin{center}
@@ -79,6 +82,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \end{itemize}
 \end{itemize}
 
+
 \subsection*{Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -88,10 +92,13 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \end{itemize}
 
 
+%%%%%%%%%%
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
 \paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
+
+
 \subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}
 \paragraph*{Zeichencodierung}Kodierung (=Encoding) heisst, einen Wert mit Symbolen eines Zeichensatzes darzustellen. Beispiel:\newline %bleibt
 \begin{tabular}{|ll|}
@@ -104,7 +111,9 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \hline
 \end{tabular}
 {\color{red}\textbf{Achtung: Kodierung $\neq$ Verschlüsselung}}
+
 \paragraph*{Symmetrische Verschlüsselung}Bei symmetrischen Verschlüsselungsverfahren gibt es im Gegensatz zu den asymmetrischen Verfahren, \textbf{nur einen einzigen Schlüssel}. Dieser Schlüssel ist für die Verschlüsselung, als auch für die Entschlüsselung zuständig.
+
 \paragraph*{Secret Key Verschlüsselung}Secret Key (`Symmetrische') Verschlüsselung wird zwischen zwei Parteien verwendet, welche einen \textbf{gemeinsamen Schlüssel} besitzen. Ausserdem wird sie oft verwendet, wenn der gleiche Benutzer ein Dokument verschlüsseln und zu einem späteren Zeitpunkt wieder entschlüsseln muss.
 \begin{figure}[ht]
     \begin{center}
@@ -152,6 +161,7 @@ Formal:
     \end{figure}
 \end{itemize}
 
+
 \subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Ceasar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}
 \paragraph*{Cesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
 \textbf{Vorteil:} es ist \textbf{einfach}.\\
@@ -175,7 +185,6 @@ Formal:
     \end{center}
 \end{figure}
 
-
 \noindent
 Das folgende Diagramm zeigt die Häufigkeitsverteilung der Buchstaben in einem längeren Text in deutscher Sprache:
 \begin{figure}[H]
@@ -185,6 +194,7 @@ Das folgende Diagramm zeigt die Häufigkeitsverteilung der Buchstaben in einem l
     \label{frequencynormal}
     \end{center}
 \end{figure}
+
 \noindent
 Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im Deutschen üblicherweise der Fall ist. Wird der Text mit dem Schlüssel 10 (oder anders gesagt, mit dem Schlüsselbuchstaben J) chiffriert, erhält man einen Geheimtext, der folgende Häufigkeitsverteilung besitzt:
 \begin{figure}[H]
@@ -194,8 +204,10 @@ Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im 
     \label{frequencycesar}
     \end{center}
 \end{figure}
+
 \noindent
 Der häufigste Buchstabe ist hier O, gefolgt von X und S. Man erkennt auf den ersten Blick die Verschiebung des deutschen "`Häufigkeitsgebirges"' um zehn Stellen nach hinten und besitzt damit den Schlüssel. Voraussetzung ist lediglich, dass man die Verteilung der Zeichen des Urtextes vorhersagen kann.
+
 \noindent
 Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse verzichten, kann man auch die Tatsache ausnutzen, dass bei der Cäsar-Chiffre nur eine sehr kleine Anzahl möglicher Schlüssel in Frage kommt. Da die Größe des Schlüsselraums nur 25 beträgt, was einer "`Schlüssellänge"' von nicht einmal 5~bit entspricht, liegt nach Ausprobieren spätestens nach dem 25. Versuch der Klartext vor.
 
@@ -213,6 +225,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \label{vigenere}
     \end{center}
 \end{figure}
+
 \paragraph*{One-time pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
@@ -229,10 +242,13 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
+
 \subsection*{Sie wissen welche modernen Verschlüsselungsalgorithmen in der Praxis verwendet werden und was deren Eigenschaften sind}
 \paragraph*{TODO}
 
+
 \subsection*{Sie verstehen was eine Hashfunktion ist und welche Eigenschaften eine kryptographische Hashfunktion ausmachen, bzw. was es heisst, wenn eine Hashfunktion gebrochen ist}
+
 \paragraph*{Hashfunktion}Eine Hashfunktion ist eine Abbildung, die eine grosse Eingabemenge (die Schlüssel) auf eine kleinere Zielmenge (die Hashwerte) abbildet. Die Eingabemenge kann Elemente unterschiedlicher Längen enthalten, die Elemente der Zielmenge haben dagegen meist eine feste Länge.
 \begin{figure}[H]
     \begin{center}
@@ -241,21 +257,25 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \label{hash1}
     \end{center}
 \end{figure}
+
 \noindent
 Auf der linken Seite sehen wir 4 Passwörter von beispielsweise 4 Mitarbeitern eines Unternehmens. Die Hashfunktion  wandelt nun diese Passwörter in eine Zeichenfolge (dem Hashwert) mit einer festen Länge (hier 3 Zeichen) um. Für das Passwort "`Superman"' bekommt man den Hashwert 123, dem Passwort "`Robocop"' wird de Hashwert 567 zugeordnet, genauso wie dem Passwort "`Catwoman"' und "`Terminator"' bekommt 785.
 Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedliche Passwörter) auf Zeichen fester Länge (im Beispiel 3 Zeichen). Sie werden also in eine kleine, kompakte Form gebracht.
 
 \paragraph*{Zusatzinfo zum Hashwert}Der Hashwert ist das Ergebnis, das mittels einer Hashfunktion berechnet wurde. Man definiert eine feste Länge, wie lang ein Hashwert immer sein darf. Oft wird der Hashwert als eine hexadezimale Zeichenkette codiert, d.h. der Hashwert besteht aus einer Kombination von Zahlen und Buchstaben zwischen 0 und 9 sowie A bis F (als Ersatz für die Zahlen 10 bis 15). Ein Hashwert aus 10 hexadezimalen Zeichen könnte so aussehen: "`3d180ab86e"'.
+
 \paragraph*{Eigenschaft einer Hashfunktion}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Einwegfunktion: Aus dem Hashwert darf nicht der originale Inhalt erzeugt werden können. In unserem Beispiel darf es nicht möglich sein, aus dem Hashwert "`123"' den Ursprungstext "`Superman"' zu erzeugen.
     \item Kollisionssicherheit: Den unterschiedlichen Texten darf nicht derselbe Hashwert zugeordnet sein. Ist diese Voraussetzung erfüllt, so spricht man auch von kryptografischen Hashfunktionen. In unserem Beispiel liegt eine Kollision vor, da die Passwörter "`Robocop"' und "`Catwoman"' denselben Hashwert haben. Damit ist die Hashfunktion im Bild nicht kollisionssicher und es handelt sich nicht um eine kryptografische Hashfunktion.
     \item Schnelligkeit: Das Verfahren zu Berechnung des Hashwertes muss schnell sein.
 \end{itemize}
+
 \paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
 Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
 Passwort "`Superman” = MD5-Hash: "`527d60cd4715db174ad56cda34ab2dce"'.
 Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern erstellen und es durch den Hashgenerator jagen. Wenn er nun die Datenbank mit den Hashwerten der Plattform stiehlt, kann er die Hashwerte mit seiner Liste vergleichen. Findet er in der geklauten Liste den Hashwert "`527d60cd4715db174ad56cda34ab2dce"', so weiss er, dass dieser Hashwert dem Passwort "`Superman"' zugeordnet ist. Solche Listen nennt man \textbf{rainbow tables}.
+
 \paragraph*{Hashfunktionen}Algorithmen\newline %bleibt
 \begin{tabular}{|c|c|c|c|}
     \hline
@@ -272,8 +292,10 @@ Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern er
     \hline
 \end{tabular}
 
+
 \subsection*{Sie kennen moderne Hashfunktionen und wissen welche Eigenschaften diese haben}
 \paragraph*{TODO}
+
 
 \subsection*{Sie kennen Anwendungen von Hashfunktionen}
 Verwendung von Hashfunktionen
@@ -288,8 +310,11 @@ Verwendung von Hashfunktionen
     \item "`Proof of work"' in Blockchain
 \end{itemize}
 
+
 \subsection*{Sie wissen was ein keyed Hash (HMAC) ist und wofür dieser verwendet werden kann}
-\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5, und einem geheimen Schlüssel basiert.
+
+\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5 und einem geheimen Schlüssel basiert.
+
 
 \subsection*{Sie kennen die "`Best-practices"' zu Passwortsicherheit und wissen, gegen welche Angriffe diese schützen}
 \paragraph*{Passwortsicherheit}Best practices
@@ -299,15 +324,18 @@ Verwendung von Hashfunktionen
 \end{itemize}
 Oder noch besser:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-     \item Das Passwort wird gemeinsam mit einem \textbf{Salt} gehasht, welcher mit dem Hash in der DB abgelegt wird. Der Salt muss nicht geheim, aber einzigartig (\textsl{unique}) sein.
+     \item Das Passwort wird gemeinsam mit einem \textbf{Salt} gehasht. Dieser neue Hash wird in der DB abgelegt. Der Salt muss nicht geheim, aber einzigartig (\textsl{unique}) sein.
     \item Ziel: Aufgrund der einzigartigen DB-Einträge ist nicht erkennbar, ob zwei Benutzer dasselbe Passwort haben. Zusätzlich kann ein Angreifer nicht die häufigsten Passwörter hashen und danach vergleichen, welcher Benutzer in der DB dieses Passwort verwendet hat. Er muss jeden Eintrag einzeln angreifen.
     \item Als Hashfunktion wird eine langsame und resourcen-intensive Hashfunktion verwendet, z.B. Scrypt.
     \item Ziel: Verlangsamen einer Offline-Attacke auf die Passwort-Hashes.
 \end{itemize}
 
+
 \section{Asymmetrische Kryptographie}
 \paragraph*{Asymmetische Verschlüsselung}In der asymmetrischen Kryptographie (Verschlüsselung) arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem \textbf{Schlüsselpaar}. Bestehend aus einem \textbf{öffentlichen} und einem \textbf{privaten Schlüssel}. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder \mbox{Public-Key-Verfahren}.
+
 \subsection*{Sie verstehen was Public-Key-Kryptographie ist, worauf deren Sicherheit basiert und wie sie zur Verschlüsselung, für Signaturen und zur Authentisierung verwendet werden kann}
+
 \paragraph*{Public Key Verschlüsselung}Basiert auf Funktionen, welche einfach zu berechnen sind, deren Umkehrfunktion aber (vermutlich) schwierig zu berechnen ist.
 Beispiel:\newline %bleibt
 \noindent
@@ -317,23 +345,62 @@ Beispiel:\newline %bleibt
     Faktorisieren (schwierig):&$8051=?$\\
     \hline
 \end{tabular}
+
 \paragraph*{TODO}BILDER aus "`The Science of Secrecy"'
 \subsection*{Sie kennen die gängigen asymmetrischen Verschlüsselungs- und Signaturalgorithmen und wissen, worauf deren Sicherheit basiert}
 \paragraph*{TODO}
+
+
 \subsection*{Sie wissen wie Diffie-Hellmann-Schlüsselaustausch bzw. ElGamal-Verschlüsselung funktioniert}
+
 \paragraph*{Diffie-Hellman (DH)}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden.
+
 \paragraph*{TODO}BILD \& ev. Beispiel Wiki
+
 \paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen.
+
 \paragraph*{TODO}BILD ElGamal
+
 \paragraph*{TODO}ev. Beispielrechnung machen
+
 \subsection*{Sie wissen was kryptographisch sichere Zufallszahlen sind und wo diese verwendet werden}
+
 \paragraph*{TODO}
+
 \subsection*{Sie wissen was eine elektronische Signatur ausmacht}
-\paragraph*{TODO}
+
+\paragraph*{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/digisignatur1.png}
+    \caption{Signatur im Detail}
+    \label{digisig}
+    \end{center}
+\end{figure}
+
+\paragraph*{Beispiel}Max Meier erhält von seinem Kunden den Geschäftsvertrag – digital als PDF, wie es heutzutage üblich ist. Vergleichsweise altmodisch geht es aber nachher weiter: Meier druckt das Dokument aus und unterzeichnet es handschriftlich. Den unterschriebenen Vertrag steckt er schliesslich in einen Umschlag und wirft diesen in den nächstgelegenen Briefkasten. Viele Schritte für eine Unterschrift.\newline
+Was Max Meier nicht weiss. Dokumente lassen sich auch digital unterzeichnen. Jede digitale Signatur basiert auf der sogenannten asymmetrischen Verschlüsselung. Sie wird auch als Public-Key-Verfahren bezeichnet und nutzt einen öffentlichen und einen privaten (geheimen) Schlüssel. Mit dem privaten Schlüssel wird die digitale Signatur erzeugt, während mit dem öffentlichen Schlüssel die Authentizität der Unterschrift überprüft wird.\newline %bleibt
+Eigenschaft einer Signatur:
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Fälschungssicherheit:} Nach dem Unterschreiben kann das Dokument nicht mehr (unerkannt) verändert werden.
+    \item \textbf{Authentizität:} Die Unterschrift kann zweifelsfrei (überprüfbar) einer bestimmten Person zugeordnet werden.
+    \item \textbf{Unleugbarkeit:} Der Unterzeichner kann später nicht abstreiten, das Dokument unterschrieben zu haben.
+    \item \textbf{Willenserklärend:} Die Unterschrift kann nur willentlich (bewusst) unter das Dokument gesetzt worden sein.
+\end{enumerate}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/digisignatur0.png}
+    \caption{Alice verschickt eine signierte Nachricht an Bob}
+    \label{digisig}
+    \end{center}
+\end{figure}
+
+
 \subsection*{Sie wissen wie hybride Verschlüsselung bzw hybride Signaturen funktionieren}
+
 \paragraph*{TODO}
 
-
+%%%%%%%%%%
 \section{Zertifikate und SSL-TLS}
 
 \subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
@@ -345,6 +412,7 @@ Problematik: Wie ordnet man ein Public Key einer bestimmten Person / Entität zu
     \label{mitma}
     \end{center}
 \end{figure}
+
 \paragraph*{Direct Trust}
 Alice vertraut der Authentizität von Bob's Public Key, durch direktes Überprüfen, normalerweise über den Fingerprint des Key's.
 \begin{figure}[H]
@@ -370,8 +438,24 @@ Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie 
     \label{wot}
     \end{center}
 \end{figure}
+
+\paragraph*{Hierarchial Trust (PKI)}Eine \textsl{Public Key Insfrastructure (PKI)} ist ein System, das digitale Zertifikate ausstellen, verteilen und Prüfen kann. Im Gegensatz zum WOT ist eine PKI hierarchisch aufgebaut und bedingt deshalb Root Certification Authorities, welche über alle anderen Zertifizierungstellen steht.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/ht.png}
+    \caption{Hierarchical Trust durch Certificate Authorities}
+    \label{ht}
+    \end{center}
+\end{figure}
+
+
 \subsection*{Sie wissen was eine Public-Key-Infrastruktur, eine Certificate Authority und ein Zertifikat ist, wofür und wie diese verwendet werden und wie Zertifikate ausgestellt und revoziert werden}
-\paragraph*{TODO}
+
+\paragraph*{Grundbegriffe PKI}Die Zertifizierungstelle \textsl{Certificate Authority (CA)}\newline
+Eine CA ist eine Organistation, welche digital eZertifikate ausstellt. Ein digitales Zertifikat ordnet einen bestimmten öffentlichen Schlüssel einer Person oder Organisation zu. Diese Zuordnung wird von der Zertifizierungstelle beglaubigt, indem sie sie mit ihrer eigenen digitalen Unterschrift versieht.\newline
+Ein Zertifikat wird durch eine sog. \textsl{Chain of Trust} beglaubigt. Eine \textsl{intermediate CA} signiert das Zertifikat (Public Key) des Endbenutzers. Das Zertifikat der intermediate CA wird wiederum von einer anderen CA unterschrieben. Das letzte Zertifikat in dieser Kette heisst \textsl{Root Certificate} und enthält den Public Key der \textsl{root CA}. Dieses Zertifikat ist normalerweise \textsl{self signed}, also von der root CA selbst unterschrieben.
+
+
 \subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}SSL-TLS erreicht
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Authentisierung des Servers gegenüber dem Client
@@ -390,10 +474,12 @@ Beispiele für SSL/TLS-ciphers:
 \end{itemize}
 
 
-
+%%%%%%%%%%
 \part{Angriffe (SW~05-06)}
 \section{Angriffe auf Webanwendungen}
+
 \paragraph*{Bedrohungen auf Anwendungsebene}Webanwendung, Session, Headers, CSRF
+
 \subsection*{Sie wissen was eine Webanwendung ausmacht, wie HTTP funktioniert}
 Was unterscheidet eine Webanwendung aus Sicherheitssicht zu anderen Anwendungen?
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -408,15 +494,19 @@ Was unterscheidet eine Webanwendung aus Sicherheitssicht zu anderen Anwendungen?
         bzw. muss diese richtig ansprechen
     \end{itemize}
 \end{itemize}
+
 \paragraph*{HTTP}Der Browser kommuniziert mit dem Webserver über das \textbf{Hypertext Transfer Protokoll (HTTP)}. HTTP besteht aus \textsl{Requests} und \textsl{Reponses}.
+
 \paragraph*{HTTP-Request-Methoden}Die häufigsten HTTP-Request-Methoden sind \textbf{GET} und \textbf{POST}.
 Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
+
 \paragraph*{GET}\texttt{https://www.hslu.ch/?p=5 HTTP/1.1\\User-Agent: Mozilla/5.0}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Message Body: kein
     \item Ruft Daten vom Server ab
     \item Sollte Serverzustand nicht verändern
 \end{itemize}
+
 \paragraph*{POST}\texttt{https://www.hslu.ch/ HTTP/1.1\\
 User-Agent: Mozilla/5.0}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -424,6 +514,7 @@ User-Agent: Mozilla/5.0}
     \item Darf Serverzustand verändern
     \item Wird nicht gecachet
 \end{itemize}
+
 \paragraph*{Häufigste Reponse-Codes}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item 200 OK
@@ -436,6 +527,7 @@ User-Agent: Mozilla/5.0}
     \item 404 Not Found
     \item 500 Internal Server Error
 \end{itemize}
+
 \paragraph*{HTTP Zustand} HTTP ist ein zustandsloses Protokoll, d.h. es hat kein `Gedächtnis', bzw. Erinnerung.
 \begin{figure}[H]
     \begin{center}
@@ -452,6 +544,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \label{HTTPZustand}
     \end{center}
 \end{figure}
+
 \paragraph*{Cookies}Cookies sind kurze Textdaten, welche vom Server als Header an den Browser übermittelt werden und von diesem ebenso als Header bei requests wieder mitgesendet werden. Cookies werden vom Browser verwaltet. Die meistgenutzte Möglichkeit ist es, ein Cookie zu setzen. Jedoch dürfen auch Cookies nicht client-seitig angepasst werden können!
 \begin{figure}[H]
     \begin{center}
@@ -460,6 +553,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \label{HTTPCookie}
     \end{center}
 \end{figure}
+
 \paragraph*{Cookie Eigenschaften}Die Eigenschaften von Cookies sind:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Persistent} (mit Ablaufdatum) oder \textbf{Session-Cookie} (ohne Ablaufdatum)
@@ -468,8 +562,11 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \item \textbf{Same Site} (wird nicht bei Cross-Domain-Aurfrufen mitgesendet, z.B. `embedded' Link, Image)
 \end{itemize}
 
+
 \subsection*{Sie wissen was eine Session ist und welche Eigenschaften einer Session bei welchen Angriffen wichtig sind bzw wie sie gegen gewisse Angriffe Schutz bieten}
+
 \paragraph*{Session} Eine Session ist der Zeitraum, in dem ein Client eine stehende Verbindung mit einem Server hat; vom Login bis zum Logout. Der Server vergibt dem Client eine eindeutige Session-ID. Die Sitzungsdaten (z.B. Warenkorb) werden im Server gespeichert. Bei jedem Request gibt der Client seine Session-ID mit, damit der Server beim Response die zugehörigen Daten dieser ID übermitteln kann. Es gibt auch Sessions ohne stehende Verbindung (ohne Login). Dies wird zu Statistikzwecken verwendet, z.B. um die Bewegung des Besuchers auf der Website zu verfolgen. Oder aber auch um einen Warenkorb ohne Login verwenden zu können.
+
 \paragraph*{Schwaches Session-Management}Was ist das?
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item der Sessionwert ist vorhersagbar
@@ -479,6 +576,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \item die Session wird bei einem Logout nicht invalidiert
     \item die Session hat kein server-seitiges Timeout (Inaktivitäts- und absolutes Timeout)
 \end{itemize}
+
 \paragraph*{Schwaches Session-Management}Was kann man dagegen tun?
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item lange und kryptographisch zufällige Sessionwerte wählen
@@ -486,6 +584,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \item Cookies als `Secure',`HttpOnly' oder `Same Site' mit so eingeschränkter Domain und Pfad wie möglich setzten
     \item Session \textbf{server-seitig} bei einem Logout oder Timeout invalidieren
 \end{itemize}
+
 \paragraph*{Same Origin Policy}Mehrere Webanwendungen können im gleichen Browser parallel laufen. Die Same-Origin-Policy verhindert, dass eine parallel laufende Webanwendungen uneingeschränkt
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item auf die Daten einer anderen Anwendung zugreifen
@@ -493,18 +592,22 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \item Requests auf die andere Anwendung absetzen
 \end{itemize} kann.\\
 Same Origin Policies im Browser gibt es z.B. für Cookies, DOM access (Zugang zu document.cookie), HTML5Storage, XMLHttpRequests.
+
 \paragraph*{Same Origin Policy: Cookies} Cookies haben eine \textbf{domain} und \textbf{path}.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Setzen des Cookies:} Nur Domain-Suffix des URL-Hostname dürfen gesetzt werden. (Aber keine Top-Level Domains!)\\
     Path kann beliebig gesetzt werden.
     \item \textbf{Senden des Cookies:} Cookies werden dnur dann mitgeschickt, wenn die Cookie-Domain ein Domain-Suffix der URL-Domain und der Cookie-Path ein Prefix des URL-Path ist.
 \end{itemize}
+
 \paragraph*{Session Fixation}Was ist das?\\
 Der Sessionwert wird nach einem Login oder Loginschritt nicht geändert. Ein  angreifer mit Zugang zu einer unauthentisierten Session kann warten bis ein Benutzer sich einloggt und ist damit selbst eingeloggt.
+
 \paragraph*{Session Fixation}Was kann man dagegen tun?\\
 Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie kennen sicherheitsrelevante Header}
+
 \paragraph*{Sicherheitsrelevante Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{HSTS:} \texttt{Strict-Transport-Security: max-age=31536000; includeSubDomains}\\
@@ -529,6 +632,7 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 \end{enumerate}
 
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
+
 \paragraph*{CSRF - Cross-Site Request Forgery}Was ist das?\\
 Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzusetzen und  dadurch eine Aktion auf dem Server auszulösen. Ist der Benutzer zu dem Zeitpunkt eingeloggt, wird das Cookie automatisch mitgeschickt.
 \begin{figure}[H]
@@ -544,26 +648,58 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
     \item \textbf{Zusätzlich:} Same-Site-Attribut setzten
 \end{itemize}
 
+
 \section{Angriffe auf Protokollebene}
 \subsection*{Sie kennen die Grundbegriffe der Anwendungssicherheit}
+
 \paragraph*{TODO}
+
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
+
 \paragraph*{TODO}
+
 \subsection*{Sie verstehen wie ein Cross-Site-Scripting / SQL-injection / Social-Engineering-Angriff abläuft und wie man sich dagegen schützen kann}
+
 \paragraph*{TODO}
 
 
-
+%%%%%%%%%%
 \part{Management (SW~07-09)}
 \section{Standards \& Frameworks, ISMS}
+
 \subsection*{Sie wissen, was ein ISMS ist und wie man damit umgeht}
-\paragraph*{TODO}
+\paragraph*{ISMS}Ein \textsl{Information Security Management System (ISMS)} (auf Deutsch: Managementsystem für die Informationssicherheit) definiert Regeln, Methoden und Abläufe, um die IT-Sicherheit in einem Unternehmen zu gewährleisten, zu steuern, zu kontrollieren und zu optimieren.
+\paragraph*{Zweck}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die (durch die IT verursachte) Risiken sollen identifizierbar und beherrschbar werden.
+    \item Sicherheit erhalten, dass teure Informationen und Daten der Unternehmung angemessen geschützt sind.
+    \item Rechtliche (Datenschutz- oder Berufsgesetz bei Ärzten / Anwälte) und auch Marktanforderung erfüllen (wenn morgen in den Medien publik wird, dass bei der UBS Bank «gehakt» und Millionen gestohlen wurde, dann würden die Kunden nicht länger ihr Vermögen bei der UBS deponieren.
+\end{itemize}
+\paragraph*{Vorgehen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Man sollte einen Prozess unterhalten, mit dem die Risiken der Informationssicherheit identifiziert und bewertet werden können. Dazu sollen Kontrollen bestimmt, eingeführt und stetig verbessert werden können.
+    \item Davor muss zuerst der Schutzbedarf von Vermögenswerten bestimmt und Schutzmassnahmen eingeführt werden.
+\end{itemize}
+
+
 \subsection*{Sie kennen die wichtigsten Standards der Informationssicherheit}
-\paragraph*{TODO}
+\paragraph*{Standards}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ISO 27000: ISMS – Overview and vocabulary (Überblick / Index)
+    \item ISO 27001: ISMS – Requirements (Anforderungskatalog)
+    \item ISO 27002: Code of practice for information security controls (Analog: Kochbuch; darin steht drin, welche Massnahmen ich tätigen muss)
+    \item ISO 27003: implementation guidance (wie ich die Anforderung umsetze)
+    \item ISO 27004: Information security management – Measurement (Ziele müssen messbar sein, z.B. Jahresziele beim Mitarbeiter Gespräch; Ende Periode kann überprüft werden, ob die Ziele erreicht wurden
+    \item ISO 27005: Information security risk management (Risiko Bewältigung)
+
+\end{itemize}
+
 \subsection*{Sie finden sich in den Standards ISO 27001 und 27002 zurecht}
 \paragraph*{TODO}
+
 \subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}
 \paragraph*{TODO}
+
 \subsection*{Sie kennen die Struktur und Grundziele des NIST CyberSecurityFrameworks}
 \paragraph*{TODO}
 
@@ -571,14 +707,19 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \section{Risiko-Management und IT-Grundschutz}
 \subsection*{Das Risikoanalyse-Verfahren verstehen}
 \paragraph*{TODO}
+
 \subsection*{Die Unterschiede zum Grundschutzverfahren kennen}
 \paragraph*{TODO}
+
 \subsection*{Eine einfache Risikoanalyse durchführen können}
 \paragraph*{TODO}
+
 \subsection*{Sie verstehen die Idee, die Ziele und die Konzepte des IT-Grundschutz-Vorgehens}
 \paragraph*{TODO}
+
 \subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
 \paragraph*{TODO}
+
 \subsection*{Sie können die Teilschritte zum Aufbau eines Sicherheitskonzeptes nach IT-Grundschutz durchführen, kombinierte Risikoanalyse}
 \paragraph*{TODO}
 
@@ -586,52 +727,86 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \section{Awarness}
 \subsection*{Sie verstehen die Wichtigkeit der \flqq Awareness \frqq}
 \paragraph*{TODO}
+
 \subsection*{Sie kennen verschiedene Prozesse und Vorgehensweisen für die Initiierung, Durchführung und Erfolgsprüfung einer Awareness-Kampagne und können diese anwenden}
 \paragraph*{TODO}
+
 \subsection*{Sie kennen die relevanten Erfolgsfaktorender Mitarbeiter-Sensibilisierung und -Schulung und können diese in einer Kampagne umsetzen}
 \paragraph*{TODO}
 
 
-
+%%%%%%%%%%
 \part{Access Control (SW~10)}
 \section{Access Control}
 \subsection*{Sie kennen verschiedene Arten der Authentisierung, wissen wie diese technisch ablaufen und was deren Vor- und Nachteile sind}
 \paragraph*{TODO}
+
 \subsection*{Sie wissen wie verschiedene Authentisierungstoken technisch funktionieren, was deren Vor- und Nachteile sind und wie sie beim Login oder bei der Transaktionsbestätigung im e-Banking eingesetzt werden}
 \paragraph*{TODO}
+
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
 \paragraph*{TODO}
 
 
+%%%%%%%%%%
 \part{Multi-Party-Computation (SW~11)}
 \section{Cryptographic Protocols}
 \subsection*{Sie kennen einfache Beispiele von verteilten sicheren Berechnungen und verstehen wie die entsprechenden Protokolle ablaufen}
 \paragraph*{TODO}
+
 \section{Secret Sharing}
 \subsection*{Sie kennen Arten von Sicherheit von verteilten sicheren Berechnungen und wie diese angegriffen werden können}
 \paragraph*{TODO}
+
 \subsection*{Sie wissen welche Eigenschaften elektronisches Geld ausmachen und kennen die technischen Grundlagen von Bitcoin}
 \paragraph*{TODO}
+
 \section{Zero Knowledge Proof}
 \subsection*{Sie wissen was Zero-Knowledge-Proofs sind und wie diese ablaufen}
 \paragraph*{TODO}
 
 
-
+%%%%%%%%%%
 \part{Quantum (SW~12)}
 \section{Quantum Computing and Quantum Cryptography}
 \subsection*{Sie wissen was ein Quantencomputer ist und was ihn von einem "`klassischen"' Computer unterscheidet}
 \paragraph*{TODO}
+
 \subsection*{Sie verstehen welchen Einfluss die Existenz eines Quantencomputers auf die Kryptographie hat}
 \paragraph*{TODO}
+
 \subsection*{Sie verstehen wie Quantenschlüsselaustausch funktionert}
 \paragraph*{TODO}
+
+
+%%%%%%%%%%
 \part{WAF, Federations (SW~13)}
 \section{Firewalls}
 \subsection*{Sie wissen was die Aufgaben einer Firewall sind}
-\paragraph*{TODO}
+\paragraph*{Aufgaben einer Firewall}Filtern der ein- und ausgehenden Kommunikation nach
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Service control:} Z.B. Protokoll, Portnummer, IP-Adresse
+    \item \textbf{Direction control:} Wer hat die Verbindung aufgebaut bzw. den Service initiiert?
+    \item \textbf{User control:} Welcher Benutzer versucht einen bestimmten Service auszuführen?
+    \item \textbf{Behaviour control:} Wie wird ein Service verwendet? Z.B. Spam-Filter
+\end{itemize}
+
 \subsection*{Sie verstehen die Funktionsweise einer WAF und wie sie eine Webanwendung vor Angriffen schützen kann}
-\paragraph*{TODO}
+\paragraph*{WAF}Funktionalitäten einer Web Application Firewall
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Terminierung der SSL-Verbindung
+    \item Protokoll-Einschränkungen (Port, HTTP/HTTPS)
+    \item Load Balancing
+    \item DoS-Verhinderung
+    \item Session-Management (Cookie-Store, Timeouts)
+    \item Filter gegen SQL-, HTML-, Code-Injection, XSS
+    \item URL-Verschlüsselung
+    \item Fehlerseiten umschreiben
+    \item Request- und Response-Header setzen, entfernen, blockieren
+    \item CSRF-Token einfügen
+    \item `Dynamic Value Endorsement'
+    \item Logging und Monitoring
+\end{itemize}
 
 
 \section{Federations}
@@ -639,7 +814,7 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \paragraph*{TODO}
 
 
-
+%%%%%%%%%%
 \part{Talks (SW~14)}
 \section{Malware}
 \subsection*{Sie verstehen, welche Arten von Malware es gibt, welche Massnahmen gegen Malware sinnvoll sind und wie diese wirken}
@@ -648,6 +823,7 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \section{WAF}
 \subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einene Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
 \paragraph*{TODO}
+
 \subsection*{Sie kennen Beispiele von Angriffen, welche mittels Machine-Learning auf einer WAF erkannt werden konnten}
 \paragraph*{TODO}
 
