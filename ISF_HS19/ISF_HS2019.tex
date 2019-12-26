@@ -128,7 +128,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 Formal:
 \begin{math}
     P(M=m) = P(M=m|C=c)
-\end{math} {\color{red}Erklärung der Variabeln??}
+\end{math} {\color{red}Erklärung der Variablen??}
 
 \paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
 \paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
@@ -163,12 +163,12 @@ Formal:
 
 
 \subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Ceasar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}
-\paragraph*{Cesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
+\paragraph*{Caesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
 \textbf{Vorteil:} es ist \textbf{einfach}.\\
 \textbf{Nachteil:} es ist \textbf{unsicher}, da es sehr schnell geknackt werden kann.\\
 \textbf{Schwachstelle:} Die in der natürlichen Sprache ungleiche Verteilung der Buchstaben wird durch diese Art der Verschlüsselung nicht verborgen, so dass eine Häufigkeitsanalyse (Frequenzanalyse) das Wirken einer einfachen monoalphabetischen Substitution enthüllt.
 
-\paragraph*{Cesar cipher: Vorgang}
+\paragraph*{Caesar cipher: Vorgang}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Verschiebt jeden Buchstaben des Alphabets um eine bestimmte Anzahl Stellen
     \item Soll bereits von Julius Caesar verwendet worden sein, daher der Name
@@ -179,9 +179,9 @@ Formal:
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=12cm]{images/cesar.png}
-    \caption{Cesar cipher mit Verschiebung um 3 Stellen}
-    \label{cesar}
+    \includegraphics[width=12cm]{images/caesar.png}
+    \caption{Caesar cipher mit Verschiebung um 3 Stellen}
+    \label{caesar}
     \end{center}
 \end{figure}
 
@@ -201,7 +201,7 @@ Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im 
     \begin{center}
     \includegraphics[width=10cm]{images/frequency1.png}
     \caption{Frequenz um 10 Stellen verschoben}
-    \label{frequencycesar}
+    \label{frequencycaesar}
     \end{center}
 \end{figure}
 
@@ -214,7 +214,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 \paragraph*{Vigenère cipher}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Schlüssel: Wort der Länge $L$
-    \item Jeder Buchstabe im Text wird mit der Cesar cipher des entsprechenden Schlüsselwortes verschlüsselt
+    \item Jeder Buchstabe im Text wird mit der Caesar cipher des entsprechenden Schlüsselwortes verschlüsselt
     \item Anzahl mögliche Schlüssel: $26^L$
     \item Problem: Frequenzanalyse jeder $L$'ten Stelle
 \end{itemize}
@@ -230,9 +230,9 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
-    \item Anzahl möglicher Schlüssel = Anzahl möglischer Nachrichten
+    \item Anzahl möglicher Schlüssel = Anzahl möglicher Nachrichten
     \item Ist sicher, d.h. Geheimtext verrät keinerlei (zusätzliche) Information über den Klartext
-    \item Intuitiv: Für einen bestimmten Geheimtext sind \textbf{alle} Klartexte (dierser Länge) möglich
+    \item Intuitiv: Für einen bestimmten Geheimtext sind \textbf{alle} Klartexte (dieser Länge) möglich
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
@@ -267,9 +267,17 @@ Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedli
 \paragraph*{Eigenschaft einer Hashfunktion}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Einwegfunktion: Aus dem Hashwert darf nicht der originale Inhalt erzeugt werden können. In unserem Beispiel darf es nicht möglich sein, aus dem Hashwert "`123"' den Ursprungstext "`Superman"' zu erzeugen.
-    \item Kollisionssicherheit: Den unterschiedlichen Texten darf nicht derselbe Hashwert zugeordnet sein. Ist diese Voraussetzung erfüllt, so spricht man auch von kryptografischen Hashfunktionen. In unserem Beispiel liegt eine Kollision vor, da die Passwörter "`Robocop"' und "`Catwoman"' denselben Hashwert haben. Damit ist die Hashfunktion im Bild nicht kollisionssicher und es handelt sich nicht um eine kryptografische Hashfunktion.
+    \item Kollisionssicherheit: Den unterschiedlichen Texten darf nicht derselbe Hashwert zugeordnet sein. Ist diese Voraussetzung erfüllt, so spricht man auch von \textbf{kryptographischen Hashfunktionen}. In unserem Beispiel liegt eine Kollision vor, da die Passwörter "`Robocop"' und "`Catwoman"' denselben Hashwert haben. Damit ist die Hashfunktion im Bild nicht kollisionssicher und es handelt sich nicht um eine kryptografische Hashfunktion.
     \item Schnelligkeit: Das Verfahren zu Berechnung des Hashwertes muss schnell sein.
 \end{itemize}
+
+\paragraph*{Algorithmen für Passwortspeicherung}Um Passwörter zu speichern werden sog. \textbf{Password Based Key Derivation Functions (PBKDF)} verwendet, d.h. \textbf{kryptographische Hashfunktionen} welche zusätzlich resourcen-intensiv (langsam) zu berechnen sind.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item basieren auf einer herkömmlichen Hashfunktion, welche mehrmals verknüpft ausgeführt wird
+    \item die Geschwindigkeit wird durch einen Parameter bestimmt, welcher die Anzahl Runden angibt
+    \item damit werden Angriffe mittels speziell für die Berechnung von Hashfunktionen optimierte Hard- und Software erschwert
+\end{itemize}
+Beispiele sind PBKDF2 und bcrypt (Blowfish-Algorithmus), welche zusätzlich viel Memory benötigen, oder scrypt (Entwicklung motiviert durch Verwundbarkeit von PBKDF2 und bcrypt durch Brute-Force-Attacken) und Argon2.
 
 \paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
 Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
@@ -326,13 +334,13 @@ Oder noch besser:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
      \item Das Passwort wird gemeinsam mit einem \textbf{Salt} gehasht. Dieser neue Hash wird in der DB abgelegt. Der Salt muss nicht geheim, aber einzigartig (\textsl{unique}) sein.
     \item Ziel: Aufgrund der einzigartigen DB-Einträge ist nicht erkennbar, ob zwei Benutzer dasselbe Passwort haben. Zusätzlich kann ein Angreifer nicht die häufigsten Passwörter hashen und danach vergleichen, welcher Benutzer in der DB dieses Passwort verwendet hat. Er muss jeden Eintrag einzeln angreifen.
-    \item Als Hashfunktion wird eine langsame und resourcen-intensive Hashfunktion verwendet, z.B. Scrypt.
+    \item Als Hashfunktion wird eine langsame und resourcen-intensive Hashfunktion verwendet, z.B. scrypt.
     \item Ziel: Verlangsamen einer Offline-Attacke auf die Passwort-Hashes.
 \end{itemize}
 
 
 \section{Asymmetrische Kryptographie}
-\paragraph*{Asymmetische Verschlüsselung}In der asymmetrischen Kryptographie (Verschlüsselung) arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem \textbf{Schlüsselpaar}. Bestehend aus einem \textbf{öffentlichen} und einem \textbf{privaten Schlüssel}. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder \mbox{Public-Key-Verfahren}.
+\paragraph*{Asymmetrische Verschlüsselung}In der asymmetrischen Kryptographie (Verschlüsselung) arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem \textbf{Schlüsselpaar}. Bestehend aus einem \textbf{öffentlichen} und einem \textbf{privaten Schlüssel}. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder \mbox{Public-Key-Verfahren}.
 
 \subsection*{Sie verstehen was Public-Key-Kryptographie ist, worauf deren Sicherheit basiert und wie sie zur Verschlüsselung, für Signaturen und zur Authentisierung verwendet werden kann}
 
