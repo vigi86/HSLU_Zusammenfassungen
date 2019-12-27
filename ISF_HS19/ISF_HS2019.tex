@@ -730,15 +730,16 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \paragraph*{Bedrohungen auf Protokollebene}Begriffe: Social Engineering, Angriffe auf ARP, TCP/IP, DNS, SSL, HTTP
 
 \subsection*{Kurzübersicht}
+\index{Bedrohungen auf OSI-Layern}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Bedrohungen auf Link-Layer:} Spoofing
-    \item \textbf{Bedrohungen auf Transport-Layer:}Deanial of Service (DoS)
-    \item \textbf{Bedrohungen auf SSL / TLS:}Preisgabe Sensitiver Daten
+    \item \textbf{Bedrohungen auf Transport-Layer:} Deanial of Service (DoS)
+    \item \textbf{Bedrohungen auf SSL / TLS:} Preisgabe Sensitiver Daten
     \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection
-    \item \textbf{Bedrohungen auf Layer 8 (Mensch):}Social Engineering
+    \item \textbf{Bedrohungen auf Layer 8 (Mensch):} Social Engineering
 \end{itemize}
 
-
+\index{Fehler vs. Bugs}
 \paragraph*{Flaws vs. Bugs} Bei Softwaredefekten wird unterschieden zwischen Flaws und Bugs
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Flaw:} Ein Flaw ist ein Defekt im Design der Software
@@ -746,19 +747,26 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \end{itemize}
 
 \paragraph*{Grundbegriffe: Bedrohung}
+\index{Threat vs. Threat Agent}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Threat:} Möglicher Grund für einen ungewollten Vorafall, der das System oder die Organisation schädigen kann.
     \item \textbf{Threat Agent:} Individuum oder Gruppe welche eine Bedrohung darstellt.
 \end{itemize}
 
+\index{Aktive vs. Passive Angriffe}
 \subsubsection*{Aktive vs. passive Angriffe}
 Bei einem \textbf{passiven Angriff} hält sich der Angreifer an das protokoll. Er verändert z.B. die ausgetauschten Nachrichten nicht hört aber die Kommunikation ab.
 Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protokoll. Er verändert z.B. Nachrichten.
 
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
+\index{OSI-Modell}
 \subsubsection*{OSI-Layers}
+<<<<<<< HEAD
 Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
+=======
+\paragraph*{}Die 7 Tierschichten des OSI-Modells, wobei die 8te sich auf den Mensch bezieht.
+>>>>>>> a566b762ecd3a34d3b03083029721ab3424c3d8d
 
 \begin{figure}[H]
     \begin{center}
@@ -769,8 +777,14 @@ Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 \end{figure}
 
 \subsubsection*{OSI vs Internet Reference Model}
+<<<<<<< HEAD
 Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 
+=======
+
+\paragraph*{}Das Internet Reference Model, auch bekannt als TCP/IP Modell
+\index{TCP/IP Modell}\index{Internet Reference Modell}
+>>>>>>> a566b762ecd3a34d3b03083029721ab3424c3d8d
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/OSIvsIRM.png}
@@ -778,6 +792,7 @@ Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
     \label{OSIvsIRM}
     \end{center}
 \end{figure}
+
 
 \subsubsection*{Encapsulation (Datenkapselung)}
 \begin{figure}[H]
@@ -788,8 +803,187 @@ Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
     \end{center}
 \end{figure}
 
-\paragraph*{TODO}
-\subsection*{Sie verstehen wie ein Cross-Site-Scripting / SQL-injection / Social-Engineering-Angriff abläuft und wie man sich dagegen schützen kann}
+\index{ARP-Spoofing}
+\subsubsection*{Beispiel: ARP-Spoofing auf dem Link-Layer}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Beispiel_ARP_Spoofing.png}
+    \caption{ARP Spoofing}
+    \label{ARP Spoofing}
+    \end{center}
+\end{figure}
+
+\paragraph*{Spoofing: Was ist das?}
+Eine person oder ein Programm gibt sich als jemand anderen oder etwas anderes aus.\\
+\textbf{Beispiele:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Telefonnummern-Spoofing (Call Centers etc.)} 
+    \item \textbf{Email-Adressen-Spoofing}
+    \item \textbf{IP Spoofing}
+    \item \textbf{DNS Spoofing}
+    \item \textbf{ARP Spoofing}
+    \item \textbf{Content Spoofing}
+\end{itemize}
+\vspace{0.5cm}
+\noindent
+"`\textsl{ARP-Spoofing (vom engl. to spoof – dt. täuschen, reinlegen) oder auch ARP Request Poisoning (zu dt. etwa Anfrageverfälschung) bezeichnet das Senden von gefälschten ARP-Paketen. Es wird benutzt, um die ARP-Tabellen in einem Netzwerk so zu verändern, dass anschließend der Datenverkehr zwischen zwei (oder mehr) Systemen in einem Computernetz abgehört oder manipuliert werden kann. Es ist eine Möglichkeit, einen Man-in-the-Middle-Angriff im lokalen Netz durchzuführen.}"' - Wikipedia
+
+\paragraph*{Spoofing: Was kann man dagegen tun?}
+\paragraph*{Je nach Situation unterschiedlich, zB.:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item {Authentisieren}
+    \item {Angaben überprüfen}
+\end{itemize}
+
+\index{3-Way Handshake} \index{TCP Verbindungsaufbau}
+\subsubsection*{Repetition: TCP Verbindungsaufbau (vereinfacht)}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Repetition_3_way_handshake.png}
+    \caption{3-Way Handshake}
+    \label{3-Way Handshake}
+    \end{center}
+\end{figure}
+
+\index{DoS}
+\paragraph*{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)
+\paragraph*{Denial of Service}Syn-Nachrichten werden mit gespoofter IP gesendet. Syn-Acknowledgements Nachrichten gehen nirgendwo hin. 
+Server wird überflutet mit Abfragen und kann nicht schneller abarbeiten als Sie reinkommen.
+Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werden.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Syn-flood.png}
+    \caption{SYN Flood}
+    \label{Syn Flood}
+    \end{center}
+\end{figure}
+
+\index{DRDoS}
+\paragraph*{Beispiel: Distributed Reflection Denial of Service}
+\noindent
+"`\textsl{Hierbei adressiert der Angreifer seine Datenpakete nicht direkt an das Opfer, sondern an regulär arbeitende Internetdienste, trägt jedoch als Absenderadresse die des Opfers ein (IP-Spoofing). Die Antworten auf diese Anfragen stellen dann für das Opfer den eigentlichen DoS-Angriff dar. Durch diese Vorgehensweise ist der Ursprung des Angriffs für den Angegriffenen nicht mehr direkt ermittelbar.}"' - Wikipedia
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/DRDoS.png}
+    \caption{DRDoS}
+    \label{DRDoS}
+    \end{center}
+\end{figure}
+
+\paragraph*{Denial of Service: Was kann man dagegen tun?} Jedes system bricht irgendwann zusammen! Es geht darum sicherzustellen, dass dabei keine bleibenden Schäden am 
+Kernsystem entstehen und das system nach einem Angriff schnell wieder funktionsfähig zu machen.
+
+\subsubsection*{Schutzbeispiele:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Beschränkung der Anzahl (Web-) Requests pro Zeiteinheit / IP }
+    \item \textbf{Sicherstellen, dass der "`Flaschenhals"' weit vorne auftritt (z.B. Firewall) um Kernsysteme zu schützen}
+    \item \textbf{Sicherstellen, dass das System sich nicht selbst überlastet durch freigeben nicht mehr verwendeter Ressourcen, vermeiden von undendlichen Loops etc.}
+    \item \textbf{Disaster Recovery Plan}
+\end{itemize}
+\index{SSL}\index{TLS}
+\subsubsection*{SSL/TLS im internet Modell}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/SSL-TLS.png}
+    \caption{SSl/TLS}
+    \label{SSL/TLS}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Bedrohung auf SSL / TLS (Preigabe Sensitiver Daten)}
+
+\index{Sensitive Daten}
+\paragraph*{Preisgaber Sensitiver Daten: Was ist das?} Angreifer stehlen Schlüssel, Passwörter, Geschäftsgeheimnsisse,
+Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder vom Client
+
+\paragraph*{Preisgabe sensitiver Daten: Was kann man dagegen tun?}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Keine Daten speichern oder übertragen, welche nicht benötigt werden.
+    \item Daten nach ihrer Sensivität klassifizieren und entsprechend behandeln
+    \item Sensitive Daten nur gespeichert auf dem Server ablegen
+    \item Passwörter mit Salt und Pepper und einer starken Passwort-Hashfunktion gehasht ablegen.
+    \item Daten verschlüsselt übertreage (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
+    \item Sicherstellen, dass sichere Ciphers verwendet werdenKeine sensitiven Daten auf der Clientseite cachen.
+\end{itemize}
+
+\subsubsection*{Bedrohungen auf Anwendungslayer: Cross Site Scripting (XSS) und Code Injection}
+\noindent
+\index{Cross Site Scripting (XSS)}
+\paragraph*{XSS: Was ist das?}Ein Angreifer bringt den legitimen Server dazu ein Script an den Browser zu senden. Dieses wird im Kontext des legitimen Servers ausgeführt. Es wird zwischen \textbf{stored} und \textbf{reflected} XSS unterschieden
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=15cm]{images/XSS.png}
+    \caption{XSS}
+    \label{XSS}
+    \end{center}
+\end{figure}
+
+\paragraph*{XSS: was kann man dagegen tun?}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf {Escaping} aller unsicheren Daten (z.B. vom Benutzer eingegebene) bevor sie angezeigt werden.\\ Bsp. Ersetzen von \textbf{\& \textless \textgreater \textquotedblleft \textquoteright} durch \textbf{\&amp; \&lt; \&gt; \&quot; \&\#x27; \&\#x2F;}
+\end{itemize}
+\paragraph*{}Zusätzlich sollen folgende Massnahmen getroffen werden:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Cookie als HttpOnly-Cookie setzen
+    \item Header-Felder setzen\\ Bsp. Content-Security-Policy: default-src: 'self'; script-src: 'self' static.domain.tld \\ Bsp. X-XSS-Protection: 1; mode=block
+\end{itemize}
+
+\index{Code Injection}
+\paragraph*{Code Injection: Was ist das?} Vermischung von 'Code' und 'Daten'
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Code-Injection.png}
+    \caption{Code Injection}
+    \label{Code Injection}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/Bsp-Code-Injection.png}
+    \caption{Beispiel Code Injection}
+    \label{Code Injection example}
+    \end{center}
+\end{figure}
+
+\paragraph*{Code Injection: Was kann man dagegen tun?}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ‘Prepared statements’ verwenden \\ Bsp:\\ \$statement = \$db-\textgreater prepare('select * from Users\\where(name=? password=?);';\\\$stmt-\textgreater bind\_param('ss', \$user, \$pass);
+    \item Whitelisting der Inputs
+    \item Sanitizing der Inputs \\ Bsp. Löschen von Zeichen wie \textbf{';--} oder Ersetzen durch 'sichere' Zeichen wie \textbf{\textbackslash'\textbackslash;\textbackslash-}
+    \item Rechte des technischen Benutzers auf der DB einschränken
+    \item Verwenden eines sicheren APIs
+\end{itemize}
+
+\index{Layer 8}
+\subsubsection*{Layer 8}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Layer8.png}
+    \caption{Layer 8}
+    \label{Layer 8}
+    \end{center}
+\end{figure}
+
+\index{Social Engineering}
+\paragraph*{Social Engineering: Was ist das?}Zwischenmenschliche Beeinflussungen mit dem Ziel, bei
+Personen bestimmte Verhaltensweisen hervorzurufen, sie zum
+Beispiel zur Preisgabe von vertraulichen Informationen, zum
+Kauf eines Produktes oder zur Freigabe von Finanzmitteln zu
+bewegen.
+
+\paragraph*{Social Engineering: Was kann man dagegen tun?}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Benutzer schulen ('awareness')
+    \item Für den Benutzer verständliche Abläufe Sicherstellen
+    \item Benutzer nicht zum Umgehen von Sicherheitsmassnahmen verleiten
+    \item Fraud Detection-Massnahmen
+    \item Technische Massnahmen welche den Angriff verhindern, z.B. Vereinzelungsanlage, nicht vorlesbare Codes etc.
+\end{itemize}
+
+
 
 \paragraph*{TODO}
 
