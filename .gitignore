@@ -8,3 +8,7 @@
 *.dvi
 *.out
 *.bak
+*.idx
+*.ilg
+*.ind
+*.lof

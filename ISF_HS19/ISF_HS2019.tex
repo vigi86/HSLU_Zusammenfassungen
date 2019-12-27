@@ -2,18 +2,19 @@
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{enumitem, fancyhdr, graphicx, float}
+\usepackage{enumitem, fancyhdr, graphicx, float, makeidx}
 \usepackage[hidelinks]{hyperref}
 %\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 %\usepackage{biblatex}
 %\addbibresource{bibliography.bib}
 %\usepackage{authblk}
+\makeindex
 
 \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
 \subsectionfont{\color{dunkelblau}}
 
 \title{ISF HS 2019}
-\author{Victor Fernández\\Pavaskar Parameswaran\\Kevin Soares Correia}
+\author{Victor Fernández\\Pavaskar Parameswaran}
 \date{Dezember 2019}
 
 
@@ -41,7 +42,7 @@
 \section*{Vorwort}Diese Zusammenfassung entstand in einer Gruppe während der Lernphase des HS 2019. Alle Fragen aus der Stoffabgrenzung tragen eine {\color{dunkelblau}blaue Farbe} und stehen als Unterkapitel. Das Dokument ist Open Source und jeder der möchte und signifikant beiträgt, darf sich als Autor anhängen. Die Source ist \underline{\href{https://github.com/vigi86/HSLU_Zusammenfassungen/tree/master/ISF_HS19}{dieses GitHub-Repo}}\footnote{https://github.com/vigi86/HSLU\_Zusammenfassungen/tree/master/ISF\_HS19}. Dies ist mein erstes \LaTeX{}-Dokument überhaupt. Nichts desto trotz wurde auf eine klare Strukturierung und Lesbarkeit des Dokumentes Wert gelegt.
 \tableofcontents
 \thispagestyle{empty}
-\pagebreak 
+\pagebreak
 
 
 %%%%%%%%%%
@@ -86,9 +87,66 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)
-    \item \textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)
-    \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)
+    \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)\index{Kontrollen!Zutrittskontrolle}
+    \item \textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)\index{Kontrollen!Zugangskontrolle}
+    \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)\index{Kontrollen!Zugriffskontrolle}
+\end{itemize}
+
+
+\subsection*{Kontrollfragen SW 01}
+\paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{\textsl{Verfügbarkeit:}} Zur gewünschten Zeit kann vom Benutzer auf die Daten zugegriffen werden und der Dienst funktioniert (Ausfallquote)\index{Grundziel!Verfügbarkeit}
+    \item \textbf{\textsl{Integrität:}} Gewährleistung das Daten nicht unautorisiert oder zufällig manipuliert werden können. (Datensicherheit)\index{Grundziel!Integrität}
+    \item \textbf{\textsl{Verbindlichkeit:}} Handlung kann eindeutig einer Person zugeordnet werden und von dieser auch nicht geleugnet werden.\index{Grundziel!Verbindlichkeit}
+    \item \textbf{\textsl{Vertraulichkeit:}} Informationen können nicht von unautorisierten Personen, Instanzen und/oder Prozessen eingesehen werden.\index{Grundziel!Vertraulichkeit}
+\end{itemize}
+\noindent
+\paragraph*{Beispiele}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Daten und Informationen (Kundendaten, Rechnungen, Marketingdaten usw.) können nicht vom PC abgerufen werden.
+    \item Durchgängiges Funktionieren von IT Systemen, sowie eine Vollständigkeit und Richtigkeit von Daten und Informationen. Verhindern von nicht genehmigten Veränderungen an wichtigen Informationen.
+    \item Schutz vor Verrat von Informationen oder vertraulichen Daten. Mit Authentizität ist gewährleistet, dass es sich tatsächlich um eine autorisierte Person (Identiätsnachweis) handelt.
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/grundziel-entdeckung.png}
+    \caption{Zeitpunkt Entdeckung eines Grundziel-Verlustes}
+    \label{grundziel-entdeckung}
+    \end{center}
+\end{figure}
+
+\paragraph*{Erklären Sie die Zusammenhänge zwischen Risiko, Sicherheit, Eintretenshäufigkeit, Schadenshöhe, Restrisiko?}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Risiko: Gefahr, Problem welches entstehen kann.\index{Risikoanalyse!Risiko}
+    \item Sicherheit: Schutz vor Risiko\index{Risikoanalyse!Sicherheit}
+    \item Eintretenshäufigkeit: Wahrscheinlichkeit, dass Risiko eintritt\index{Risikoanalyse!Eintretenshäufigkeit}
+    \item Restrisiko: Sicherheit deckt einen Teil des Risikos ab, jedoch nur gewisses Budget, somit bleibt Restrisiko, z.B. Erdbeben in San~Francisco oder Istanbul\index{Risikoanalyse!Restrisiko}
+\end{itemize}
+
+\paragraph*{Zusammenhang}Durch Sicherheitsmassnahmen kann man die Eintretenshäufigkeit von einem Risiko mindern und somit auch den Schaden reduzieren, zusätzlich wird auch das Restrisiko kleiner oder kann sogar ausgeschlossen werden.
+
+\paragraph*{Was ist eine Risikoanalyse? Wozu dient sie?}\index{Risikoanalyse}
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Risiken zu erkennen
+    \item Risiken analysieren
+    \item Risikobewertung
+    \item Nächster Schritt wäre das Risiko zu mindern mit den Erkenntnissen aus den ersten 3 Punkten.
+    \item Massnahmen ergreifen und umsetzen.
+\end{enumerate}
+
+\paragraph*{Welche Möglichkeiten zur Behandlung (\flqq Mitigation \frqq) stehen zur Verfügung? Ordnen Sie diese in der Reihenfolge, wie man sie typischerweise anwendet. Geben Sie ein kurzes Beispiel oder eine Erläuterung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Mitigation = Verminderung
+    \item Priorisieren: welches Risiko muss ich zuerst behandeln
+    \item Vermindern: Massnahmen ergreifen, um Eintretenshäufigkeit und Schadensausmass zu vermindern
+    \item Vermeiden: Massnahmen oder Wege einleiten um das Risiko auszuschliessen
+    \item Akzeptieren: Ähnlich wie Ignorieren und das Risiko einfach hinnehmen
+\end{itemize}
+
+\paragraph*{Welche Gefährdungen und Bedrohungen kennen Sie? Gliedern Sie diese in verschiedene Kategorien.}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Bruteforce, Phishing, DDoS, Injections, Spoofing, frustrierte Mitarbeiter, Anonymous, NSA, Naturgewalt, Hacker, Wirtschaftsspionage etc.
 \end{itemize}
 
 
@@ -99,8 +157,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
 
 
-\subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}
-\paragraph*{Zeichencodierung}Kodierung (=Encoding) heisst, einen Wert mit Symbolen eines Zeichensatzes darzustellen. Beispiel:\newline %bleibt
+\subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}\index{Private-Key-Kryptographie}
+\paragraph*{Zeichencodierung}Kodierung (\textsl{Encoding}) heisst, einen Wert mit Symbolen eines Zeichensatzes darzustellen. Beispiel:\newline %bleibt
 \begin{tabular}{|ll|}
     \hline
         Dezimalsystem & 100\\
@@ -112,9 +170,9 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \end{tabular}
 {\color{red}\textbf{Achtung: Kodierung $\neq$ Verschlüsselung}}
 
-\paragraph*{Symmetrische Verschlüsselung}Bei symmetrischen Verschlüsselungsverfahren gibt es im Gegensatz zu den asymmetrischen Verfahren, \textbf{nur einen einzigen Schlüssel}. Dieser Schlüssel ist für die Verschlüsselung, als auch für die Entschlüsselung zuständig.
+\paragraph*{Symmetrische Verschlüsselung}Bei symmetrischen Verschlüsselungsverfahren gibt es im Gegensatz zu den asymmetrischen Verfahren, \textbf{nur einen einzigen Schlüssel}. Dieser Schlüssel ist für die Verschlüsselung, als auch für die Entschlüsselung zuständig.\index{Symmetrische Kryptographie}
 
-\paragraph*{Secret Key Verschlüsselung}Secret Key (`Symmetrische') Verschlüsselung wird zwischen zwei Parteien verwendet, welche einen \textbf{gemeinsamen Schlüssel} besitzen. Ausserdem wird sie oft verwendet, wenn der gleiche Benutzer ein Dokument verschlüsseln und zu einem späteren Zeitpunkt wieder entschlüsseln muss.
+\paragraph*{Secret Key Verschlüsselung}Secret Key (`Symmetrische') Verschlüsselung wird zwischen zwei Parteien verwendet, welche einen \textbf{gemeinsamen Schlüssel} besitzen. Ausserdem wird sie oft verwendet, wenn der gleiche Benutzer ein Dokument verschlüsseln und zu einem späteren Zeitpunkt wieder entschlüsseln muss.\index{Secret Key}
 \begin{figure}[ht]
     \begin{center}
     \includegraphics[width=14cm]{images/secretkey.png}
@@ -123,15 +181,16 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \end{center}
 \end{figure}
 
-\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.%\footcite{renner2006}
+\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.\index{Informationstheoretische Sicherheit}%\footcite{renner2006}
  Beispielsweise ist OTP informationstheoretisch sicher. \newline %bleibt
 Formal:
 \begin{math}
     P(M=m) = P(M=m|C=c)
 \end{math} {\color{red}Erklärung der Variablen??}
 
+
 \paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
-\paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
+\paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.\index{Kerckhoff's Prinzip}
 
 \paragraph*{Angriffsarten}Bei der Sicherheit von modernen Verschlüsselungssystemen wird zwischen den Angriffs-möglichkeiten des Angreifers unterschieden:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -139,10 +198,10 @@ Formal:
     \begin{figure}[ht]
         \begin{center}
         \includegraphics[width=8cm]{images/coa.png}
-        \caption{nur Geheimtext}
+        \caption{Nur Geheimtext}
         \label{coa}
         \end{center}
-    \end{figure}
+    \end{figure}\index{Angriffsarten!Ciphertext only attack}
     \item \textbf{Known plaintext attack:} Angreifer erhält zusätzlich andere Klartext-Geheimtext-Paare
     \begin{figure}[ht]
         \begin{center}
@@ -150,7 +209,7 @@ Formal:
         \caption{Klartext-Geheimtext-Paare}
         \label{kpa}
         \end{center}
-    \end{figure}
+    \end{figure}\index{Angriffsarten!Known plaintext attack}
     \item \textbf{Chosen plaintext attack:} Angreifer kann zusätzliche Klartexte wählen, zu denen er auch die Geheimtexte erhält
     \begin{figure}[ht]
         \begin{center}
@@ -158,7 +217,7 @@ Formal:
         \caption{Klartexte und Geheimtexte}
         \label{cpa}
         \end{center}
-    \end{figure}
+    \end{figure}\index{Angriffsarten!Chosen plaintext attack}
 \end{itemize}
 
 
@@ -382,7 +441,7 @@ Beispiel:\newline %bleibt
     \begin{center}
     \includegraphics[width=12cm]{images/digisignatur1.png}
     \caption{Signatur im Detail}
-    \label{digisig}
+    \label{digisig1}
     \end{center}
 \end{figure}
 
@@ -399,7 +458,7 @@ Eigenschaft einer Signatur:
     \begin{center}
     \includegraphics[width=12cm]{images/digisignatur0.png}
     \caption{Alice verschickt eine signierte Nachricht an Bob}
-    \label{digisig}
+    \label{digisig0}
     \end{center}
 \end{figure}
 
@@ -708,7 +767,7 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protok
     \begin{center}
     \includegraphics[width=8cm]{images/OSIvsIRM.png}
     \caption{OSI vs. Internet Reference Model}
-    \label{OSI vs. IRM}
+    \label{OSIvsIRM}
     \end{center}
 \end{figure}
 
@@ -755,7 +814,6 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protok
     \item ISO 27003: implementation guidance (wie ich die Anforderung umsetze)
     \item ISO 27004: Information security management – Measurement (Ziele müssen messbar sein, z.B. Jahresziele beim Mitarbeiter Gespräch; Ende Periode kann überprüft werden, ob die Ziele erreicht wurden
     \item ISO 27005: Information security risk management (Risiko Bewältigung)
-
 \end{itemize}
 
 \subsection*{Sie finden sich in den Standards ISO 27001 und 27002 zurecht}
@@ -890,7 +948,8 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protok
 
 \subsection*{Sie kennen Beispiele von Angriffen, welche mittels Machine-Learning auf einer WAF erkannt werden konnten}
 \paragraph*{TODO}
-
+\printindex
+\listoffigures
 %\newpage
 %\printbibheading
 %\printbibliography[type=book,heading=subbibliography,title={Bücher}]
