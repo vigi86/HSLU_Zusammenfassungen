@@ -1,0 +1,10 @@
+/.gitignore
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.toc
+*.synctex.gz
+*.dvi
+*.out
+*.bak
