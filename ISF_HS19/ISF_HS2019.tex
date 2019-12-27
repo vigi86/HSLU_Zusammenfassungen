@@ -13,7 +13,7 @@
 \subsectionfont{\color{dunkelblau}}
 
 \title{ISF HS 2019}
-\author{Victor Fernández\\Pavaskar Parameswaran}
+\author{Victor Fernández\\Pavaskar Parameswaran\\Kevin Soares Correia}
 \date{Dezember 2019}
 
 
@@ -41,7 +41,7 @@
 \section*{Vorwort}Diese Zusammenfassung entstand in einer Gruppe während der Lernphase des HS 2019. Alle Fragen aus der Stoffabgrenzung tragen eine {\color{dunkelblau}blaue Farbe} und stehen als Unterkapitel. Das Dokument ist Open Source und jeder der möchte und signifikant beiträgt, darf sich als Autor anhängen. Die Source ist \underline{\href{https://github.com/vigi86/HSLU_Zusammenfassungen/tree/master/ISF_HS19}{dieses GitHub-Repo}}\footnote{https://github.com/vigi86/HSLU\_Zusammenfassungen/tree/master/ISF\_HS19}. Dies ist mein erstes \LaTeX{}-Dokument überhaupt. Nichts desto trotz wurde auf eine klare Strukturierung und Lesbarkeit des Dokumentes Wert gelegt.
 \tableofcontents
 \thispagestyle{empty}
-\pagebreak
+\pagebreak 
 
 
 %%%%%%%%%%
@@ -659,13 +659,69 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 
 \section{Angriffe auf Protokollebene}
 \subsection*{Sie kennen die Grundbegriffe der Anwendungssicherheit}
+\paragraph*{Bedrohungen auf Protokollebene}Begriffe: Social Engineering, Angriffe auf ARP, TCP/IP, DNS, SSL, HTTP
 
-\paragraph*{TODO}
+\subsection*{Kurzübersicht}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Bedrohungen auf Link-Layer:} Spoofing
+    \item \textbf{Bedrohungen auf Transport-Layer:}Deanial of Service (DoS)
+    \item \textbf{Bedrohungen auf SSL / TLS:}Preisgabe Sensitiver Daten
+    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection
+    \item \textbf{Bedrohungen auf Layer 8 (Mensch):}Social Engineering
+\end{itemize}
+
+
+\paragraph*{Flaws vs. Bugs} Bei Softwaredefekten wird unterschieden zwischen Flaws und Bugs
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Flaw:} Ein Flaw ist ein Defekt im Design der Software
+    \item \textbf{Bug:} Ein Bug ist ein Defekt in der Implementation
+\end{itemize}
+
+\paragraph*{Grundbegriffe: Bedrohung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Threat:}Möglicher Grund für einen ungewollten Vorafall, der das System oder die Organisation schädigen kann.
+    \item \textbf{Threat Agent:}Individuum oder Gruppe welche eine Bedrohung darstellt.
+\end{itemize}
+
+\subsubsection*{Aktive vs. passive Angriffe}
+Bei einem \textbf{passiven Angriff} hält sich der Angreifer an das protokoll. Er verändert z.B. die ausgetauschten Nachrichten nicht hört aber die Kommunikation ab.
+Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protokoll. Er verändert z.B. Nachrichten.
 
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
-\paragraph*{TODO}
+\subsubsection*{OSI-Layers}
+\paragraph*{}Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/OSI-Layers.png}
+    \caption{OSI-Layers}
+    \label{OSI-Layers}
+    \end{center}
+\end{figure}
+
+\subsubsection*{OSI vs Internet Reference Model}
+
+\paragraph*{}Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/OSIvsIRM.png}
+    \caption{OSI vs. Internet Reference Model}
+    \label{OSI vs. IRM}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Encapsulation (Datenkapselung)}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/TCP-Encapsulation.png}
+    \caption{TCP-Encapsulation}
+    \label{TCP-Encapsulation}
+    \end{center}
+\end{figure}
+
+\paragraph*{TODO}
 \subsection*{Sie verstehen wie ein Cross-Site-Scripting / SQL-injection / Social-Engineering-Angriff abläuft und wie man sich dagegen schützen kann}
 
 \paragraph*{TODO}
