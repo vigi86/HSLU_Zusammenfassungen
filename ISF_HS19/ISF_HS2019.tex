@@ -4,6 +4,14 @@
 \usepackage{lastpage}
 \usepackage{enumitem, fancyhdr, graphicx, float, makeidx}
 \usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\lstloadlanguages{SQL}
+%%%
+%\lstset{language=SQL}
+%\begin{lstlisting}
+%SELECT * FROM table WHERE id = 1;
+%\end{lstlisting}
+%%%
 %\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 %\usepackage{biblatex}
 %\addbibresource{bibliography.bib}
@@ -87,19 +95,19 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \subsection*{Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)\index{Kontrollen!Zutrittskontrolle}
-    \item \textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)\index{Kontrollen!Zugangskontrolle}
-    \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)\index{Kontrollen!Zugriffskontrolle}
+    \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)\index{Zutrittskontrolle}
+    \item \textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)\index{Zugangskontrolle}
+    \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)\index{Zugriffskontrolle}
 \end{itemize}
 
 
 \subsection*{Kontrollfragen SW 01}
 \paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{\textsl{Verfügbarkeit:}} Zur gewünschten Zeit kann vom Benutzer auf die Daten zugegriffen werden und der Dienst funktioniert (Ausfallquote)\index{Grundziel!Verfügbarkeit}
-    \item \textbf{\textsl{Integrität:}} Gewährleistung das Daten nicht unautorisiert oder zufällig manipuliert werden können. (Datensicherheit)\index{Grundziel!Integrität}
-    \item \textbf{\textsl{Verbindlichkeit:}} Handlung kann eindeutig einer Person zugeordnet werden und von dieser auch nicht geleugnet werden.\index{Grundziel!Verbindlichkeit}
-    \item \textbf{\textsl{Vertraulichkeit:}} Informationen können nicht von unautorisierten Personen, Instanzen und/oder Prozessen eingesehen werden.\index{Grundziel!Vertraulichkeit}
+    \item \textbf{\textsl{Verfügbarkeit:}} Zur gewünschten Zeit kann vom Benutzer auf die Daten zugegriffen werden und der Dienst funktioniert (Ausfallquote)\index{Verfügbarkeit}
+    \item \textbf{\textsl{Integrität:}} Gewährleistung das Daten nicht unautorisiert oder zufällig manipuliert werden können. (Datensicherheit)\index{Integrität}
+    \item \textbf{\textsl{Verbindlichkeit:}} Handlung kann eindeutig einer Person zugeordnet werden und von dieser auch nicht geleugnet werden.\index{Verbindlichkeit}
+    \item \textbf{\textsl{Vertraulichkeit:}} Informationen können nicht von unautorisierten Personen, Instanzen und/oder Prozessen eingesehen werden.\index{Vertraulichkeit}
 \end{itemize}
 \noindent
 \paragraph*{Beispiele}
@@ -118,10 +126,10 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 
 \paragraph*{Erklären Sie die Zusammenhänge zwischen Risiko, Sicherheit, Eintretenshäufigkeit, Schadenshöhe, Restrisiko?}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Risiko: Gefahr, Problem welches entstehen kann.\index{Risikoanalyse!Risiko}
-    \item Sicherheit: Schutz vor Risiko\index{Risikoanalyse!Sicherheit}
-    \item Eintretenshäufigkeit: Wahrscheinlichkeit, dass Risiko eintritt\index{Risikoanalyse!Eintretenshäufigkeit}
-    \item Restrisiko: Sicherheit deckt einen Teil des Risikos ab, jedoch nur gewisses Budget, somit bleibt Restrisiko, z.B. Erdbeben in San~Francisco oder Istanbul\index{Risikoanalyse!Restrisiko}
+    \item Risiko: Gefahr, Problem welches entstehen kann.\index{Risiko}
+    \item Sicherheit: Schutz vor Risiko\index{Sicherheit}
+    \item Eintretenshäufigkeit: Wahrscheinlichkeit, dass Risiko eintritt\index{Eintretenshäufigkeit}
+    \item Restrisiko: Sicherheit deckt einen Teil des Risikos ab, jedoch nur gewisses Budget, somit bleibt Restrisiko, z.B. Erdbeben in San~Francisco oder Istanbul\index{Restrisiko}
 \end{itemize}
 
 \paragraph*{Zusammenhang}Durch Sicherheitsmassnahmen kann man die Eintretenshäufigkeit von einem Risiko mindern und somit auch den Schaden reduzieren, zusätzlich wird auch das Restrisiko kleiner oder kann sogar ausgeschlossen werden.
@@ -188,8 +196,8 @@ Formal:
     P(M=m) = P(M=m|C=c)
 \end{math} {\color{red}Erklärung der Variablen??}
 
-
 \paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
+
 \paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.\index{Kerckhoff's Prinzip}
 
 \paragraph*{Angriffsarten}Bei der Sicherheit von modernen Verschlüsselungssystemen wird zwischen den Angriffs-möglichkeiten des Angreifers unterschieden:
@@ -201,7 +209,7 @@ Formal:
         \caption{Nur Geheimtext}
         \label{coa}
         \end{center}
-    \end{figure}\index{Angriffsarten!Ciphertext only attack}
+    \end{figure}\index{Ciphertext only attack}
     \item \textbf{Known plaintext attack:} Angreifer erhält zusätzlich andere Klartext-Geheimtext-Paare
     \begin{figure}[ht]
         \begin{center}
@@ -209,7 +217,7 @@ Formal:
         \caption{Klartext-Geheimtext-Paare}
         \label{kpa}
         \end{center}
-    \end{figure}\index{Angriffsarten!Known plaintext attack}
+    \end{figure}\index{Known plaintext attack}
     \item \textbf{Chosen plaintext attack:} Angreifer kann zusätzliche Klartexte wählen, zu denen er auch die Geheimtexte erhält
     \begin{figure}[ht]
         \begin{center}
@@ -217,7 +225,7 @@ Formal:
         \caption{Klartexte und Geheimtexte}
         \label{cpa}
         \end{center}
-    \end{figure}\index{Angriffsarten!Chosen plaintext attack}
+    \end{figure}\index{Chosen plaintext attack}
 \end{itemize}
 
 
@@ -603,6 +611,7 @@ User-Agent: Mozilla/5.0}
     \label{HTTPZustandslos}
     \end{center}
 \end{figure}
+\noindent
 Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen per weiteren Requests mitzuschicken. Die Zustände werde mit einem Cookie oder einem "`Hidden field"' erfasst.
 \begin{figure}[H]
     \begin{center}
@@ -738,8 +747,8 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 
 \paragraph*{Grundbegriffe: Bedrohung}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Threat:}Möglicher Grund für einen ungewollten Vorafall, der das System oder die Organisation schädigen kann.
-    \item \textbf{Threat Agent:}Individuum oder Gruppe welche eine Bedrohung darstellt.
+    \item \textbf{Threat:} Möglicher Grund für einen ungewollten Vorafall, der das System oder die Organisation schädigen kann.
+    \item \textbf{Threat Agent:} Individuum oder Gruppe welche eine Bedrohung darstellt.
 \end{itemize}
 
 \subsubsection*{Aktive vs. passive Angriffe}
@@ -749,7 +758,7 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protok
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
 \subsubsection*{OSI-Layers}
-\paragraph*{}Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
+Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 
 \begin{figure}[H]
     \begin{center}
@@ -760,8 +769,7 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protok
 \end{figure}
 
 \subsubsection*{OSI vs Internet Reference Model}
-
-\paragraph*{}Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
+Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 
 \begin{figure}[H]
     \begin{center}
