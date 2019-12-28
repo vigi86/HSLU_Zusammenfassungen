@@ -2,8 +2,9 @@
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{enumitem, fancyhdr, graphicx, float, makeidx}
+\usepackage{enumitem, fancyhdr, graphicx, float, makeidx, textcomp}
 \usepackage[hidelinks]{hyperref}
+\usepackage[hang,flushmargin]{footmisc}
 \usepackage{listings}
 \lstloadlanguages{SQL}
 %%%
@@ -70,9 +71,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \end{center}
 \end{figure}
 
-
 \subsection*{Motivation / Bedrohungen}
-\paragraph*{Was gefährdet die Informationen?} Welche Gefährdungen/Bedrohungen gibt es?
+\paragraph*{Was gefährdet die Informationen?} Welche Gefährdungen/Bedrohungen gibt es?\index{Gefährdungen}\index{Bedrohungen}\index{Informationssicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Nicht vorsätzliche (zufällige) Gefährdungen/Bedrohungen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -92,7 +92,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \end{itemize}
 
 
-\subsection*{Grundbegriffe}
+\subsection*{Grundbegriffe}\label{sec:Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)\index{Zutrittskontrolle}
@@ -102,7 +102,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 
 
 \subsection*{Kontrollfragen SW 01}
-\paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}
+\paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}\index{Schutzziele}\index{Informationssicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{\textsl{Verfügbarkeit:}} Zur gewünschten Zeit kann vom Benutzer auf die Daten zugegriffen werden und der Dienst funktioniert (Ausfallquote)\index{Verfügbarkeit}
     \item \textbf{\textsl{Integrität:}} Gewährleistung das Daten nicht unautorisiert oder zufällig manipuliert werden können. (Datensicherheit)\index{Integrität}
@@ -119,7 +119,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=16cm]{images/grundziel-entdeckung.png}
-    \caption{Zeitpunkt Entdeckung eines Grundziel-Verlustes}
+    \caption{Zeitpunkt der Entdeckung eines Grundziel-Verlustes}
     \label{grundziel-entdeckung}
     \end{center}
 \end{figure}
@@ -152,29 +152,63 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item Akzeptieren: Ähnlich wie Ignorieren und das Risiko einfach hinnehmen
 \end{itemize}
 
-\paragraph*{Welche Gefährdungen und Bedrohungen kennen Sie? Gliedern Sie diese in verschiedene Kategorien.}
+\paragraph*{Welche Gefährdungen und Bedrohungen kennen Sie? Gliedern Sie diese in verschiedene Kategorien.}\index{Gefährdungen}\index{Bedrohungen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Bruteforce, Phishing, DDoS, Injections, Spoofing, frustrierte Mitarbeiter, Anonymous, NSA, Naturgewalt, Hacker, Wirtschaftsspionage etc.
 \end{itemize}
 
-\paragraph*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler / holistischer Sicherheit?}
+\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{Ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
+Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen. (Siehe Abbildung \ref{Wissenspyramide})
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Informationssicherheit:} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
-    \item \textbf{IT-Sicherheit:} Schutz der Informationen in ICT-Systemen. (Server/Host)
-    \item \textbf{Integrale Sicherheit vs. holistische Sicherheit:} Umfassende Betrachtung aller Sicherheitsaspekte einer Organisation.\\
-    Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen.
+    \item \textbf{Informationssicherheit:}\index{Informationssicherheit} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
+    \item \textbf{IT-Sicherheit:}\index{IT-Sicherheit} Schutz der Informationen in ICT-Systemen. (Server/Host)
+    \item \textbf{Integrale Sicherheit vs. holistische Sicherheit:}\index{Integrale Sicherheit}\index{Holistische Sicherheit} Umfassende Betrachtung aller Sicherheitsaspekte einer Organisation.
 \end{itemize}
 
+\subsubsection*{Bedeutung des Managements / GL im Rahmen von AKVs}
+Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Keine Ressourcen (Zeit und Geld)
+    \item Keine Kompetenzen (Befehls-und Umsetzungsgewalt)
+    \item Keine Priorität
+    \item Das Management trägt die Risiken (Haftung für Mitarbeiter etc.) und entscheidet über die eingesetzten Ressourcen
+    \item Häufig fehlendes Know-How der Managementetage
+\end{itemize}
 
+\paragraph*{Wie gehen Sie konkret vor, um die Informationssicherheit einzuführen?}\index{Informationssicherheit}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Management ins Boot holen
+    \item Prozess der Informationssicherheit etablieren (Know-How vermitteln oder zumindest das Thema greifbar machen für Management)
+    \item Verantwortlichkeiten festlegen
+    \item Sicherheit allumfassend betrachten
+    \item Schrittweise und stetig umsetzen (kontinuierlicher Prozess)
+\end{itemize}
 
+\paragraph*{Begründen Sie, warum Informationssicherheit ein Prozess und kein Projekt sein muss.}\index{Informationssicherheit}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Kontinuierliche Verbesserung der Sicherheit ein Muss
+    \item Angriffe durch Hacker etc. entwickeln sich weiter, somit muss man immer auf dem neuesten Stand sein ("`up to date"' wie Dopingkontrollen im Sport)
+    \item Projekt ist hingegen terminiert und irgendwann abgeschlossen
+\end{itemize}
 
+\paragraph*{Welche 3 Bereiche müssen Sie mit Ihren Massnahmen bespielen und warum?}\index{Massnahmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Technik: kaufen und konfigurieren. Immer auf dem neuesten Stand und effizient eingesetzt.
+    \item Prozesse: definieren, kontrollieren, weiterentwickeln. (Ist- und Soll-Prozess die ganze Zeit anpassen)
+    \item Mitarbeiter: sensibilisieren und ausbilden. Meiner Ansicht nach auch Motivation und Loyalität fördern. (Interesse des Mitarbeiters wecken)
+\end{itemize}
+
+\paragraph*{Beschreiben Sie den Zweck von Datenschutz? Recherchieren Sie den heutigen Stand CH und die Veränderung durch die EU-DSGVO}\index{Datenschutz}
+\paragraph*{TODO}
+
+\paragraph*{Setzen Sie die Begriffe Zutritt, Zugang und Zugriff in Beziehung.}{Siehe \nameref{sec:Grundbegriffe}, Seite \pageref{sec:Grundbegriffe}}
 
 
 %%%%%%%%%%
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
-\paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. %\underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
+\paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
 
 
 \subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}\index{Private-Key-Kryptographie}
@@ -556,8 +590,8 @@ Das SSL/TLS-Protokoll läuft in \underline{zwei Phasen} ab:
 \end{itemize}
 Beispiele für SSL/TLS-ciphers:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \texttt{TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA}
-    \item \texttt{TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384}
+    \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
+    \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
 
 
@@ -587,17 +621,18 @@ Was unterscheidet eine Webanwendung aus Sicherheitssicht zu anderen Anwendungen?
 \paragraph*{HTTP-Request-Methoden}Die häufigsten HTTP-Request-Methoden sind \textbf{GET} und \textbf{POST}.
 Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
 
-\paragraph*{GET}\texttt{https://www.hslu.ch/?p=5 HTTP/1.1\\User-Agent: Mozilla/5.0}
+\paragraph*{GET}\verb|https://www.hslu.ch/?p=5 HTTP/1.1|\\
+\verb|User-Agent: Mozilla/5.0|
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Message Body: kein
     \item Ruft Daten vom Server ab
     \item Sollte Serverzustand nicht verändern
 \end{itemize}
 
-\paragraph*{POST}\texttt{https://www.hslu.ch/ HTTP/1.1\\
-User-Agent: Mozilla/5.0}
+\paragraph*{POST}\verb|https://www.hslu.ch/ HTTP/1.1|\\
+\verb|User-Agent: Mozilla/5.0|
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Message Body: \texttt{id=123\&pwd=password}
+    \item Message Body: \verb|id=123&pwd=password|
     \item Darf Serverzustand verändern
     \item Wird nicht gecachet
 \end{itemize}
@@ -698,24 +733,25 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \paragraph*{Sicherheitsrelevante Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{HSTS:} \texttt{Strict-Transport-Security: max-age=31536000; includeSubDomains}\\
-    Seite wird nur via HTTPS aufgerufen. \texttt{max-age} muss hoch gesetzt werden!
-    \item \textbf{Frame-Options:} \texttt{X-Frame-Options: deny}\\
+    \item \textbf{HSTS:} \verb|Strict-Transport-Security: max-age=31536000; includeSubDomains|\\
+    Seite wird nur via HTTPS aufgerufen. \verb|max-age| muss hoch gesetzt werden!
+    \item \textbf{Frame-Options:} \verb|X-Frame-Options: deny|\\
     Verbietet das Einbinden der Seite in einem Frame oder erlaub es nur für bestimmte Domains
-    \item \textbf{XSS-Protection:} \texttt{X-XSS-Protection: 1; mode=block}\\
+    \item \textbf{XSS-Protection:} \verb|X-XSS-Protection: 1; mode=block|\\
     Filtert und säubert oder blockeirt die Anzeige der Seide, wenn ein XSS-Angriff endeckt wird
-    \item \textbf{Content-Type-Options:} \texttt{X-Content-Type-Options: nosniff}\\
+    \item \textbf{Content-Type-Options:} \verb|X-Content-Type-Options: nosniff|\\
     Verhindert, dass der Content als einen anderen MIME-Type interpretiert wird als angegeben
-    \item \textbf{CSP:} \texttt{Content-Security-Policy: script-src 'self'}\\
+    \item \textbf{CSP:} \verb|Content-Security-Policy: script-src \textquotesingle self\textquotesingle|\\
     Definiert, welche Resourcen (z.B. Bilder, Scripts, Fonts, etc.) von wo eingebunden werden können
-    \item \textbf{CORS} \texttt{Access-Control-Allow-Origin: http://foo.example}\\
+    \item \textbf{CORS} \verb|Access-Control-Allow-Origin: http://foo.example|\\
     Cross-Origin Resource Sharing (CORS) ist ein Mechanismus, der Webbrowsern oder auch anderen Webclients Cross-Origin-Requests ermöglicht. Zugriffe dieser Art sind normalerweise durch die Same-Origin-Policy (SOP) untersagt. CORS ist ein Kompromiss zugunsten grösserer Flexibilität im Internet unter Berücksichtigung möglichst hoher Sicherheitsmassnahmen.
     \item \textbf{Caching-Options} {\color{red}TODO: hat jemand Infos?}
-    \item \textbf{HPKP ({\color{red}deprecated!}):} \texttt{Public-Key-Pins:\\
-    pin-sha256=d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=;\\
-    pin-sha256=Ë9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=;\\
-    report-uri=http://example.com/pkp-report;\\
-    max-age=10000; includeSubDomains}\\
+    \item \textbf{HPKP ({\color{red}deprecated!}):}
+    \verb|Public-Key-Pins:|\\
+    \verb|pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";|\\
+    \verb|pin-sha256="Ë9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=";|\\
+    \verb|report-uri=http://example.com/pkp-report;|\\
+    \verb|max-age=10000; includeSubDomains|\\
     HTTP Public Key Pinning: Nur das Serverzertifikat mit dem korrekten Fingerprint wird akzeptiert. Wurde wieder abgekündigt und die meisten Browser unterstützen es nicht mehr.
 \end{enumerate}
 
@@ -744,24 +780,24 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \subsection*{Kurzübersicht}
 \index{Bedrohungen auf OSI-Layern}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Bedrohungen auf Link-Layer:} Spoofing
-    \item \textbf{Bedrohungen auf Transport-Layer:} Deanial of Service (DoS)
-    \item \textbf{Bedrohungen auf SSL / TLS:} Preisgabe Sensitiver Daten
-    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection
-    \item \textbf{Bedrohungen auf Layer 8 (Mensch):} Social Engineering
+    \item \textbf{Bedrohungen auf Link-Layer:} Spoofing\index{Link-Layer}\index{Spoofing}
+    \item \textbf{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)\index{Transport-Layer}\index{DoS}
+    \item \textbf{Bedrohungen auf SSL / TLS:} Preisgabe Sensitiver Daten\index{SSL/TLS}\index{Sensitive Daten}
+    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection\index{Anwendungslayer}\index{Cross Site Scripting (XSS)}\index{Code-Injection}\index{XSS! siehe {Cross Site Scripting (XSS)}}
+    \item \textbf{Bedrohungen auf Layer 8 (Mensch):} Social Engineering\index{Layer 8}\index{Social Engineering}
 \end{itemize}
 
 \index{Fehler vs. Bugs}
 \paragraph*{Flaws vs. Bugs} Bei Softwaredefekten wird unterschieden zwischen Flaws und Bugs
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Flaw:} Ein Flaw ist ein Defekt im Design der Software
-    \item \textbf{Bug:} Ein Bug ist ein Defekt in der Implementation
+    \item \textbf{Flaw:} Ein Flaw ist ein Defekt im Design der Software\index{Flaw}
+    \item \textbf{Bug:} Ein Bug ist ein Defekt in der Implementation\index{Bug}
 \end{itemize}
 
 \paragraph*{Grundbegriffe: Bedrohung}
-\index{Threat vs. Threat Agent}
+\index{Threat vs. Threat Agent}\index{Threat}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Threat:} Möglicher Grund für einen ungewollten Vorafall, der das System oder die Organisation schädigen kann.
+    \item \textbf{Threat:} Möglicher Grund für einen ungewollten Vorfall, der das System oder die Organisation schädigen kann.
     \item \textbf{Threat Agent:} Individuum oder Gruppe welche eine Bedrohung darstellt.
 \end{itemize}
 
@@ -884,9 +920,8 @@ Kernsystem entstehen und das system nach einem Angriff schnell wieder funktionsf
     \item \textbf{Sicherstellen, dass das System sich nicht selbst überlastet durch freigeben nicht mehr verwendeter Ressourcen, vermeiden von undendlichen Loops etc.}
     \item \textbf{Disaster Recovery Plan}
 \end{itemize}
-\index{SSL}\index{TLS}
-\subsubsection*{SSL/TLS im internet Modell}
 
+\subsubsection*{SSL/TLS im internet Modell}\index{SSL/TLS}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/SSL-TLS.png}
@@ -907,13 +942,13 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
     \item Daten nach ihrer Sensivität klassifizieren und entsprechend behandeln
     \item Sensitive Daten nur gespeichert auf dem Server ablegen
     \item Passwörter mit Salt und Pepper und einer starken Passwort-Hashfunktion gehasht ablegen.
-    \item Daten verschlüsselt übertreage (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
-    \item Sicherstellen, dass sichere Ciphers verwendet werdenKeine sensitiven Daten auf der Clientseite cachen.
+    \item Daten verschlüsselt übertragen (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
+    \item Sicherstellen, dass sichere Ciphers verwendet werden
+    \item Keine sensitiven Daten auf der Clientseite cachen.
 \end{itemize}
 
 \subsubsection*{Bedrohungen auf Anwendungslayer: Cross Site Scripting (XSS) und Code Injection}
-\noindent
-\index{Cross Site Scripting (XSS)}
+\index{Cross Site Scripting (XSS)}\index{XSS! siehe {Cross Site Scripting (XSS)}}
 \paragraph*{XSS: Was ist das?}Ein Angreifer bringt den legitimen Server dazu ein Script an den Browser zu senden. Dieses wird im Kontext des legitimen Servers ausgeführt. Es wird zwischen \textbf{stored} und \textbf{reflected} XSS unterschieden
 \begin{figure}[H]
     \begin{center}
@@ -953,19 +988,21 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
 
 \paragraph*{Code Injection: Was kann man dagegen tun?}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item ‘Prepared statements’ verwenden \\ Bsp:\\ \$statement = \$db-\textgreater prepare('select * from Users\\where(name=? password=?);';\\\$stmt-\textgreater bind\_param('ss', \$user, \$pass);
+    \item `Prepared statements' verwenden \\ Beispiel:\\
+    \verb|$statement = $db->prepare('SELECT * FROM Users WHERE(name=? password=?);';|\\
+    \verb|$stmt->bind_param('ss', $user, $pass);|
     \item Whitelisting der Inputs
-    \item Sanitizing der Inputs \\ Bsp. Löschen von Zeichen wie \textbf{';--} oder Ersetzen durch 'sichere' Zeichen wie \textbf{\textbackslash'\textbackslash;\textbackslash-}
+    \item Sanitizing der Inputs \\ Bsp. Löschen von Zeichen wie \verb|';-| oder Ersetzen durch `sichere' Zeichen wie \verb|\'\;\-|
     \item Rechte des technischen Benutzers auf der DB einschränken
     \item Verwenden eines sicheren APIs
 \end{itemize}
 
-\index{Layer 8}
+\index{Layer 8}\index{Layer 8}
 \subsubsection*{Layer 8}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Layer8.png}
-    \caption{Layer 8}
+    \caption{Layer 8, der User}
     \label{Layer 8}
     \end{center}
 \end{figure}
@@ -1051,7 +1088,7 @@ bewegen.
 \paragraph*{TODO}
 
 
-\section{Awarness}
+\section{Awareness}
 \subsection*{Sie verstehen die Wichtigkeit der \flqq Awareness \frqq}
 \paragraph*{TODO}
 
