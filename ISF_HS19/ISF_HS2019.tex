@@ -201,14 +201,14 @@ Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
 \paragraph*{Beschreiben Sie den Zweck von Datenschutz? Recherchieren Sie den heutigen Stand CH und die Veränderung durch die EU-DSGVO}\index{Datenschutz}
 \paragraph*{TODO}
 
-\paragraph*{Setzen Sie die Begriffe Zutritt, Zugang und Zugriff in Beziehung.}{Siehe \nameref{sec:Grundbegriffe}, Seite \pageref{sec:Grundbegriffe}}
+\paragraph*{Setzen Sie die Begriffe Zutritt, Zugang und Zugriff in Beziehung.}{Siehe \underline{\nameref{sec:Grundbegriffe}}, Seite \pageref{sec:Grundbegriffe}}
 
 
 %%%%%%%%%%
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
-\paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
+\paragraph*{Steganographie}\index{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
 
 
 \subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}\index{Private-Key-Kryptographie}
@@ -242,9 +242,9 @@ Formal:
     P(M=m) = P(M=m|C=c)
 \end{math} {\color{red}Erklärung der Variablen??}
 
-\paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
+\paragraph*{Berechenmässige Sicherheit}\index{Berechenmässige Sicherheit}\label{para:Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
 
-\paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.\index{Kerckhoff's Prinzip}
+\paragraph*{Kerckhoff's Prinzip}\index{Kerckhoff's Prinzip}\label{para:Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
 
 \paragraph*{Angriffsarten}Bei der Sicherheit von modernen Verschlüsselungssystemen wird zwischen den Angriffs-möglichkeiten des Angreifers unterschieden:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -275,8 +275,9 @@ Formal:
 \end{itemize}
 
 
-\subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Ceasar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}
-\paragraph*{Caesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
+\subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Caesar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}\index{Klassische symmetrische Verschlüsselungsverfahren}
+
+\paragraph*{Caesar cipher}\index{Caesar cipher}\label{para:Caesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
 \textbf{Vorteil:} es ist \textbf{einfach}.\\
 \textbf{Nachteil:} es ist \textbf{unsicher}, da es sehr schnell geknackt werden kann.\\
 \textbf{Schwachstelle:} Die in der natürlichen Sprache ungleiche Verteilung der Buchstaben wird durch diese Art der Verschlüsselung nicht verborgen, so dass eine Häufigkeitsanalyse (Frequenzanalyse) das Wirken einer einfachen monoalphabetischen Substitution enthüllt.
@@ -324,7 +325,7 @@ Der häufigste Buchstabe ist hier O, gefolgt von X und S. Man erkennt auf den er
 \noindent
 Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse verzichten, kann man auch die Tatsache ausnutzen, dass bei der Cäsar-Chiffre nur eine sehr kleine Anzahl möglicher Schlüssel in Frage kommt. Da die Größe des Schlüsselraums nur 25 beträgt, was einer "`Schlüssellänge"' von nicht einmal 5~bit entspricht, liegt nach Ausprobieren spätestens nach dem 25. Versuch der Klartext vor.
 
-\paragraph*{Vigenère cipher}
+\paragraph*{Vigenère cipher}\index{Vigenère cipher}\label{para:Vigenère cipher}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Schlüssel: Wort der Länge $L$
     \item Jeder Buchstabe im Text wird mit der Caesar cipher des entsprechenden Schlüsselwortes verschlüsselt
@@ -339,7 +340,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
-\paragraph*{One-time pad}
+\paragraph*{One-time pad}\index{One-time pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
@@ -362,11 +363,11 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 
 \subsection*{Sie verstehen was eine Hashfunktion ist und welche Eigenschaften eine kryptographische Hashfunktion ausmachen, bzw. was es heisst, wenn eine Hashfunktion gebrochen ist}
 
-\paragraph*{Hashfunktion}Eine Hashfunktion ist eine Abbildung, die eine grosse Eingabemenge (die Schlüssel) auf eine kleinere Zielmenge (die Hashwerte) abbildet. Die Eingabemenge kann Elemente unterschiedlicher Längen enthalten, die Elemente der Zielmenge haben dagegen meist eine feste Länge.
+\paragraph*{Hashfunktion}\index{Hashfunktion}\label{para:Hashfunktion}Eine Hashfunktion ist eine Abbildung, die eine grosse Eingabemenge (die Schlüssel) auf eine kleinere Zielmenge (die Hashwerte) abbildet. Die Eingabemenge kann Elemente unterschiedlicher Längen enthalten, die Elemente der Zielmenge haben dagegen meist eine feste Länge.
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/hash1.png}
-    \caption{einfaches Beispiel einer Hashfunktion}
+    \caption{Einfaches Beispiel einer Hashfunktion}
     \label{hash1}
     \end{center}
 \end{figure}
@@ -384,20 +385,20 @@ Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedli
     \item Schnelligkeit: Das Verfahren zu Berechnung des Hashwertes muss schnell sein.
 \end{itemize}
 
-\paragraph*{Algorithmen für Passwortspeicherung}Um Passwörter zu speichern werden sog. \textbf{Password Based Key Derivation Functions (PBKDF)} verwendet, d.h. \textbf{kryptographische Hashfunktionen} welche zusätzlich resourcen-intensiv (langsam) zu berechnen sind.
+\paragraph*{Algorithmen für Passwortspeicherung}\index{Passwort}\index{Password Based Key Derivation Functions}Um Passwörter zu speichern werden sog. \textbf{Password Based Key Derivation Functions (PBKDF)} verwendet, d.h. \textbf{kryptographische Hashfunktionen} welche zusätzlich resourcen-intensiv (langsam) zu berechnen sind.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item basieren auf einer herkömmlichen Hashfunktion, welche mehrmals verknüpft ausgeführt wird
     \item die Geschwindigkeit wird durch einen Parameter bestimmt, welcher die Anzahl Runden angibt
     \item damit werden Angriffe mittels speziell für die Berechnung von Hashfunktionen optimierte Hard- und Software erschwert
 \end{itemize}
-Beispiele sind PBKDF2 und bcrypt (Blowfish-Algorithmus), welche zusätzlich viel Memory benötigen, oder scrypt (Entwicklung motiviert durch Verwundbarkeit von PBKDF2 und bcrypt durch Brute-Force-Attacken) und Argon2.
+Beispiele sind PBKDF2\index{PBKDF2} und bcrypt\index{bcrypt} (Blowfish-Algorithmus), welche zusätzlich viel Memory benötigen, oder scrypt\index{scrypt} (Entwicklung motiviert durch Verwundbarkeit von PBKDF2 und bcrypt durch Brute-Force-Attacken) und Argon2\index{Argon2}.
 
 \paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
 Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
 Passwort "`Superman” = MD5-Hash: "`527d60cd4715db174ad56cda34ab2dce"'.
 Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern erstellen und es durch den Hashgenerator jagen. Wenn er nun die Datenbank mit den Hashwerten der Plattform stiehlt, kann er die Hashwerte mit seiner Liste vergleichen. Findet er in der geklauten Liste den Hashwert "`527d60cd4715db174ad56cda34ab2dce"', so weiss er, dass dieser Hashwert dem Passwort "`Superman"' zugeordnet ist. Solche Listen nennt man \textbf{rainbow tables}.
 
-\paragraph*{Hashfunktionen}Algorithmen\newline %bleibt
+\paragraph*{Hashfunktionen}\index{Hash-Algorithmen}Algorithmen\newline %bleibt
 \begin{tabular}{|c|c|c|c|}
     \hline
     Name&Block Länge&Output Länge&Bemerkung\\
@@ -450,6 +451,21 @@ Oder noch besser:
     \item Als Hashfunktion wird eine langsame und resourcen-intensive Hashfunktion verwendet, z.B. scrypt.
     \item Ziel: Verlangsamen einer Offline-Attacke auf die Passwort-Hashes.
 \end{itemize}
+
+\subsection*{Kontrollfragen SW 02}
+\paragraph*{Wie hängt die Schlüssellänge eines Verschlüsselungsalgorithmus mit dessen Sicherheit
+zusammen?}\index{Schlüssellänge}Die Schlüssellänge ist ein wichtiger Parameter von symmetrischen oder asymmetrischen Verschlüsselungsverfahren. Sie gibt Auskunft darüber, wie viele unterschiedliche Schlüsselwerte ein Schlüssel bei einem bestimmten Verfahren annehmen kann.\\
+Da oft der einzige Weg einen Schlüssel zu "`knacken"' darin besteht, über eine sogenannte Brut-Force-Attacke alle sich bietenden Möglichkeiten auszuprobieren, bestimmt die Schlüssellänge die hierfür aufzuwendende Rechenleistung und Rechenzeit.\index{Brute-Force}
+
+\paragraph*{Was besagt das Kerckhoff-Prinzip?}{Siehe \underline{\nameref{para:Kerckhoff's Prinzip}}, Seite \pageref{para:Kerckhoff's Prinzip}}
+
+\paragraph*{Was ist berechenmässige Sicherheit?}{Siehe \underline{\nameref{para:Berechenmässige Sicherheit}}, Seite \pageref{para:Berechenmässige Sicherheit}}
+
+\paragraph*{Welche Eigenschaft einer kryptographischen Hashfunkton muss beim "`Bitcoin mining"' gebrochen werden?} Bitcoin verwendet Hashfunktionen auf zwei Weisen:
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Miner müssen Hashes mit SHA256 berechnen, um Blöcke zu finden
+    \item Der öffentliche Schlüssel des Signatur-Algorithmus wird sowohl mit SHA256 als auch RIPEMD-160 gehasht, um die Adresse zu bilden
+\end{enumerate}{Für weitere Infos siehe \underline{\nameref{para:Hashfunktion}}, Seite \pageref{para:Hashfunktion}}
 
 
 \section{Asymmetrische Kryptographie}
@@ -1190,6 +1206,7 @@ bewegen.
 
 \subsection*{Sie kennen Beispiele von Angriffen, welche mittels Machine-Learning auf einer WAF erkannt werden konnten}
 \paragraph*{TODO}
+
 \printindex
 \listoffigures
 %\newpage
