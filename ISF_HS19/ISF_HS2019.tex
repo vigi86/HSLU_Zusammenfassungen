@@ -235,6 +235,22 @@ Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
     \end{center}
 \end{figure}
 
+\paragraph*{Secret Key Verschlüsselung: Algorithmen}Beispiele für symmetrische Verschlüsselung \newline
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Name&Blocklänge&Schlüssellänge&Jahr&Kommentar\\
+    \hline
+    DES&64 Bit&56 Bit&1970&gebrochen\\
+    Triple DES&64 Bit&112 Bit ($3\times56$ Bit)&  &nicht mehr empfohlen\\
+    RC4&stream cipher&8-2040&1987&gebrochen\\
+    IDEA&64 Bit&128 Bit&1990&nicht mehr empfohlen\\
+    RC5&64 oder 128 Bit&4-256 Bit&1994&nicht mehr empfohlen\\
+    Camellia&128 Bit&128, 192 oder 256 Bit&2000& \\
+    Twofish&128 Bit&128, 192 oder 256 Bit&1998& \\
+    AES (Rijndal)&128 Bit&128, 192 oder 256 Bit&2000& \\
+    \hline
+\end{tabular}
+
 \paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.\index{Informationstheoretische Sicherheit}%\footcite{renner2006}
  Beispielsweise ist OTP informationstheoretisch sicher. \newline %bleibt
 Formal:
@@ -424,7 +440,7 @@ Verwendung von Hashfunktionen
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Identifikation einer Datei in peer-to-peer Netzwerken
     \item Fehlererkennung
-    \item Itegritätsprüfung
+    \item Integritätsprüfung
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Symmetric Key Solution: Message Authentication Code (MAC) durch einen `keyed hash'
         \item Asymmetic Key Solution: Digital Signature durch Signatur des Hashwertes
@@ -506,7 +522,7 @@ Beispiel:\newline %bleibt
 
 \subsection*{Sie wissen was eine elektronische Signatur ausmacht}
 
-\paragraph*{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
+\paragraph*{Signatur}\index{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/digisignatur1.png}
@@ -515,9 +531,9 @@ Beispiel:\newline %bleibt
     \end{center}
 \end{figure}
 
-\paragraph*{Beispiel}Max Meier erhält von seinem Kunden den Geschäftsvertrag – digital als PDF, wie es heutzutage üblich ist. Vergleichsweise altmodisch geht es aber nachher weiter: Meier druckt das Dokument aus und unterzeichnet es handschriftlich. Den unterschriebenen Vertrag steckt er schliesslich in einen Umschlag und wirft diesen in den nächstgelegenen Briefkasten. Viele Schritte für eine Unterschrift.\newline
-Was Max Meier nicht weiss. Dokumente lassen sich auch digital unterzeichnen. Jede digitale Signatur basiert auf der sogenannten asymmetrischen Verschlüsselung. Sie wird auch als Public-Key-Verfahren bezeichnet und nutzt einen öffentlichen und einen privaten (geheimen) Schlüssel. Mit dem privaten Schlüssel wird die digitale Signatur erzeugt, während mit dem öffentlichen Schlüssel die Authentizität der Unterschrift überprüft wird.\newline %bleibt
-Eigenschaft einer Signatur:
+\paragraph*{Beispiel}Max Meier erhält von seinem Kunden den Geschäftsvertrag – digital als PDF, wie es heutzutage üblich ist. Vergleichsweise altmodisch geht es aber nachher weiter: Meier druckt das Dokument aus und unterzeichnet es handschriftlich. Den unterschriebenen Vertrag steckt er schliesslich in einen Umschlag und wirft diesen in den nächstgelegenen Briefkasten. Viele Schritte für eine Unterschrift. Was Max Meier nicht weiss: Dokumente lassen sich auch digital unterzeichnen. Jede digitale Signatur basiert auf der sogenannten asymmetrischen Verschlüsselung. Sie wird auch als Public-Key-Verfahren bezeichnet und nutzt einen öffentlichen und einen privaten (geheimen) Schlüssel. Mit dem privaten Schlüssel wird die digitale Signatur erzeugt, während mit dem öffentlichen Schlüssel die Authentizität der Unterschrift überprüft wird.
+
+\paragraph*{Eigenschaft einer Signatur}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Fälschungssicherheit:} Nach dem Unterschreiben kann das Dokument nicht mehr (unerkannt) verändert werden.
     \item \textbf{Authentizität:} Die Unterschrift kann zweifelsfrei (überprüfbar) einer bestimmten Person zugeordnet werden.
@@ -533,11 +549,36 @@ Eigenschaft einer Signatur:
 \end{figure}
 
 
-\subsection*{Sie wissen wie hybride Verschlüsselung bzw hybride Signaturen funktionieren}
+\subsection*{Sie wissen wie hybride Verschlüsselung bzw. hybride Signaturen funktionieren}
+\paragraph*{Hybridverschlüsselung}\index{Hybridverschlüsselung}Eine Hybridverschlüsselung ist eine Kombination von symmetrischer und asymmetrischer Verschlüsselung. Dabei werden die Vorteile beider Verschlüsselungsverfahren genutzt. Symmetrische Verschlüsselung ist deutlich schneller, asymmetrische haben den Vorteil eines deutlich einfacheren Schlüsselaustausches. Der Ablauf ist folgendermassen:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Sender Alice einen zufälligen symmetrischen Schlüssel, einen Session-Key
+    \item Der Session-Key verschlüsselt die Daten/Nachricht symmetrisch
+    \item Der Session-Key wird asymmetrisch mit Bob's Public-Key verschlüsselt
+    \item Die verschlüsselten Sachen werden an Bob gesendet
+    \item Bob entschlüsselt asymmetrisch den Session-Key mit seinem Private-Key
+    \item Der Session-Key entschlüsselt nun die Nachricht symmetrisch
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/hybridverschlüsselung.png}
+    \caption{Hybridverschlüsselung einer Nachricht}
+    \label{hybrid}
+    \end{center}
+\end{figure}
+Man erkennt schnell den Vorteil dieser Methode. Ein symmetrisches Verschlüsselungsverfahren ist sehr effizient auch im Verschlüsseln von grossen Datenmengen
 
-\paragraph*{TODO}
+\subsection*{Kontrollfragen SW 03}
 
-%%%%%%%%%%
+\paragraph*{Vergleichen Sie symmetrische und asymmetrische Verschlüsselung bezüglich Anzahl Schlüssel, Schlüssellänge und Geschwindigkeit der Algorithmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Symmetrisch:} 1 Schlüssel, Schlüsselänge eher kürzer, Geschwindigkeit hoch
+    \item \textbf{Asymmetrisch:} Mehrere Schlüssel (meistens 2), Schlüssellänge sehr sicher (lang), Geschwindigkeit tief
+\end{itemize}
+
+\paragraph*{Warum wird in der Praxis bei der Email-Verschlüsselung ein sog. hybrider Verschlüsselungsalgorithmus angewandt?}\index{Email-Verschlüsselung}\index{Hybrider Verschlüsselungsalgorithmus}Es muss schnell gehen und somit wird auf eine hybride Variante umgestiegen. Dies erhöht die Geschwindigkeit, ohne die Sicherheit zu mindern.
+
+
 \section{Zertifikate und SSL-TLS}
 
 \subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
@@ -609,6 +650,21 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
+
+\section*{Kontrollfragen SW 04}
+\paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
+    \item Ist das Zertifikat und die gesamte Zertifikatskette korrekt signiert?
+    \item Traue ich der Root-CA der Zertifikatskette?
+    \item Besitzt "`Bob"' den zum Zertifikat gehörenden Private Key?
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $VERIFY_{public\,key\,Bob}(response)$
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Eine CA hat Ihnen ein Intermediate-CA-Zertifikat ausgestellt, anstelle des bestellten Serverzertifikats. Erklären Sie, wie Sie nun vorgehen, um sich als Google auszugeben. Angenommen Sie können einen Man-in-the-Middle-Angriff machen. Können Sie nun Ihre eigene Webseite anstelle der Google-Seite anzeigen?}
+\paragraph*{TODO}
 
 
 %%%%%%%%%%
@@ -1163,7 +1219,7 @@ bewegen.
 \part{WAF, Federations (SW~13)}
 \section{Firewalls}
 \subsection*{Sie wissen was die Aufgaben einer Firewall sind}
-\paragraph*{Aufgaben einer Firewall}Filtern der ein- und ausgehenden Kommunikation nach
+\paragraph*{Aufgaben einer Firewall}Filtern der ein- (WAF) und ausgehenden (HTTP Proxy) Kommunikation nach
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Service control:} Z.B. Protokoll, Portnummer, IP-Adresse
     \item \textbf{Direction control:} Wer hat die Verbindung aufgebaut bzw. den Service initiiert?
