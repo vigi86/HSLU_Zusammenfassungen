@@ -1,4 +1,3 @@
-/.gitignore
 *.aux
 *.fdb_latexmk
 *.fls
@@ -12,4 +11,9 @@
 *.ilg
 *.ind
 *.lof
+*.bbl
+*.run.xml
+*.bcf
+*.blg
+*.bib.sav
 workflow/
