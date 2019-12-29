@@ -13,10 +13,9 @@
 %SELECT * FROM table WHERE id = 1;
 %\end{lstlisting}
 %%%
-%\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
-%\usepackage{biblatex}
-%\addbibresource{bibliography.bib}
-%\usepackage{authblk}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+%\usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
 \makeindex
 
 \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
@@ -66,7 +65,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Wissenspyramide.png}
-    \caption{Wissenspyramide (Wikipedia)}
+    \caption{Wissenspyramide\cite{wiki}}
     \label{Wissenspyramide}
     \end{center}
 \end{figure}
@@ -251,14 +250,14 @@ Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
     \hline
 \end{tabular}
 
-\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.\index{Informationstheoretische Sicherheit}%\footcite{renner2006}
+\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext\cite{renner2006}.\index{Informationstheoretische Sicherheit}
  Beispielsweise ist OTP informationstheoretisch sicher. \newline %bleibt
 Formal:
 \begin{math}
     P(M=m) = P(M=m|C=c)
 \end{math} {\color{red}Erklärung der Variablen??}
 
-\paragraph*{Berechenmässige Sicherheit}\index{Berechenmässige Sicherheit}\label{para:Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
+\paragraph*{Berechenmässige Sicherheit}\index{Berechenmässige Sicherheit}\label{para:Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können\cite{renner2006}.
 
 \paragraph*{Kerckhoff's Prinzip}\index{Kerckhoff's Prinzip}\label{para:Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
 
@@ -876,7 +875,7 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \index{Aktive vs. Passive Angriffe}
 \subsubsection*{Aktive vs. passive Angriffe}
 Bei einem \textbf{passiven Angriff} hält sich der Angreifer an das protokoll. Er verändert z.B. die ausgetauschten Nachrichten nicht hört aber die Kommunikation ab.
-Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protokoll. Er verändert z.B. Nachrichten.
+Bei einem \textbf{aktiven Angriff} hält sich der Angreifer nicht an das Protokoll. Er verändert z.B. Nachrichten.
 
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
@@ -982,8 +981,8 @@ Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werd
     \end{center}
 \end{figure}
 
-\paragraph*{Denial of Service: Was kann man dagegen tun?} Jedes system bricht irgendwann zusammen! Es geht darum sicherzustellen, dass dabei keine bleibenden Schäden am
-Kernsystem entstehen und das system nach einem Angriff schnell wieder funktionsfähig zu machen.
+\paragraph*{Denial of Service: Was kann man dagegen tun?} Jedes System bricht irgendwann zusammen! Es geht darum sicherzustellen, dass dabei keine bleibenden Schäden am
+Kernsystem entstehen und das System nach einem Angriff schnell wieder funktionsfähig zu machen.
 
 \subsubsection*{Schutzbeispiele:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -1105,7 +1104,7 @@ bewegen.
 \section{Standards \& Frameworks, ISMS}
 
 \subsection*{Sie wissen, was ein ISMS ist und wie man damit umgeht}
-\paragraph*{ISMS}Ein \textsl{Information Security Management System (ISMS)} (auf Deutsch: Managementsystem für die Informationssicherheit) definiert Regeln, Methoden und Abläufe, um die IT-Sicherheit in einem Unternehmen zu gewährleisten, zu steuern, zu kontrollieren und zu optimieren.
+\paragraph*{ISMS}\index{ISMS}Ein \textsl{Information Security Management System (ISMS)} (auf Deutsch: Managementsystem für die Informationssicherheit) definiert Regeln, Methoden und Abläufe, um die IT-Sicherheit in einem Unternehmen zu gewährleisten, zu steuern, zu kontrollieren und zu optimieren.
 \paragraph*{Zweck}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die (durch die IT verursachte) Risiken sollen identifizierbar und beherrschbar werden.
@@ -1118,9 +1117,8 @@ bewegen.
     \item Davor muss zuerst der Schutzbedarf von Vermögenswerten bestimmt und Schutzmassnahmen eingeführt werden.
 \end{itemize}
 
-
 \subsection*{Sie kennen die wichtigsten Standards der Informationssicherheit}
-\paragraph*{Standards}
+\paragraph*{Standards}\index{ISO Standards 27000}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item ISO 27000: ISMS – Overview and vocabulary (Überblick / Index)
     \item ISO 27001: ISMS – Requirements (Anforderungskatalog)
@@ -1130,13 +1128,71 @@ bewegen.
     \item ISO 27005: Information security risk management (Risiko Bewältigung)
 \end{itemize}
 
+
+%\paragraph*{Überblick der Zusammenhänge}
+%\begin{figure}[H]
+%    \begin{center}
+%    \includegraphics[width=16cm]{images/iso27000.png}
+%    \caption{Zusamenhang der verschiedenen Standards \cite{iso27000}}
+%    \label{iso27000}
+%    \end{center}
+%\end{figure}
+
+\paragraph*{ISO 27000 - Overview and vocabulary}\index{ISO 27000}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Definiert Begriffe, welche in der ISO 27000 Standard-Reihe verwendet werden
+    \item Definiert und erläuternt kurz, was ein Information Security Management System (ISMS) ist
+    \item \textsl{Erklärt} den dazu verwendeten Prozess-Ansatz "`Plan - Do - Check - Act"' (PDCA)\index{PDCA!Plan-Do-Act-Check}
+    \item Gibt einen Überblick über die ISO 27000 Standard-Reihe
+\end{itemize}
+
+\paragraph*{ISO 27001 - Requirements}\index{ISO 27001}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Definiert
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Einführung
+        \item Betrieb
+        \item Überwachung
+        \item Wartung
+        \item Verbesserung
+    \end{itemize}
+    eines dokumentierten ISMS's
+    \item Wurde aus dem britischen Standard BS 7799-2:2002 entwickelt und als ISO-Norm im Jahr 2005 veröffentlicht
+    \item \textsl{Definiert} den Sicherheitsprozess nach dem Prozess-Ansatz PDCA
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Dieses Vorgehensmodell wird in ISO 27001:2013 nicht mehr explizit erwähnt, da es auch andere Ansätze gibt, um einen Sicherheitsprozess zu modellieren
+    \end{itemize}
+    \item Definiert in Anhang A Ziele und Massnahmen zur Verbesserung der Informationssicherheit (die Ziele und Massnahmen sind aus ISO 27002 entlehnt)
+    \item Eine Firma kann sich nach ISO 27001 zertifizieren lassen
+    \item Freiheitsgrade beim Aufbau eines ISMS
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item "`Scope"': Bereich, über den sich das ISMS erstreckt
+        \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+            \item Ganze Firma
+            \item Eine Abteilung
+            \item Ein Standort
+            \item Ein Teil der Infrastruktur: z.B. die DMZ
+            \item etc.
+        \end{itemize}
+        \item Kontrollziele und Steuerungen (\flqq Controls\frqq{} aus ISO 27002), welche vom ISMS berücksichtigt werden ("`Statement of Applicability"', SOA\index{SOA!Statement of Applicability})
+    \end{itemize}
+    \item "`Scope"' und "`SOA"' definieren dem Umfang einer Zertifizierung nach ISO 27001
+\end{itemize}
+%\begin{figure}[H]
+%    \begin{center}
+%    \includegraphics[width=8cm]{images/iso27001.png}
+%    \caption{Prozess nach ISO 27001\cite{iso27001}}
+%    \label{iso27001}
+%    \end{center}
+%\end{figure}
+
 \subsection*{Sie finden sich in den Standards ISO 27001 und 27002 zurecht}
 \paragraph*{TODO}
 
-\subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}
+\subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}\index{BSI Standard}
 \paragraph*{TODO}
 
-\subsection*{Sie kennen die Struktur und Grundziele des NIST CyberSecurityFrameworks}
+\subsection*{Sie kennen die Struktur und Grundziele des NIST Cybersecurity Frameworks}\index{NIST Cybersecurity Framework}
 \paragraph*{TODO}
 
 
@@ -1265,9 +1321,8 @@ bewegen.
 
 \printindex
 \listoffigures
-%\newpage
-%\printbibheading
+\newpage
 %\printbibliography[type=book,heading=subbibliography,title={Bücher}]
 %\printbibliography[notype=book,heading=subbibliography,title={Andere Quellen}]
-%\printbibliography
+\printbibliography[title={Quellen}]
 \end{document}
