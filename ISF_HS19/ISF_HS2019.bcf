@@ -2185,6 +2185,13 @@
     <bcf:citekey order="1">wiki</bcf:citekey>
     <bcf:citekey order="2">renner2006</bcf:citekey>
     <bcf:citekey order="3">renner2006</bcf:citekey>
+    <bcf:citekey order="4">wiki</bcf:citekey>
+    <bcf:citekey order="5">iso27000</bcf:citekey>
+    <bcf:citekey order="6">iso27001</bcf:citekey>
+    <bcf:citekey order="7">advisera</bcf:citekey>
+    <bcf:citekey order="8">heise</bcf:citekey>
+    <bcf:citekey order="9">münch2009</bcf:citekey>
+    <bcf:citekey order="10">guardian</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
