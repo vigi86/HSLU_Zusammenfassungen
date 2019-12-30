@@ -22,7 +22,7 @@
 \subsectionfont{\color{dunkelblau}}
 
 \title{ISF HS 2019}
-\author{Victor Fernández\\Pavaskar Parameswaran}
+\author{Victor Fernández\\Pavaskar Parameswaran\\Kevin Soares Correia}
 \date{Dezember 2019}
 
 
@@ -1404,6 +1404,1215 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 
 
 \section{Risiko-Management und IT-Grundschutz}
+
+\subsubsection*{Definitionen des Begriffs 'Risiko'}
+\index{Risikodefinition}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Quelle Duden:} \\ Möglicher negativer Ausgang bei einer Unternehmung, mit
+    dem Nachteile, Verlust, Schäden verbunden sind; mit einem
+    Vorhaben, Unternehmen o. Ä. verbundenes Wagnis.
+    \item \textbf{Quelle ISO 27000:2009} \\ Kombination aus der Wahrscheinlichkeit eines Ereignisses und
+    dessen Auswirkungen.
+    \item \textbf{Quelle: Hans-Peter Königs, IT-RisikoManagement mit System} \\Risiko ist eine Bedrohung, deren Wirkung auf Ziele (SystemZiele) mit Wahrscheinlichkeit (Häufigkeit) und Konsequenz
+    bewertet wird. Das Risiko betrachtet dabei die negative,
+    unerwünschte und ungeplante Abweichung und deren Folgen
+    von System-Zielen
+\end{itemize}
+\paragraph*{}Hinweis: Dem Risiko kann auch eine positive Abweichung, d.h. eine Chance, gegenüberstehen.
+
+\subsubsection*{Risikomanagement-Stile}
+\index{Risikomanagement - Stile}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=11cm]{images/KPMG_Risikomanagementstile.png}
+    \caption{}
+    \label{}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Unternehmensrisiken}
+\index{Risiken Aufzählung}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=13cm]{images/KPMG_Risiken.png}
+    \caption{Risiken laut KMPG}
+    \label{KPMG Unternehmensrisiken}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Risiken im Bereich ICT}
+
+\paragraph*{Organisatorische Risiken:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Nicht autorisierte Zugriffe auf Informationen und
+    Applikationen
+    \item Nicht prozessbezogener Einsatz von Applikationen
+    \item Fehlende Fachkompetenz von Mitarbeitenden
+    \item Mangelhafte Testverfahren
+    \item Datendiebstahl
+\end{itemize}
+
+\paragraph*{Anwendungs- und prozessbezogene Risiken:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Veraltete und nicht integrierte Softwarelösungen
+    (Insellösungen)
+    \item Fehlende strategische Neuorientierung
+\end{itemize}
+
+\paragraph*{Infrastrukturelle Risiken:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item IT-Infrastruktur kann den Ansprüchen (z. B.
+    Leistungsfähigkeit) nicht gerecht werden
+    \item Mangelhaftes Backupkonzept
+    \item Fehlender Notfallplan
+    \item Fehlender Wiederanlaufsplan (Business Continuity
+    Management)
+    \item Bauliche oder technische Standards werden nicht erfüllt
+    (Schutz vor Zutritt, Feuer und Energieausfall)
+    \item Mangelhafte Dokumentation der Systeme
+\end{itemize}
+
+\paragraph*{Kostenbezogene Risiken:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Fehlende Kostentransparenz
+    \item Mangelhafte Projektdefinition und -organisation mit
+    daraus resultierenden Kostenüberschreitungen
+\end{itemize}
+
+\paragraph*{Projektbezogene Risiken:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Run-away-Projekte (Zeit, Kosten und Termine laufen aus
+    dem Ruder)
+    \item Unprofessionelles Projekt-Management
+\end{itemize}
+
+
+\paragraph*{Begriff: Operationelle Risiken} Sämtliche betrieblichen Risiken, welche in einer Unternehmung Schäden verursachen können.
+Grosse Bedeutung haben operationelle Risiken im Bankwesen.
+\index{Operationelle Risiken}
+
+
+\subsubsection*{Bestimmung / Messung von Risiken}
+
+Zugrunde liegende Grössen:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Eintretenshäufigkeit}
+    \item \textbf{Schadensausmass}
+\end{itemize}
+
+\index{Risiko Berechnung}
+\paragraph*{Risiko = Eintretenshäufigkeit * Schadensausmass}
+
+\subsubsection*{Quantitative vs. qualitative Risiko-Analyse}
+\index{quantitative vs. qualitative Risikoanalyse}
+\paragraph*{Quantitative Risikoanalyse:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die an der Risikoanalyse beteiligten Grössen sollen numerisch exakt berechnet werden.
+    \item Der monetäre Wert von Assets muss genau bekann sein.
+    \item Die Eintrittshäufigkeit muss genau eingeschätzt werden (für Naturkatastrophen gibt es Tabellen, für andere Szenarien ist eine solche Schätzung oft sehr schwierig)
+\end{itemize}
+
+\paragraph*{Qualitative Risikoanalyse:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die an der Risikoanalyse beteiligten Grössen werden anhand einer mehrstufigen Skala nur eingeschätzt, z.B. Schadensausmass '4' auf einer 5-stufigen Skala.
+\end{itemize}
+
+\subsubsection*{Vorgehen bei der Risiko-Analyse}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Risikoanalyse_Vorgehen.png}
+    \caption{Vorgehen bei der Risiko-Analyse}
+    \label{Risiko-Analyse Vorgehen}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16}
+\index{Risiken nach ISO 27005}
+\paragraph*{Phisical damage:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Fire
+    \item Water damage
+    \item Pollution
+    \item Major accident
+    \item Destruction of equipment or media
+    \item Dust, corrosion, freezing
+\end{itemize}
+
+\paragraph*{Natural events:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Climatic phenomenon
+    \item Seismic phenomenon
+    \item Volcanic phenomenon
+    \item Meteorological phenomenon
+    \item Flood
+\end{itemize}
+
+\paragraph*{Loss of essential services}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Failure of air-conditioning or water
+    supply system
+    \item Loss of power supply
+    \item Failure of telecommunication equipment
+\end{itemize}
+
+\paragraph*{Disturbance due to radiation}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Electromagnetic radiation
+    \item Thermal radiation
+    \item Electromagnetic pulses
+\end{itemize}
+
+\paragraph*{Compromise of information:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Interception of compromising
+    interference signals
+    \item Remote spying
+    \item Eavesdropping
+    \item Theft of media or documents
+    \item Theft of equipment
+    \item Retrieval of recycled or discarded media
+    \item Disclosure
+    \item Data from untrustworthy sources
+    \item Tampering with hardware
+    \item Tampering with software
+    \item Position detection
+\end{itemize}
+
+\paragraph*{Technical failures:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Equipment failure
+    \item Equipment malfunction
+    \item Saturation of the information system
+    \item Software malfunction
+    \item Breach of info system maintainability
+\end{itemize}
+
+\paragraph*{Unauthorised actions:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Unauthorised use of equipment
+    \item Fraudulent copying of software
+    \item Use of counterfeit or copied software
+    \item Corruption of data
+    \item Illegal processing of data
+\end{itemize}
+
+\paragraph*{Compromise of functions:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Error in use
+    \item Abuse of rights
+    \item Forging of rights
+    \item Denial of actions
+    \item Breach of personnel availability
+\end{itemize}
+
+\paragraph*{Human Threats:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Hacking
+    \item Social engineering
+    \item System intrusion, break-ins
+    \item Unauthorized system access
+    \item Computer crime (e.g. cyber stalking)
+    \item Fraudulent act (e.g. replay,
+    impersonation, interception)
+    \item Information bribery
+    \item Spoofing
+    \item Bomb / Terrorism
+    \item Information warfare
+    \item System attack (e.g. distributed denial of
+    service)
+    \item System penetration
+    \item System tampering
+    \item Defence advantage
+    \item Poltical advantage
+    \item Economic exploitation
+    \item Information theft
+    \item Intrusion on personal privacy
+    \item Assault on an employee
+    \item Blackmail
+    \item Browsing of proprietary information
+    \item Computer abuse
+    \item Fraud and Theft
+    \item Input of falsified, corrupted data
+    \item Interception
+    \item Malicious code (e.g. virus, logic bomb,
+    Trojan horse)
+    \item Sale of personal information
+    \item System bugs
+    \item System sabotage
+\end{itemize}
+
+
+
+\subsubsection*{Qualitative Risikoanalyse: Definition Schadensausmass} Es wird empfohlen, eine 3 bis 5-stufige Skale zu definieren, z.B.: \\
+\index{Schadensaussmass}
+\textbf{Schadensausmass:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Vernachlässigbar - Vernachlässigbare Auswirkungen}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Dienstleistung nicht wesentlich gestört
+        \item Sachschäden im Bereich von CHF 100.- bis 5000.- *
+        \item keine Verletzten
+        \item kein Imageverlust        
+    \end{itemize}
+    \item \textbf{Marginal - Geringe Auswirkungen}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Die Einhaltung gesetzlicher und vertraglicher Pflichten ist nicht gefährdet
+        \item Die Dienstleistung sind nur geringfügig beinträchtigt.
+        \item Sachschäden im  Bereich von CHF 5000.- bis 50 000.- *
+        \item keine Verletzten
+        \item kein Imageverlust
+    \end{itemize}
+    \item \textbf{Kritisch - Grosse Auswirkungen}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Die Einhaltung gesetzlicher und vertraglicher Pflichten ist gefährdet oder die Dienstleistungen sind beeinträchtigt.
+        \item Sachschäden im Bereich von CHF 50 000.- bis  500 000.- *
+        \item Keine Verletzten
+        \item Imageverlust ist klein und von kurzer Dauer
+    \end{itemize}
+    \item \textbf{Katastrophal - Sehr grosse Auswirkungen}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Die Einhaltung gesetzlicher und vertraglicher Pflichten sind starkk gefährdet oder die Diesntleistungen werden verunmöglicht.
+        \item Sachschäden im Bereich \textgreater CHF 500 000.- *
+        \item einige Schwerverletzte
+        \item grosser Imageschaden (Presse)
+    \end{itemize}
+\end{itemize}
+
+(*) Die Stufen und insbesondere die Werte der Sachschäden haben in dieser Tabelle beispielhaften Charakter und können je nach Grösse des Unternehmens variieren.
+
+
+\subsubsection*{Definition Eintrittshäufigkeit nach Sicherheitshandbuch}
+\index{Eintrittshäufigkeit}
+Es wird empfohlen, eine 3 bis 5-stufige Skala zu definieren
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Sehr selten}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Möglich aber eher unwahrscheinlich \\z.B. 1-mal in 10 Jahren
+    \end{itemize}
+    \item \textbf{Selten}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Tritt selten ein, aber kann vorkommen\\z.B. alle 5 Jahre
+    \end{itemize}
+    \item \textbf{Oft}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Tritt gelegentlich ein\\z.B. jährlich
+    \end{itemize}
+    \item \textbf{Sehr oft}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Kommt öfters vor\\z.B. monatlich
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Qualitative Risikoanalyse: Risikomatrix}
+\index{Risikomatrix}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=11cm]{images/Risikomatrix.png}
+    \caption{Risikomatrix}
+    \label{Risikomatrix}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Risiko-Portfolio, Risiko-Landkarte (Risk-Map)}
+\index{Risk-Map}
+\index{Risiko-Portfolio}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Eine Menge von risiken, welche im Rahmen einer Risikoanalyse identifiziert worden ist, wird als \textbf{Risiko-Portfolio} bezeichnet.
+    \item Risiko-Portfolios werden oft einzelnen Geschäftsfeldern zugeordnet (jedes Geschäftsfeld hat sein Portfolio)
+    \item Werden die Einzelrisiken des Portfolios in einer Risikomatrix eingezeichnet, so spricht man von einer \textbf{Risiko-Landkarte (Risk-Map)}
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Risikobewältigung.png}
+    \caption{Risk-Map}
+    \label{Risk-Map}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Risikobewältigung2.png}
+    \caption{Risk-Map2}
+    \label{Risk-Map2}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Umgang mit Risiken / Risikobewältigung}
+\index{Risikobewältigung}
+\index{Restrisiken}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Risiken vermeiden:}\\Anpassen oder aufgeben von Geschäftsprozessen, sodass die Risiken nicht mehr vorhanden sind.
+    \item \textbf{Risiken vermindern:}\\Mit geeigneten Sicherheitsmassnahmen das Schadensausmass oder die Eintrittshäufigkeit reduzieren.
+    \item \textbf{Risiken übertragen (transferieren):}\\Überwälzung finanzieller Schäden auf Versicherungen, Outsourcer doer Benutzer einers Service.
+    \item \textbf{Risiken tragen:}\\Akzeptieren von Risiken (Restrisiken)
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=13cm]{images/Risikobewältigung3.png}
+    \caption{Umgang mit Risiken}
+    \label{Umgang mit Risiken}
+    \end{center}
+\end{figure}
+\noindent
+Der Entscheid, wie mit Risiken umgegangen werden soll, muss dokumentiert und von der Geschäftsleitung genehmigt werden.\\Das Gleiche gilt insbesondere auch für die verbleibenden Restrisiken.
+\index{Risiko-Katalog}
+\index{Risk Register}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=10cm]{images/Risiko-Katalog.png}
+    \caption{}
+    \label{}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Auswahl von Massnahmen zur Risikoreduktion}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Welche Massnahmen haben die grösste Wirkung
+    (Reduktion mehrerer Risiken)?
+    \item Welche Massnahmen benötigen wenig Ressourcen?
+    \item Welche Massnahmen können kurzfristig realisiert
+    werden?
+    \item Welche Massnahmen stossen auf breite Akzeptanz?
+\end{itemize}
+\noindent
+Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
+
+\subsubsection*{Risiko-Management-Prozess}
+\index{Risiko-Management-Prozess}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/Risiko_Management_Prozess.png}
+    \caption{}
+    \label{Risiko Management Prozess}
+    \end{center}
+\end{figure}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Context Establishment:}\\Gegenstand, Zweck, Absichten,
+    Ziele, Fokus und relevante Einflüsse, Randbedingungen und
+    Abgrenzungen aus externer und interner Sicht festlegen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item wichtige Ziele der Geschäfts- und Support-Prozesse
+        \item „Risiko- und Sicherheitspolitik“ für wichtigste Kontext-Elemente
+        \item für wen stehen Risiken zur Behandlung an und für wen/was wird das Risiko-Management durchgeführt (z.B. Anspruchsgruppen)?
+        \item Gesetzliche, regulatorische und vertragliche Anforderungen
+        \item Für das Risikomanagement massgebliche Führungs-Aspekte, organisatorische Festlegungen und Verantwortlichkeiten sowie Berichtserstattungs- und Eskalations-Wege
+        \item Anzuwendender Risiko-Management-Ansatz
+        \item Schnittstellen zum Corporate Risikomanagement (z.B. Op-Risk)
+        \item Risiko-Arten und System-Ziele (z.B. Prozessrisiken, Verfügbarkeits- und Integritätsanforderungen)
+        \item Impact Kriterien (Schadensmetrik)
+        \item Bewertungskriterien und –massstäbe (z.B. Risiko-Matrix, Dringlichkeitsstufe)
+        \item Akzeptanzkriterien (z.B. Akzeptanzlinie)
+        \item Dokumentationsvorgaben
+    \end{itemize}
+    \item \textbf{Risk Identification:}\\Objekte, Bedrohungen,
+    Schwachstellen und bereits existierende Massnahmen
+    erfassen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Erfassung der Assets (Risiko-Objekte)
+        \item vollständigen Erfassung der Gefahrenquellen und der Aufsuchen bereits existierender Massnahmen
+        \item Identifikation der vorhandenen Vulnerabilities (Schwachstellen)
+        \item Relevante Kausalketten (Ursachen/Wirkungen und Konsequenzen) zusammenstellen
+    \end{itemize}
+    \item \textbf{Risk Estimation:}\\Häufigkeit und Schadensausmass
+    einschätzen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \textbf{Teil-Analysen:} 
+        \item Impact-Analyse (Analyse der potentiellen Schäden)
+        \item Bedrohungs-Analyse (Analyse der relevanten Bedrohungen)
+        \item Schwächen-Analyse (Analyse der relevanten Schwachstellen)
+        \item Beliebige Kombination der Analysen 1 bis 3
+        \item Qualitative oder quantitative Risiko-Analyse
+        \item Semi-quantitative Analyse
+    \end{itemize}
+    \item \textbf{Risk Evaluation:}\\Bewertung der identifizierten Risiken im
+    definierten Kontext (Bsp. zeitl. Prioritäten für die
+    Umsetzung von Massnahmen; Reduktion Häufigkeit oder
+    Schadensausmass?; Abwägung Risiken/Chancen etc.)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Bewertung im Kontext des Untersuchungs- und Behandlungs-Gegenstands (Vergleich mit den im Kontext definierten Kriterien, z.B. Risiko-Toleranz)
+        \item Reduktion Häufigkeit oder Schadensausmass?
+        \item Für Massnahmen relevante zusätzliche Anforderungen, z.B. vertragliche, gesetzliche, regulatorische Anforderungen, Standards, Qualitäts- und Leistungsanforderungen, Zeit- und Kostenbeschränkungen
+        \item Risiken / Chancen abwägen hinsichtlich Optimum
+        \item Risiko-Wahrnehmung der Umgebung und des Managements einbeziehen
+        \item Risiken mit Attributen versehen: z.B. „wichtig“, „dringlich“ oder „beobachten“
+        \item Entscheid über allenfalls notwendige Nachbesserung der Assessment-Ergebnisse
+    \end{itemize}
+    \item \textbf{Risk Treatment:}\\Definition, Konzeption, Planung und
+    Umsetzung von Massnahmen aufgrund der bei der
+    Risk Evaluation definierten Anforderungen (Varianten:
+    vermeiden, vermindern, transferieren, tragen)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Berücksichtigung Anforderungen an Massnahmen
+        \item Auswahl von Massnahmen mit Hilfe von ISO/IEC 27002
+        \item Machbarkeit der Massnahmen
+        \item Bewältigungs-Optionen-Wahl:
+        \item Risiken vermeiden, z.B. durch Aufgabe risikoreicher Aktivitäten
+        \item Risiken reduzieren, durch Reduktion entweder der Eintritts-Wahrscheinlichkeit oder des Schadensausmasses
+        \item Risiken transferieren, z.B. Überwälzung finanzieller Schäden auf Versicherungen
+        \item Risiken bewusst eingehen und tragen,  z.B. Tragen des Restrisikos, welches im Rahmen der betrieblichen Reserven und eines allfälligen Goodwill-Verlusts verkraftbar ist
+        \item Abwägen Risiken mit Massnahmenkosten
+        \item Kosten-/Nutzen-Untersuchungen
+        \item Umsetzungsplan
+    \end{itemize}
+    \item \textbf{Risk Acceptance:}\\Formaler Akzept des Risk
+    Treatment Plans sowie der Restrisiko-Einschätzung
+    durch das zuständige Management
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Bewältigungsplan (mit Verantwortlichkeiten und Terminen) sowie Restrisiko-Einschätzung müssen durch das zuständige Management formal akzeptiert sein
+        \item Restrisiken, die nach der Bewältigung die Akzeptanz-Kriterien nicht erfüllen, müssen schriftlich begründet und durch das zuständige Management schriftlich zur Kenntnis genommen und akzeptiert werden.
+        \item Massnahmen-Überwachung, -Überprüfung Erneute Risiko-Einschätzung und –Bewertung aufgrund veränderter Situation
+        \item Wiederholung im Rahmen eines jährlichen Risikoberichts (z.B. synchron zum rollierenden Strategieprozess)
+    \end{itemize}
+    \item \textbf{Risk Communication:}\\Information der direkt
+    Beteiligten und der Betroffenen in jedem Teilprozess
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Kommunikation mit Beteiligten und Betroffenen (z.B. Anspruchsgruppen)
+        \item angemessene Kommunikation unter Fachpersonen, Experten, Entscheidungsträgern und Anspruchsgruppen
+        \item Berücksichtigung der Risiko-Wahrnehmung
+        \item Stärkung des Risiko-Bewusstseins
+        \item Einsatz „stark strukturierter“ Kommunikationsformen
+        \item Kommunikations-Konzept für Risiko-Kommunikation im Normalbetrieb, für risikorelevante Ereignisse und in Notfallsituationen
+    \end{itemize}
+    \item \textbf{Risk Monitoring and Review:}\\Prozess und RisikoSituation bezüglich allfälliger Veränderungen
+    überwachen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Prozess und Risiko-Situation überwachen (z.B. Überwachung Änderungs-Prozesse, Entwicklungsprozesse und Betriebsprozesse)
+        \item Überwachung mit Risiko-Indikatoren und mit Frühwarnsystem
+        \item Registrierung von Veränderungen von Kontext und Risikosituation sowie Verbesserungs-Empfehlungen hinsichtlich Risikomanagement sowie aktueller und zukünftiger Risikosituation aufzeigen
+        \item Überprüfung durch unabhängige Auditoren
+        \item Verifikation anhand Reifegradmodell
+        \item Risiko-Berichte
+        \item Unabhängigkeit der Berichterstattung
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Kriterien für die Prozesswiederholung:} 
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Externer Trigger:}\\Sich ändernde
+    Umgebungsbedingungen; inakzeptable Restrisiken
+    aufgrund ungenügend realisierter Massnahmen; neue
+    regulatorische Anforderungen
+    \item \textbf{Periodische Durchführung:}\\Synchron mit anderen
+    Management-Prozessen (z. B. Strategieprozess)
+\end{itemize}
+
+\subsubsection*{Verfahren für den Umgang mit Risiken}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf.png}
+    \caption{Schutzbedarf}
+    \label{Schutzbedarf}
+    \end{center}
+\end{figure}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Grundschutz (z.B. gemäss BSI)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Stadardisierte Massnahmen
+        \item Generelle Risikobetrachtung
+    \end{itemize}
+    \item Risikoanalyse
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Spezifische Massnahmen
+        \item Detaillierte Risikobetrachtung
+    \end{itemize}
+    \item Kombinierter Ansatz (zweistufiges Vorgehen, z.B. gemäss BSI)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Grundschutz bei Schutzbedarf klein und mittel
+        \item Risikoanalyse bei schutzbedarf hoch und sehr hoch
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Kombinierter Ansatz: Grundschutz und Risikoanalyse}
+\index{Kombinierter Ansatz}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Kombinierter_Ansatz.png}
+    \caption{Kombinierter Ansatz}
+    \label{Kombinierter Ansatz}
+    \end{center}
+\end{figure}
+
+\subsubsection*{BSI-Standard 200-3: Risikoanalyse auf Basis von IT-Grundschutz}
+\index{BSI 200-3}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/BSI200-3.png}
+    \caption{BSI-Standard 200-3}
+    \label{BSI-Standard 200-3}
+    \end{center}
+\end{figure}
+
+\subsubsection*{IT-Grundschutz-kataloge}
+\index{Grundschutz - IT Grunschutz}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/IT-Grundschutz-Kataloge.png}
+    \caption{IT-Grundschutz-Kataloge}
+    \label{IT-Grundschutz-Kataloge}
+    \end{center}
+\end{figure}
+
+\paragraph*{Bemerkungen zu den IT-Grundschutz-Katalogen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Beschreibung der Gefährdungen dient lediglich
+    der Sensibilisierung und der Begründung von
+    Massnahmen und hat im Grundschutz-Vorgehen keine
+    weitere Funktion!
+    \item Das BSI macht keine Unterscheidung zwischen
+    Gefahren und Schwachstellen!
+    \item Die Inhalte haben Empfehlungscharakter und sind
+    keine 'Gesetze'!
+    \item Es gibt keine Garantie auf Vollständigkeit!
+    \item IT-Grundschutz-Massnahmen müssen gegebenenfalls
+    individuell angepasst und angewendet werden!
+\end{itemize}
+
+\paragraph*{IT-Grundschutz Wirkungsprinzip} Gilt generell, unabhängig vom angwendeten Standard, also nicht nur für den BSI IT-Grundschutz!
+\index{IT-Grundschutz}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Grundschutz_Wirkprinzip.png}
+    \caption{IT-Grundschutz Wirkprinzip}
+    \label{IT-Grundschutz Wirkprinzip}
+    \end{center}
+\end{figure}
+
+\paragraph*{Grundregeln beim Vorgehen nach IT-Gruzndschutz}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Initiative für IT-Sicherheit geht vom Management
+    aus
+    \item Die Verantwortung für IT-Sicherheit liegt beim
+    Management
+    \item Nur wenn sich das Management um
+    Informationssicherheit bemüht, wird die Aufgabe auch
+    wahrgenommen
+\end{itemize}
+
+\paragraph*{Erstellung eines IT-Sicherheitskonzepts} Der blau hinterlegte Bereich beschreibt diejenigen Schritte, welche notwendig sind, um einen IT-Grundschutz zu etablieren. Als Resultat des erstellten IT-Grundschutzes liegt ein Sicherheitskonzept vor.
+\index{IT-Sicherheitskonzept}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/IT_Sicherheitskonzept.png}
+    \caption{IT Sicherheitskonzept}
+    \label{IT Sicherheitskonzept}
+    \end{center}
+\end{figure}
+
+\paragraph*{IT-Grundschutz - Pro Argumente}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Standardbasierend
+    \item Vollständigkeit der Massnahmenpakete
+    \item Keine detaillierte Risikoanalyse notwendig
+    \item Gleichmässiger, umfassender Schutz auf
+    allen Objekten
+    \item Einfach und schnell anwendbar
+    \item Definierte Basis für weitergehende
+    Schutzmassnahmen (ergänzende
+    Sicherheitsanalyse)
+\end{itemize}
+
+\paragraph*{Achtung beim IT-Grundschutz!!}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ungenügender Schutz bei erhöhten Risiken
+    oder besonderem Schutzbedarf
+    \item Mögliche Einschränkung der Funktionalität
+    durch Überschutz
+    \item Begründung von Massnahmen schwierig
+    \item Je nach Detaillierungsgrad, Anspruch an
+    Aktualität und Vollständigkeit des
+    Massnahmenkataloges aufwändig
+    \item Vorteile des Grundschutzvorgehens nicht
+    durch administrativen 'Overkill' zunichte
+    machen
+\end{itemize}
+
+\subsubsection*{Kreuzreferenztabellen}
+\index{Kreuzreferenztabellen}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Kreuzreferenztabellen.png}
+    \caption{Kreuzreferenztabellen}
+    \label{Kreuzreferenztabellen}
+    \end{center}
+\end{figure}
+
+\paragraph*{Kreuzreferenztabellen:}Tabellen, welche angeben, welchen Gefährdungen mit welchen Massnahmen begegnet werden kann (bezogen auf einen bestimmten Baustein)
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Massnahmen werden priorisiert (sog. Siegelstufe)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \textbf{A:} Essenzielle massnahme, vorrangig umzusetzen
+        \item \textbf{B:} Besonders wichtige massnahme, zügig umsetzen
+        \item \textbf{C:} Wichtige Massnahme, verzögerte Umsetzung zulässig
+        \item \textbf{Z:} Ergänzende Massnahme, Umsetzung nicht zwingend notwendig
+    \end{itemize}
+    \item Wichtig:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Anzahl 'X' ist kein Mass für die Wichtigkeit einer Massnahme
+        \item Nur die wichtigsten Gefährdungen sind aufgeführt
+    \end{itemize}
+\end{itemize}
+
+
+%wenn möglich neue Seite
+\subsubsection*{IT-Strukturanalyse}
+\index{Strukturanalyse}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=6cm]{images/Strukturanalyse.png}
+    \caption{IT-Strukturanalyse}
+    \label{IT-Strukturanalyse}
+    \end{center}
+\end{figure}
+
+\paragraph*{IT-Strukturanalyse - Erhebung Netzwerkplan}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Netzwerkplan |\textsl{aktualisieren}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Netzwerkpläne sind meist nicht auf dem
+        aktuellsten Stand
+        \item Entsprechende Informationen beschaffen bei
+        IT-Verantwortlichen, Administratoren resp.
+        Netz- und Systemmanagement
+    \end{itemize}
+    \item Netwerkplan \textsl{auserten}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item  Welche IT-Systeme gibt es? (Clients, Server,
+        Netzwerk-Komponenten etc.)
+        \item Welche Verbindungen zw. diesen Systemen?
+        \item Welche Verbindungen nach aussen (Einwahl,
+        Internet, VPN etc.)
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{IT-Strukturanalyse - Komplexitätsreduktion}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Gleichartige Komponenten zu Gruppen
+    zusammenfassen
+    \item Mögliche Gruppierungskriterien
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Systeme von gleichem Typ
+        \item Systeme mit gleicher oder nahezu gleicher Konfiguration
+        \item Systeme mit gleicher oder nahezu gleicher
+        Netzwerkanbindung
+        \item Systeme mit gleichen administrativen und
+        infrastrukturellen Rahmenbedingungen
+        \item Systeme, welche für gleiche Aufgaben genutzt werden
+        \item Systeme, welche den gleichen Schutzbedarf aufweisen
+    \end{itemize}
+    \item Die bei der Komplexitätsreduktion entstandenen
+    Gruppen werden fortan wie einzelne Objekte
+    behandelt
+    \item Wichtig: Keine Komponenten mit zu
+    unterschiedlichem Schutzbedarf zusammen fassen,
+    Beispiele:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Clients der Geschäftsleitung nicht in Gruppe der
+        'normalen' Clients integrieren
+        \item Dito für Clients von Entwicklungsabteilung,
+        Personalabteilung, Buchhaltung und IT-Administration
+        \item Sie alle haben einen erhöhten Schutzbedarf
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{}Beispiel für das Resultat einer Komplexitätsreduktion (Gruppen gleichartiger Komponenten)
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Komplexitätsreduktion.png}
+    \caption{Komplexitätsreduktion}
+    \label{Komplexitätsreduktion}
+    \end{center}
+\end{figure}
+
+\paragraph*{IT-Strukturanalyse –Erhebung IT-Systeme}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Erhebung IT-Systeme.png}
+    \caption{Erhebung IT-Systeme}
+    \label{Erhebung IT-Systeme}
+    \end{center}
+\end{figure}
+
+\paragraph*{IT-Strukturanalyse - Zuordnung von Systemen und Anwendungen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Der Schutzbedarf eines IT-Systems hängt vom
+    Schutzbedarf der Anwendungen ab, welche es
+    unterstützt
+    \item IT-Systeme (Server, Clients) und Anwendungen
+    werden einander deshalb zugeordnet
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Zuordnung_Sys_App.png}
+    \caption{Zuordnung in Gruppen}
+    \label{Zuordnung in Gruppen}
+    \end{center}
+\end{figure}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Für den Schutzbedarf eines Systems ist diejenige
+    Anwendung mit den höchsten
+    Sicherheitsanforderungen (bezüglich Vertraulichkeit,
+    Integrität und Verfügbarkeit) relevant
+    \item Es gilt das sog. Maximumprinzip (vgl. zugehörige
+    Folien)
+\end{itemize}
+
+\subsubsection*{Schutzbedarfsfeststellung}
+\index{Schutzbedarsfestellung}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarfsfeststellung.png}
+    \caption{Schutzbedarfsfeststellung}
+    \label{Schutzbedarfsfeststellung}
+    \end{center}
+\end{figure}
+
+\paragraph*{Schutzbedarfsfeststellung - Ziel}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Bestimmung des Schutzbedarfs des
+    betrachteten Informationsverbunds
+    \item Zu beantwortende Fragen:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Wie viel Schutz benötigen die identifizierten
+        Objekte?
+        \item Wie kommt man zu einer begründeten und
+        nachvollziehbaren Einschätzung des
+        Schutzbedarfs?
+        \item Welche Objekte haben einen erhöhten
+        Schutzbedarf?
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Schutzbedarfsfeststellung –Vorgehen}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Definition der Schutzbedarfskategorien
+    entsprechend der Besonderheiten der
+    Organisation (sog. Individualisierung)
+    \item Schutzbedarfsfeststellung
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item von IT-Anwendungen und Daten
+        \item davon abgeleitet von IT-Systemen
+        \item davon abgeleitet von
+        Kommunikationsverbindungen und
+        IT-Räumen
+    \end{itemize}
+    \item Dokumentation und Interpretation der Ergebnisse
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5cm]{images/Schutzbedarf_vorgehen.png}
+    \caption{}
+    \label{}
+    \end{center}
+\end{figure}
+
+\paragraph*{Schutzbedarfsfeststellung – Schutzbedarfskategorien} Die IT-Grundschutz-Vorgehensweise empfiehlt drei Schutzbedarfskategorien anhand der maximalen
+Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und der Verfügbarkeit:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Normal / Niedrig bis mittel}\\Begrenzte und überschaubare Schäden
+    \item \textbf{Hoch}\\Beträchtliche Schäden möglich
+    \item \textbf{Sehr hoch}\\Existentiell bedrohliche, katastrophale Schäden
+    möglich
+\end{itemize}
+
+\paragraph*{Schutzbedarfsfeststellung – Individualisierung der Kategorien}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Definition der Auswirkungen von
+    Schadensereignissen einer bestimmten Kategorie
+    muss die individuellen Eigenschaften resp.
+    Besonderheiten der Organisation berücksichtigen
+    \item Folgende typischen Schadszenarien können der
+    Definition zu Grunde gelegt werden
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Verstoss gegen Gesetze/Vorschriften/Verträge
+        \item Beeinträchtigung des informationellen
+        Selbstbestimmungsrechts
+        \item Beeinträchtigung der persönlichen Unversehrtheit
+        \item Beeinträchtigung der Aufgabenerfüllung
+        \item Negative Aussenwirkung (Imageschäden)
+        \item Finanzielle Auswirkungen
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf_ex1.png}
+    \caption{Schutzbedarfkategorie niedrig bis mittel}
+    \label{Schutzbedarfkategorie Ex.1}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf_ex2.png}
+    \caption{Schutzbedarfkategorie hoch}
+    \label{Schutzbedarfkategorie Ex.2}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf_ex3.png}
+    \caption{Schutzbedarfkategorie sehr hoch}
+    \label{Schutzbedarfkategorie Ex.3}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Schutzbedarfsfeststellung – Abhängigkeiten / Vererbung von Schutzbedarf}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5.5cm]{images/Vererbung Schutzbedarf.png}
+    \caption{Vererbung Schutzbedarf}
+    \label{Vererbung Schutzbedarf}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Schutzbedarfsfeststellung – Maximumprinzip}
+\index{Maximumprinzip}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf - Maximumprinzip.png}
+    \caption{Schutzbedarf - Maximumprinzip}
+    \label{Schutzbedarf - Maximumprinzip}
+    \end{center}
+\end{figure}
+
+\paragraph*{Schutzbedarfsfeststellung – Regeln}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Maximumprinzip}\\
+    Höchster Schutzbedarf der Anwendungen, welche ein
+    System nutzen, gilt für das System
+    \item \textbf{Kumulationseffekt}
+    System hat höheren Schutzbedarf als die zugeordneten
+    Anwendungen (höherer Schaden aufgrund von
+    gleichzeitigem Ausfall von mehreren Anwendungen)
+    \item \textbf{Verteilungseffekt}
+    System hat niedrigeren Schutzbedarf als die zugeordnete
+    Anwendung (Anwendung ist auf mehrere Systeme verteilt;
+    auf dem betrachteten System laufen nur weniger wichtige
+    Teile davon)
+\end{itemize}
+
+\paragraph*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Anwendungen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Für alle IT-Anwendungen muss der Schutzbedarf für die
+    drei Grundwerte Vertraulichkeit, Verfügbarkeit und
+    Integrität bestimmt werden
+    \item Grundlage: Schutzbedarf der verarbeiteten Daten
+    \item Hilfsmittel: Die definierten Schadensszenarien
+    \item Die Szenarien müssen dabei aus der Sicht der Nutzer der
+    IT-Anwendungen betrachtet werden \textgreater 'Was wäre,
+    wenn...'-Fragen stellen
+    \item Die evaluierten Schutzbedarfskategorien müssen begründet
+    und dokumentiert werden (auch für die GL verständlich!)
+\end{itemize}
+
+\subsubsection*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Anwendungen}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf IT-Anwendungen.png}
+    \caption{Schutzbedarf IT-Anwendungen}
+    \label{Schutzbedarf IT-Anwendungen}
+    \end{center}
+\end{figure}
+
+
+\subsubsection*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Systemen}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf IT-System.png}
+    \caption{Schutzbedarf IT-System}
+    \label{Schutzbedarf IT-System}
+    \end{center}
+\end{figure}
+
+\paragraph*{Schutzbedarfsfeststellung – IT-Räume}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Vererbung und Maximumprinzip berücksichtigen:
+    Schutzbedarf bemisst sich am Schutzbedarf der ITSysteme und der Informationen, welche im IT-Raum
+    gelagert und verarbeitet werden
+    \item Evtl. müssen Kummulationseffekte berücksichtigt
+    werden: Höherer Schutzbedarf als für die einzelnen
+    Objekte im Raum, z. B. bei gespiegelten
+    (redundanten) Servern mit normalen
+    Verfügbarkeitsanforderungen (Erklärung?)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Antwort: Zwei redundante Server im gleichen Raum erhöhen den Schutzbedarf des Raums, da beim Ausfall des Raums das redundante System als Ganzes nicht mehr verfügbar ist.
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf IT-Räume.png}
+    \caption{Schutzbedarf IT-Räume}
+    \label{Schutzbedarf IT-Räume}
+    \end{center}
+\end{figure}
+
+\paragraph*{Schutzbedarfsfeststellung – Kommunikationsverbindungen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Folgende Verbindungen sind als kritisch einzustufen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Verbindungen in ein öffentliches Netz (Internet,
+        Telefonnetz etc.) oder über öffentlichen Grund
+        \item Verbindungen, über die besonders schützenswerte
+        Informationen übertragen werden
+        \item Verbindungen, über die vertrauliche Informationen nicht
+        übertragen werden dürfen
+    \end{itemize}
+    \item Der Schutzbedarf der übertragenen Informationen
+    leitet sich vom Schutzbedarf der miteinander
+    verbundenen IT-Systeme ab
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf Kommunikationsverbindungen.png}
+    \caption{Schutzbedarf Kommunikationsverbindungen}
+    \label{Schutzbedarf Kommunikationsverbindungen}
+    \end{center}
+\end{figure}
+
+\paragraph*{Schutzbedarfsfeststellung – Interpretation der Ergebnisse}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Schutzbedarfskategorien:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \textbf{Normal / Niedrig bis mittel}\\
+        Standard-Sicherheitsmassnahmen
+        \item \textbf{Hoch}\\
+        Standard-Sicherheitsmassnahmen + evtl. ergänzende
+        Sicherheitsanalyse
+        \item \textbf{Sehr hoch}\\
+        Standard-Sicherheitsmassnahmen + zwingend
+        ergänzende Sicherheitsanalyse
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{IT-Grundschutzanalyse – Modellierung nach IT-Grundschutz}
+\index{IT-Grundschutzanalyse}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5cm]{images/IT-Grundschutzanalyse.png}
+    \caption{IT-Grundschutzanalyse}
+    \label{IT-Grundschutzanalyse}
+    \end{center}
+\end{figure}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Nachbilden des erhobenen IT-Verbunds mit
+    Hilfe der vorgegebenen IT-GrundschutzBausteine
+    \item Ergebnis: \textbf{IT-Grundschutz-Modell}
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=7cm]{images/IT-Grundschutz-Modell.png}
+    \caption{IT-Grundschutz-Modell}
+    \label{IT-Grundschutz-Modell}
+    \end{center}
+\end{figure}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Modellierung erfolgt entsprechend
+    dem Schichtenmodell der IT-GrundschutzBausteine (Total 85 Bausteine)
+    \item Schichtweise werden diejenigen Bausteine
+    ausgewählt, welche für die Sicherheit des ITVerbunds notwendig sind
+    \item Ausgewählte Bausteine werden dem jeweiligen
+    Zielobjekt (IT-Systeme, Räume etc.) zugeordnet
+    \item Bei Bedarf können Bausteine im Rahmen der
+    Modellierung modifiziert werden (z. B. Ergänzung um
+    zusätzliche Massnahmen oder Konkretisierung von
+    technischen Details)
+\end{itemize}
+
+\paragraph*{}Wichtig: Abschliessende Prüfung auf Vollständigkeit
+durchführen
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alle übergreifenden Aspekte berücksichtigt?
+    \item Alle Gebäude, Räume, Schutzschränke inkl. Verkabelung
+    im Hinblick auf infrastrukturelle Sicherheit
+    berücksichtigt?
+    \item Alle IT-Systeme einbezogen?
+    \item Alle netzwerktechnischen Sicherheitsaspekte
+    berücksichtigt?
+    \item Alle Anwendungen berücksichtigt?
+    \item Alle Objekte ohne unmittelbar passenden Baustein durch
+    andere Bausteine angemessen modelliert?
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/IT-Grundschutz Modellierung.png}
+    \caption{IT-Grundschutz Modellierung}
+    \label{IT-Grundschutz Modellierung}
+    \end{center}
+\end{figure}
+
+\paragraph*{IT-Grundschutzanalyse – Basis-Sicherheitscheck} Der Basis-Sicherheitscheck soll folgende
+Fragen beantworten:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Sind meine Informationen hinreichend
+    geschützt?
+    \item Was bleibt noch zu tun?
+\end{itemize}
+\noindent
+Vorgehen:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Bereits umgesetzte Massnahmen mit den
+    Empfehlungen der IT-GrundschutzKataloge vergleichen
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Grundschutz basis.png}
+    \caption{}
+    \label{}
+    \end{center}
+\end{figure}
+
+
+
+\paragraph*{}Vorgehen im Detail:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Organisatorische Vorarbeiten leisten
+    \item Soll-Ist-Vergleich durchführen
+    \item Ergebnisse dokumentieren
+\end{itemize}
+
+\paragraph*{}Organisatorische Vorarbeiten:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Vorhandene Dokumente sichten
+    \item Beizug externer Stellen klären/organisieren (Provider,
+    Outsourcing-Partner etc.)
+    \item Ermittlung der Interviewpartner (entsprechend
+    Schichtenmodell)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Übergeordnete Aspekte: Personalabteilung,
+        konzeptionell Verantwortliche etc.
+        \item Infrastruktur: Haustechnik, evtl. Externe
+        \item IT-Systeme / Netze: System- / Netzadministratoren
+        \item IT-Anwendungen: Anwendungsverantwortliche
+    \end{itemize}
+    \item Termine planen
+\end{itemize}
+
+\paragraph*{}Soll-Ist-Vergleich:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Erheben des Umsetzungsstatus der einzelnen
+    Massnahmen mithilfe der Interviews
+    \item Mögliche Umsetzungsstati
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \textbf{Entbehrlich} – benötigt immer eine Begründung!
+        \item \textbf{Ja} – Massnahme vollständig umgesetzt
+        \item \textbf{Teilweise} – Einzelne Aspekte nicht umgesetzt
+        \item \textbf{Nein} – Massnahme überwiegend nicht umgesetzt
+    \end{itemize}
+    \item Wichtig
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Interviews dienen auch der Sensibilisierung
+        \item Aussagen verifizieren, Stichproben durchführen
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Ergänzende Sicherheitsanalyse}
+\index{Ergänzende Sicherheitsanalyse}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Ergänzende Sicherheitsanalyse.png}
+    \caption{Ergänzende Sicherheitsanalyse}
+    \label{Ergänzende Sicherheitsanalyse}
+    \end{center}
+\end{figure}
+
+Sie ist durchzuführen, wenn für einzelne Zielobjekte
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item die Schutzbedarfskategorie 'hoch' oder
+    'sehr hoch' in mindestens einem der drei
+    Grundwerte vorliegt,
+    \item kein geeigneter Baustein im BausteinKatalog zu finden ist oder
+    \item Objekte in untypischer Weise oder
+    Einsatzumgebung betrieben werden
+\end{itemize}
+
+\paragraph*{Ergänzende Sicherheitsanalyse - Ergebnis}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ergebnis der ergänzenden Sicherheitsanalyse
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Grundschutzmassnahmen – allenfalls der Siegelstufe
+        'zusätzlich' – genügen
+        oder
+        \item Es sind weitergehende Untersuchungen, z. B. eine
+        klassische Risikoanalyse, notwendig
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Ergänzende Sicherheitsanalyse – Vorgehensweisen für weitere Untersuchungen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Klassische Risikoanalyse 
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item relevante Bedrohungen oder Schwachstellen ermitteln
+        \item Eintrittshäufigkeiten und Schadenshöhen schätzen
+    \end{itemize}
+    \item Penetrationstest 
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Verhalten eines Angreifers simulieren
+        \item Blackbox- und Whitebox-Ansatz unterscheiden
+    \end{itemize}
+    \item Differenz-Sicherheitsanalyse
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Feststellen, welche der Sicherheitsmassnahmen über die
+        Grundschutzmassnahmen hinausgehend realisiert sind
+        \item Vergleich durchführen, ob die ergriffenen Massnahmen den
+        'Best Practices' entsprechen, die sich in der Praxis für
+        hochschutzbedürftige IT-Bereiche etabliert haben
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Realisierungsplanung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ergebnisse sichten (fehlende
+    \textsl{Sicherheitsmassnahmen} zusammenstellen)
+    \item Massnahmen konsolidieren (überfl. M. streichen,
+    verbleibende \textsl{konkretisieren} \textgreater Massnahmenliste)
+    \item Aufwand schätzen (finanziell, personell /
+    einmalig, wiederkehrend)
+    \item Umsetzungsreihenfolge festlegen (zuerst diejenigen, welche Voraussetzung für andere sind)
+    \item Verantwortliche und Termine bestimmen (für
+    Realisierung und Überwachung von jeder
+    Massnahme)
+    \item Begleitende Massnahmen festlegen
+    \textsl{(Sensibilisierung und Schulung)}
+    \item Ergebnis: Realisierungsplan
+\end{itemize}
+
+\paragraph*{Beispiel eines Realisierungsplans}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=10cm]{images/Beispiel eines Realisierungsplans.png}
+    \caption{Beispiel eines Realisierungsplans}
+    \label{Beispiel eines Realisierungsplans}
+    \end{center}
+\end{figure}
+
+\paragraph*{Zusammenfassung}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/zusammenfassung.png}
+    \caption{IT-Strukturanalyse Zusammenfassung}
+    \label{IT-Strukturanalyse Zusammenfassung}
+    \end{center}
+\end{figure}
+
 \subsection*{Das Risikoanalyse-Verfahren verstehen}
 \paragraph*{TODO}
 
