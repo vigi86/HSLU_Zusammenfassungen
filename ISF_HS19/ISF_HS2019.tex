@@ -2,8 +2,9 @@
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{enumitem, fancyhdr, graphicx, float, makeidx}
+\usepackage{enumitem, fancyhdr, graphicx, float, makeidx, textcomp}
 \usepackage[hidelinks]{hyperref}
+\usepackage[hang,flushmargin]{footmisc}
 \usepackage{listings}
 \lstloadlanguages{SQL}
 %%%
@@ -12,10 +13,9 @@
 %SELECT * FROM table WHERE id = 1;
 %\end{lstlisting}
 %%%
-%\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
-%\usepackage{biblatex}
-%\addbibresource{bibliography.bib}
-%\usepackage{authblk}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+%\usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
 \makeindex
 
 \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
@@ -65,14 +65,13 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Wissenspyramide.png}
-    \caption{Wissenspyramide (Wikipedia)}
+    \caption{Wissenspyramide\cite{wiki}}
     \label{Wissenspyramide}
     \end{center}
 \end{figure}
 
-
 \subsection*{Motivation / Bedrohungen}
-\paragraph*{Was gefährdet die Informationen?} Welche Gefährdungen/Bedrohungen gibt es?
+\paragraph*{Was gefährdet die Informationen?} Welche Gefährdungen/Bedrohungen gibt es?\index{Gefährdungen}\index{Bedrohungen}\index{Informationssicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Nicht vorsätzliche (zufällige) Gefährdungen/Bedrohungen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -92,7 +91,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \end{itemize}
 
 
-\subsection*{Grundbegriffe}
+\subsection*{Grundbegriffe}\label{sec:Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{\textsl{Zutrittskontrolle: }}Schutz des physischen Systems (Bsp. Serverraum)\index{Zutrittskontrolle}
@@ -102,7 +101,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 
 
 \subsection*{Kontrollfragen SW 01}
-\paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}
+\paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}\index{Schutzziele}\index{Informationssicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{\textsl{Verfügbarkeit:}} Zur gewünschten Zeit kann vom Benutzer auf die Daten zugegriffen werden und der Dienst funktioniert (Ausfallquote)\index{Verfügbarkeit}
     \item \textbf{\textsl{Integrität:}} Gewährleistung das Daten nicht unautorisiert oder zufällig manipuliert werden können. (Datensicherheit)\index{Integrität}
@@ -119,7 +118,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=16cm]{images/grundziel-entdeckung.png}
-    \caption{Zeitpunkt Entdeckung eines Grundziel-Verlustes}
+    \caption{Zeitpunkt der Entdeckung eines Grundziel-Verlustes}
     \label{grundziel-entdeckung}
     \end{center}
 \end{figure}
@@ -152,29 +151,63 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item Akzeptieren: Ähnlich wie Ignorieren und das Risiko einfach hinnehmen
 \end{itemize}
 
-\paragraph*{Welche Gefährdungen und Bedrohungen kennen Sie? Gliedern Sie diese in verschiedene Kategorien.}
+\paragraph*{Welche Gefährdungen und Bedrohungen kennen Sie? Gliedern Sie diese in verschiedene Kategorien.}\index{Gefährdungen}\index{Bedrohungen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Bruteforce, Phishing, DDoS, Injections, Spoofing, frustrierte Mitarbeiter, Anonymous, NSA, Naturgewalt, Hacker, Wirtschaftsspionage etc.
 \end{itemize}
 
-\paragraph*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler / holistischer Sicherheit?}
+\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{Ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
+Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen. (Siehe Abbildung \ref{Wissenspyramide})
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Informationssicherheit:} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
-    \item \textbf{IT-Sicherheit:} Schutz der Informationen in ICT-Systemen. (Server/Host)
-    \item \textbf{Integrale Sicherheit vs. holistische Sicherheit:} Umfassende Betrachtung aller Sicherheitsaspekte einer Organisation.\\
-    Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen.
+    \item \textbf{Informationssicherheit:}\index{Informationssicherheit} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
+    \item \textbf{IT-Sicherheit:}\index{IT-Sicherheit} Schutz der Informationen in ICT-Systemen. (Server/Host)
+    \item \textbf{Integrale Sicherheit vs. holistische Sicherheit:}\index{Integrale Sicherheit}\index{Holistische Sicherheit} Umfassende Betrachtung aller Sicherheitsaspekte einer Organisation.
 \end{itemize}
 
+\subsubsection*{Bedeutung des Managements / GL im Rahmen von AKVs}
+Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Keine Ressourcen (Zeit und Geld)
+    \item Keine Kompetenzen (Befehls-und Umsetzungsgewalt)
+    \item Keine Priorität
+    \item Das Management trägt die Risiken (Haftung für Mitarbeiter etc.) und entscheidet über die eingesetzten Ressourcen
+    \item Häufig fehlendes Know-How der Managementetage
+\end{itemize}
 
+\paragraph*{Wie gehen Sie konkret vor, um die Informationssicherheit einzuführen?}\index{Informationssicherheit}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Management ins Boot holen
+    \item Prozess der Informationssicherheit etablieren (Know-How vermitteln oder zumindest das Thema greifbar machen für Management)
+    \item Verantwortlichkeiten festlegen
+    \item Sicherheit allumfassend betrachten
+    \item Schrittweise und stetig umsetzen (kontinuierlicher Prozess)
+\end{itemize}
 
+\paragraph*{Begründen Sie, warum Informationssicherheit ein Prozess und kein Projekt sein muss.}\index{Informationssicherheit}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Kontinuierliche Verbesserung der Sicherheit ein Muss
+    \item Angriffe durch Hacker etc. entwickeln sich weiter, somit muss man immer auf dem neuesten Stand sein ("`up to date"' wie Dopingkontrollen im Sport)
+    \item Projekt ist hingegen terminiert und irgendwann abgeschlossen
+\end{itemize}
 
+\paragraph*{Welche 3 Bereiche müssen Sie mit Ihren Massnahmen bespielen und warum?}\index{Massnahmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Technik: kaufen und konfigurieren. Immer auf dem neuesten Stand und effizient eingesetzt.
+    \item Prozesse: definieren, kontrollieren, weiterentwickeln. (Ist- und Soll-Prozess die ganze Zeit anpassen)
+    \item Mitarbeiter: sensibilisieren und ausbilden. Meiner Ansicht nach auch Motivation und Loyalität fördern. (Interesse des Mitarbeiters wecken)
+\end{itemize}
+
+\paragraph*{Beschreiben Sie den Zweck von Datenschutz? Recherchieren Sie den heutigen Stand CH und die Veränderung durch die EU-DSGVO}\index{Datenschutz}
+\paragraph*{TODO}
+
+\paragraph*{Setzen Sie die Begriffe Zutritt, Zugang und Zugriff in Beziehung.}{Siehe \underline{\nameref{sec:Grundbegriffe}}, Seite \pageref{sec:Grundbegriffe}}
 
 
 %%%%%%%%%%
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
-\paragraph*{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. %\underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
+\paragraph*{Steganographie}\index{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
 
 
 \subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}\index{Private-Key-Kryptographie}
@@ -201,16 +234,32 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \end{center}
 \end{figure}
 
-\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext.\index{Informationstheoretische Sicherheit}%\footcite{renner2006}
+\paragraph*{Secret Key Verschlüsselung: Algorithmen}Beispiele für symmetrische Verschlüsselung \newline
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Name&Blocklänge&Schlüssellänge&Jahr&Kommentar\\
+    \hline
+    DES&64 Bit&56 Bit&1970&gebrochen\\
+    Triple DES&64 Bit&112 Bit ($3\times56$ Bit)&  &nicht mehr empfohlen\\
+    RC4&stream cipher&8-2040&1987&gebrochen\\
+    IDEA&64 Bit&128 Bit&1990&nicht mehr empfohlen\\
+    RC5&64 oder 128 Bit&4-256 Bit&1994&nicht mehr empfohlen\\
+    Camellia&128 Bit&128, 192 oder 256 Bit&2000& \\
+    Twofish&128 Bit&128, 192 oder 256 Bit&1998& \\
+    AES (Rijndal)&128 Bit&128, 192 oder 256 Bit&2000& \\
+    \hline
+\end{tabular}
+
+\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext\cite{renner2006}.\index{Informationstheoretische Sicherheit}
  Beispielsweise ist OTP informationstheoretisch sicher. \newline %bleibt
 Formal:
 \begin{math}
     P(M=m) = P(M=m|C=c)
 \end{math} {\color{red}Erklärung der Variablen??}
 
-\paragraph*{Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können.
+\paragraph*{Berechenmässige Sicherheit}\index{Berechenmässige Sicherheit}\label{para:Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können\cite{renner2006}.
 
-\paragraph*{Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.\index{Kerckhoff's Prinzip}
+\paragraph*{Kerckhoff's Prinzip}\index{Kerckhoff's Prinzip}\label{para:Kerckhoff's Prinzip}Der Angreifer kennt den Algorithmus und alle Details des Systems. Nur der Schlüssel ist geheim.
 
 \paragraph*{Angriffsarten}Bei der Sicherheit von modernen Verschlüsselungssystemen wird zwischen den Angriffs-möglichkeiten des Angreifers unterschieden:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -241,8 +290,9 @@ Formal:
 \end{itemize}
 
 
-\subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Ceasar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}
-\paragraph*{Caesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
+\subsection*{Sie können "`klassische"' symmetrische Verschlüsselungverfahren wie Caesar cipher, Vigenère cipher, one-time pad anwenden und verstehen die Vor- und Nachteile bzw. Schwachstellen dieser Verfahren}\index{Klassische symmetrische Verschlüsselungsverfahren}
+
+\paragraph*{Caesar cipher}\index{Caesar cipher}\label{para:Caesar cipher}Caesar-Verschlüsselung ist ein einfaches symmetrisches Verschlüsselungsverfahren, das auf der monographischen und monoalphabetischen Substitution basiert.\\
 \textbf{Vorteil:} es ist \textbf{einfach}.\\
 \textbf{Nachteil:} es ist \textbf{unsicher}, da es sehr schnell geknackt werden kann.\\
 \textbf{Schwachstelle:} Die in der natürlichen Sprache ungleiche Verteilung der Buchstaben wird durch diese Art der Verschlüsselung nicht verborgen, so dass eine Häufigkeitsanalyse (Frequenzanalyse) das Wirken einer einfachen monoalphabetischen Substitution enthüllt.
@@ -288,9 +338,9 @@ Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im 
 Der häufigste Buchstabe ist hier O, gefolgt von X und S. Man erkennt auf den ersten Blick die Verschiebung des deutschen "`Häufigkeitsgebirges"' um zehn Stellen nach hinten und besitzt damit den Schlüssel. Voraussetzung ist lediglich, dass man die Verteilung der Zeichen des Urtextes vorhersagen kann.
 
 \noindent
-Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse verzichten, kann man auch die Tatsache ausnutzen, dass bei der Cäsar-Chiffre nur eine sehr kleine Anzahl möglicher Schlüssel in Frage kommt. Da die Größe des Schlüsselraums nur 25 beträgt, was einer "`Schlüssellänge"' von nicht einmal 5~bit entspricht, liegt nach Ausprobieren spätestens nach dem 25. Versuch der Klartext vor.
+Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse verzichten, kann man auch die Tatsache ausnutzen, dass bei der Cäsar-Chiffre nur eine sehr kleine Anzahl möglicher Schlüssel in Frage kommt. Da die Grösse des Schlüsselraums nur 25 beträgt, was einer "`Schlüssellänge"' von nicht einmal 5~bit entspricht, liegt nach Ausprobieren spätestens nach dem 25. Versuch der Klartext vor.
 
-\paragraph*{Vigenère cipher}
+\paragraph*{Vigenère cipher}\index{Vigenère cipher}\label{para:Vigenère cipher}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Schlüssel: Wort der Länge $L$
     \item Jeder Buchstabe im Text wird mit der Caesar cipher des entsprechenden Schlüsselwortes verschlüsselt
@@ -305,7 +355,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
-\paragraph*{One-time pad}
+\paragraph*{One-time pad}\index{One-time pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
@@ -328,11 +378,11 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 
 \subsection*{Sie verstehen was eine Hashfunktion ist und welche Eigenschaften eine kryptographische Hashfunktion ausmachen, bzw. was es heisst, wenn eine Hashfunktion gebrochen ist}
 
-\paragraph*{Hashfunktion}Eine Hashfunktion ist eine Abbildung, die eine grosse Eingabemenge (die Schlüssel) auf eine kleinere Zielmenge (die Hashwerte) abbildet. Die Eingabemenge kann Elemente unterschiedlicher Längen enthalten, die Elemente der Zielmenge haben dagegen meist eine feste Länge.
+\paragraph*{Hashfunktion}\index{Hashfunktion}\label{para:Hashfunktion}Eine Hashfunktion ist eine Abbildung, die eine grosse Eingabemenge (die Schlüssel) auf eine kleinere Zielmenge (die Hashwerte) abbildet. Die Eingabemenge kann Elemente unterschiedlicher Längen enthalten, die Elemente der Zielmenge haben dagegen meist eine feste Länge.
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/hash1.png}
-    \caption{einfaches Beispiel einer Hashfunktion}
+    \caption{Einfaches Beispiel einer Hashfunktion}
     \label{hash1}
     \end{center}
 \end{figure}
@@ -350,20 +400,20 @@ Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedli
     \item Schnelligkeit: Das Verfahren zu Berechnung des Hashwertes muss schnell sein.
 \end{itemize}
 
-\paragraph*{Algorithmen für Passwortspeicherung}Um Passwörter zu speichern werden sog. \textbf{Password Based Key Derivation Functions (PBKDF)} verwendet, d.h. \textbf{kryptographische Hashfunktionen} welche zusätzlich resourcen-intensiv (langsam) zu berechnen sind.
+\paragraph*{Algorithmen für Passwortspeicherung}\index{Passwort}\index{Password Based Key Derivation Functions}Um Passwörter zu speichern werden sog. \textbf{Password Based Key Derivation Functions (PBKDF)} verwendet, d.h. \textbf{kryptographische Hashfunktionen} welche zusätzlich resourcen-intensiv (langsam) zu berechnen sind.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item basieren auf einer herkömmlichen Hashfunktion, welche mehrmals verknüpft ausgeführt wird
     \item die Geschwindigkeit wird durch einen Parameter bestimmt, welcher die Anzahl Runden angibt
     \item damit werden Angriffe mittels speziell für die Berechnung von Hashfunktionen optimierte Hard- und Software erschwert
 \end{itemize}
-Beispiele sind PBKDF2 und bcrypt (Blowfish-Algorithmus), welche zusätzlich viel Memory benötigen, oder scrypt (Entwicklung motiviert durch Verwundbarkeit von PBKDF2 und bcrypt durch Brute-Force-Attacken) und Argon2.
+Beispiele sind PBKDF2\index{PBKDF2} und bcrypt\index{bcrypt} (Blowfish-Algorithmus), welche zusätzlich viel Memory benötigen, oder scrypt\index{scrypt} (Entwicklung motiviert durch Verwundbarkeit von PBKDF2 und bcrypt durch Brute-Force-Attacken) und Argon2\index{Argon2}.
 
 \paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
 Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
 Passwort "`Superman” = MD5-Hash: "`527d60cd4715db174ad56cda34ab2dce"'.
 Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern erstellen und es durch den Hashgenerator jagen. Wenn er nun die Datenbank mit den Hashwerten der Plattform stiehlt, kann er die Hashwerte mit seiner Liste vergleichen. Findet er in der geklauten Liste den Hashwert "`527d60cd4715db174ad56cda34ab2dce"', so weiss er, dass dieser Hashwert dem Passwort "`Superman"' zugeordnet ist. Solche Listen nennt man \textbf{rainbow tables}.
 
-\paragraph*{Hashfunktionen}Algorithmen\newline %bleibt
+\paragraph*{Hashfunktionen}\index{Hash-Algorithmen}Algorithmen\newline %bleibt
 \begin{tabular}{|c|c|c|c|}
     \hline
     Name&Block Länge&Output Länge&Bemerkung\\
@@ -389,7 +439,7 @@ Verwendung von Hashfunktionen
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Identifikation einer Datei in peer-to-peer Netzwerken
     \item Fehlererkennung
-    \item Itegritätsprüfung
+    \item Integritätsprüfung
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Symmetric Key Solution: Message Authentication Code (MAC) durch einen `keyed hash'
         \item Asymmetic Key Solution: Digital Signature durch Signatur des Hashwertes
@@ -416,6 +466,21 @@ Oder noch besser:
     \item Als Hashfunktion wird eine langsame und resourcen-intensive Hashfunktion verwendet, z.B. scrypt.
     \item Ziel: Verlangsamen einer Offline-Attacke auf die Passwort-Hashes.
 \end{itemize}
+
+\subsection*{Kontrollfragen SW 02}
+\paragraph*{Wie hängt die Schlüssellänge eines Verschlüsselungsalgorithmus mit dessen Sicherheit
+zusammen?}\index{Schlüssellänge}Die Schlüssellänge ist ein wichtiger Parameter von symmetrischen oder asymmetrischen Verschlüsselungsverfahren. Sie gibt Auskunft darüber, wie viele unterschiedliche Schlüsselwerte ein Schlüssel bei einem bestimmten Verfahren annehmen kann.\\
+Da oft der einzige Weg einen Schlüssel zu "`knacken"' darin besteht, über eine sogenannte Brut-Force-Attacke alle sich bietenden Möglichkeiten auszuprobieren, bestimmt die Schlüssellänge die hierfür aufzuwendende Rechenleistung und Rechenzeit.\index{Brute-Force}
+
+\paragraph*{Was besagt das Kerckhoff-Prinzip?}{Siehe \underline{\nameref{para:Kerckhoff's Prinzip}}, Seite \pageref{para:Kerckhoff's Prinzip}}
+
+\paragraph*{Was ist berechenmässige Sicherheit?}{Siehe \underline{\nameref{para:Berechenmässige Sicherheit}}, Seite \pageref{para:Berechenmässige Sicherheit}}
+
+\paragraph*{Welche Eigenschaft einer kryptographischen Hashfunkton muss beim "`Bitcoin mining"' gebrochen werden?} Bitcoin verwendet Hashfunktionen auf zwei Weisen:
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Miner müssen Hashes mit SHA256 berechnen, um Blöcke zu finden
+    \item Der öffentliche Schlüssel des Signatur-Algorithmus wird sowohl mit SHA256 als auch RIPEMD-160 gehasht, um die Adresse zu bilden
+\end{enumerate}{Für weitere Infos siehe \underline{\nameref{para:Hashfunktion}}, Seite \pageref{para:Hashfunktion}}
 
 
 \section{Asymmetrische Kryptographie}
@@ -456,7 +521,7 @@ Beispiel:\newline %bleibt
 
 \subsection*{Sie wissen was eine elektronische Signatur ausmacht}
 
-\paragraph*{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
+\paragraph*{Signatur}\index{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/digisignatur1.png}
@@ -465,9 +530,9 @@ Beispiel:\newline %bleibt
     \end{center}
 \end{figure}
 
-\paragraph*{Beispiel}Max Meier erhält von seinem Kunden den Geschäftsvertrag – digital als PDF, wie es heutzutage üblich ist. Vergleichsweise altmodisch geht es aber nachher weiter: Meier druckt das Dokument aus und unterzeichnet es handschriftlich. Den unterschriebenen Vertrag steckt er schliesslich in einen Umschlag und wirft diesen in den nächstgelegenen Briefkasten. Viele Schritte für eine Unterschrift.\newline
-Was Max Meier nicht weiss. Dokumente lassen sich auch digital unterzeichnen. Jede digitale Signatur basiert auf der sogenannten asymmetrischen Verschlüsselung. Sie wird auch als Public-Key-Verfahren bezeichnet und nutzt einen öffentlichen und einen privaten (geheimen) Schlüssel. Mit dem privaten Schlüssel wird die digitale Signatur erzeugt, während mit dem öffentlichen Schlüssel die Authentizität der Unterschrift überprüft wird.\newline %bleibt
-Eigenschaft einer Signatur:
+\paragraph*{Beispiel}Max Meier erhält von seinem Kunden den Geschäftsvertrag – digital als PDF, wie es heutzutage üblich ist. Vergleichsweise altmodisch geht es aber nachher weiter: Meier druckt das Dokument aus und unterzeichnet es handschriftlich. Den unterschriebenen Vertrag steckt er schliesslich in einen Umschlag und wirft diesen in den nächstgelegenen Briefkasten. Viele Schritte für eine Unterschrift. Was Max Meier nicht weiss: Dokumente lassen sich auch digital unterzeichnen. Jede digitale Signatur basiert auf der sogenannten asymmetrischen Verschlüsselung. Sie wird auch als Public-Key-Verfahren bezeichnet und nutzt einen öffentlichen und einen privaten (geheimen) Schlüssel. Mit dem privaten Schlüssel wird die digitale Signatur erzeugt, während mit dem öffentlichen Schlüssel die Authentizität der Unterschrift überprüft wird.
+
+\paragraph*{Eigenschaft einer Signatur}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Fälschungssicherheit:} Nach dem Unterschreiben kann das Dokument nicht mehr (unerkannt) verändert werden.
     \item \textbf{Authentizität:} Die Unterschrift kann zweifelsfrei (überprüfbar) einer bestimmten Person zugeordnet werden.
@@ -483,11 +548,36 @@ Eigenschaft einer Signatur:
 \end{figure}
 
 
-\subsection*{Sie wissen wie hybride Verschlüsselung bzw hybride Signaturen funktionieren}
+\subsection*{Sie wissen wie hybride Verschlüsselung bzw. hybride Signaturen funktionieren}
+\paragraph*{Hybridverschlüsselung}\index{Hybridverschlüsselung}Eine Hybridverschlüsselung ist eine Kombination von symmetrischer und asymmetrischer Verschlüsselung. Dabei werden die Vorteile beider Verschlüsselungsverfahren genutzt. Symmetrische Verschlüsselung ist deutlich schneller, asymmetrische haben den Vorteil eines deutlich einfacheren Schlüsselaustausches. Der Ablauf ist folgendermassen:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Sender Alice einen zufälligen symmetrischen Schlüssel, einen Session-Key
+    \item Der Session-Key verschlüsselt die Daten/Nachricht symmetrisch
+    \item Der Session-Key wird asymmetrisch mit Bob's Public-Key verschlüsselt
+    \item Die verschlüsselten Sachen werden an Bob gesendet
+    \item Bob entschlüsselt asymmetrisch den Session-Key mit seinem Private-Key
+    \item Der Session-Key entschlüsselt nun die Nachricht symmetrisch
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/hybridverschlüsselung.png}
+    \caption{Hybridverschlüsselung einer Nachricht}
+    \label{hybrid}
+    \end{center}
+\end{figure}
+Man erkennt schnell den Vorteil dieser Methode. Ein symmetrisches Verschlüsselungsverfahren ist sehr effizient auch im Verschlüsseln von grossen Datenmengen
 
-\paragraph*{TODO}
+\subsection*{Kontrollfragen SW 03}
 
-%%%%%%%%%%
+\paragraph*{Vergleichen Sie symmetrische und asymmetrische Verschlüsselung bezüglich Anzahl Schlüssel, Schlüssellänge und Geschwindigkeit der Algorithmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Symmetrisch:} 1 Schlüssel, Schlüsselänge eher kürzer, Geschwindigkeit hoch
+    \item \textbf{Asymmetrisch:} Mehrere Schlüssel (meistens 2), Schlüssellänge sehr sicher (lang), Geschwindigkeit tief
+\end{itemize}
+
+\paragraph*{Warum wird in der Praxis bei der Email-Verschlüsselung ein sog. hybrider Verschlüsselungsalgorithmus angewandt?}\index{Email-Verschlüsselung}\index{Hybrider Verschlüsselungsalgorithmus}Es muss schnell gehen und somit wird auf eine hybride Variante umgestiegen. Dies erhöht die Geschwindigkeit, ohne die Sicherheit zu mindern.
+
+
 \section{Zertifikate und SSL-TLS}
 
 \subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
@@ -539,7 +629,7 @@ Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie 
 \subsection*{Sie wissen was eine Public-Key-Infrastruktur, eine Certificate Authority und ein Zertifikat ist, wofür und wie diese verwendet werden und wie Zertifikate ausgestellt und revoziert werden}
 
 \paragraph*{Grundbegriffe PKI}Die Zertifizierungstelle \textsl{Certificate Authority (CA)}\newline
-Eine CA ist eine Organistation, welche digital eZertifikate ausstellt. Ein digitales Zertifikat ordnet einen bestimmten öffentlichen Schlüssel einer Person oder Organisation zu. Diese Zuordnung wird von der Zertifizierungstelle beglaubigt, indem sie sie mit ihrer eigenen digitalen Unterschrift versieht.\newline
+Eine CA ist eine Organisation, welche digital eZertifikate ausstellt. Ein digitales Zertifikat ordnet einen bestimmten öffentlichen Schlüssel einer Person oder Organisation zu. Diese Zuordnung wird von der Zertifizierungstelle beglaubigt, indem sie sie mit ihrer eigenen digitalen Unterschrift versieht.\newline
 Ein Zertifikat wird durch eine sog. \textsl{Chain of Trust} beglaubigt. Eine \textsl{intermediate CA} signiert das Zertifikat (Public Key) des Endbenutzers. Das Zertifikat der intermediate CA wird wiederum von einer anderen CA unterschrieben. Das letzte Zertifikat in dieser Kette heisst \textsl{Root Certificate} und enthält den Public Key der \textsl{root CA}. Dieses Zertifikat ist normalerweise \textsl{self signed}, also von der root CA selbst unterschrieben.
 
 
@@ -556,9 +646,24 @@ Das SSL/TLS-Protokoll läuft in \underline{zwei Phasen} ab:
 \end{itemize}
 Beispiele für SSL/TLS-ciphers:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \texttt{TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA}
-    \item \texttt{TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384}
+    \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
+    \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
+
+\section*{Kontrollfragen SW 04}
+\paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
+    \item Ist das Zertifikat und die gesamte Zertifikatskette korrekt signiert?
+    \item Traue ich der Root-CA der Zertifikatskette?
+    \item Besitzt "`Bob"' den zum Zertifikat gehörenden Private Key?
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $VERIFY_{public\,key\,Bob}(response)$
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Eine CA hat Ihnen ein Intermediate-CA-Zertifikat ausgestellt, anstelle des bestellten Serverzertifikats. Erklären Sie, wie Sie nun vorgehen, um sich als Google auszugeben. Angenommen Sie können einen Man-in-the-Middle-Angriff machen. Können Sie nun Ihre eigene Webseite anstelle der Google-Seite anzeigen?}
+\paragraph*{TODO}
 
 
 %%%%%%%%%%
@@ -587,17 +692,18 @@ Was unterscheidet eine Webanwendung aus Sicherheitssicht zu anderen Anwendungen?
 \paragraph*{HTTP-Request-Methoden}Die häufigsten HTTP-Request-Methoden sind \textbf{GET} und \textbf{POST}.
 Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
 
-\paragraph*{GET}\texttt{https://www.hslu.ch/?p=5 HTTP/1.1\\User-Agent: Mozilla/5.0}
+\paragraph*{GET}\verb|https://www.hslu.ch/?p=5 HTTP/1.1|\\
+\verb|User-Agent: Mozilla/5.0|
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Message Body: kein
     \item Ruft Daten vom Server ab
     \item Sollte Serverzustand nicht verändern
 \end{itemize}
 
-\paragraph*{POST}\texttt{https://www.hslu.ch/ HTTP/1.1\\
-User-Agent: Mozilla/5.0}
+\paragraph*{POST}\verb|https://www.hslu.ch/ HTTP/1.1|\\
+\verb|User-Agent: Mozilla/5.0|
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Message Body: \texttt{id=123\&pwd=password}
+    \item Message Body: \verb|id=123&pwd=password|
     \item Darf Serverzustand verändern
     \item Wird nicht gecachet
 \end{itemize}
@@ -685,7 +791,7 @@ Same Origin Policies im Browser gibt es z.B. für Cookies, DOM access (Zugang zu
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Setzen des Cookies:} Nur Domain-Suffix des URL-Hostname dürfen gesetzt werden. (Aber keine Top-Level Domains!)\\
     Path kann beliebig gesetzt werden.
-    \item \textbf{Senden des Cookies:} Cookies werden dnur dann mitgeschickt, wenn die Cookie-Domain ein Domain-Suffix der URL-Domain und der Cookie-Path ein Prefix des URL-Path ist.
+    \item \textbf{Senden des Cookies:} Cookies werden nur dann mitgeschickt, wenn die Cookie-Domain ein Domain-Suffix der URL-Domain und der Cookie-Path ein Prefix des URL-Path ist.
 \end{itemize}
 
 \paragraph*{Session Fixation}Was ist das?\\
@@ -698,24 +804,25 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \paragraph*{Sicherheitsrelevante Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{HSTS:} \texttt{Strict-Transport-Security: max-age=31536000; includeSubDomains}\\
-    Seite wird nur via HTTPS aufgerufen. \texttt{max-age} muss hoch gesetzt werden!
-    \item \textbf{Frame-Options:} \texttt{X-Frame-Options: deny}\\
+    \item \textbf{HSTS:} \verb|Strict-Transport-Security: max-age=31536000; includeSubDomains|\\
+    Seite wird nur via HTTPS aufgerufen. \verb|max-age| muss hoch gesetzt werden!
+    \item \textbf{Frame-Options:} \verb|X-Frame-Options: deny|\\
     Verbietet das Einbinden der Seite in einem Frame oder erlaub es nur für bestimmte Domains
-    \item \textbf{XSS-Protection:} \texttt{X-XSS-Protection: 1; mode=block}\\
+    \item \textbf{XSS-Protection:} \verb|X-XSS-Protection: 1; mode=block|\\
     Filtert und säubert oder blockeirt die Anzeige der Seide, wenn ein XSS-Angriff endeckt wird
-    \item \textbf{Content-Type-Options:} \texttt{X-Content-Type-Options: nosniff}\\
+    \item \textbf{Content-Type-Options:} \verb|X-Content-Type-Options: nosniff|\\
     Verhindert, dass der Content als einen anderen MIME-Type interpretiert wird als angegeben
-    \item \textbf{CSP:} \texttt{Content-Security-Policy: script-src 'self'}\\
+    \item \textbf{CSP:} \verb|Content-Security-Policy: script-src \textquotesingle self\textquotesingle|\\
     Definiert, welche Resourcen (z.B. Bilder, Scripts, Fonts, etc.) von wo eingebunden werden können
-    \item \textbf{CORS} \texttt{Access-Control-Allow-Origin: http://foo.example}\\
+    \item \textbf{CORS} \verb|Access-Control-Allow-Origin: http://foo.example|\\
     Cross-Origin Resource Sharing (CORS) ist ein Mechanismus, der Webbrowsern oder auch anderen Webclients Cross-Origin-Requests ermöglicht. Zugriffe dieser Art sind normalerweise durch die Same-Origin-Policy (SOP) untersagt. CORS ist ein Kompromiss zugunsten grösserer Flexibilität im Internet unter Berücksichtigung möglichst hoher Sicherheitsmassnahmen.
     \item \textbf{Caching-Options} {\color{red}TODO: hat jemand Infos?}
-    \item \textbf{HPKP ({\color{red}deprecated!}):} \texttt{Public-Key-Pins:\\
-    pin-sha256=d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=;\\
-    pin-sha256=Ë9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=;\\
-    report-uri=http://example.com/pkp-report;\\
-    max-age=10000; includeSubDomains}\\
+    \item \textbf{HPKP ({\color{red}deprecated!}):}
+    \verb|Public-Key-Pins:|\\
+    \verb|pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";|\\
+    \verb|pin-sha256="Ë9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=";|\\
+    \verb|report-uri=http://example.com/pkp-report;|\\
+    \verb|max-age=10000; includeSubDomains|\\
     HTTP Public Key Pinning: Nur das Serverzertifikat mit dem korrekten Fingerprint wird akzeptiert. Wurde wieder abgekündigt und die meisten Browser unterstützen es nicht mehr.
 \end{enumerate}
 
@@ -744,31 +851,31 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
 \subsection*{Kurzübersicht}
 \index{Bedrohungen auf OSI-Layern}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Bedrohungen auf Link-Layer:} Spoofing
-    \item \textbf{Bedrohungen auf Transport-Layer:} Deanial of Service (DoS)
-    \item \textbf{Bedrohungen auf SSL / TLS:} Preisgabe Sensitiver Daten
-    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection
-    \item \textbf{Bedrohungen auf Layer 8 (Mensch):} Social Engineering
+    \item \textbf{Bedrohungen auf Link-Layer:} Spoofing\index{Link-Layer}\index{Spoofing}
+    \item \textbf{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)\index{Transport-Layer}\index{DoS}
+    \item \textbf{Bedrohungen auf SSL / TLS:} Preisgabe Sensitiver Daten\index{SSL/TLS}\index{Sensitive Daten}
+    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection\index{Anwendungslayer}\index{Cross Site Scripting (XSS)}\index{Code-Injection}\index{XSS! siehe {Cross Site Scripting (XSS)}}
+    \item \textbf{Bedrohungen auf Layer 8 (Mensch):} Social Engineering\index{Layer 8}\index{Social Engineering}
 \end{itemize}
 
 \index{Fehler vs. Bugs}
 \paragraph*{Flaws vs. Bugs} Bei Softwaredefekten wird unterschieden zwischen Flaws und Bugs
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Flaw:} Ein Flaw ist ein Defekt im Design der Software
-    \item \textbf{Bug:} Ein Bug ist ein Defekt in der Implementation
+    \item \textbf{Flaw:} Ein Flaw ist ein Defekt im Design der Software\index{Flaw}
+    \item \textbf{Bug:} Ein Bug ist ein Defekt in der Implementation\index{Bug}
 \end{itemize}
 
 \paragraph*{Grundbegriffe: Bedrohung}
-\index{Threat vs. Threat Agent}
+\index{Threat vs. Threat Agent}\index{Threat}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Threat:} Möglicher Grund für einen ungewollten Vorafall, der das System oder die Organisation schädigen kann.
+    \item \textbf{Threat:} Möglicher Grund für einen ungewollten Vorfall, der das System oder die Organisation schädigen kann.
     \item \textbf{Threat Agent:} Individuum oder Gruppe welche eine Bedrohung darstellt.
 \end{itemize}
 
 \index{Aktive vs. Passive Angriffe}
 \subsubsection*{Aktive vs. passive Angriffe}
 Bei einem \textbf{passiven Angriff} hält sich der Angreifer an das protokoll. Er verändert z.B. die ausgetauschten Nachrichten nicht hört aber die Kommunikation ab.
-Bei einem \textbf{aktiven Angriff} hält sich der Angreiffer nicht an das Protokoll. Er verändert z.B. Nachrichten.
+Bei einem \textbf{aktiven Angriff} hält sich der Angreifer nicht an das Protokoll. Er verändert z.B. Nachrichten.
 
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
@@ -828,7 +935,7 @@ Eine person oder ein Programm gibt sich als jemand anderen oder etwas anderes au
 \end{itemize}
 \vspace{0.5cm}
 \noindent
-"`\textsl{ARP-Spoofing (vom engl. to spoof – dt. täuschen, reinlegen) oder auch ARP Request Poisoning (zu dt. etwa Anfrageverfälschung) bezeichnet das Senden von gefälschten ARP-Paketen. Es wird benutzt, um die ARP-Tabellen in einem Netzwerk so zu verändern, dass anschließend der Datenverkehr zwischen zwei (oder mehr) Systemen in einem Computernetz abgehört oder manipuliert werden kann. Es ist eine Möglichkeit, einen Man-in-the-Middle-Angriff im lokalen Netz durchzuführen.}"' - Wikipedia
+"`\textsl{ARP-Spoofing (vom engl. to spoof – dt. täuschen, reinlegen) oder auch ARP Request Poisoning (zu dt. etwa Anfrageverfälschung) bezeichnet das Senden von gefälschten ARP-Paketen. Es wird benutzt, um die ARP-Tabellen in einem Netzwerk so zu verändern, dass anschliessend der Datenverkehr zwischen zwei (oder mehr) Systemen in einem Computernetz abgehört oder manipuliert werden kann. Es ist eine Möglichkeit, einen Man-in-the-Middle-Angriff im lokalen Netz durchzuführen.}"'\cite{wiki}
 
 \paragraph*{Spoofing: Was kann man dagegen tun?}
 \paragraph*{Je nach Situation unterschiedlich, zB.:}
@@ -874,8 +981,8 @@ Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werd
     \end{center}
 \end{figure}
 
-\paragraph*{Denial of Service: Was kann man dagegen tun?} Jedes system bricht irgendwann zusammen! Es geht darum sicherzustellen, dass dabei keine bleibenden Schäden am
-Kernsystem entstehen und das system nach einem Angriff schnell wieder funktionsfähig zu machen.
+\paragraph*{Denial of Service: Was kann man dagegen tun?} Jedes System bricht irgendwann zusammen! Es geht darum sicherzustellen, dass dabei keine bleibenden Schäden am
+Kernsystem entstehen und das System nach einem Angriff schnell wieder funktionsfähig zu machen.
 
 \subsubsection*{Schutzbeispiele:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -884,9 +991,8 @@ Kernsystem entstehen und das system nach einem Angriff schnell wieder funktionsf
     \item \textbf{Sicherstellen, dass das System sich nicht selbst überlastet durch freigeben nicht mehr verwendeter Ressourcen, vermeiden von undendlichen Loops etc.}
     \item \textbf{Disaster Recovery Plan}
 \end{itemize}
-\index{SSL}\index{TLS}
-\subsubsection*{SSL/TLS im internet Modell}
 
+\subsubsection*{SSL/TLS im internet Modell}\index{SSL/TLS}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/SSL-TLS.png}
@@ -907,13 +1013,13 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
     \item Daten nach ihrer Sensivität klassifizieren und entsprechend behandeln
     \item Sensitive Daten nur gespeichert auf dem Server ablegen
     \item Passwörter mit Salt und Pepper und einer starken Passwort-Hashfunktion gehasht ablegen.
-    \item Daten verschlüsselt übertreage (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
-    \item Sicherstellen, dass sichere Ciphers verwendet werdenKeine sensitiven Daten auf der Clientseite cachen.
+    \item Daten verschlüsselt übertragen (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
+    \item Sicherstellen, dass sichere Ciphers verwendet werden
+    \item Keine sensitiven Daten auf der Clientseite cachen.
 \end{itemize}
 
 \subsubsection*{Bedrohungen auf Anwendungslayer: Cross Site Scripting (XSS) und Code Injection}
-\noindent
-\index{Cross Site Scripting (XSS)}
+\index{Cross Site Scripting (XSS)}\index{XSS! siehe {Cross Site Scripting (XSS)}}
 \paragraph*{XSS: Was ist das?}Ein Angreifer bringt den legitimen Server dazu ein Script an den Browser zu senden. Dieses wird im Kontext des legitimen Servers ausgeführt. Es wird zwischen \textbf{stored} und \textbf{reflected} XSS unterschieden
 \begin{figure}[H]
     \begin{center}
@@ -929,12 +1035,12 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
 \end{itemize}
 \paragraph*{}Zusätzlich sollen folgende Massnahmen getroffen werden:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Cookie als HttpOnly-Cookie setzen
-    \item Header-Felder setzen\\ Bsp. Content-Security-Policy: default-src: 'self'; script-src: 'self' static.domain.tld \\ Bsp. X-XSS-Protection: 1; mode=block
+    \item Cookie als \texttt{HttpOnly}-Cookie setzen
+    \item Header-Felder setzen\\ Bsp. Content-Security-Policy: \verb|default-src: 'self'; script-src: 'self' static.domain.tld| \\ Bsp. \verb|X-XSS-Protection: 1; mode=block|
 \end{itemize}
 
 \index{Code Injection}
-\paragraph*{Code Injection: Was ist das?} Vermischung von 'Code' und 'Daten'
+\paragraph*{Code Injection: Was ist das?} Vermischung von `Code' und `Daten'
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Code-Injection.png}
@@ -953,19 +1059,21 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
 
 \paragraph*{Code Injection: Was kann man dagegen tun?}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item ‘Prepared statements’ verwenden \\ Bsp:\\ \$statement = \$db-\textgreater prepare('select * from Users\\where(name=? password=?);';\\\$stmt-\textgreater bind\_param('ss', \$user, \$pass);
+    \item `Prepared statements' verwenden \\ Beispiel:\\
+    \verb|$statement = $db->prepare('SELECT * FROM Users WHERE(name=? password=?);';|\\
+    \verb|$stmt->bind_param('ss', $user, $pass);|
     \item Whitelisting der Inputs
-    \item Sanitizing der Inputs \\ Bsp. Löschen von Zeichen wie \textbf{';--} oder Ersetzen durch 'sichere' Zeichen wie \textbf{\textbackslash'\textbackslash;\textbackslash-}
+    \item Sanitizing der Inputs \\ Bsp. Löschen von Zeichen wie \verb|';-| oder Ersetzen durch `sichere' Zeichen wie \verb|\'\;\-|
     \item Rechte des technischen Benutzers auf der DB einschränken
     \item Verwenden eines sicheren APIs
 \end{itemize}
 
-\index{Layer 8}
+\index{Layer 8}\index{Layer 8}
 \subsubsection*{Layer 8}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Layer8.png}
-    \caption{Layer 8}
+    \caption{Layer 8, der User}
     \label{Layer 8}
     \end{center}
 \end{figure}
@@ -996,7 +1104,7 @@ bewegen.
 \section{Standards \& Frameworks, ISMS}
 
 \subsection*{Sie wissen, was ein ISMS ist und wie man damit umgeht}
-\paragraph*{ISMS}Ein \textsl{Information Security Management System (ISMS)} (auf Deutsch: Managementsystem für die Informationssicherheit) definiert Regeln, Methoden und Abläufe, um die IT-Sicherheit in einem Unternehmen zu gewährleisten, zu steuern, zu kontrollieren und zu optimieren.
+\paragraph*{ISMS}\index{ISMS}Ein \textsl{Information Security Management System (ISMS)} (auf Deutsch: Managementsystem für die Informationssicherheit) definiert Regeln, Methoden und Abläufe, um die IT-Sicherheit in einem Unternehmen zu gewährleisten, zu steuern, zu kontrollieren und zu optimieren.
 \paragraph*{Zweck}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die (durch die IT verursachte) Risiken sollen identifizierbar und beherrschbar werden.
@@ -1009,9 +1117,8 @@ bewegen.
     \item Davor muss zuerst der Schutzbedarf von Vermögenswerten bestimmt und Schutzmassnahmen eingeführt werden.
 \end{itemize}
 
-
 \subsection*{Sie kennen die wichtigsten Standards der Informationssicherheit}
-\paragraph*{Standards}
+\paragraph*{Standards}\index{ISO Standards}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item ISO 27000: ISMS – Overview and vocabulary (Überblick / Index)
     \item ISO 27001: ISMS – Requirements (Anforderungskatalog)
@@ -1021,14 +1128,279 @@ bewegen.
     \item ISO 27005: Information security risk management (Risiko Bewältigung)
 \end{itemize}
 
+\begin{figure}[H]
+\paragraph*{Überblick der Zusammenhänge}
+    \begin{center}
+    \includegraphics[width=16cm]{images/iso27000.png}
+    \caption{Zusamenhang der verschiedenen ISO Standards \cite{iso27000}}
+    \label{iso27000}
+    \end{center}
+\end{figure}
+
+\paragraph*{ISO 27000 - Overview and vocabulary}\index{ISO Standards!ISO 27000}\label{para:ISO 27000}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Definiert Begriffe, welche in der ISO 27000 Standard-Reihe verwendet werden
+    \item Definiert und erläuternt kurz, was ein Information Security Management System (ISMS) ist
+    \item \textsl{Erklärt} den dazu verwendeten Prozess-Ansatz "`Plan - Do - Check - Act"' (PDCA)\index{PDCA!Plan-Do-Check-Act}
+    \item Gibt einen Überblick über die ISO 27000 Standard-Reihe
+\end{itemize}
+
+\paragraph*{ISO 27001 - Requirements}\index{ISO Standards!ISO 27001}\label{para:ISO 27001}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Definiert
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Einführung
+        \item Betrieb
+        \item Überwachung
+        \item Wartung
+        \item Verbesserung
+    \end{itemize}
+    eines dokumentierten ISMS's
+    \item Wurde aus dem britischen Standard BS 7799-2:2002 entwickelt und als ISO-Norm im Jahr 2005 veröffentlicht
+    \item \textsl{Definiert} den Sicherheitsprozess nach dem Prozess-Ansatz PDCA
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Dieses Vorgehensmodell wird in ISO 27001:2013 nicht mehr explizit erwähnt, da es auch andere Ansätze gibt, um einen Sicherheitsprozess zu modellieren
+    \end{itemize}
+    \item Definiert in Anhang A Ziele und Massnahmen zur Verbesserung der Informationssicherheit (die Ziele und Massnahmen sind aus ISO 27002 entlehnt)
+    \item Eine Firma kann sich nach ISO 27001 zertifizieren lassen
+    \item Freiheitsgrade beim Aufbau eines ISMS
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item "`Scope"': Bereich, über den sich das ISMS erstreckt
+        \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+            \item Ganze Firma
+            \item Eine Abteilung
+            \item Ein Standort
+            \item Ein Teil der Infrastruktur: z.B. die DMZ
+            \item etc.
+        \end{itemize}
+        \item Kontrollziele und Steuerungen (\flqq Controls\frqq{} aus ISO 27002), welche vom ISMS berücksichtigt werden ("`Statement of Applicability"', SOA\index{SOA!Statement of Applicability})
+    \end{itemize}
+    \item "`Scope"' und "`SOA"' definieren dem Umfang einer Zertifizierung nach ISO 27001
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/iso27001.png}
+    \caption{Prozess nach ISO 27001 \cite{iso27001}}
+    \label{iso27001}
+    \end{center}
+\end{figure}
+
+\paragraph*{Plan-Do-Check-Act nach ISO 27001}\index{PDCA!Plan-Do-Check-Act}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Planen (Erstellung des ISMS)}\\
+    Erstellung der jeweils für das Risikomanagement und zur Informationssicherheitsverbesserung relevanten ISMS-Richtlinien, Zielsetzungen, Prozesse und Prozeduren zur Erzielung von Ergebnissen gemäss den Gesamtrichtlinien und -zielsetzungen einer Organisation.
+    \item \textbf{Machen (Einführung und Durchführung des ISMS)}\\
+    Einführung und Durchführung der ISMS-Richtlinien, -Steuerungsmassnahmen, -Prozessen, und -Prozeduren
+    \item \textbf{Prüfen (Überprüfung und Revision des ISMS)}\\
+    Beurteilung und, wo massgebend, Messung des Prozesserfolgs gegenüber den ISMS-Richtlinien, -Zielsetzungen und praktischen Erfahrungen, sowie Berichterstattung über die Ergebnisse an das Management zwecks Revision
+    \item \textbf{Handeln (Wartung und Verbesserung des ISMS)}\\
+    Ergreifung korrigiernder und vorbeugender Massnahmen, basierend auf den Ergebnissen des ISMS-Audits und der Management-Revision oder anderen relevandten Informationen zur Erzielung einer laufenden Verbesserung des ISMS
+\end{itemize}
+
+\paragraph*{ISO 27002 - Code of practice for information security management}\index{ISO Standards!ISO 27002}\label{para:ISO 27002}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Standardwerk zum Thema Informationssicherheit, kurz oft CoP genannt
+    \item Definiert 114 Steuerungsmassnahmen\footnote{auch Massnahmen oder Prüfpunkte genannt} für den sicheren Umgang mit Informationen
+    \item Zu jeder Massnahme sind Umsetzungsanleitungen angegeben, allerdings jeweils mit nur wenig Detailgrad
+    \item Eine Zertifizierung nach ISO 27002 isn nit möglich, da es keine harten Forderungen gibt (nur \textsl{sollte}-Formulierungen)
+    \item Der Standard eignet sich sehr gut zur Umsetzung eines sog. Grundschutzes\index{Grundschutz} (Mindestanforderung im Sicherheitsbereich)
+    \item Ursprung aus British Standard BS 7799-1:1999, wurde zu ISO 17799:2000; dann zu ISO 27002:2007 umbenannt, welches wortgleich mit ISO 17799:2005 war.
+    \item Aktuell ISO 27002:2013
+    \item Adressierte Themen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Organisatorische, physische und logische Sicherheit
+        \item Anwendungsentwicklung und -unterhalt
+        \item Notfallvorsorge
+        \item Einhaltung und Überprüfung der Sicherheit
+        \item etc.
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\paragraph*{14 Domänen (Kapitel) von ISO 27002}\index{Domänen}
+    \begin{center}
+    \includegraphics[width=12cm]{images/domains.png}
+    \caption{14 Domänen (Kapitel)}
+    \label{domains}
+    \end{center}
+\end{figure}
+
+\paragraph*{ISO 27003 - ISMS implementation guidance}\index{ISO Standards!ISO 27003}\label{para:ISO 27003}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Anleitung für die Entwicklung eines Implementierungsplans für eine ISMS nach ISO 27001
+    \item Der Standard enthält nur Empfehlungen, jedoch keine Anforderungen
+    \item Aufwand für den Aufbau eines ISMS in einer Firma mittlerer Grösse (ca. 250 Mitarbeitende)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item 12-18 Monate
+        \item Mehrere hunderttausend Franken
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{ISO 27004 - Information security management - Measurement}\index{ISO Standards!ISO 27004}\label{para:ISO 27004}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Anleitung für die implementation eines Messsystems für die Beurteilung der Effektivität eines ISMS und der damit verbundenen Steuerungsmassnahmen gemäss ISO 27002
+    \item Der Standard enthält Empfehlungen zu folgenden Aktivitäten:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Entwicklung von Messkritieren
+        \item Implementation eines Information Security Measurement Program (ISMP\index{ISMP})
+        \item Analyse von Messresultaten und Reporting an die Stakeholders
+        \item Nutzung der Resultate, um das ISMS und die zugehörigen Massnahmen, sowie Kontrollen zu verbessern
+        \item Nutzung der Resultate, um das ISMP zu verbessern
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{ISO 27005 - Information security risk management}\index{ISO Standards!ISO 27005}\label{para:ISO 27005}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Anleitung für ein Information Security Risk Management ohne Spezifikation einer Risiko Management Methode
+    \item Beliebige Risiko Management Methoden können unter dem vorgegebenen Framework angewendet werden
+    \item Der Standard basiert auf ISO 27001 und ISO 27002 und setzt deshalb für die Anwendung die Kenntnis dieser beiden Standards voraus
+    \item Er spezifiziert den ganzen Risiko Management Prozess, beginnend mit der Risiko Analyse bis zum Plan für den Umgang mit den identifizierten Risiken
+\end{itemize}
+
 \subsection*{Sie finden sich in den Standards ISO 27001 und 27002 zurecht}
-\paragraph*{TODO}
+\paragraph*{Unterschiede}Die Kontrollen in ISO 27002 haben dieselbe Bezeichnung wie in Anhang A von ISO 27001. In ISO 27002 wird Kontrolle 6.1.2 beispielsweise als „Aufgabentrennung“ bezeichnet, in ISO 27001 als „A.6.1.2 Aufgabentrennung.“ Der Unterschied liegt jedoch in der Detailgenauigkeit – im Durchschnitt erklärt ISO 27002 ein Steuerelement auf einer ganzen Seite.
 
-\subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}
-\paragraph*{TODO}
+Und zu guter Letzt ist der Unterschied, dass ISO 27002 keine Unterscheidung zwischen Kontrollen, die für eine bestimmte Organisation anwendbar sind und jenen, die das nicht sind, macht. ISO 27001 hingegen schreibt eine vorzunehmende Risikobewertung vor, um für jede Kontrolle zu ermitteln, ob es notwendig ist, die Risiken zu reduzieren und ist dies der Fall, in welchem Ausmass dies anzuwenden ist.
 
-\subsection*{Sie kennen die Struktur und Grundziele des NIST CyberSecurityFrameworks}
-\paragraph*{TODO}
+Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt existieren, warum wurden sie nicht zusammengeführt, um damit die positiven Seiten beider Normen hervorzubringen? Die Antwort ist die Benutzerfreundlichkeit – eine einzelne Norm wäre zu komplex und zu gross für eine praktische Anwendung\cite{advisera}.
+
+\subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}\index{BSI-Standards}
+\paragraph*{BSI}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Unabhängige und neutrale Stelle für Fragen der Informationssicherheit in der INformationsgesellschaft
+    \item Gründung 1991 per Gesetz als nationale Behörde für IT-Sicherheit
+    \item Jahresbudget: ca. € 64 Mio.
+    \item Mitarbeiter: \textgreater600
+    \item Standort: Bonn
+    \item Kunden: Bundesverwaltung, Wirtschaft, Wissenschaft, Bürger
+\end{itemize}
+
+\paragraph*{BSI-Standards und IT-Grundschutz-Kataloge}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die \textbf{BSI-Standards} beschreiben die Vorgehensweise nach IT-Grundschutz und enthalten Ausführungen zum Informationssicherheitsmanagement und zur Risikoanalyse
+    \item Die \textbf{IT-Grundschutz-Kataloge} beinhalten die Baustein-, Massnahmen- und Gefährdungskataloge
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Umfang:
+        \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+            \item über 80 Bausteine
+            \item über 1300 Massnahmen
+            \item über 4000 Seiten
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/BSIgrundschutz.png}
+    \caption{BSI-Standards und IT-Grundschutz-Kompendium \cite{heise}}
+    \label{bsigrundschutz}
+    \end{center}
+\end{figure}
+
+\paragraph*{BSI-Standard 200-1 - Managementsysteme für Informationssicherheit}\index{BSI-Standards!BSI 200-1}\label{para:BSI 200-1}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Zielgruppe: Management
+    \item Definiert allgemeine Anforderungen an ein ISMS
+    \item Kompatibel mit den entsprechenden Standards der ISO 27000 Reihe
+    \item Berücksichtigt insbesondere Empfehlungen aus ISO 13335\index{ISO Standards!ISO 13335} und ISO 27002\index{ISO Standards!ISO 27002}\\({Siehe \underline{\nameref{para:ISO 27002}}, Seite \pageref{para:ISO 27002}})
+    \item Didaktisch sehr gut aufbereitet (leicht verständlich)
+    \item Enthält diverse Hinweise zur Zusammenarbeit Sicherheitsmanagement und Datenschutz
+\end{itemize}
+
+\paragraph*{BSI-Standard 200-2 - IT-Grundschutz-Vorgehensweise}\index{BSI-Standards!BSI 200-2}\label{para:BSI 200-2}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Konkretisiert die Darstellung de ISMS nach BSI-Standard 200-1
+    \item Beschreibt Aufbau und Betrieb eines ISMS in der Praxis
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Aufgaben des IT-Sicherheitsmanagements
+        \item Aufbau von Organisationsstrukturen für die Informationssicherheit
+    \end{itemize}
+    \item Gibt Anleitung
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item zur Erstellung eine Sicherheitskonzepts
+        \item zur Auswahl von angemessenen Sicherheitsmassnahmen
+        \item zum Aufrechterhalten und Verbessern der Informationssicherheit
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{BSI-Standard 200-3 - Risikoanalyse auf Basis von IT-Grundschutz}\index{BSI-Standards!BSI 200-3}\label{para:BSI 200-3}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Standard-Sicherheitsmassnahmen der IT-Grundschutzkataloge sind in der Regel ausreichend
+    \item Es gibt allerdings auch Ausnahmen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Objekte mit besonders hohen Sicherheitsanforderungen
+        \item Objekte, welche in den IT-Grundschutzkatalogen nicht behandelt werden
+        \item Objekte, welche in Einsatzszenarien betrieben werden, die im Rahmen des IT-Grundschutz nicht vorgesehen sind
+    \end{itemize}
+    \item In diesen Fällen muss eine Risikoanalyse auf der Basis von IT-Grundschutz durchgeführt werden
+\end{itemize}
+
+\begin{figure}[H]
+\paragraph*{Risikoanalyse auf Basis von IT-Grundschutz}
+    \begin{center}
+    \includegraphics[width=16cm]{images/bsi100-3.png}
+    \caption{Standard-Sicherheit und Risikoanalyse}
+    \label{bsi100-3}
+    \end{center}
+\end{figure}
+
+\paragraph*{BSI-Standard 100-4 - Notfallmanagement}\index{BSI-Standards!BSI 100-4}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Methodik zur Etabliereung und Aufrechterhaltung eines unternehmensweiten, internen Notfallmanagements
+    \item Führt zu einem eigenständigen Managementsystem für die Geschäftsfortführung und Notfallbewältigung
+    \item Baut auf der IT-Grundschutzvorgeheinsweise auf (BSI-Standard 100-2)
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/vortraggrundschutz.png}
+    \caption{Iteration des Notfallmanagements nach BSI 100-4 \cite{münch2009}}
+    \label{bsi100-4}
+    \end{center}
+\end{figure}
+
+\subsection*{Sie kennen die Struktur und Grundziele des NIST Cybersecurity Frameworks}\index{NIST Cybersecurity Framework}
+\paragraph*{NIST Cybersecurity Framework}\label{para:NIST}Das Cybersecurity Framework ist eine Reihe von Richtlinien für Privatunternehmen, die befolgt werden müssen, um bei den Funktionen Identify, Detect und Respond im Thema Cyberangriffe besser vorbereitet zu sein. Es enthält auch Richtlinien, wie man einen Angriff verhindern und sich von ihm erholen kann.
+Einfach ausgedrückt, ist das NIST Cybersecurity Framework eine Reihe von Best~Practices, Standards und Empfehlungen, die einem Unternehmen helfen, seine Cybersicherheitsmassnahmen zu verbessern. Das NIST Cybersecurity Framework versucht, den Mangel an Standards zu beheben, wenn es um Sicherheit geht. Derzeit gibt es grosse Unterschiede in der Art und Weise wie Unternehmen Technologien, Sprachen und Regeln zur Bekämpfung von Hackern, Datenpiraten und Ransomware einsetzen. Die verschiedenen Policies, Guidelines, Best Practices und Technologien, die in der Cybersicherheit verwendet werden, werfen ein weiteres Problem auf: Unternehmen sind nicht in der Lage, Informationen über Angriffe auszutauschen. Aber Vorsicht, das was die andere Firma dagegen getan hat, muss nicht unbedingt für das eigene Unternehmen funktionieren.
+Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit einem einheitlichen Satz von Regeln, Richtlinien und Standards ist es einfacher, Informationen zwischen zwei Unternehmen auszutauschen und alle auf das gleiche Niveau zu bringen\cite{guardian}.
+
+\paragraph*{Cybersecurity Framework Components}\index{NIST Cybersecurity Framework!Components}\label{para:NISTcomponents}Das NIST Security Framework besteht aus drei Komponenten. Dem Kern (Core), den Umsetzungsebenen (Tiers) und dem Profil (Profile).
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=6cm]{images/NISTcomponents.png}
+    \caption{Die Komponenten des NIST Frameworks}
+    \label{nistcomponents}
+    \end{center}
+\end{figure}
+
+\paragraph*{Core}\index{NIST Cybersecurity Framework!Core}\label{para:NISTcore}Der Framework-Kern definiert die Aktivitäten, die Sie durchführen müssen, um unterschiedliche Cybersicherheitsergebnisse zu erzielen. Diese wird in vier verschiedene Elemente unterteilt:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Fünf \textbf{Funktionen} für grundlegende Cybersicherheitsaufgaben \footnote{{Siehe \underline{\nameref{nistfunctions}}, Seite \pageref{nistfunctions}}}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Identifizierung
+        \item Schutz
+        \item Erkennung
+        \item Reaktion
+        \item Wiederherstellung
+    \end{itemize}
+    \item Für jede der fünf Funktionen gibt es \textbf{Kategorien}, die eigentlich spezifische Herausforderungen oder Aufgaben sind, welche ausgeführt werden müssen (z.B. Betriebssystem- \& Software-Updates, Antiviren- \& Antimalwareprogramme)
+    \item \textbf{Unterkategorien} sind Aufgaben oder Herausforderungen, die mit der Kategorie verbunden sind (z.B. für Betriebssystem-Updates (Kategorie) müssen automatische Updates auf allen Maschinen aktiv sein)
+    \item \textbf{Informative Quellen } sind Dokumente \& Handbücher, die spezifische Aufgaben für Benutzer detailliert beschreiben, wie die Dinge durchgeführt werden sollen (z.B. wie automatische Updates aktiviert werden)
+\end{itemize}
+
+\begin{figure}[H]
+\paragraph*{Fünf Funktionen der Cybersicherheitsaufgaben}
+    \begin{center}
+    \includegraphics[width=6cm]{images/NISTfunctions.png}
+    \caption{Fünf Frameworkfunktionen}
+    \label{nistfunctions}
+    \end{center}
+\end{figure}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Identifizierungsfunktion} hilft bei der Entwicklung eines organisatorischen Verständnisses für das Management des Cybersicherheitsrisikos für Systeme, Personen, Anlagen, Daten und Fähigkeiten
+    \item \textbf{Schutzfunktion} unterstützt die Fähigkeit, die Auswirkungen potenzieller Cybersicherheitsereignisse zu begrenzen oder einzudämmen, und setzt Rahmenbedingungen der Schutzmassnahmen für die Bereitstellung kritischer Dienste
+    \item Die \textbf{Erkennungsfunktion} definiert die geeigneten Aktivitäten, um das Auftreten eines Cybersicherheitsereignisses rechtzeitig zu erkennen
+    \item Die \textbf{Reaktionsfunktion} umfasst geeignete Aktivitäten, um Maßnahmen in Bezug auf einen erkannten Cybersicherheitsvorfall zu ergreifen und die Auswirkungen zu minimieren
+    \item Die \textbf{Wiederherstellungsfunktion} identifiziert geeignete Aktivitäten zur Aufrechterhaltung von Ausfallsicherheitsplänen und zur Wiederherstellung von Diensten, die bei Cybersicherheitsvorfällen beeinträchtigt werden
+\end{itemize}
 
 
 \section{Risiko-Management und IT-Grundschutz}
@@ -2260,7 +2632,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \paragraph*{TODO}
 
 
-\section{Awarness}
+\section{Awareness}
 \subsection*{Sie verstehen die Wichtigkeit der \flqq Awareness \frqq}
 \paragraph*{TODO}
 
@@ -2319,7 +2691,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \part{WAF, Federations (SW~13)}
 \section{Firewalls}
 \subsection*{Sie wissen was die Aufgaben einer Firewall sind}
-\paragraph*{Aufgaben einer Firewall}Filtern der ein- und ausgehenden Kommunikation nach
+\paragraph*{Aufgaben einer Firewall}Filtern der ein- (WAF) und ausgehenden (HTTP Proxy) Kommunikation nach
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Service control:} Z.B. Protokoll, Portnummer, IP-Adresse
     \item \textbf{Direction control:} Wer hat die Verbindung aufgebaut bzw. den Service initiiert?
@@ -2354,19 +2726,103 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \part{Talks (SW~14)}
 \section{Malware}
 \subsection*{Sie verstehen, welche Arten von Malware es gibt, welche Massnahmen gegen Malware sinnvoll sind und wie diese wirken}
-\paragraph*{TODO}
+\paragraph*{Welche Arten von Malware es gibt:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Viren:} Malware, die sich verbreitet und versteckt, indem sie andere Programme «verseucht».
+    \item \textbf{Dropper:} Malware, die andere Malware nachlädt.
+    \item \textbf{Würmer:} Malware, die sich selbst ohne Zutun des Benutzers verbreitet.
+    \item \textbf{Trojaner:} Malware, die sich verdeckt hält und spioniert, ggf. andere Funktionen nachlädt.
+    \item \textbf{Ransomware:} Malware, die das Opfer erpresst meistens indem sie Daten verschlüsselt.
+\end{itemize}
+\paragraph*{Aktuelle Arten von Malware:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Emotet:} Ursprünglich Banking-Trojaner, Ziel deutschsprachiger Raum und mittlerweile Vehikel für andere Malware (Dropper).
+    \item \textbf{Trickbot:} Banking-Trojaner, stiehlt Login-Daten, Kartennummern, TANs usw.
+    \item \textbf{Ryuk:} Ransomware, verschlüsselt Daten und erpresst Opfer
+\end{itemize}
+\paragraph*{Verbreitungswege:} Interne Weiterverbreitung, Infektion.
+\paragraph*{Massnahmen gegen Malware:} Sollten verhältnismässig ausgewählt werden, konsequent durchgesetzt und verifiziert.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/expertvsnonexpert.png}
+    \caption{Experts vs Non-Experts}
+    \label{expertvsnonexpert}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/massnahmenpost.png}
+    \caption{Positionierung Massnahmen}
+    \label{massnahmenpost}
+    \end{center}
+\end{figure}
+\paragraph*{Schadensbegrenzung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Backup:} Verfügbarkeit der Daten und Systeme im Fall von technischen Problemen (Ausfall eines Servers, von Festplatten). Grundregel: Eine Sicherheitskopie ist nur dann ein Backup, wenn es wiederhergestellt werden kann. Für Malware zusätzlich Unveränderbarkeit der Daten und Systeme (Erpressung ist wirkungslos, wenn das Opfer eine intakte Kopie hat). Grundregel: Eine Sicherheitskopie ist nur nützlich, wenn sie vom Angreifer nicht verändert werden kann.
+\end{itemize}
+\paragraph*{Schutz gegen Infektion}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Update-Management:} Viele Programme verarbeiten Daten unbekannten Ursprungs (Anhänge von E-Mails (Kunden, Geschäftspartner), Downloads aus dem Internet). Für Malware müssen diese Programme immer aktuell gehalten werden: Betriebssystem, Browser, E-Mail, Messenger, Office-Suite, PDF-Reader, Tools generell.
+	\item \textbf{Awareness-Schulung:} Sensibilisierung der Mitarbeiter. Für Malware ist eine hohe Sensibilisierung notwendig, Phishing-Angriffe können vom internen Netzwerk kommen.
+	\item \textbf{Filtern:} Filtern beim E-Mail (Filter auf Malware und Phishing), Internet-Zugang (Filter auf Malware und Phishing), File-Server(Scan auf Schadcode) und eine restriktive Zugriffsberechtigungen auf Files. Für Malware zusätzliche eine aktive Auswertung von Protokolldaten und Webisolation.
+\end{itemize}
+\paragraph*{Schutz gegen Verbreitung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Berechtigungen:} Mitarbeiter haben Zugriff (lesend und scheibend) auf Daten, die sie nicht benötigen, haben administrative Berechtigung an ihrem Arbeitsgerät oder Administratoren benutzen ihr Arbeitskennwort auch zur Systemverwaltung (Active Directory). Massnahmen fordern dazu, dass eine rigorose Einschränkung der Zugriffsberechtigungen durchgeführt wird sowie keine administrativen Berechtigungen für Benutzer. Jedoch starke Einschränkungen behindern die Arbeit.
+	\item \textbf{Netzwerk, Zonierung:} Flache Strukturen oder einfache Zonierung (Perimeter-Schutz). Bei Malware behindert eine Zonierung Ausbreitung und Interaktion zwischen Clients. Server-zu-Server-Kommunikation einschränken und eine dediziertes Management-Netz. Sowie eine Abtrennung der Backup-Systeme.
+	\item \textbf{Protokollierung und Monitoring:} Nachvollzug von Benutzer-Aktivitäten und System-Verhalten. Beim Malware eine Analyse im Rahmen des Incident-Managements (Nachforschungen).
+\end{itemize}
+\paragraph*{Wie diese Massnahmen wirken:}
+\paragraph*{Behebung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Sofortmassnahmen (Schadensbegrenzung):} Alle Systeme im betroffenen Segment (Netzwerkzone, Active-Directory-Domain) ausschalten/trennen, alternative Arbeitsumgebung aufbauen oder aktivieren.
+	\item \textbf{MittelfristigeMassnahmen(Schadenbeheben):} Einsatz einer Task-Force (Notfallorganisation), Information an Kunden und Partner, Forensische Untersuchung der Infektion, Aufbau einer intakten Umgebung, Wiederherstellung der Daten (ab Backup), Nacharbeiten.
+	\item \textbf{Längerfristige Massnahmen (zukünftige Schäden verhindern)}
+\end{itemize}
+\paragraph*{Prüfung der Massnahmen:} Warum braucht es eine Prüfung?
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Massnahmen sind im regulären Betrieb nicht sichtbar (z.B. Zonierung)
+    \item Aufweichung der Massnahmen, da diese hinderlich sind
+    \item Prüfungen gegen Standards reichen nicht (zu wenig spezifisch)
+\end{itemize}
 
 \section{WAF}
 \subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einene Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
-\paragraph*{TODO}
+\paragraph*{Wo Machine-Learning in einer WAF eingesetzt wird:} Detection of new/unknown attacks in productive traffic. From catching requests (not useful) to catching sessions (useful). Am Anfang wurde die Attack/Safe payloads angeschaut, die jedoch unnutzlich (does not adequately address real problem (robustness)) sind im vergleich zum requests und sessions.
+\paragraph*{Attack/Safe payload approach:} Mittels supervised learning die existeriende Lösung verbessern. Die Data wird angeschaut anstatt die requests/sessions. Good Strings beeinhalten ca. 1k human input strings und 10k technische strings (HTTP Headers...). Bad Strings beeinhalten ca. 500k attack payloads. Die approach war gemäss die Boosting Trees Model die die solche features haben: quote-count, quote-parity, keyword-count, SQL-comment-count, length, shrinkageAbsolute, unicodeCount, controlCount, punctuationRatio. Es ist zwar genau jedoch wird die echte Problem damit nicht gelöst, nämlich die robustness problem.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/requirementML.png}
+    \caption{Requirement and current solutions}
+    \label{requirementML}
+    \end{center}
+\end{figure}
+
+\paragraph*{Catching Requests:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Attacks:} injection attacks, CSRF
+	\item \textbf{Decision:} good or bad (binary)
+	\item \textbf{Property correlation:} not possible
+	\item \textbf{Action:} block
+\end{itemize}
+\paragraph*{Catching Sessions:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Attacks:} infected client, forceful browsing, vulnerability scanning, session stealing, DoS
+	\item \textbf{Decision:} how bad and what kind of session is it?
+	\item \textbf{Property correlation:} timestamp, IP/geolocation, path, status code, content-type, TLS session id
+	\item \textbf{Action:} CAPTCHA, re-authentication, block, inform system/human, log-only
+\end{itemize}
 
 \subsection*{Sie kennen Beispiele von Angriffen, welche mittels Machine-Learning auf einer WAF erkannt werden konnten}
-\paragraph*{TODO}
+\paragraph*{Client controlled by command and control server:} Phases of 404 Status Code, No js/css/images etc. (content type), explore a certain page and then continue. This is an IP attempting to make contact to unknown C&C-Server, with contents unique to unknown C&C-Command protocols.
+\paragraph*{Infected Clients:} Normal content type distribution, multiple passes over unsuspicious URLs but from 8 (less or more) different IPs in parallel. IP infected or NATing for computer infected by Gozi botnet.
+\paragraph*{Vulnerability Scanner:} Huge Session which is incredibly fast with suspicious URLs.
+\paragraph*{Internal Monitoring Tool:}  No js/css/images etc. (content type) and a lot of requests and no manual user. URLs known as well as IP therefore a desired bot.
+
 \printindex
 \listoffigures
-%\newpage
-%\printbibheading
+\newpage
 %\printbibliography[type=book,heading=subbibliography,title={Bücher}]
 %\printbibliography[notype=book,heading=subbibliography,title={Andere Quellen}]
-%\printbibliography
+\printbibliography[title={Quellen}]
 \end{document}
