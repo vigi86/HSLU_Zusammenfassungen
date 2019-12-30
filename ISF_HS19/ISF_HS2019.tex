@@ -1517,14 +1517,98 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \part{Talks (SW~14)}
 \section{Malware}
 \subsection*{Sie verstehen, welche Arten von Malware es gibt, welche Massnahmen gegen Malware sinnvoll sind und wie diese wirken}
-\paragraph*{TODO}
+\paragraph*{Welche Arten von Malware es gibt:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Viren:} Malware, die sich verbreitet und versteckt, indem sie andere Programme «verseucht».
+    \item \textbf{Dropper:} Malware, die andere Malware nachlädt.
+    \item \textbf{Würmer:} Malware, die sich selbst ohne Zutun des Benutzers verbreitet.
+    \item \textbf{Trojaner:} Malware, die sich verdeckt hält und spioniert, ggf. andere Funktionen nachlädt.
+    \item \textbf{Ransomware:} Malware, die das Opfer erpresst meistens indem sie Daten verschlüsselt.
+\end{itemize}
+\paragraph*{Aktuelle Arten von Malware:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Emotet:} Ursprünglich Banking-Trojaner, Ziel deutschsprachiger Raum und mittlerweile Vehikel für andere Malware (Dropper).
+    \item \textbf{Trickbot:} Banking-Trojaner, stiehlt Login-Daten, Kartennummern, TANs usw.
+    \item \textbf{Ryuk:} Ransomware, verschlüsselt Daten und erpresst Opfer
+\end{itemize}
+\paragraph*{Verbreitungswege:} Interne Weiterverbreitung, Infektion.
+\paragraph*{Massnahmen gegen Malware:} Sollten verhältnismässig ausgewählt werden, konsequent durchgesetzt und verifiziert.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/expertvsnonexpert.png}
+    \caption{Experts vs Non-Experts}
+    \label{expertvsnonexpert}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/massnahmenpost.png}
+    \caption{Positionierung Massnahmen}
+    \label{massnahmenpost}
+    \end{center}
+\end{figure}
+\paragraph*{Schadensbegrenzung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Backup:} Verfügbarkeit der Daten und Systeme im Fall von technischen Problemen (Ausfall eines Servers, von Festplatten). Grundregel: Eine Sicherheitskopie ist nur dann ein Backup, wenn es wiederhergestellt werden kann. Für Malware zusätzlich Unveränderbarkeit der Daten und Systeme (Erpressung ist wirkungslos, wenn das Opfer eine intakte Kopie hat). Grundregel: Eine Sicherheitskopie ist nur nützlich, wenn sie vom Angreifer nicht verändert werden kann.
+\end{itemize}
+\paragraph*{Schutz gegen Infektion}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Update-Management:} Viele Programme verarbeiten Daten unbekannten Ursprungs (Anhänge von E-Mails (Kunden, Geschäftspartner), Downloads aus dem Internet). Für Malware müssen diese Programme immer aktuell gehalten werden: Betriebssystem, Browser, E-Mail, Messenger, Office-Suite, PDF-Reader, Tools generell.
+	\item \textbf{Awareness-Schulung:} Sensibilisierung der Mitarbeiter. Für Malware ist eine hohe Sensibilisierung notwendig, Phishing-Angriffe können vom internen Netzwerk kommen.
+	\item \textbf{Filtern:} Filtern beim E-Mail (Filter auf Malware und Phishing), Internet-Zugang (Filter auf Malware und Phishing), File-Server(Scan auf Schadcode) und eine restriktive Zugriffsberechtigungen auf Files. Für Malware zusätzliche eine aktive Auswertung von Protokolldaten und Webisolation.
+\end{itemize}
+\paragraph*{Schutz gegen Verbreitung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Berechtigungen:} Mitarbeiter haben Zugriff (lesend und scheibend) auf Daten, die sie nicht benötigen, haben administrative Berechtigung an ihrem Arbeitsgerät oder Administratoren benutzen ihr Arbeitskennwort auch zur Systemverwaltung (Active Directory). Massnahmen fordern dazu, dass eine rigorose Einschränkung der Zugriffsberechtigungen durchgeführt wird sowie keine administrativen Berechtigungen für Benutzer. Jedoch starke Einschränkungen behindern die Arbeit.
+	\item \textbf{Netzwerk, Zonierung:} Flache Strukturen oder einfache Zonierung (Perimeter-Schutz). Bei Malware behindert eine Zonierung Ausbreitung und Interaktion zwischen Clients. Server-zu-Server-Kommunikation einschränken und eine dediziertes Management-Netz. Sowie eine Abtrennung der Backup-Systeme.
+	\item \textbf{Protokollierung und Monitoring:} Nachvollzug von Benutzer-Aktivitäten und System-Verhalten. Beim Malware eine Analyse im Rahmen des Incident-Managements (Nachforschungen).
+\end{itemize}
+\paragraph*{Wie diese Massnahmen wirken:}
+\paragraph*{Behebung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Sofortmassnahmen (Schadensbegrenzung):} Alle Systeme im betroffenen Segment (Netzwerkzone, Active-Directory-Domain) ausschalten/trennen, alternative Arbeitsumgebung aufbauen oder aktivieren.
+	\item \textbf{MittelfristigeMassnahmen(Schadenbeheben):} Einsatz einer Task-Force (Notfallorganisation), Information an Kunden und Partner, Forensische Untersuchung der Infektion, Aufbau einer intakten Umgebung, Wiederherstellung der Daten (ab Backup), Nacharbeiten.
+	\item \textbf{Längerfristige Massnahmen (zukünftige Schäden verhindern)}
+\end{itemize}
+\paragraph*{Prüfung der Massnahmen:} Warum braucht es eine Prüfung?
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Massnahmen sind im regulären Betrieb nicht sichtbar (z.B. Zonierung)
+    \item Aufweichung der Massnahmen, da diese hinderlich sind
+    \item Prüfungen gegen Standards reichen nicht (zu wenig spezifisch)
+\end{itemize}
 
 \section{WAF}
 \subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einene Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
-\paragraph*{TODO}
+\paragraph*{Wo Machine-Learning in einer WAF eingesetzt wird:} Detection of new/unknown attacks in productive traffic. From catching requests (not useful) to catching sessions (useful). Am Anfang wurde die Attack/Safe payloads angeschaut, die jedoch unnutzlich (does not adequately address real problem (robustness)) sind im vergleich zum requests und sessions.
+\paragraph*{Attack/Safe payload approach:} Mittels supervised learning die existeriende Lösung verbessern. Die Data wird angeschaut anstatt die requests/sessions. Good Strings beeinhalten ca. 1k human input strings und 10k technische strings (HTTP Headers...). Bad Strings beeinhalten ca. 500k attack payloads. Die approach war gemäss die Boosting Trees Model die die solche features haben: quote-count, quote-parity, keyword-count, SQL-comment-count, length, shrinkageAbsolute, unicodeCount, controlCount, punctuationRatio. Es ist zwar genau jedoch wird die echte Problem damit nicht gelöst, nämlich die robustness problem.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/requirementML.png}
+    \caption{Requirement and current solutions}
+    \label{requirementML}
+    \end{center}
+\end{figure}
+
+\paragraph*{Catching Requests:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Attacks:} injection attacks, CSRF
+	\item \textbf{Decision:} good or bad (binary)
+	\item \textbf{Property correlation:} not possible
+	\item \textbf{Action:} block
+\end{itemize}
+\paragraph*{Catching Sessions:}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+	\item \textbf{Attacks:} infected client, forceful browsing, vulnerability scanning, session stealing, DoS
+	\item \textbf{Decision:} how bad and what kind of session is it?
+	\item \textbf{Property correlation:} timestamp, IP/geolocation, path, status code, content-type, TLS session id
+	\item \textbf{Action:} CAPTCHA, re-authentication, block, inform system/human, log-only
+\end{itemize}
 
 \subsection*{Sie kennen Beispiele von Angriffen, welche mittels Machine-Learning auf einer WAF erkannt werden konnten}
-\paragraph*{TODO}
+\paragraph*{Client controlled by command and control server:} Phases of 404 Status Code, No js/css/images etc. (content type), explore a certain page and then continue. This is an IP attempting to make contact to unknown C&C-Server, with contents unique to unknown C&C-Command protocols.
+\paragraph*{Infected Clients:} Normal content type distribution, multiple passes over unsuspicious URLs but from 8 (less or more) different IPs in parallel. IP infected or NATing for computer infected by Gozi botnet.
+\paragraph*{Vulnerability Scanner:} Huge Session which is incredibly fast with suspicious URLs.
+\paragraph*{Internal Monitoring Tool:}  No js/css/images etc. (content type) and a lot of requests and no manual user. URLs known as well as IP therefore a desired bot.
 
 \printindex
 \listoffigures
