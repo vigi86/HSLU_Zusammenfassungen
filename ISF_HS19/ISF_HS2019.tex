@@ -5,6 +5,7 @@
 \usepackage{enumitem, fancyhdr, graphicx, float, makeidx, textcomp}
 \usepackage[hidelinks]{hyperref}
 \usepackage[hang,flushmargin]{footmisc}
+\usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
 \usepackage{listings}
 \lstloadlanguages{SQL}
 %%%
@@ -15,14 +16,20 @@
 %%%
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{bibliography.bib}
-%\usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
 \makeindex
 
 \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
 \subsectionfont{\color{dunkelblau}}
 
 \title{ISF HS 2019}
-\author{Victor Fernández\\Pavaskar Parameswaran\\Kevin Soares Correia}
+\author[1]{Victor Fernández}
+\author[2]{Hillary Funke}
+\author[3]{Pavaskar Parameswaran}
+\author[3]{\\Kevin Soares Correia}
+\author[2]{Johannen Yilmaz}
+\affil[1]{HSLU Informatik}
+\affil[2]{HSLU Information and Cybersecurity}
+\affil[3]{HSLU Wirtschaftsinformatik}
 \date{Dezember 2019}
 
 
@@ -1425,8 +1432,8 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=11cm]{images/KPMG_Risikomanagementstile.png}
-    \caption{}
-    \label{}
+    \caption{Verschiedene Stile von Risikomanagement}
+    \label{risikomanagementstile}
     \end{center}
 \end{figure}
 
@@ -1435,7 +1442,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=13cm]{images/KPMG_Risiken.png}
-    \caption{Risiken laut KMPG}
+    \caption{Risiken laut KPMG}
     \label{KPMG Unternehmensrisiken}
     \end{center}
 \end{figure}
@@ -1763,8 +1770,8 @@ Der Entscheid, wie mit Risiken umgegangen werden soll, muss dokumentiert und von
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=10cm]{images/Risiko-Katalog.png}
-    \caption{}
-    \label{}
+    \caption{Beispiel eines Risikokataloges}
+    \label{risikokatalog}
     \end{center}
 \end{figure}
 
@@ -1785,7 +1792,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=14cm]{images/Risiko_Management_Prozess.png}
-    \caption{}
+    \caption{Organisation eines Risiko Managements}
     \label{Risiko Management Prozess}
     \end{center}
 \end{figure}
@@ -1938,7 +1945,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 
 \subsubsection*{BSI-Standard 200-3: Risikoanalyse auf Basis von IT-Grundschutz}
-\index{BSI 200-3}
+\index{BSI Standards!BSI 200-3}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/BSI200-3.png}
@@ -2190,7 +2197,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{itemize}
 \end{itemize}
 
-\paragraph*{Schutzbedarfsfeststellung –Vorgehen}
+\paragraph*{Schutzbedarfsfeststellung–Vorgehen}
 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Definition der Schutzbedarfskategorien
@@ -2210,8 +2217,8 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=5cm]{images/Schutzbedarf_vorgehen.png}
-    \caption{}
-    \label{}
+    \caption{Vorgehen bei Schutzbedarf}
+    \label{schutzbedarfvorgehen}
     \end{center}
 \end{figure}
 
@@ -2468,14 +2475,14 @@ Fragen beantworten:
 Vorgehen:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Bereits umgesetzte Massnahmen mit den
-    Empfehlungen der IT-GrundschutzKataloge vergleichen
+    Empfehlungen der IT-Grundschutz-Kataloge vergleichen
 \end{itemize}
 
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Grundschutz basis.png}
-    \caption{}
-    \label{}
+    \caption{Fehlende Sicherheitsmassnahen beim Basis-Grundschutz müssen ergänzt werden}
+    \label{grundschutzbasis}
     \end{center}
 \end{figure}
 
@@ -2798,14 +2805,14 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
-\paragraph*{Catching Requests:}
+\paragraph*{Catching Requests (bisherige WAF):}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
 	\item \textbf{Attacks:} injection attacks, CSRF
 	\item \textbf{Decision:} good or bad (binary)
 	\item \textbf{Property correlation:} not possible
 	\item \textbf{Action:} block
 \end{itemize}
-\paragraph*{Catching Sessions:}
+\paragraph*{Catching Sessions (ML Ansatz):}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
 	\item \textbf{Attacks:} infected client, forceful browsing, vulnerability scanning, session stealing, DoS
 	\item \textbf{Decision:} how bad and what kind of session is it?
