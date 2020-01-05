@@ -149,9 +149,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item Massnahmen ergreifen und umsetzen.
 \end{enumerate}
 
-\paragraph*{Welche Möglichkeiten zur Behandlung (\flqq Mitigation \frqq) stehen zur Verfügung? Ordnen Sie diese in der Reihenfolge, wie man sie typischerweise anwendet. Geben Sie ein kurzes Beispiel oder eine Erläuterung}
+\paragraph*{Welche Möglichkeiten zur Behandlung (\flqq Mitigation\footnote{Verminderung} \frqq) stehen zur Verfügung? Ordnen Sie diese in der Reihenfolge, wie man sie typischerweise anwendet. Geben Sie ein kurzes Beispiel oder eine Erläuterung}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Mitigation = Verminderung
     \item Priorisieren: welches Risiko muss ich zuerst behandeln
     \item Vermindern: Massnahmen ergreifen, um Eintretenshäufigkeit und Schadensausmass zu vermindern
     \item Vermeiden: Massnahmen oder Wege einleiten um das Risiko auszuschliessen
@@ -163,7 +162,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item Bruteforce, Phishing, DDoS, Injections, Spoofing, frustrierte Mitarbeiter, Anonymous, NSA, Naturgewalt, Hacker, Wirtschaftsspionage etc.
 \end{itemize}
 
-\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{Ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
+\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
 Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen. (Siehe Abbildung \ref{Wissenspyramide})
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Informationssicherheit:}\index{Informationssicherheit} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
@@ -172,7 +171,7 @@ Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig i
 \end{itemize}
 
 \subsubsection*{Bedeutung des Managements / GL im Rahmen von AKVs}
-Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
+Ohne Management-Support geht gar nichts\footnote{Aufgaben, Kompetenzen und Verantwortlichkeiten}.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Keine Ressourcen (Zeit und Geld)
     \item Keine Kompetenzen (Befehls-und Umsetzungsgewalt)
@@ -362,7 +361,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
-\paragraph*{One-time pad}\index{One-time pad}
+\paragraph*{One-time pad}\index{One-time pad}\label{One-Time Pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
@@ -658,7 +657,7 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
 
-\section*{Kontrollfragen SW 04}
+\subsection*{Kontrollfragen SW 04}
 \paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
@@ -1004,7 +1003,7 @@ Kernsystem entstehen und das System nach einem Angriff schnell wieder funktionsf
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/SSL-TLS.png}
-    \caption{SSl/TLS}
+    \caption{SSL/TLS}
     \label{SSL/TLS}
     \end{center}
 \end{figure}
@@ -1021,7 +1020,7 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
     \item Daten nach ihrer Sensivität klassifizieren und entsprechend behandeln
     \item Sensitive Daten nur gespeichert auf dem Server ablegen
     \item Passwörter mit Salt und Pepper und einer starken Passwort-Hashfunktion gehasht ablegen.
-    \item Daten verschlüsselt übertragen (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
+    \item Daten verschlüsselt übertragen (FTP$\Rightarrow$SFTP, HTTP$\Rightarrow$HTTPS, etc). Zertifikat überprüfen!
     \item Sicherstellen, dass sichere Ciphers verwendet werden
     \item Keine sensitiven Daten auf der Clientseite cachen.
 \end{itemize}
@@ -1210,7 +1209,7 @@ bewegen.
     \item Standardwerk zum Thema Informationssicherheit, kurz oft CoP genannt
     \item Definiert 114 Steuerungsmassnahmen\footnote{auch Massnahmen oder Prüfpunkte genannt} für den sicheren Umgang mit Informationen
     \item Zu jeder Massnahme sind Umsetzungsanleitungen angegeben, allerdings jeweils mit nur wenig Detailgrad
-    \item Eine Zertifizierung nach ISO 27002 isn nit möglich, da es keine harten Forderungen gibt (nur \textsl{sollte}-Formulierungen)
+    \item Eine Zertifizierung nach ISO 27002 ist nicht möglich, da es keine harten Forderungen gibt (nur \textsl{sollte}-Formulierungen)
     \item Der Standard eignet sich sehr gut zur Umsetzung eines sog. Grundschutzes\index{Grundschutz} (Mindestanforderung im Sicherheitsbereich)
     \item Ursprung aus British Standard BS 7799-1:1999, wurde zu ISO 17799:2000; dann zu ISO 27002:2007 umbenannt, welches wortgleich mit ISO 17799:2005 war.
     \item Aktuell ISO 27002:2013
@@ -2645,14 +2644,21 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 
 
 \section{Awareness}
-\subsection*{Sie verstehen die Wichtigkeit der \flqq Awareness \frqq}
-\paragraph*{Bedeutung: Bewusstsein. In verbindung mit der IT: Sich bewusst sein wie Wertvoll Informationen sind und welchen aussmas es haben kann wenn diese an unbefugte gelangen. Wie z.B. die Passwort für den Fernzugriff auf die wichtigsten Servern.}
-\paragraph*{Das Ziel von Awareness} Awareness hat zum Ziel, den Faktor Mensch gebührend in einer holistischen Sicht der Informationssicherheit zu würdigen, weil die anderen beiden Säulen Technik und Prozess Aspekte keine ausreichende Sicherheit bieten. Wichtig für grosse Nachhaltigkeit ist eine grundsätzliche Schulung der Mitarbeitenden mit regelmässigen Kampagnen, begleitet von flankierenden Massnahmen, zu kombinieren.
+\subsection*{Sie verstehen die Wichtigkeit der "`Awareness"'}\index{Awareness}
+\paragraph*{Bedeutung}In Verbindung mit der IT: Sich bewusst sein, wie Wertvoll Informationen sind und welches Ausmass es haben kann, wenn diese an Unbefugte gelangen. Wie z.B. Passwörter für den Fernzugriff auf die wichtigsten Servern.
+
+\paragraph*{Ziel}Awareness hat zum Ziel, den Faktor Mensch gebührend in einer holistischen\footnote{ganzheitlich} Sicht der Informationssicherheit zu würdigen, weil die anderen beiden Säulen - Technik und Prozess-Aspekte - keine ausreichende Sicherheit bieten. Wichtig für die Nachhaltigkeit ist daher eine grundsätzliche Schulung der Mitarbeitenden mit regelmässigen \textbf{Kampagnen}, begleitet von \textbf{flankierenden Massnahmen}, essentiell.
 
 
 \subsection*{Sie kennen verschiedene Prozesse und Vorgehensweisen für die Initiierung, Durchführung und Erfolgsprüfung einer Awareness-Kampagne und können diese anwenden}
+\paragraph*{Prozess}\index{Awareness-Prozess}\label{para:Awareness-Prozess}Der Awareness-Prozess im ISO 27002\index{ISO-Standards!ISO 27002} beschreibt den Prozess wie folgt:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alle Mitarbeitenden und Lieferanten des Unternehens sollten im Zusammenhang mit der von ihnen ausgeführten Tätigkeiten, bewusstseinsbildende Ausbildungen und Trainings ausführen, sowie regelmässige Updates von Bestimmungen und Verfahren erhalten.
+    \item Ein Inf
+    \item Das Ziel eines Awareness-Programms ist es, das Bewusstsein von Mitarbeitenden und Lieferanten auf sicherheitsrelevante Bestimmungen und Verfahren einzuhalten, um Firmeninformationen zu schützen.
+\end{itemize}
 
-\paragraph*{}
+\paragraph*{TODO}Sorry, Bilder sind hässlich und haben keine Quellen
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=15cm]{images/Awareness_Prozess_ISO.png}
@@ -2702,7 +2708,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Verletzungen der Vorschriften in der IT-Security können zu grossen Schäden führen
     \item Sanktionen sind zu definieren und anzuwenden (Unterstützung des Managements notwendig)
-    \item \flqq Thema geht  alle an \frqq, Verstösse melden
+    \item \flqq Thema geht alle an \frqq, Verstösse melden
     \item Kein Kavaliersdelikt
     \item Auswertung von Aufzeichnungen
 \end{itemize}
@@ -2713,15 +2719,133 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 
 %%%%%%%%%%
 \part{Access Control (SW~10)}
-\section{Access Control}
+\section{Access Control}\index{Access Control}
+
 \subsection*{Sie kennen verschiedene Arten der Authentisierung, wissen wie diese technisch ablaufen und was deren Vor- und Nachteile sind}
-\paragraph*{TODO}
+\paragraph*{Methoden der Authentisierung}\index{Authentisierung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Etwas, das ich weiss (\textbf{Wissen})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Passwort
+        \item Pin
+        \item Sicherheits- / Geheimfragen
+    \end{itemize}
+    \item Etwas, das ich habe (\textbf{Besitz})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Physikalischer Schlüssel
+        \item Magnetstreifenkarte
+        \item Hardware-Token\footnote{z.B. Kartenleser für E-Banking}
+    \end{itemize}
+    \item Etwas, das ich bin (\textbf{Eigenschaft} / körperliches Merkmal)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Foto
+        \item Fingerabdruck
+        \item Iris
+    \end{itemize}
+    \item Etwas, das ich kann (\textbf{Fähigkeit})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Unterschrift
+        \item Stimmenerkennung (Sprechen)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Wissen}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item man benötigt keine zusätzlichen Hilfsmittel
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann vergessen oder (v)erraten werden (Passwort, Geheimfragen)
+\end{itemize}
+
+\subsubsection*{Besitz}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann benutzerindividuelle Daten speichern
+    \item kann sich selbst schützen und aktiv verändern (SedurID, Smartcard)
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Verwaltung des Besitzes ist unsicher und muss mitgeführt werden
+    \item kann verloren gehen (Schlüssel, Karte, HW-Token)
+\end{itemize}
+
+\subsubsection*{Eigenschaft / körperliches Merkmal}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann nicht verloren werden
+    \item kann nicht an Dritte weitergegeben werden
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item benötigt zur Erkennung spezielle Vorrichtung (Technik)
+    \item fälschliche Akzeptanz/Zurückweisung möglich
+\end{itemize}
+
+\subsubsection*{Fähigkeit}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ziemlich einmalig, schwierig zu kopieren
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann von Nachahmern imitiert werden
+    \item kann Probleme beim Datenschutz aufwerfen
+\end{itemize}
+
 
 \subsection*{Sie wissen wie verschiedene Authentisierungstoken technisch funktionieren, was deren Vor- und Nachteile sind und wie sie beim Login oder bei der Transaktionsbestätigung im e-Banking eingesetzt werden}
-\paragraph*{TODO}
+\paragraph*{Token}Bei einem Token, resp. Security-Token, handelt es sich um eine Hardwarekomponente zur Authentisierung von Usern, welche neben weiteren Sicherheitsmerkmalen wie PIN oder Passwort zur Anwendung kommt. \\ \\
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Mehr Sicherheit
+    \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{One-Time Pad}}, Seite \pageref{One-Time Pad}} unmöglich zu verwenden
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Etwas zeitaufwändiger als nur ein Passwort
+    \item Braucht Komponenten um zu funktionieren
+\end{itemize}
 
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
-\paragraph*{TODO}
+\paragraph*{Begriffe}Bei der Zugriffskontrolle unterscheidet man drei Begriffe:
+
+\paragraph*{Authentisierung}\index{Authentisierung}Die Authentisierung ist ein \textbf{Nachweis einer Person}, dass sie tatsächlich die Person ist, die sie vorgibt zu sein.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item geheime Information, dass nur ihr bekannt ist (Passowrt)
+    \item Identifizierungsgegenstand (z.B. Identitätskarte)
+    \item sie ist selbst das Identifizierungsobjekt (z.B. Fingerabdruck)
+\end{itemize}
+
+\paragraph*{Authentifizierung}\index{Authentifizierung}Die Authentifizierung ist die \textbf{Prüfung der behaupteten Authentisierung}. Die Authentifizierung wird von einem \textbf{Prüfer} durchgeführt. Der Prüfer überprüft die Echtheit der Authentisierung.
+
+\paragraph*{Autorisierung}\index{Autorisierung}Die Autorisierung räumt Rechte für die Nutzung von speziellen Diensten und Leitungen ein.
+
+\paragraph*{Auf die IT übertragen}Beispiel für ein Editor auf einer Wordpress Seite
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Authentisieren: Logindaten eingeben
+    \item Authentifizieren: Server überprüft die Logindaten
+    \item Autorisierung: als Editor hat man mehr Rechte als ein registrierter Benutzer, der z.B. nur Kommentare schreiben darf. Man darf eigene Blogeinträge schreiben, bearbeiten und löschen. Nicht jedoch von Co-Autoren, dies darf nur der Administrator. Weiter hat der Editor Zugang zu einer Verwaltungsseite mit seinen Blogeinträgen. Etc.
+\end{itemize}
+
+\paragraph*{Fehlerhafte Authentisierung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Unzureichend gegen Brute-Force geschütztes Login
+    \item Keine Verhinderung von schwachen Passwörtern
+    \item Keine 2-Faktor Authentisierung
+    \item Unsicherer Passowrt recovery/reset Prozess
+    \item Passwörter werden Klartext oder mit schwachen Hashfunktionen gehasht
+\end{itemize}
+
+\paragraph*{Gegenmassnahmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Anzahl Loginversuche limitieren
+    \item Passwortpolicy, welche unsichere Passwörter verhindert
+    \item Multi-Faktor Authentisierung
+    \item Sicherstellen, dass alle Loginmöglichkeiten dieselbe Sicherheitsanforderungen erfüllen
+    \item Logininformationen sicher speichern
+\end{itemize}
 
 
 %%%%%%%%%%
@@ -2855,7 +2979,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \end{itemize}
 
 \section{WAF}
-\subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einene Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
+\subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einen Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
 \paragraph*{Wo Machine-Learning in einer WAF eingesetzt wird:} Detection of new/unknown attacks in productive traffic. From catching requests (not useful) to catching sessions (useful). Am Anfang wurde die Attack/Safe payloads angeschaut, die jedoch unnutzlich (does not adequately address real problem (robustness)) sind im vergleich zum requests und sessions.
 \paragraph*{Attack/Safe payload approach:} Mittels supervised learning die existeriende Lösung verbessern. Die Data wird angeschaut anstatt die requests/sessions. Good Strings beeinhalten ca. 1k human input strings und 10k technische strings (HTTP Headers...). Bad Strings beeinhalten ca. 500k attack payloads. Die approach war gemäss die Boosting Trees Model die die solche features haben: quote-count, quote-parity, keyword-count, SQL-comment-count, length, shrinkageAbsolute, unicodeCount, controlCount, punctuationRatio. Es ist zwar genau jedoch wird die echte Problem damit nicht gelöst, nämlich die robustness problem.
 \begin{figure}[H]
