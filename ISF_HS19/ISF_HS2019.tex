@@ -361,7 +361,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
-\paragraph*{One-time pad}\index{One-time pad}
+\paragraph*{One-time pad}\index{One-time pad}\label{One-Time Pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
@@ -2720,26 +2720,6 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 %%%%%%%%%%
 \part{Access Control (SW~10)}
 \section{Access Control}\index{Access Control}
-\subsection*{Begriffe}Bei der Zugriffskontrolle unterscheidet man drei Begriffe:
-
-\paragraph*{Authentisierung}\index{Authentisierung}Die Authentisierung ist ein \textbf{Nachweis einer Person}, dass sie tatsächlich die Person ist, die sie vorgibt zu sein.
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item geheime Information, dass nur ihr bekannt ist (Passowrt)
-    \item Identifizierungsgegenstand (z.B. Identitätskarte)
-    \item sie ist selbst das Identifizierungsobjekt (z.B. Fingerabdruck)
-\end{itemize}
-
-
-\paragraph*{Authentifizierung}\index{Authentifizierung}Die Authentifizierung ist die \textbf{Prüfung der behaupteten Authentisierung}. Die Authentisierung wird von einem \textbf{Prüfer} durchgeführt. Der Prüfer überprüft die Echtheit der Authentisierung.
-
-\paragraph*{Autorisierung}\index{Autorisierung}Die Autorisierung räumt Rechte für die Nutzung von speziellen Diensten und Leitungen ein.
-
-\paragraph*{Auf die IT übertragen}Beispiel für ein Editor auf einer Wordpress Seite
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Authentisieren: Logindaten eingeben
-    \item Authentifizieren: Server überprüft die Logindaten
-    \item Autorisierung: als Editor hat man mehr Rechte als ein registrierter Benutzer, der z.B. nur Kommentare schreiben darf. Man darf eigene Blogeinträge schreiben, bearbeiten und löschen. Nicht jedoch von Co-Autoren, dies darf nur der Administrator. Weiter hat der Editor Zugang zu einer Verwaltungsseite mit seinen Blogeinträgen. Etc.
-\end{itemize}
 
 \subsection*{Sie kennen verschiedene Arten der Authentisierung, wissen wie diese technisch ablaufen und was deren Vor- und Nachteile sind}
 \paragraph*{Methoden der Authentisierung}\index{Authentisierung}
@@ -2816,10 +2796,56 @@ Nachteil
 
 
 \subsection*{Sie wissen wie verschiedene Authentisierungstoken technisch funktionieren, was deren Vor- und Nachteile sind und wie sie beim Login oder bei der Transaktionsbestätigung im e-Banking eingesetzt werden}
-\paragraph*{TODO}
+\paragraph*{Token}Bei einem Token, resp. Security-Token, handelt es sich um eine Hardwarekomponente zur Authentisierung von Usern, welche neben weiteren Sicherheitsmerkmalen wie PIN oder Passwort zur Anwendung kommt. \\ \\
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Mehr Sicherheit
+    \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{One-Time Pad}}, Seite \pageref{One-Time Pad}} unmöglich zu verwenden
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Etwas zeitaufwändiger als nur ein Passwort
+    \item Braucht Komponenten um zu funktionieren
+\end{itemize}
 
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
-\paragraph*{TODO}
+\paragraph*{Begriffe}Bei der Zugriffskontrolle unterscheidet man drei Begriffe:
+
+\paragraph*{Authentisierung}\index{Authentisierung}Die Authentisierung ist ein \textbf{Nachweis einer Person}, dass sie tatsächlich die Person ist, die sie vorgibt zu sein.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item geheime Information, dass nur ihr bekannt ist (Passowrt)
+    \item Identifizierungsgegenstand (z.B. Identitätskarte)
+    \item sie ist selbst das Identifizierungsobjekt (z.B. Fingerabdruck)
+\end{itemize}
+
+\paragraph*{Authentifizierung}\index{Authentifizierung}Die Authentifizierung ist die \textbf{Prüfung der behaupteten Authentisierung}. Die Authentifizierung wird von einem \textbf{Prüfer} durchgeführt. Der Prüfer überprüft die Echtheit der Authentisierung.
+
+\paragraph*{Autorisierung}\index{Autorisierung}Die Autorisierung räumt Rechte für die Nutzung von speziellen Diensten und Leitungen ein.
+
+\paragraph*{Auf die IT übertragen}Beispiel für ein Editor auf einer Wordpress Seite
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Authentisieren: Logindaten eingeben
+    \item Authentifizieren: Server überprüft die Logindaten
+    \item Autorisierung: als Editor hat man mehr Rechte als ein registrierter Benutzer, der z.B. nur Kommentare schreiben darf. Man darf eigene Blogeinträge schreiben, bearbeiten und löschen. Nicht jedoch von Co-Autoren, dies darf nur der Administrator. Weiter hat der Editor Zugang zu einer Verwaltungsseite mit seinen Blogeinträgen. Etc.
+\end{itemize}
+
+\paragraph*{Fehlerhafte Authentisierung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Unzureichend gegen Brute-Force geschütztes Login
+    \item Keine Verhinderung von schwachen Passwörtern
+    \item Keine 2-Faktor Authentisierung
+    \item Unsicherer Passowrt recovery/reset Prozess
+    \item Passwörter werden Klartext oder mit schwachen Hashfunktionen gehasht
+\end{itemize}
+
+\paragraph*{Gegenmassnahmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Anzahl Loginversuche limitieren
+    \item Passwortpolicy, welche unsichere Passwörter verhindert
+    \item Multi-Faktor Authentisierung
+    \item Sicherstellen, dass alle Loginmöglichkeiten dieselbe Sicherheitsanforderungen erfüllen
+    \item Logininformationen sicher speichern
+\end{itemize}
 
 
 %%%%%%%%%%
