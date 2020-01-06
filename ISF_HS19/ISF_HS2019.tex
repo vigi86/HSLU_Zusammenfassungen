@@ -2,7 +2,7 @@
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
+\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
 \usepackage[hidelinks]{hyperref}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
@@ -1377,6 +1377,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     \label{nistcomponents}
     \end{center}
 \end{figure}
+\textsl{Tiers} und \textsl{Profile} haben wir nicht durchgenommen, weshalb dies nicht weiter beschrieben wird.
 
 \paragraph*{Core}\index{NIST Cybersecurity Framework!Core}\label{para:NISTcore}Der Framework-Kern definiert die Aktivitäten, die Sie durchführen müssen, um unterschiedliche Cybersicherheitsergebnisse zu erzielen. Diese wird in vier verschiedene Elemente unterteilt:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2861,9 +2862,35 @@ Nachteil
 \subsection*{Sie wissen welche Eigenschaften elektronisches Geld ausmachen und kennen die technischen Grundlagen von Bitcoin}
 \paragraph*{TODO}
 
-\section{Zero Knowledge Proof}
+\section{Zero-Knowledge-Proof}
 \subsection*{Sie wissen was Zero-Knowledge-Proofs sind und wie diese ablaufen}
-\paragraph*{TODO}
+\paragraph*{Zero-Knowledge-Proof}\index{Zero-Knowledge-Proof}Das Zero-Knowledge-Proof ist eine Technik etwas zu beweisen, ohne den eigentlichen Inhalt preiszugeben.
+
+\paragraph*{Beispiel}Paula ("`Proofer"') möchte Victor ("`Verifyer"') überzeugen, dass sie die Lösung eines Sudokus kennt, ohne die Lösung im Klartext preiszugeben. Wie geht man vor?
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Paula löst das Sudoku
+    \item wählt eine Permutation
+    \item permutiert alle Zahlen der Lösung
+    \item verdeckt die Lösung
+    \item Victor wählt aus:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item 1 Zeile
+        \item 1 Spalte
+        \item 1 kleines Quadrat, oder
+        \item alle vorgegebenen Zahlen
+    \end{itemize}
+    \item Victor akzeptiert, falls er Paula nicht beim Schummeln erwischt
+\end{enumerate}
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Wenn Paula eine Lösung hat, akzeptiert Victor immer
+    \item Wenn Paula keine Lösung hat, kann sie mit einer Wahrscheinlichkeit von $\frac{27}{28}\thickapprox 96\%$ trotzdem durchkommen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $\Rightarrow$Wiederholen mit \textbf{neuer Permutation} bis Victor überzeugt ist, dass Paula die richtige Lösung hat
+        \item z.B. bei 150 Wiederholungen liegt die Wahrscheinlichkeit, dass Paula mit Schummeln durchkommt bei $(\frac{27}{28})^{150}<\textbf{0.5\%}$
+    \end{itemize}
+    \item Victor lernt somit nichts über den Inhalt der Lösung, nur dass eine Lösung existiert und Paula sie kennt
+\end{itemize}
 
 
 %%%%%%%%%%
