@@ -2,7 +2,7 @@
 \usepackage{ngerman}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp}
+\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
 \usepackage[hidelinks]{hyperref}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
@@ -149,9 +149,8 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item Massnahmen ergreifen und umsetzen.
 \end{enumerate}
 
-\paragraph*{Welche Möglichkeiten zur Behandlung (\flqq Mitigation \frqq) stehen zur Verfügung? Ordnen Sie diese in der Reihenfolge, wie man sie typischerweise anwendet. Geben Sie ein kurzes Beispiel oder eine Erläuterung}
+\paragraph*{Welche Möglichkeiten zur Behandlung (\flqq Mitigation\footnote{Verminderung} \frqq) stehen zur Verfügung? Ordnen Sie diese in der Reihenfolge, wie man sie typischerweise anwendet. Geben Sie ein kurzes Beispiel oder eine Erläuterung}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Mitigation = Verminderung
     \item Priorisieren: welches Risiko muss ich zuerst behandeln
     \item Vermindern: Massnahmen ergreifen, um Eintretenshäufigkeit und Schadensausmass zu vermindern
     \item Vermeiden: Massnahmen oder Wege einleiten um das Risiko auszuschliessen
@@ -163,7 +162,7 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item Bruteforce, Phishing, DDoS, Injections, Spoofing, frustrierte Mitarbeiter, Anonymous, NSA, Naturgewalt, Hacker, Wirtschaftsspionage etc.
 \end{itemize}
 
-\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{Ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
+\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
 Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen. (Siehe Abbildung \ref{Wissenspyramide})
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Informationssicherheit:}\index{Informationssicherheit} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
@@ -172,7 +171,7 @@ Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig i
 \end{itemize}
 
 \subsubsection*{Bedeutung des Managements / GL im Rahmen von AKVs}
-Ohne Management-Support geht gar nichts. {\color{red}TODO: AKV???}
+Ohne Management-Support geht gar nichts\footnote{Aufgaben, Kompetenzen und Verantwortlichkeiten}.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Keine Ressourcen (Zeit und Geld)
     \item Keine Kompetenzen (Befehls-und Umsetzungsgewalt)
@@ -362,7 +361,7 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
-\paragraph*{One-time pad}\index{One-time pad}
+\paragraph*{One-time pad}\index{One-time pad}\label{One-Time Pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
@@ -458,6 +457,7 @@ Verwendung von Hashfunktionen
 \subsection*{Sie wissen was ein keyed Hash (HMAC) ist und wofür dieser verwendet werden kann}
 
 \paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5 und einem geheimen Schlüssel basiert.
+
 
 
 \subsection*{Sie kennen die "`Best-practices"' zu Passwortsicherheit und wissen, gegen welche Angriffe diese schützen}
@@ -657,7 +657,7 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
 
-\section*{Kontrollfragen SW 04}
+\subsection*{Kontrollfragen SW 04}
 \paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
@@ -1003,7 +1003,7 @@ Kernsystem entstehen und das System nach einem Angriff schnell wieder funktionsf
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/SSL-TLS.png}
-    \caption{SSl/TLS}
+    \caption{SSL/TLS}
     \label{SSL/TLS}
     \end{center}
 \end{figure}
@@ -1020,7 +1020,7 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
     \item Daten nach ihrer Sensivität klassifizieren und entsprechend behandeln
     \item Sensitive Daten nur gespeichert auf dem Server ablegen
     \item Passwörter mit Salt und Pepper und einer starken Passwort-Hashfunktion gehasht ablegen.
-    \item Daten verschlüsselt übertragen (FTP \textgreater SFTP,HTTP \textgreater HTTPS, etc). Zertifikat überprüfen!
+    \item Daten verschlüsselt übertragen (FTP$\Rightarrow$SFTP, HTTP$\Rightarrow$HTTPS, etc). Zertifikat überprüfen!
     \item Sicherstellen, dass sichere Ciphers verwendet werden
     \item Keine sensitiven Daten auf der Clientseite cachen.
 \end{itemize}
@@ -1209,7 +1209,7 @@ bewegen.
     \item Standardwerk zum Thema Informationssicherheit, kurz oft CoP genannt
     \item Definiert 114 Steuerungsmassnahmen\footnote{auch Massnahmen oder Prüfpunkte genannt} für den sicheren Umgang mit Informationen
     \item Zu jeder Massnahme sind Umsetzungsanleitungen angegeben, allerdings jeweils mit nur wenig Detailgrad
-    \item Eine Zertifizierung nach ISO 27002 isn nit möglich, da es keine harten Forderungen gibt (nur \textsl{sollte}-Formulierungen)
+    \item Eine Zertifizierung nach ISO 27002 ist nicht möglich, da es keine harten Forderungen gibt (nur \textsl{sollte}-Formulierungen)
     \item Der Standard eignet sich sehr gut zur Umsetzung eines sog. Grundschutzes\index{Grundschutz} (Mindestanforderung im Sicherheitsbereich)
     \item Ursprung aus British Standard BS 7799-1:1999, wurde zu ISO 17799:2000; dann zu ISO 27002:2007 umbenannt, welches wortgleich mit ISO 17799:2005 war.
     \item Aktuell ISO 27002:2013
@@ -1393,6 +1393,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     \item \textbf{Unterkategorien} sind Aufgaben oder Herausforderungen, die mit der Kategorie verbunden sind (z.B. für Betriebssystem-Updates (Kategorie) müssen automatische Updates auf allen Maschinen aktiv sein)
     \item \textbf{Informative Quellen } sind Dokumente \& Handbücher, die spezifische Aufgaben für Benutzer detailliert beschreiben, wie die Dinge durchgeführt werden sollen (z.B. wie automatische Updates aktiviert werden)
 \end{itemize}
+\textsl{Tiers} und \textsl{Profile} haben wir nicht durchgenommen, weshalb dies nicht weiter beschrieben wird.
 
 \begin{figure}[H]
 \paragraph*{Fünf Funktionen der Cybersicherheitsaufgaben}
@@ -1412,6 +1413,17 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 
 
 \section{Risiko-Management und IT-Grundschutz}
+
+
+
+\subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
+\paragraph*{TODO}
+
+
+
+
+
+
 
 \subsubsection*{Definitionen des Begriffs 'Risiko'}
 \index{Risikodefinition}
@@ -1499,6 +1511,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 Grosse Bedeutung haben operationelle Risiken im Bankwesen.
 \index{Operationelle Risiken}
 
+\subsection*{Das Risikoanalyse-Verfahren verstehen}
 
 \subsubsection*{Bestimmung / Messung von Risiken}
 
@@ -1534,9 +1547,10 @@ Zugrunde liegende Grössen:
     \end{center}
 \end{figure}
 
-\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16}
+\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16}\cite{iso27005}
 \index{Risiken nach ISO 27005}
-\paragraph*{Phisical damage:}
+\begin{multicols}{2}
+[\paragraph*{Phisical damage:}]
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Fire
     \item Water damage
@@ -1648,7 +1662,7 @@ Zugrunde liegende Grössen:
     \item System bugs
     \item System sabotage
 \end{itemize}
-
+\end{multicols}
 
 
 \subsubsection*{Qualitative Risikoanalyse: Definition Schadensausmass} Es wird empfohlen, eine 3 bis 5-stufige Skale zu definieren, z.B.: \\
@@ -1658,7 +1672,7 @@ Zugrunde liegende Grössen:
     \item \textbf{Vernachlässigbar - Vernachlässigbare Auswirkungen}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Dienstleistung nicht wesentlich gestört
-        \item Sachschäden im Bereich von CHF 100.- bis 5000.- *
+        \item Sachschäden im Bereich von CHF 100.- bis 5'000.-*
         \item keine Verletzten
         \item kein Imageverlust
     \end{itemize}
@@ -1666,28 +1680,28 @@ Zugrunde liegende Grössen:
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Die Einhaltung gesetzlicher und vertraglicher Pflichten ist nicht gefährdet
         \item Die Dienstleistung sind nur geringfügig beinträchtigt.
-        \item Sachschäden im  Bereich von CHF 5000.- bis 50 000.- *
+        \item Sachschäden im  Bereich von CHF 5000.- bis 50'000.-*
         \item keine Verletzten
         \item kein Imageverlust
     \end{itemize}
     \item \textbf{Kritisch - Grosse Auswirkungen}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Die Einhaltung gesetzlicher und vertraglicher Pflichten ist gefährdet oder die Dienstleistungen sind beeinträchtigt.
-        \item Sachschäden im Bereich von CHF 50 000.- bis  500 000.- *
+        \item Sachschäden im Bereich von CHF 50'000.- bis  500'000.-*
         \item Keine Verletzten
         \item Imageverlust ist klein und von kurzer Dauer
     \end{itemize}
     \item \textbf{Katastrophal - Sehr grosse Auswirkungen}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Die Einhaltung gesetzlicher und vertraglicher Pflichten sind starkk gefährdet oder die Diesntleistungen werden verunmöglicht.
-        \item Sachschäden im Bereich \textgreater CHF 500 000.- *
+        \item Sachschäden im Bereich \textgreater CHF 500'000.-*
         \item einige Schwerverletzte
         \item grosser Imageschaden (Presse)
     \end{itemize}
 \end{itemize}
 
-(*) Die Stufen und insbesondere die Werte der Sachschäden haben in dieser Tabelle beispielhaften Charakter und können je nach Grösse des Unternehmens variieren.
 
+\subsection*{Eine einfache Risikoanalyse durchführen können}
 
 \subsubsection*{Definition Eintrittshäufigkeit nach Sicherheitshandbuch}
 \index{Eintrittshäufigkeit}
@@ -1747,7 +1761,7 @@ Es wird empfohlen, eine 3 bis 5-stufige Skala zu definieren
     \end{center}
 \end{figure}
 
-\subsubsection*{Umgang mit Risiken / Risikobewältigung}
+\subsubsection*{Umgang mit Risiken / Risikobewältigung }
 \index{Risikobewältigung}
 \index{Restrisiken}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -1935,6 +1949,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{itemize}
 \end{itemize}
 
+
 \subsubsection*{Kombinierter Ansatz: Grundschutz und Risikoanalyse}
 \index{Kombinierter Ansatz}
 \begin{figure}[H]
@@ -1965,6 +1980,8 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{center}
 \end{figure}
 
+
+\subsection*{Die Unterschiede zum Grundschutzverfahren kennen}
 \paragraph*{Bemerkungen zu den IT-Grundschutz-Katalogen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die Beschreibung der Gefährdungen dient lediglich
@@ -1979,6 +1996,8 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \item IT-Grundschutz-Massnahmen müssen gegebenenfalls
     individuell angepasst und angewendet werden!
 \end{itemize}
+
+\subsection*{Sie verstehen die Idee, die Ziele und die Konzepte des IT-Grundschutz-Vorgehens}
 
 \paragraph*{IT-Grundschutz Wirkungsprinzip} Gilt generell, unabhängig vom angwendeten Standard, also nicht nur für den BSI IT-Grundschutz!
 \index{IT-Grundschutz}
@@ -2005,7 +2024,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \index{IT-Sicherheitskonzept}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/IT_Sicherheitskonzept.png}
+    \includegraphics[width=11cm]{images/IT_Sicherheitskonzept.png}
     \caption{IT Sicherheitskonzept}
     \label{IT Sicherheitskonzept}
     \end{center}
@@ -2014,7 +2033,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \paragraph*{IT-Grundschutz - Pro Argumente}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Standardbasierend
-    \item Vollständigkeit der Massnahmenpakete
+    \item Vollständigkeit der \textbf{Massnahmenpakete}
     \item Keine detaillierte Risikoanalyse notwendig
     \item Gleichmässiger, umfassender Schutz auf
     allen Objekten
@@ -2068,6 +2087,8 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 
 
 %wenn möglich neue Seite
+\subsection*{Sie können die Teilschritte zum Aufbau eines Sicherheitskonzeptes nach IT-Grundschutz durchführen, kombinierte Risikoanalyse}
+
 \subsubsection*{IT-Strukturanalyse}
 \index{Strukturanalyse}
 \begin{figure}[H]
@@ -2132,7 +2153,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \paragraph*{}Beispiel für das Resultat einer Komplexitätsreduktion (Gruppen gleichartiger Komponenten)
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Komplexitätsreduktion.png}
+    \includegraphics[width=12cm]{images/Komplexitätsreduktion.png}
     \caption{Komplexitätsreduktion}
     \label{Komplexitätsreduktion}
     \end{center}
@@ -2141,7 +2162,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \paragraph*{IT-Strukturanalyse –Erhebung IT-Systeme}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Erhebung IT-Systeme.png}
+    \includegraphics[width=10cm]{images/Erhebung IT-Systeme.png}
     \caption{Erhebung IT-Systeme}
     \label{Erhebung IT-Systeme}
     \end{center}
@@ -2157,7 +2178,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Zuordnung_Sys_App.png}
+    \includegraphics[width=10cm]{images/Zuordnung_Sys_App.png}
     \caption{Zuordnung in Gruppen}
     \label{Zuordnung in Gruppen}
     \end{center}
@@ -2176,7 +2197,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \index{Schutzbedarsfestellung}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarfsfeststellung.png}
+    \includegraphics[width=6cm]{images/Schutzbedarfsfeststellung.png}
     \caption{Schutzbedarfsfeststellung}
     \label{Schutzbedarfsfeststellung}
     \end{center}
@@ -2251,27 +2272,27 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
     \end{itemize}
 \end{itemize}
 
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf_ex1.png}
-    \caption{Schutzbedarfkategorie niedrig bis mittel}
-    \label{Schutzbedarfkategorie Ex.1}
-    \end{center}
-\end{figure}
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf_ex2.png}
-    \caption{Schutzbedarfkategorie hoch}
-    \label{Schutzbedarfkategorie Ex.2}
-    \end{center}
-\end{figure}
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf_ex3.png}
-    \caption{Schutzbedarfkategorie sehr hoch}
-    \label{Schutzbedarfkategorie Ex.3}
-    \end{center}
-\end{figure}
+%\begin{figure}[H]
+%    \begin{center}
+%    \includegraphics[width=8cm]{images/Schutzbedarf_ex1.png}
+%    \caption{Schutzbedarfkategorie niedrig bis mittel}
+%    \label{Schutzbedarfkategorie Ex.1}
+%    \end{center}
+%\end{figure}
+%\begin{figure}[H]
+%    \begin{center}
+%    \includegraphics[width=8cm]{images/Schutzbedarf_ex2.png}
+%    \caption{Schutzbedarfkategorie hoch}
+%    \label{Schutzbedarfkategorie Ex.2}
+%    \end{center}
+%\end{figure}
+%\begin{figure}[H]
+%    \begin{center}
+%    \includegraphics[width=8cm]{images/Schutzbedarf_ex3.png}
+%    \caption{Schutzbedarfkategorie sehr hoch}
+%    \label{Schutzbedarfkategorie Ex.3}
+%    \end{center}
+%\end{figure}
 
 \subsubsection*{Schutzbedarfsfeststellung – Abhängigkeiten / Vererbung von Schutzbedarf}
 \begin{figure}[H]
@@ -2325,7 +2346,7 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 \subsubsection*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Anwendungen}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf IT-Anwendungen.png}
+    \includegraphics[width=10cm]{images/Schutzbedarf IT-Anwendungen.png}
     \caption{Schutzbedarf IT-Anwendungen}
     \label{Schutzbedarf IT-Anwendungen}
     \end{center}
@@ -2335,7 +2356,7 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 \subsubsection*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Systemen}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf IT-System.png}
+    \includegraphics[width=10cm]{images/Schutzbedarf IT-System.png}
     \caption{Schutzbedarf IT-System}
     \label{Schutzbedarf IT-System}
     \end{center}
@@ -2358,7 +2379,7 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf IT-Räume.png}
+    \includegraphics[width=10cm]{images/Schutzbedarf IT-Räume.png}
     \caption{Schutzbedarf IT-Räume}
     \label{Schutzbedarf IT-Räume}
     \end{center}
@@ -2382,7 +2403,7 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf Kommunikationsverbindungen.png}
+    \includegraphics[width=11cm]{images/Schutzbedarf Kommunikationsverbindungen.png}
     \caption{Schutzbedarf Kommunikationsverbindungen}
     \label{Schutzbedarf Kommunikationsverbindungen}
     \end{center}
@@ -2489,14 +2510,14 @@ Vorgehen:
 
 
 
-\paragraph*{}Vorgehen im Detail:
+\paragraph*{Vorgehen im Detail:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Organisatorische Vorarbeiten leisten
     \item Soll-Ist-Vergleich durchführen
     \item Ergebnisse dokumentieren
 \end{itemize}
 
-\paragraph*{}Organisatorische Vorarbeiten:
+\paragraph*{Organisatorische Vorarbeiten:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Vorhandene Dokumente sichten
     \item Beizug externer Stellen klären/organisieren (Provider,
@@ -2513,16 +2534,16 @@ Vorgehen:
     \item Termine planen
 \end{itemize}
 
-\paragraph*{}Soll-Ist-Vergleich:
+\paragraph*{Soll-Ist-Vergleich:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Erheben des Umsetzungsstatus der einzelnen
     Massnahmen mithilfe der Interviews
     \item Mögliche Umsetzungsstati
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item \textbf{Entbehrlich} – benötigt immer eine Begründung!
-        \item \textbf{Ja} – Massnahme vollständig umgesetzt
-        \item \textbf{Teilweise} – Einzelne Aspekte nicht umgesetzt
-        \item \textbf{Nein} – Massnahme überwiegend nicht umgesetzt
+        \item \textbf{Entbehrlich:}\\benötigt immer eine Begründung!
+        \item \textbf{Ja:}\\Massnahme vollständig umgesetzt
+        \item \textbf{Teilweise:}\\Einzelne Aspekte nicht umgesetzt
+        \item \textbf{Nein:}\\Massnahme überwiegend nicht umgesetzt
     \end{itemize}
     \item Wichtig
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2535,7 +2556,7 @@ Vorgehen:
 \index{Ergänzende Sicherheitsanalyse}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Ergänzende Sicherheitsanalyse.png}
+    \includegraphics[width=6cm]{images/Ergänzende Sicherheitsanalyse.png}
     \caption{Ergänzende Sicherheitsanalyse}
     \label{Ergänzende Sicherheitsanalyse}
     \end{center}
@@ -2612,56 +2633,220 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
-\paragraph*{Zusammenfassung}
+\subsubsection*{Zusammenfassung}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/zusammenfassung.png}
+    \includegraphics[width=10cm]{images/zusammenfassung.png}
     \caption{IT-Strukturanalyse Zusammenfassung}
     \label{IT-Strukturanalyse Zusammenfassung}
     \end{center}
 \end{figure}
 
-\subsection*{Das Risikoanalyse-Verfahren verstehen}
-\paragraph*{TODO}
-
-\subsection*{Die Unterschiede zum Grundschutzverfahren kennen}
-\paragraph*{TODO}
-
-\subsection*{Eine einfache Risikoanalyse durchführen können}
-\paragraph*{TODO}
-
-\subsection*{Sie verstehen die Idee, die Ziele und die Konzepte des IT-Grundschutz-Vorgehens}
-\paragraph*{TODO}
-
-\subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
-\paragraph*{TODO}
-
-\subsection*{Sie können die Teilschritte zum Aufbau eines Sicherheitskonzeptes nach IT-Grundschutz durchführen, kombinierte Risikoanalyse}
-\paragraph*{TODO}
 
 
 \section{Awareness}
-\subsection*{Sie verstehen die Wichtigkeit der \flqq Awareness \frqq}
-\paragraph*{TODO}
+\subsection*{Sie verstehen die Wichtigkeit der "`Awareness"'}\index{Awareness}
+\paragraph*{Bedeutung}In Verbindung mit der IT: Sich bewusst sein, wie Wertvoll Informationen sind und welches Ausmass es haben kann, wenn diese an Unbefugte gelangen. Wie z.B. Passwörter für den Fernzugriff auf die wichtigsten Servern.
+
+\paragraph*{Ziel}Awareness hat zum Ziel, den Faktor Mensch gebührend in einer holistischen\footnote{ganzheitlich} Sicht der Informationssicherheit zu würdigen, weil die anderen beiden Säulen - Technik und Prozess-Aspekte - keine ausreichende Sicherheit bieten. Wichtig für die Nachhaltigkeit ist daher eine grundsätzliche Schulung der Mitarbeitenden mit regelmässigen \textbf{Kampagnen}, begleitet von \textbf{flankierenden Massnahmen}, essentiell.
+
 
 \subsection*{Sie kennen verschiedene Prozesse und Vorgehensweisen für die Initiierung, Durchführung und Erfolgsprüfung einer Awareness-Kampagne und können diese anwenden}
-\paragraph*{TODO}
+\paragraph*{Prozess}\index{Awareness-Prozess}\label{para:Awareness-Prozess}Der Awareness-Prozess im ISO 27002\index{ISO-Standards!ISO 27002} beschreibt den Prozess wie folgt:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alle Mitarbeitenden und Lieferanten des Unternehens sollten im Zusammenhang mit der von ihnen ausgeführten Tätigkeiten, bewusstseinsbildende Ausbildungen und Trainings ausführen, sowie regelmässige Updates von Bestimmungen und Verfahren erhalten.
+    \item Ein Inf
+    \item Das Ziel eines Awareness-Programms ist es, das Bewusstsein von Mitarbeitenden und Lieferanten auf sicherheitsrelevante Bestimmungen und Verfahren einzuhalten, um Firmeninformationen zu schützen.
+\end{itemize}
 
-\subsection*{Sie kennen die relevanten Erfolgsfaktorender Mitarbeiter-Sensibilisierung und -Schulung und können diese in einer Kampagne umsetzen}
+\paragraph*{TODO}Sorry, Bilder sind hässlich und haben keine Quellen
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=15cm]{images/Awareness_Prozess_ISO.png}
+    \caption{Awareness Prozess ISO 27002}
+    \label{Awareness Prozess ISO 27002}
+    \end{center}
+\end{figure}
+
+\paragraph*{}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=15cm]{images/Awareness_Prozess_BSI.png}
+    \caption{Awareness Prozess BSI Grundschutz}
+    \label{Awareness Prozess BSI Grundschutz}
+    \end{center}
+\end{figure}
+
+\paragraph*{}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=13cm]{images/Prozess_der_Verhaltensänderung.png}
+    \caption{Prozess der Verhaltensänderung}
+    \label{Prozess der Verhaltensaenderung}
+    \end{center}
+\end{figure}
+
+\paragraph*{Awareness muss vom obersten Management unterstützt werden!}
+\paragraph*{Awareness wird stufengerecht geschult}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Benutzer/Anwender
+    \item IT-Mitarbeiter
+    \item Management
+\end{itemize}
+\paragraph*{Schon  	\flqq kleine\frqq  Massnahmen können die Informationssicherheit wesentlich erhöhen. -\frq  \flqq Weniger ist mehr\frqq}
+
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=15cm]{images/Umsetzung_Awareness-Programm.png}
+    \caption{Awareness-Umsetzungsprogramm}
+    \label{Awareness-Umsetzungsprogramm}
+    \end{center}
+\end{figure}
+
+\paragraph*{Umsetzung wie folgt} Basisausbildung, Kampangnen und flankierende Massnahmen
+\paragraph*{Umgang mit Verstössen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Verletzungen der Vorschriften in der IT-Security können zu grossen Schäden führen
+    \item Sanktionen sind zu definieren und anzuwenden (Unterstützung des Managements notwendig)
+    \item \flqq Thema geht alle an \frqq, Verstösse melden
+    \item Kein Kavaliersdelikt
+    \item Auswertung von Aufzeichnungen
+\end{itemize}
+
+\subsection*{Sie kennen die relevanten Erfolgsfaktoren der Mitarbeiter-Sensibilisierung und -Schulung und können diese in einer Kampagne umsetzen}
 \paragraph*{TODO}
 
 
 %%%%%%%%%%
 \part{Access Control (SW~10)}
-\section{Access Control}
+\section{Access Control}\index{Access Control}
+
 \subsection*{Sie kennen verschiedene Arten der Authentisierung, wissen wie diese technisch ablaufen und was deren Vor- und Nachteile sind}
-\paragraph*{TODO}
+\paragraph*{Methoden der Authentisierung}\index{Authentisierung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Etwas, das ich weiss (\textbf{Wissen})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Passwort
+        \item Pin
+        \item Sicherheits- / Geheimfragen
+    \end{itemize}
+    \item Etwas, das ich habe (\textbf{Besitz})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Physikalischer Schlüssel
+        \item Magnetstreifenkarte
+        \item Hardware-Token\footnote{z.B. Kartenleser für E-Banking}
+    \end{itemize}
+    \item Etwas, das ich bin (\textbf{Eigenschaft} / körperliches Merkmal)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Foto
+        \item Fingerabdruck
+        \item Iris
+    \end{itemize}
+    \item Etwas, das ich kann (\textbf{Fähigkeit})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Unterschrift
+        \item Stimmenerkennung (Sprechen)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Wissen}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item man benötigt keine zusätzlichen Hilfsmittel
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann vergessen oder (v)erraten werden (Passwort, Geheimfragen)
+\end{itemize}
+
+\subsubsection*{Besitz}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann benutzerindividuelle Daten speichern
+    \item kann sich selbst schützen und aktiv verändern (SedurID, Smartcard)
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Verwaltung des Besitzes ist unsicher und muss mitgeführt werden
+    \item kann verloren gehen (Schlüssel, Karte, HW-Token)
+\end{itemize}
+
+\subsubsection*{Eigenschaft / körperliches Merkmal}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann nicht verloren werden
+    \item kann nicht an Dritte weitergegeben werden
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item benötigt zur Erkennung spezielle Vorrichtung (Technik)
+    \item fälschliche Akzeptanz/Zurückweisung möglich
+\end{itemize}
+
+\subsubsection*{Fähigkeit}
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ziemlich einmalig, schwierig zu kopieren
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item kann von Nachahmern imitiert werden
+    \item kann Probleme beim Datenschutz aufwerfen
+\end{itemize}
+
 
 \subsection*{Sie wissen wie verschiedene Authentisierungstoken technisch funktionieren, was deren Vor- und Nachteile sind und wie sie beim Login oder bei der Transaktionsbestätigung im e-Banking eingesetzt werden}
-\paragraph*{TODO}
+\paragraph*{Token}Bei einem Token, resp. Security-Token, handelt es sich um eine Hardwarekomponente zur Authentisierung von Usern, welche neben weiteren Sicherheitsmerkmalen wie PIN oder Passwort zur Anwendung kommt. \\ \\
+Vorteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Mehr Sicherheit
+    \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{One-Time Pad}}, Seite \pageref{One-Time Pad}} unmöglich zu verwenden
+\end{itemize}
+Nachteil
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Etwas zeitaufwändiger als nur ein Passwort
+    \item Braucht Komponenten um zu funktionieren
+\end{itemize}
 
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
-\paragraph*{TODO}
+\paragraph*{Begriffe}Bei der Zugriffskontrolle unterscheidet man drei Begriffe:
+
+\paragraph*{Authentisierung}\index{Authentisierung}Die Authentisierung ist ein \textbf{Nachweis einer Person}, dass sie tatsächlich die Person ist, die sie vorgibt zu sein.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item geheime Information, dass nur ihr bekannt ist (Passowrt)
+    \item Identifizierungsgegenstand (z.B. Identitätskarte)
+    \item sie ist selbst das Identifizierungsobjekt (z.B. Fingerabdruck)
+\end{itemize}
+
+\paragraph*{Authentifizierung}\index{Authentifizierung}Die Authentifizierung ist die \textbf{Prüfung der behaupteten Authentisierung}. Die Authentifizierung wird von einem \textbf{Prüfer} durchgeführt. Der Prüfer überprüft die Echtheit der Authentisierung.
+
+\paragraph*{Autorisierung}\index{Autorisierung}Die Autorisierung räumt Rechte für die Nutzung von speziellen Diensten und Leitungen ein.
+
+\paragraph*{Auf die IT übertragen}Beispiel für ein Editor auf einer Wordpress Seite
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Authentisieren: Logindaten eingeben
+    \item Authentifizieren: Server überprüft die Logindaten
+    \item Autorisierung: als Editor hat man mehr Rechte als ein registrierter Benutzer, der z.B. nur Kommentare schreiben darf. Man darf eigene Blogeinträge schreiben, bearbeiten und löschen. Nicht jedoch von Co-Autoren, dies darf nur der Administrator. Weiter hat der Editor Zugang zu einer Verwaltungsseite mit seinen Blogeinträgen. Etc.
+\end{itemize}
+
+\paragraph*{Fehlerhafte Authentisierung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Unzureichend gegen Brute-Force geschütztes Login
+    \item Keine Verhinderung von schwachen Passwörtern
+    \item Keine 2-Faktor Authentisierung
+    \item Unsicherer Passowrt recovery/reset Prozess
+    \item Passwörter werden Klartext oder mit schwachen Hashfunktionen gehasht
+\end{itemize}
+
+\paragraph*{Gegenmassnahmen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Anzahl Loginversuche limitieren
+    \item Passwortpolicy, welche unsichere Passwörter verhindert
+    \item Multi-Faktor Authentisierung
+    \item Sicherstellen, dass alle Loginmöglichkeiten dieselbe Sicherheitsanforderungen erfüllen
+    \item Logininformationen sicher speichern
+\end{itemize}
 
 
 %%%%%%%%%%
@@ -2821,7 +3006,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \end{itemize}
 
 \section{WAF}
-\subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einene Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
+\subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einen Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
 \paragraph*{Wo Machine-Learning in einer WAF eingesetzt wird:} Detection of new/unknown attacks in productive traffic. From catching requests (not useful) to catching sessions (useful). Am Anfang wurde die Attack/Safe payloads angeschaut, die jedoch unnutzlich (does not adequately address real problem (robustness)) sind im vergleich zum requests und sessions.
 \paragraph*{Attack/Safe payload approach:} Mittels supervised learning die existeriende Lösung verbessern. Die Data wird angeschaut anstatt die requests/sessions. Good Strings beeinhalten ca. 1k human input strings und 10k technische strings (HTTP Headers...). Bad Strings beeinhalten ca. 500k attack payloads. Die approach war gemäss die Boosting Trees Model die die solche features haben: quote-count, quote-parity, keyword-count, SQL-comment-count, length, shrinkageAbsolute, unicodeCount, controlCount, punctuationRatio. Es ist zwar genau jedoch wird die echte Problem damit nicht gelöst, nämlich die robustness problem.
 \begin{figure}[H]
