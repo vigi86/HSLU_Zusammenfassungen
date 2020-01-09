@@ -7,7 +7,24 @@
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
 \usepackage{listings}
-\lstloadlanguages{SQL}
+\lstloadlanguages{SQL, Java}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{\$\$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
 %%%
 %\lstset{language=SQL}
 %\begin{lstlisting}
@@ -602,62 +619,119 @@ Beispiel:\newline %bleibt
 
 
 \subsection*{Sie wissen wie Diffie-Hellman-Schlüsselaustausch bzw. ElGamal-Verschlüsselung funktioniert}
+\paragraph*{Diffie-Hellman (DH) Schlüsselaustausch}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden. Diffie-Hellman nutzt eine diskrete Exponentialfunktion (modulare Exponentation) $b^x\ \mathrm{mod}\ m$. Der Vorteil einer solchen Funktion ist, dass man schnell ein Ergebnis (secret key) ausrechnen kann, während die Umkehrfunktion, der diskrete Logarithmus, um den Exponenten (private key) zu erhalten, nur sehr schwer auszurechnen ist.\\
+$5\equiv 4^{2} \equiv 4^{7} \equiv 4^{12} \equiv 4^{17}\ (\mathrm{mod}\ 11)\dots$\\
+Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszufinden, ob der Exponent  nun 317, 27`142 oder doch 1`492`967 ist. Weiter wird nicht der \textsl{secret key} selber versendet, sondern vor Ort berechnet.
 
-\begin{multicols}{2}
-\paragraph*{Diffie-Hellman (DH) Schlüsselaustausch}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden. Diffie-Hellman nutzt eine diskrete Exponentialfunktion (modulare Exponentation) $b^x\ mod\ m$. Der Vorteil einer solchen Funktion ist, dass man schnell ein Ergebnis (secret key) ausrechnen kann, während die Umkehrfunktion, der diskrete Logarithmus, um den Exponenten (private key) zu erhalten, nur sehr schwer auszurechnen ist.\\
-$5\equiv 4^{2} \equiv 4^{7} \equiv 4^{12} \equiv 4^{17}\ (mod\ 11)\dots$\\
-Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszufinden, ob der Exponent  nun 317, 27`142 oder doch 1`492`967 ist.
-
+\pagebreak
+\subsubsection*{Sicherer Schlüsselaustausches mittels DH}\index{Schlüsselaustauschprotokoll}\index{Diffie-Hellman}
+\paragraph*{Protokoll mit Diskreten Logarithmen über $\mathbb{Z}_p$\footnote{https://www.cs.uni-potsdam.de/ti/lehre/07-Kryptographie/slides/slides-5.1-anim.pdf}}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice wählt eine {\color{dunkelblau}Primzahl $p$} und {\color{dunkelblau}Erzeuger $g$ von $\mathbb{Z}_p$} mit $2 \leqslant g \leqslant p-2$
+    \subitem $p$ und $g$ werden nicht geheim gehalten
+    \item Alice wählt zufällige Zahl {\color{dunkelblau}$a\in[0,p-2]$} und berechnet {\color{dunkelblau}$A = g^a\ \mathrm{mod}\ p$}
+    \subitem Alice hält {\color{dunkelblau}$a$ geheim} und schickt $(A, g, p)$ an $\rightarrow$ Bob
+    \item Bob wählt zufällige Zahl {\color{dunkelblau}$b\in[0,p-2]$} und berechnet {\color{dunkelblau}$B = g^b\ \mathrm{mod}\ p$}
+    \subitem Bob hält {\color{dunkelblau}$b$ geheim} und schickt $B$ an Alice
+    \item Alice berechnet {\color{dunkelblau}$B^a\ \mathrm{mod}\ p = g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Bob berechnet {\color{dunkelblau}$A^b\ \mathrm{mod}\ p = g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Gemeinsamer Schlüssel {\color{dunkelblau}{\color{red}$K$}$= g^{a\cdot b}\ \mathrm{mod}\ p$} ist nur Alice und Bob bekannt, ohne das Alice $b$ kennt und Bob $a$
+\end{itemize}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=5cm]{images/DH0.png}
+    \includegraphics[width=6cm]{images/DH0.png}
     \caption{Identischer Geheimschlüssel wird erzeugt\cite{wiki}}
     \label{dh0}
     \end{center}
 \end{figure}
-\end{multicols}
 
-\subsubsection*{Berechnung des Schlüsselaustausches mittels DH}
-Alice
+\subsubsection*{Beispiel für $p=17$ und $g=3$}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item wählt zufällige, allgemein bekannte Primzahl $p$
-    \item wählt Basisgenerator $g\in[1,p-1]$
-    \item wählt zufälliger \textsl{private key} $a$
-    \item erstellt damit ihren \textsl{public key} $A$
-    \item sendet öffentlich $A, g, p$ an Bob
-    \item Bob
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item erhält $A, g, p$ von Alice
-        \item wählt zufälligen \textsl{private key} $b$
-        \item erstellt mit Hilfe von erhaltenen $g, p$ seinen \textsl{public key} $B$
-        \item generiert den \textsl{\textbf{secret key}} $S$
-        \item sendet öffentlich $B$ an Alice
-    \end{itemize}
-    \item generiert ihrerseits mit Hilfe von $B$ den \textsl{\textbf{secret key}}
+    \item Alice wählt $a=7$ und berechnet $A = g^a\ \mathrm{mod}\ 17 = 2187\ \mathrm{mod}\ 17 \equiv 11$
+    \item Bob wählt $b=4$ und berechnet $B = g^b\ \mathrm{mod}\ 17 = 81\ \mathrm{mod}\ 17 \equiv 13$
+    \item Der gemeinsame Schlüssel ist $K = A^b\ \mathrm{mod}\ 17 = 14641\ \mathrm{mod}\ 17 \equiv 4$
 \end{itemize}
-Um es mit Zahlen zu veranschaulichen:\\
-$A=g^{\color{red}a}\ mod\ p$\\
-$p=5, g=2, {\color{red}a=6}$\\
-$A=4\equiv 2^{\color{red}6}\ (mod\ 5)$\\
-Alice $(A, g, p) \rightarrow$ Bob\\
-$B=g^{\color{red}b}\ mod\ p$\\
-${\color{red}b=7}$\\
-$B=3\equiv 2^{\color{red}7}\ (mod\ 5)$\\
-$S_{secret\ key}=A^{\color{red}b}\equiv g^{{\color{red}a}\times {\color{red}b}}\ (mod\ p)$\\
-$S_{secret\ key}=4\equiv 4^{\color{red}7}\equiv 2^{{\color{red}6}\times {\color{red}7}}\ (mod\ 5)$\\
-Alice $\leftarrow (B)$ Bob\\
-$S_{secret\ key}=B^{\color{red}a} \equiv g^{{\color{red}a}\times {\color{red}b}}\ (mod\ p)$\\
-$S_{secret\ key}=4\equiv 3^{\color{red}6}\equiv 2^{{\color{red}6}\times {\color{red}7}}\ (mod\ 5)$\\
-Denn $4^7\ mod\ 5=4$ und $3^6\ mod\ 5=4$. Natülich wird mit gigantischen Zahlen und Primzahlen gerechnet. Logisch sind in userem Rechenbeispiel als secret key nur 0 bis 4 möglich.
 
 
-\paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen.
+\paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen. Daher ist es sicherer als RSA, welches `nur' Faktorisieren grosser Zahlen als unterliegende Funktion hat. Im Vergleich zu DH gibt es bei ElGamal weitere Teilschritte und feine Unterschiede. Die zu verschlüsselnde Nachricht wird in den \textsl{secret key} verschmelzt.
 
-\paragraph*{TODO}ev. Beispielrechnung machen
+\subsubsection*{ElGamal-Verfahren im Detail\footnote{https://www.cs.uni-potsdam.de/ti/lehre/07-Kryptographie/slides/slides-5.2-anim.pdf}}\index{ElGamal}
+\paragraph*{Schlüsselerzeugung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice wählt eine {\color{dunkelblau}grosse Primzahl $p$} und ein {\color{dunkelblau}Gruppenelement $g$ der Ordnung $p$}
+    \item Alice wählt eine {\color{dunkelblau}zufällige Zahl $a\in[0,p-2]$} und berechnet {\color{red}$A=g^a\ \mathrm{mod}\ p$}
+    \subitem Alice hält {\color{dunkelblau}$a$ geheim} und schickt $(A, g, p)$ an $\rightarrow$ Bob
+\end{itemize}
+Bis hierhin verlief das Ganze ziemlich ähnlich zum DH-Schlüsselaustausch.
+\paragraph*{Verschlüsselung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Gesamtschlüssel ist {\color{red}$K=x\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Text wird in {\color{dunkelblau}Blöcke der Länge $\log_2 \frac{p}{8}$} zerlegt (ein Byte pro Buchstabe)
+    \subitem Jeder {\color{dunkelblau}Textblock} wird als {\color{dunkelblau}Binärdarstellung einer Zahl $x$} interpretiert
+    \item Bob wählt {\color{dunkelblau}zuälliges $b\in[0,p-2]$} und berechnet seinen öffentlichen Schlüssel {\color{dunkelblau}$B=g^b\ \mathrm{mod}\ p$}
+    \item Bob verschlüsselt $x$ zu {\color{dunkelblau}$y=x\cdot A^b\ \mathrm{mod}\ p$}
+    \item {\color{red}\textbf{TODO: WTF... literally... what the fucking fuck?! *fliptable}}
+\end{itemize}
 
 \subsection*{Sie wissen was kryptographisch sichere Zufallszahlen sind und wo diese verwendet werden}
+\paragraph*{Sichere Zufallszahlen}\index{Sichere Zufallszahlen}Kryptographisch sichere Zufallszahlen können im Gegensatz zu Zahlen in einer gewöhnlichen Random-Funktion anhand des Seeds nicht vorausgesagt werden. Java bietet beispielsweise neben der Random-Klasse die SecureRandom-Klasse\footnote{Siehe \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/util/Random.html}{Random}} und \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html}{SecureRandom}}}. Kryptographisch sichere Zufallszahlen braucht man z.B. in den oben beschriebenen Schlüsselaustauschprotokollen.
 
-\paragraph*{TODO}
+\begin{multicols}{2}
+    \subsubsection*{Normaler Zufallszahlengenerator}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Zahlen sollen uniform (gleichmässig verteilt sein)
+        \item Wenn möglich: hohe Rate
+    \end{itemize}
+    Beispiel: \texttt{java.util.Random.nextInt()}\\
+    $RN1 = InitialSeed$\\
+    $RN2=(A\cdot RN1+C)\ \mathrm{mod}\ M$\\
+    $RN3=(A\cdot RN2+C)\ \mathrm{mod}\ M$
+    \paragraph*{Vorsicht}Mit 2 Zahlen können alle weiteren vorhergesagt werden!\\\vspace*{\fill}
+    \columnbreak
+    \subsubsection*{Kryptographisch sicherer Zufallszahlengenerator}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Zusätzlich: Zufallszahlen sollen nicht vorhersagbar sein
+    \end{itemize}
+    Beispiel: \texttt{java.security.SecureRandom.nextInt()}
+\end{multicols}
+
+
+
+\iffalse %Kommentarblock
+\lstset{language=Java}
+\begin{lstlisting}
+import java.util.Random;
+
+public class Randomness {
+
+    // implemented after https://docs.oracle.com/javase/7/docs/api/java/util/Random.html
+    public static int next(long seed) {
+        int bits = 32;
+        long seed2 = (seed * 0x5DEECE66DL + 0xBL) & ((1L << 48) - 1);
+        return (int) (seed2 >>> (48 - bits));
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Starting");
+        long i1 = 1767252209L;  //Random number 1
+        long i2 = -1664600482L; //Random number 2
+        long seed = 0;
+        for (int i = 0; i < 65536; i++) {
+            seed = i1 * 65536 + i;
+            if (next(seed) == i2) {
+                System.out.println("Seed found: " + seed);
+                break;
+            }
+        }
+        Random random = new Random((seed ^ 0x5DEECE66DL) & ((1L << 48) - 1));
+        int o1 = random.nextInt();
+        int o2 = random.nextInt();
+        System.out.println("So we have that nextInt is: " + o1 + " and the third one is: " + o2 + " with seed: " + seed);
+
+    }
+}
+\end{lstlisting}
+\fi
 
 \subsection*{Sie wissen was eine elektronische Signatur ausmacht}
 
@@ -706,17 +780,6 @@ Denn $4^7\ mod\ 5=4$ und $3^6\ mod\ 5=4$. Natülich wird mit gigantischen Zahlen
     \end{center}
 \end{figure}
 Man erkennt schnell den Vorteil dieser Methode. Ein symmetrisches Verschlüsselungsverfahren ist sehr effizient auch im Verschlüsseln von grossen Datenmengen
-
-\subsection*{Kontrollfragen SW 03}
-
-\paragraph*{Vergleichen Sie symmetrische und asymmetrische Verschlüsselung bezüglich Anzahl Schlüssel, Schlüssellänge und Geschwindigkeit der Algorithmen}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Symmetrisch:} 1 Schlüssel, Schlüsselänge eher kürzer, Geschwindigkeit hoch
-    \item \textbf{Asymmetrisch:} Mehrere Schlüssel (meistens 2), Schlüssellänge sehr sicher (lang), Geschwindigkeit tief
-\end{itemize}
-
-\paragraph*{Warum wird in der Praxis bei der Email-Verschlüsselung ein sog. hybrider Verschlüsselungsalgorithmus angewandt?}\index{Email-Verschlüsselung}\index{Hybrider Verschlüsselungsalgorithmus}Es muss schnell gehen und somit wird auf eine hybride Variante umgestiegen. Dies erhöht die Geschwindigkeit, ohne die Sicherheit zu mindern.
-
 
 \section{Zertifikate und SSL-TLS}
 
@@ -772,6 +835,16 @@ Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie 
 Eine CA ist eine Organisation, welche digital eZertifikate ausstellt. Ein digitales Zertifikat ordnet einen bestimmten öffentlichen Schlüssel einer Person oder Organisation zu. Diese Zuordnung wird von der Zertifizierungstelle beglaubigt, indem sie sie mit ihrer eigenen digitalen Unterschrift versieht.\newline
 Ein Zertifikat wird durch eine sog. \textsl{Chain of Trust} beglaubigt. Eine \textsl{intermediate CA} signiert das Zertifikat (Public Key) des Endbenutzers. Das Zertifikat der intermediate CA wird wiederum von einer anderen CA unterschrieben. Das letzte Zertifikat in dieser Kette heisst \textsl{Root Certificate} und enthält den Public Key der \textsl{root CA}. Dieses Zertifikat ist normalerweise \textsl{self signed}, also von der root CA selbst unterschrieben.
 
+\paragraph*{Prüfung der Authentisierung mittels Zertifikat}\index{Authentisierung}\index{Zertifikat}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
+    \item Ist das Zertifikat und die gesamte Zertifikatskette korrekt signiert?
+    \item Traue ich der Root-CA der Zertifikatskette?
+    \item Besitzt "`Bob"' den zum Zertifikat gehörenden Private Key?
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $VERIFY_{public\,key\,Bob}(response)$
+    \end{itemize}
+\end{itemize}
 
 \subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}SSL-TLS erreicht
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -790,20 +863,6 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
 
-\subsection*{Kontrollfragen SW 04}
-\paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
-    \item Ist das Zertifikat und die gesamte Zertifikatskette korrekt signiert?
-    \item Traue ich der Root-CA der Zertifikatskette?
-    \item Besitzt "`Bob"' den zum Zertifikat gehörenden Private Key?
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item $VERIFY_{public\,key\,Bob}(response)$
-    \end{itemize}
-\end{itemize}
-
-\paragraph*{Eine CA hat Ihnen ein Intermediate-CA-Zertifikat ausgestellt, anstelle des bestellten Serverzertifikats. Erklären Sie, wie Sie nun vorgehen, um sich als Google auszugeben. Angenommen Sie können einen Man-in-the-Middle-Angriff machen. Können Sie nun Ihre eigene Webseite anstelle der Google-Seite anzeigen?}
-\paragraph*{TODO}
 
 
 %%%%%%%%%%
@@ -3165,7 +3224,99 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
 
 \section{Federations}
 \subsection*{Sie verstehen wie Authentisierung mit Identity Federation abläuft, was die Voraussetzungen dafür sind und was die Vor- und Nachteile von Federations sind}
-\paragraph*{TODO}
+\paragraph*{Föderierte Identität}\index{Federations}Unter einer föderierten Identität versteht man die Vernetzung einer elektronischen Identität und Eigenschaften von einer Person, welche von unabhängigen Systemen für das Identifikationsmanagement genutzt werden kann. Von der föderierten Identität macht die \textsl{single sign-on (SSO)} gebrauch. Mit nur einer Authentisierunginformation oder einem Token wird über mehrere IT-Systeme oder gar Organisationen, einem Benutzer der Zugriff gewährt. Die Rechteverteilung\footnote{{Siehe \underline{\nameref{para:Autorisierung}}, Seite \pageref{para:Autorisierung}}} für einzelne Dienste obliegt jedoch der Hoheit einzelner Systeme.
+
+\paragraph*{Funktionsweise der föderierten Identität}Nehmen wir als Beispiel SWITCH.ch als die \textsl{Authentication and Authorization Infrastructure (AAI)} Schweizer Hochschulen und Universitäten. Teilnehmer dieser "`Föderation"' (Hochschulen und Universitäten) schaffen einen \textsl{Circle of Trust}, indem sie sich auf technische Standards und organisatorische Regeln einigen. Durch die Immatrikulation an der HSLU wird einem ein Benutzername und Passwort zugewiesen. Die HSLU hat also auf SWITCH automatisch eine eduID mit meinen Angaben erstellt, da SWITCH das \textbf{Identitätmanagement} als Dienst anbietet. Auf andere Organisationen muss dies so nicht zutreffen, z.B. Google-Account, wo man selber ein Account erstellt. Angenommen, man möchte sich jetzt auf \texttt{https://elearning.hslu.ch} anmelden und wählt den SWITCHaai-Login.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai0.png}
+    \caption{SWITCHaai-Login}
+    \label{switchaai0}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Man wird auf den \textsl{Discovery Service - Where Are You From} von SWITCH umgeleitet.
+    \begin{center}
+    \includegraphics[width=10cm]{images/switchaai1.png}
+    \caption{Auswahl zu welcher Organisation ich angehöre}
+    \label{sitchaai1}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai2.png}
+    \caption{Authentisierung mit meinen Logindaten}
+    \label{switchaai2}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Das föderale System ist transparent und überprüfbar. Als User hat man die volle Kontrolle darüber, welche persönlichen Informationen vom IT-System oder Organisation eingesehen werden dürfen und/oder welche Berechtigungen zwischen den Beteiligten ausgetauscht werden dürfen.
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai3.png}
+    \caption{Transparenz der Daten und deren Nutzung}
+    \label{switchaai3}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Doch das ist jetzt nicht alles. Die föderierte Identität gewährt mit die Authentisierung innerhalb des \textsl{Circle of Trusts} der Föderation. Zum beweisen, kann man sich nun auf einem anderen Portal anmelden, welches zur selben Föderation gehört, z.B. das von der Universität Bern unter \texttt{https://ilias.unibe.ch}.
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai4.png}
+    \caption{Beispiel des Circle of Trust}
+    \label{switchaai4}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai5.png}
+    \caption{Anmeldung auf ILIAS von Universität Bern}
+    \label{switchai5}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai6.png}
+    \caption{Auch hier Transparenz der Daten}
+    \label{switchaai6}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Erfolgreiche Anmeldung in einer anderen, von der HSLU völlig unabhängigen Organisation, wenn doch nur mit rudimentären Rechten als einfacher Benutzer. Beispielsweise können freigegebene Portfolios angeschaut werden.
+    \begin{center}
+    \includegraphics[width=16cm]{images/switchaai7.png}
+    \caption{Erfolgreich angemeldet}
+    \label{switchaai7}
+    \end{center}
+\end{figure}
+
+\paragraph*{TODO}SAML, OAuth, OpenID, JWT
+
+\subsubsection*{Vor- und Nachteile von Identity Federations}
+\begin{multicols}{2}
+    \paragraph*{Chancen}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Vereinfachtes ID-Management für den User\\
+        (stärkere Passörter möglich)
+        \item Vereinfachtes Authentisierungsverfahren für\\
+        Service~Provider
+        \item Komfort durch SSO
+    \end{itemize}
+    \vspace*{\fill}
+    \columnbreak
+    \paragraph*{Risiken}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Sicherheitsmänger bim Identity-Provider geben Zugang zum Service-Provider
+        \item Missbrauch von verwaisten Zugängen
+        \item Unerwünschtes Verhalten des Identity-Providers
+        \item Problem der Verkettung: mit einem erfolgreichen Angriff erlangt der Angreifer Zugang zu diversen Diensten
+    \end{itemize}
+\end{multicols}
 
 
 %%%%%%%%%%
