@@ -7,7 +7,24 @@
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{authblk} %\author[1]{blub}, \affil[1]{HSLU}
 \usepackage{listings}
-\lstloadlanguages{SQL}
+\lstloadlanguages{SQL, Java}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{\$\$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
 %%%
 %\lstset{language=SQL}
 %\begin{lstlisting}
@@ -24,8 +41,9 @@
 \title{ISF HS 2019}
 \author[1]{Victor Fernández}
 \author[2]{Hillary Funke}
-\author[3]{Pavaskar Parameswaran}
-\author[3]{\\Kevin Soares Correia}
+\author[2]{Estefania C. Otero}
+\author[3]{\\Pavaskar Parameswaran}
+\author[3]{Kevin Soares Correia}
 \author[2]{Johannen Yilmaz}
 \affil[1]{HSLU Informatik}
 \affil[2]{HSLU Information and Cybersecurity}
@@ -64,9 +82,7 @@
 \part{Einführung (SW~01)}
 \section{Einführung}
 \subsection*{Einführung in das Thema "`Management von Informationssicherheit"'}
-\paragraph*{Daten, Information und Wissen}
-Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen.
-Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
+\paragraph*{Daten, Information und Wissen}Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen. Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
 
 \paragraph*{Missbrauch}Informationen müssen vor Missbrauch geschützt werden
 \begin{figure}[H]
@@ -97,6 +113,124 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \end{itemize}
 \end{itemize}
 
+\paragraph*{Menschliches Fehlverhalten}durch Fahrlässigkeit, Gleichgültigkeit, Unwissenheit und Leichtgläubigkeit.
+
+\paragraph*{Vorsätzliche Manipulation}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Angriffe über das Internet
+    \item Unerlaubter Zugriff auf Systeme
+    \item Abhören und Modifizieren von Daten
+    \item Angriff auf die Verfügbarkeit von Systemen
+    \item Missbrauch von Systemen, Distributed Denial of Service (DDoS)\index{DDoS}
+    \item Viren, Würmer und Trojanische Pferde
+    \item Drive by Infection\footnote{unbeabsichtigtes Downloaden von Schadsoftware}
+\end{itemize}
+
+\paragraph*{Organisatorische Schwachstellen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Fehlendes Sicherheitsverständnis des Managements
+    \item Unklare Verantwortlichkeiten
+    \item Ungenaue oder fehlende Abläufe / Prozesse
+    \item Mangelhafte Richtlinien
+    \item Fehlende Strategie und Konzepte
+    \item Mangelhafte Awareness der Mitarbeitenden
+    \item Fehlende Kontrollen
+\end{itemize}
+
+\paragraph*{Technisches Versagen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ungenügende Wartung
+    \item Nicht funktionirende Überwachungssysteme (z.B. IDS\footnote{Intrusion Detection System}, etc.)
+    \item Falsch dimensionierte Systeme
+    \item Fehlerhafte
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Konfiguration
+        \item Applikationen
+        \item Betriebssysteme
+        \item Firmware
+        \item Treiber
+        \item etc.
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Höhere Gewalt}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ökologisch
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Unwetter
+        \item Erdbeben
+        \item Brände
+        \item Überschwemmungen
+        \item Vulkanausbrüche
+    \end{itemize}
+    \item Technisch
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Feuer
+        \item Wasser
+    \end{itemize}
+    \item Sozial
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Ausschreitungen
+        \item Geiselnahme
+        \item Krieg
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{Verantwortung der Informationssicherheit}"`\textsl{Wer die Erfüllung einer Aufgabe befugterweise einem anderen Organ überträgt, haftet für den von diesem verursachten Schaden, sofern er nicht nachweist, dass er bei der Auswahl, Unterrichtung und Überwachung die nach den Umständen gebotene Sorgfalt angewendet hat.}"' (OR~Art.~754~Absatz~2)
+
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Fehlende Informationssicherheit kann den Geschäftsfortgang stören oder verunmöglichen
+    \item Der Schutz der Informationen gehört zur Sorgfaltspflicht des Managements
+    \item Verantwortung kann nicht delegiert werden! Denn:
+\end{itemize}
+\textsf{\textbf{\large{Die Überwachung der Informationssicherheit ist Chefsache!}}}
+
+\paragraph*{Ohne Management-Support geht gar nichts!}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Keine Ressourcen (Zeit und Geld)
+    \item Keine Kompetenzen (Befehls- und Umsetzungsgewalt)
+    \item Keine Priorität
+\end{itemize}
+Denn das Management trägt die Risiken und entscheidet über die eingesetzten Ressourcen!
+
+\paragraph*{Oft gehörte Sicht des Managements}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Was bringt uns Informationssicherheit? \dots ausser Kosten?
+    \item Wir haben ja schon eine Firewall, oder wie das heisst\dots
+    \item Unser Unternehmen ist kein lohnendes Ziel für Hacker\dots
+    \item Bei uns ist noch nie etwas passiert!
+    \item Unsere Mitarbeiter sind zu 100\% loyal und wir haben Vertrauen!
+    \item Wir können im Notfall auf unsere Computer problemlos einige Tage verzichten!
+\end{itemize}
+
+\paragraph*{Was passiert, wenn nichts unternommen wird?}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Kompletter Datenverlust führt in 50\% der Fälle zum Konkurs innert 24 Monaten
+    \item Die Beschaffung und Aufbau eines Standard-Ersatzsystems dauert mindestens 36h (falls kein System direkt vor Ort verfügbar)
+    \item Datendiebstahl (wird in den wenigsten Fällen bemerkt)
+    \item Kommen vertrauliche Daten an die Öffentlichkeit, ist der Image-Verlust bei den Kunden je nach Unternehmen immens
+    \item Verletzung gesetzlicher Vorgaben kann strafrechtliche Folgen haben
+    \item Verletzung der Sorgfaltspflicht
+\end{itemize}
+
+\paragraph*{Nutzen der Informationssicherheit}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Geringere Verwundbarkeit
+    \item Keine falsche Sicherheit
+    \item Bewussterer Umgang mit Informationen
+    \item Gefahren kennen
+    \item Bewusstes Eingehen von Risiken / Restrisiko bekannt
+    \item Sorgfaltspflicht erfüllt
+\end{itemize}
+
+\paragraph*{Umsetzung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Management ins Boot holen
+    \item Prozess der Informationssicherheit etablieren
+    \item Verantwortlichkeiten festlegen
+    \item Sicherheit allumfassend betrachten
+    \item Schrittweise und stetig umsetzen
+\end{itemize}
 
 \subsection*{Grundbegriffe}\label{sec:Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
@@ -106,22 +240,31 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)\index{Zugriffskontrolle}
 \end{itemize}
 
+\subsection*{Grundziele (Schutzziele) von Informationssicherheit}
+\paragraph*{Verfügbarkeit}\index{Grundziele Informationssicherheit}\index{Schutzziele}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Verfügbarkeit} ist gewährleistet, wenn in der vom Benutzer gewünschten Zeit auf Dienste oder Informationen zugegriffen werden kann (Ausfallquote)
+    \item Engl.: \textbf{Availability}
+\end{itemize}
 
-\subsection*{Kontrollfragen SW 01}
-\paragraph*{Wie lauten die Schutzziele der Informationssicherheit? Nennen Sie konkrete Beispiele.}\index{Schutzziele}\index{Informationssicherheit}
+\paragraph*{Integrität}\index{Integrität}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{\textsl{Verfügbarkeit:}} Zur gewünschten Zeit kann vom Benutzer auf die Daten zugegriffen werden und der Dienst funktioniert (Ausfallquote)\index{Verfügbarkeit}
-    \item \textbf{\textsl{Integrität:}} Gewährleistung das Daten nicht unautorisiert oder zufällig manipuliert werden können. (Datensicherheit)\index{Integrität}
-    \item \textbf{\textsl{Verbindlichkeit:}} Handlung kann eindeutig einer Person zugeordnet werden und von dieser auch nicht geleugnet werden.\index{Verbindlichkeit}
-    \item \textbf{\textsl{Vertraulichkeit:}} Informationen können nicht von unautorisierten Personen, Instanzen und/oder Prozessen eingesehen werden.\index{Vertraulichkeit}
+    \item \textbf{Integrität} ist gewährleistet, wenn Daten oder Systeme nicht unautorisiert oder zufällig manipuliert oder verändert werden können (Datensicherheit)
+    \item Engl.: \textbf{Integrity}
 \end{itemize}
-\noindent
-\paragraph*{Beispiele}
+
+\paragraph*{Verbindlichkeit}\index{Verbindlichkeit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Daten und Informationen (Kundendaten, Rechnungen, Marketingdaten usw.) können nicht vom PC abgerufen werden.
-    \item Durchgängiges Funktionieren von IT Systemen, sowie eine Vollständigkeit und Richtigkeit von Daten und Informationen. Verhindern von nicht genehmigten Veränderungen an wichtigen Informationen.
-    \item Schutz vor Verrat von Informationen oder vertraulichen Daten. Mit Authentizität ist gewährleistet, dass es sich tatsächlich um eine autorisierte Person (Identiätsnachweis) handelt.
+    \item \textbf{Verbindlichkeit}liegt vor, wenn eine Handlung eindeutig einer Person zugeordnet und von dieser nicht geleugnet werden kann
+    \item Engl.: \textbf{Non-Repudiation}
 \end{itemize}
+
+\paragraph*{Vertraulichkeit}\index{Vertraulichkeit}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \textbf{Vertraulichkeit} ist gegeben, wenn sichergestellt werden kann, dass Informationen nicht durch unautorisierte Personen, Instanzen oder Prozesse eingesehen werden können
+    \item Engl.: \textbf{Confidentiality}
+\end{itemize}
+
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=16cm]{images/grundziel-entdeckung.png}
@@ -130,86 +273,45 @@ Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbe
     \end{center}
 \end{figure}
 
-\paragraph*{Erklären Sie die Zusammenhänge zwischen Risiko, Sicherheit, Eintretenshäufigkeit, Schadenshöhe, Restrisiko?}
+\paragraph*{Identität / Authentizität}\index{Identität}\index{Authentizität}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Risiko: Gefahr, Problem welches entstehen kann.\index{Risiko}
-    \item Sicherheit: Schutz vor Risiko\index{Sicherheit}
-    \item Eintretenshäufigkeit: Wahrscheinlichkeit, dass Risiko eintritt\index{Eintretenshäufigkeit}
-    \item Restrisiko: Sicherheit deckt einen Teil des Risikos ab, jedoch nur gewisses Budget, somit bleibt Restrisiko, z.B. Erdbeben in San~Francisco oder Istanbul\index{Restrisiko}
+    \item \textbf{Identität:} "`Beim Menschen bezeichnet Identität die ihn kennzeichnende und als Individuum von anderen Menschen unterscheidende Eigentümlichkeit seines seines Wesens."'\cite{wiki}
+    \item \textbf{Authentizität:} "`In der Informationssicherheit bezeichnet Authentizität die Eigenschaften der Echtheit, Überprüfbarkeit und Vertrauenswürdigkeit. Die Überprüfung einer behaupteten Eigenschaft wird als Authentifikation bezeichnet. Durch Authentifikation des Datenursprungs wird nachgewiesen, dass Daten einem angegebenen Sender zugeordnet werden können, was durch digitale Signaturen ermöglicht werden kann\footnote{Siehe \underline{\nameref{para:Authentifizierung}}, Seite \pageref{para:Authentifizierung}}."'\cite{wiki}
 \end{itemize}
 
-\paragraph*{Zusammenhang}Durch Sicherheitsmassnahmen kann man die Eintretenshäufigkeit von einem Risiko mindern und somit auch den Schaden reduzieren, zusätzlich wird auch das Restrisiko kleiner oder kann sogar ausgeschlossen werden.
-
-\paragraph*{Was ist eine Risikoanalyse? Wozu dient sie?}\index{Risikoanalyse}
-\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Risiken zu erkennen
-    \item Risiken analysieren
-    \item Risikobewertung
-    \item Nächster Schritt wäre das Risiko zu mindern mit den Erkenntnissen aus den ersten 3 Punkten.
-    \item Massnahmen ergreifen und umsetzen.
-\end{enumerate}
-
-\paragraph*{Welche Möglichkeiten zur Behandlung (\flqq Mitigation\footnote{Verminderung} \frqq) stehen zur Verfügung? Ordnen Sie diese in der Reihenfolge, wie man sie typischerweise anwendet. Geben Sie ein kurzes Beispiel oder eine Erläuterung}
+\paragraph*{Risiko}\index{Risiko}\label{para:Risiko}Ein Risiko ist ein negativer Ausgang einer Unternehmung, mit dem Nachteile, Verlust, Schäden, usw. verbunden sind.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Priorisieren: welches Risiko muss ich zuerst behandeln
-    \item Vermindern: Massnahmen ergreifen, um Eintretenshäufigkeit und Schadensausmass zu vermindern
-    \item Vermeiden: Massnahmen oder Wege einleiten um das Risiko auszuschliessen
-    \item Akzeptieren: Ähnlich wie Ignorieren und das Risiko einfach hinnehmen
+    \item Wahrscheinlichkeit, dass eine Gefährdung über eine Schwachstelle zu einem Schaden von bestimmten Ausmass führt
+    \item Wahrscheinlichkeiten sind extrem schwer zu berechnen $\rightarrow$ Geschätzte Häufigkeiten
+    \item \textbf{Risiko = Eintretenshäufigkeit $\times$ Schadensausmass}
+    \item Die Eintretenshäufigkeit und Schaden können bewertet werden
+    \item Sicherheit und Risiko sind voneinander abhängig
 \end{itemize}
 
-\paragraph*{Welche Gefährdungen und Bedrohungen kennen Sie? Gliedern Sie diese in verschiedene Kategorien.}\index{Gefährdungen}\index{Bedrohungen}
+\paragraph*{Integrale\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch}, holistische\footnote{ganzheitlich}, Informations- und IT-Sicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Bruteforce, Phishing, DDoS, Injections, Spoofing, frustrierte Mitarbeiter, Anonymous, NSA, Naturgewalt, Hacker, Wirtschaftsspionage etc.
+    \item Integral: Umfassende Betrachtung \textbf{aller} Sicherheitsaspekte einer Organisation
+    \item Holistisch: Funktionsorientierte und stufengerechte Förderung des Verständnisses für Sicherheit bei Mitarbeitenden, Sicherheitsfachleuten und Management
+    \item Informationssicherheit: Sicherheit in der Verarbeitung von medienunabhängiger Information als solche, also nicht beschränkt auf elektronische Verarbeitung
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Elektronische Datenträger
+        \item Papier
+        \item In den Köpfen der Mitarbeitenden
+    \end{itemize}
+    \item IT-Sicherheit: Schutz der Information in ICT-Systemen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Server / Hosts
+        \item Clients / Notebooks
+        \item Mobile Datenträger (Smartphones, USB-Sticks, Digicams, etc.)
+    \end{itemize}
 \end{itemize}
 
-\subsubsection*{Stellen Sie Wissen – Information – Daten in eine Beziehung. Worauf bezieht sich die IT-Sicherheit? Was verstehen Sie unter integraler\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch} / holistischer\footnote{ganzheitlich} Sicherheit?}\index{Wissen}\index{Information}\index{Daten}
-Ziel ist das grösste Niveau der Sicherheit zu erzielen (Gesamtsystem) wichtig ist wie sich die einzelnen Sicherheitskomponenten ergänzen und zusammenspielen. (Siehe Abbildung \ref{Wissenspyramide})
+\paragraph*{Datensicherheit \& Datenschutz}\index{Datensicherheit}\index{Datenschutz}\label{para:DatensicherheitDatenschutz}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Informationssicherheit:}\index{Informationssicherheit} Schutz der Information als solche, Medien unabhängig Elektronischer Datenträger
-    \item \textbf{IT-Sicherheit:}\index{IT-Sicherheit} Schutz der Informationen in ICT-Systemen. (Server/Host)
-    \item \textbf{Integrale Sicherheit vs. holistische Sicherheit:}\index{Integrale Sicherheit}\index{Holistische Sicherheit} Umfassende Betrachtung aller Sicherheitsaspekte einer Organisation.
+    \item \textbf{Datensicherheit} ($-$Informationssicherheit): Schutz von Daten und Informationen
+    \item \textbf{Datenschutz}: Schutz der Persönlichkeit und er Grundrechte von Personen, über die Daten bearbeitet werden
 \end{itemize}
 
-\subsubsection*{Bedeutung des Managements / GL im Rahmen von AKVs}
-Ohne Management-Support geht gar nichts\footnote{Aufgaben, Kompetenzen und Verantwortlichkeiten}.
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Keine Ressourcen (Zeit und Geld)
-    \item Keine Kompetenzen (Befehls-und Umsetzungsgewalt)
-    \item Keine Priorität
-    \item Das Management trägt die Risiken (Haftung für Mitarbeiter etc.) und entscheidet über die eingesetzten Ressourcen
-    \item Häufig fehlendes Know-How der Managementetage
-\end{itemize}
-
-\paragraph*{Wie gehen Sie konkret vor, um die Informationssicherheit einzuführen?}\index{Informationssicherheit}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Management ins Boot holen
-    \item Prozess der Informationssicherheit etablieren (Know-How vermitteln oder zumindest das Thema greifbar machen für Management)
-    \item Verantwortlichkeiten festlegen
-    \item Sicherheit allumfassend betrachten
-    \item Schrittweise und stetig umsetzen (kontinuierlicher Prozess)
-\end{itemize}
-
-\paragraph*{Begründen Sie, warum Informationssicherheit ein Prozess und kein Projekt sein muss.}\index{Informationssicherheit}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Kontinuierliche Verbesserung der Sicherheit ein Muss
-    \item Angriffe durch Hacker etc. entwickeln sich weiter, somit muss man immer auf dem neuesten Stand sein ("`up to date"' wie Dopingkontrollen im Sport)
-    \item Projekt ist hingegen terminiert und irgendwann abgeschlossen
-\end{itemize}
-
-\paragraph*{Welche 3 Bereiche müssen Sie mit Ihren Massnahmen bespielen und warum?}\index{Massnahmen}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Technik: kaufen und konfigurieren. Immer auf dem neuesten Stand und effizient eingesetzt.
-    \item Prozesse: definieren, kontrollieren, weiterentwickeln. (Ist- und Soll-Prozess die ganze Zeit anpassen)
-    \item Mitarbeiter: sensibilisieren und ausbilden. Meiner Ansicht nach auch Motivation und Loyalität fördern. (Interesse des Mitarbeiters wecken)
-\end{itemize}
-
-\paragraph*{Beschreiben Sie den Zweck von Datenschutz? Recherchieren Sie den heutigen Stand CH und die Veränderung durch die EU-DSGVO}\index{Datenschutz}
-\paragraph*{TODO}
-
-\paragraph*{Setzen Sie die Begriffe Zutritt, Zugang und Zugriff in Beziehung.}{Siehe \underline{\nameref{sec:Grundbegriffe}}, Seite \pageref{sec:Grundbegriffe}}
-
-
-%%%%%%%%%%
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
@@ -240,28 +342,12 @@ Ohne Management-Support geht gar nichts\footnote{Aufgaben, Kompetenzen und Veran
     \end{center}
 \end{figure}
 
-\paragraph*{Secret Key Verschlüsselung: Algorithmen}Beispiele für symmetrische Verschlüsselung \newline
-\begin{tabular}{|c|c|c|c|c|}
-    \hline
-    Name&Blocklänge&Schlüssellänge&Jahr&Kommentar\\
-    \hline
-    DES&64 Bit&56 Bit&1970&gebrochen\\
-    Triple DES&64 Bit&112 Bit ($3\times56$ Bit)&  &nicht mehr empfohlen\\
-    RC4&stream cipher&8-2040&1987&gebrochen\\
-    IDEA&64 Bit&128 Bit&1990&nicht mehr empfohlen\\
-    RC5&64 oder 128 Bit&4-256 Bit&1994&nicht mehr empfohlen\\
-    Camellia&128 Bit&128, 192 oder 256 Bit&2000& \\
-    Twofish&128 Bit&128, 192 oder 256 Bit&1998& \\
-    AES (Rijndal)&128 Bit&128, 192 oder 256 Bit&2000& \\
-    \hline
-\end{tabular}
-
-\paragraph*{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext\cite{renner2006}.\index{Informationstheoretische Sicherheit}
- Beispielsweise ist OTP informationstheoretisch sicher. \newline %bleibt
+\paragraph*{Informationstheoretische Sicherheit}\index{Informationstheoretische Sicherheit}Das Ziel informationstheoretischer Sicherheit ist der Schutz von Daten vor unbefugtem Zugriff während der Übertragung. Im Unterschied zur Kryptographie basiert informationstheoretische Sicherheit nicht auf der Annahme, dass die Rechenleistung eines unberechtigten Empfängers nicht gross genug ist, um die Daten zu decodieren. Vielmehr garantiert informationstheoretische Sicherheit, dass ein unberechtigter Empfänger selbst bei beliebig grosser Rechenleistung nicht in der Lage ist, solcherart geschützte Nachrichten zu decodieren. Mit anderen Worten erhält ein Angreifer durch den Geheimtext keinerlei (zusätzliche) Information über den Klartext\cite{renner2006}.
+ Beispielsweise ist OTP\footnote{Siehe \underline{\nameref{para:One-Time Pad}}, Seite \pageref{para:One-Time Pad}} informationstheoretisch sicher. \newline %bleibt
 Formal:
 \begin{math}
     P(M=m) = P(M=m|C=c)
-\end{math} {\color{red}Erklärung der Variablen??}
+\end{math}
 
 \paragraph*{Berechenmässige Sicherheit}\index{Berechenmässige Sicherheit}\label{para:Berechenmässige Sicherheit}Der sicheren Übertragung und Aufbewahrung vertraulicher Daten kommt in unserer von Information dominierten Gesellschaft immer grössere Bedeutung zu. Die heute gebräuchlichen Verfahren zur Datenverschlüsselung bieten allerdings nur beschränkte, sogenannt berechenmässige Sicherheit. Das bedeutet, dass diese prinzipiell von einem Angreifer, der über genügend Rechenleistung (zum Beispiel einen, heute noch hypothetischen, Quantencomputer) verfügt, gebrochen werden können\cite{renner2006}.
 
@@ -324,7 +410,7 @@ Formal:
 Das folgende Diagramm zeigt die Häufigkeitsverteilung der Buchstaben in einem längeren Text in deutscher Sprache:
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=10cm]{images/frequency0.png}
+    \includegraphics[width=16cm]{images/frequency0.png}
     \caption{Frequenzanalyse unchiffriert}
     \label{frequencynormal}
     \end{center}
@@ -334,7 +420,7 @@ Das folgende Diagramm zeigt die Häufigkeitsverteilung der Buchstaben in einem l
 Wie zu erwarten, ist der häufigste Buchstabe E, gefolgt von N und I, wie es im Deutschen üblicherweise der Fall ist. Wird der Text mit dem Schlüssel 10 (oder anders gesagt, mit dem Schlüsselbuchstaben J) chiffriert, erhält man einen Geheimtext, der folgende Häufigkeitsverteilung besitzt:
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=10cm]{images/frequency1.png}
+    \includegraphics[width=16cm]{images/frequency1.png}
     \caption{Frequenz um 10 Stellen verschoben}
     \label{frequencycaesar}
     \end{center}
@@ -361,7 +447,8 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
     \end{center}
 \end{figure}
 
-\paragraph*{One-time pad}\index{One-time pad}\label{One-Time Pad}
+\pagebreak
+\paragraph*{One-time pad}\index{One-time pad}\label{para:One-Time Pad}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Jede Stelle wird mit einem anderen Schlüssel verschlüsselt
     \item Darf nur 1 Mal verwendet werden!
@@ -379,7 +466,22 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 
 
 \subsection*{Sie wissen welche modernen Verschlüsselungsalgorithmen in der Praxis verwendet werden und was deren Eigenschaften sind}
-\paragraph*{TODO}
+
+\paragraph*{Secret Key Verschlüsselung: Algorithmen}Beispiele für symmetrische Verschlüsselung \newline
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Name&Blocklänge&Schlüssellänge&Jahr&Kommentar\\
+    \hline
+    DES&64 Bit&56 Bit&1970&gebrochen\\
+    Triple DES&64 Bit&112 Bit ($3\times56$ Bit)&  &nicht mehr empfohlen\\
+    RC4&stream cipher&8-2040&1987&gebrochen\\
+    IDEA&64 Bit&128 Bit&1990&nicht mehr empfohlen\\
+    RC5&64 oder 128 Bit&4-256 Bit&1994&nicht mehr empfohlen\\
+    Camellia&128 Bit&128, 192 oder 256 Bit&2000& \\
+    Twofish&128 Bit&128, 192 oder 256 Bit&1998& \\
+    AES (Rijndal)&128 Bit&128, 192 oder 256 Bit&2000& \\
+    \hline
+\end{tabular}
 
 
 \subsection*{Sie verstehen was eine Hashfunktion ist und welche Eigenschaften eine kryptographische Hashfunktion ausmachen, bzw. was es heisst, wenn eine Hashfunktion gebrochen ist}
@@ -402,7 +504,7 @@ Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedli
 \paragraph*{Eigenschaft einer Hashfunktion}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Einwegfunktion: Aus dem Hashwert darf nicht der originale Inhalt erzeugt werden können. In unserem Beispiel darf es nicht möglich sein, aus dem Hashwert "`123"' den Ursprungstext "`Superman"' zu erzeugen.
-    \item Kollisionssicherheit: Den unterschiedlichen Texten darf nicht derselbe Hashwert zugeordnet sein. Ist diese Voraussetzung erfüllt, so spricht man auch von \textbf{kryptographischen Hashfunktionen}. In unserem Beispiel liegt eine Kollision vor, da die Passwörter "`Robocop"' und "`Catwoman"' denselben Hashwert haben. Damit ist die Hashfunktion im Bild nicht kollisionssicher und es handelt sich nicht um eine kryptografische Hashfunktion.
+    \item Kollisionssicherheit: Den unterschiedlichen Texten darf nicht derselbe Hashwert zugeordnet sein. Ist diese Voraussetzung erfüllt, so spricht man auch von \textbf{kryptographischen Hashfunktionen}. In unserem Beispiel (Abbildung \ref{hash1}) liegt eine Kollision vor, da die Passwörter "`Robocop"' und "`Catwoman"' denselben Hashwert haben. Damit ist die Hashfunktion im Bild nicht kollisionssicher und es handelt sich nicht um eine kryptografische Hashfunktion.
     \item Schnelligkeit: Das Verfahren zu Berechnung des Hashwertes muss schnell sein.
 \end{itemize}
 
@@ -414,12 +516,8 @@ Hashfunktionen reduzieren zunächst nur Zeichen beliebiger Länge (unterschiedli
 \end{itemize}
 Beispiele sind PBKDF2\index{PBKDF2} und bcrypt\index{bcrypt} (Blowfish-Algorithmus), welche zusätzlich viel Memory benötigen, oder scrypt\index{scrypt} (Entwicklung motiviert durch Verwundbarkeit von PBKDF2 und bcrypt durch Brute-Force-Attacken) und Argon2\index{Argon2}.
 
-\paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
-Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
-Passwort "`Superman” = MD5-Hash: "`527d60cd4715db174ad56cda34ab2dce"'.
-Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern erstellen und es durch den Hashgenerator jagen. Wenn er nun die Datenbank mit den Hashwerten der Plattform stiehlt, kann er die Hashwerte mit seiner Liste vergleichen. Findet er in der geklauten Liste den Hashwert "`527d60cd4715db174ad56cda34ab2dce"', so weiss er, dass dieser Hashwert dem Passwort "`Superman"' zugeordnet ist. Solche Listen nennt man \textbf{rainbow tables}.
-
-\paragraph*{Hashfunktionen}\index{Hash-Algorithmen}Algorithmen\newline %bleibt
+\subsection*{Sie kennen moderne Hashfunktionen und wissen welche Eigenschaften diese haben}
+\paragraph*{Hashfunktionen}\index{Hash-Algorithmen}Algorithmen\newline
 \begin{tabular}{|c|c|c|c|}
     \hline
     Name&Block Länge&Output Länge&Bemerkung\\
@@ -435,11 +533,12 @@ Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern er
     \hline
 \end{tabular}
 
+\paragraph*{Gebrochene Hashfunktionen}"`Gebrochen"' = "`geknackt"'. Dies war z.B. bei LinkedIn und Dropbox der Fall. Wie können aber Passwörter geknackt werden, wenn man wegen der Einweg-Eigenschaften der Hashfunktionen nicht auf den ursprünglichen Text zurückschliessen kann?
+Zunächst muss man wissen, dass fast alle Algorithmen "`offen"' liegen, diese also auch von Angreifern genutzt werden können. Das hat zur Folge, dass der Hashwert von einem Passwort immer gleich ist, egal ob es die Plattform oder der Angreifer berechnet.
+Passwort "`Superman” = MD5-Hash: "`527d60cd4715db174ad56cda34ab2dce"'.
+Ein Angreifer kann sich also eine Liste mit typischen unsicheren Passwörtern erstellen und es durch den Hashgenerator jagen. Wenn er nun die Datenbank mit den Hashwerten der Plattform stiehlt, kann er die Hashwerte mit seiner Liste vergleichen. Findet er in der geklauten Liste den Hashwert "`527d60cd4715db174ad56cda34ab2dce"', so weiss er, dass dieser Hashwert dem Passwort "`Superman"' zugeordnet ist. Solche Listen nennt man \textbf{rainbow tables}.
 
-\subsection*{Sie kennen moderne Hashfunktionen und wissen welche Eigenschaften diese haben}
-\paragraph*{TODO}
-
-
+\pagebreak
 \subsection*{Sie kennen Anwendungen von Hashfunktionen}
 Verwendung von Hashfunktionen
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -456,8 +555,26 @@ Verwendung von Hashfunktionen
 
 \subsection*{Sie wissen was ein keyed Hash (HMAC) ist und wofür dieser verwendet werden kann}
 
-\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5 und einem geheimen Schlüssel basiert.
-
+\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5 und einem geheimen Schlüssel basiert. Der Hashwert wird aus dem Message-Body und einem angehängtem Key erstellt. Es ist eine \textbf{symmetrische} Kryptographie, d.h. beide Parteien müssen den Key besitzen.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Authentifizieren einer Nachricht
+    \item Sicherstellen des Ursprungs einer Nachricht (\textbf{Authentizität})
+    \item Sicherstellen der \textbf{Integrität} einer Nachricht
+    \item Im Gegensatz zu einem normalen Hash (z.B. MD5) ist ein HMAC zusätzlich "`keyed"', also abhängig von einem Schlüssel
+    \item HMAC wird z.B. im Rahmen von IPSEC verwendet
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item IPSEC ist ein Protokoll, welches mehrere Elemente vereint\\
+        (Schlüsselaustausch, symmetrische Verschlüsselung, Authentifizierung von Nachrichten, etc.)
+        \item der Schlüsselaustausch von HMAC erfolgt im Rahmen von IPSEC (IKE\footnote{Internet Key Exchange}) via Diffie-Hellman
+    \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/hmac.png}
+    \caption{Funktionsweise eines Keyed-Hash Message Authentication Codes}
+    \label{hmac}
+    \end{center}
+\end{figure}
 
 
 \subsection*{Sie kennen die "`Best-practices"' zu Passwortsicherheit und wissen, gegen welche Angriffe diese schützen}
@@ -474,28 +591,13 @@ Oder noch besser:
     \item Ziel: Verlangsamen einer Offline-Attacke auf die Passwort-Hashes.
 \end{itemize}
 
-\subsection*{Kontrollfragen SW 02}
-\paragraph*{Wie hängt die Schlüssellänge eines Verschlüsselungsalgorithmus mit dessen Sicherheit
-zusammen?}\index{Schlüssellänge}Die Schlüssellänge ist ein wichtiger Parameter von symmetrischen oder asymmetrischen Verschlüsselungsverfahren. Sie gibt Auskunft darüber, wie viele unterschiedliche Schlüsselwerte ein Schlüssel bei einem bestimmten Verfahren annehmen kann.\\
-Da oft der einzige Weg einen Schlüssel zu "`knacken"' darin besteht, über eine sogenannte Brut-Force-Attacke alle sich bietenden Möglichkeiten auszuprobieren, bestimmt die Schlüssellänge die hierfür aufzuwendende Rechenleistung und Rechenzeit.\index{Brute-Force}
-
-\paragraph*{Was besagt das Kerckhoff-Prinzip?}{Siehe \underline{\nameref{para:Kerckhoff's Prinzip}}, Seite \pageref{para:Kerckhoff's Prinzip}}
-
-\paragraph*{Was ist berechenmässige Sicherheit?}{Siehe \underline{\nameref{para:Berechenmässige Sicherheit}}, Seite \pageref{para:Berechenmässige Sicherheit}}
-
-\paragraph*{Welche Eigenschaft einer kryptographischen Hashfunkton muss beim "`Bitcoin mining"' gebrochen werden?} Bitcoin verwendet Hashfunktionen auf zwei Weisen:
-\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Miner müssen Hashes mit SHA256 berechnen, um Blöcke zu finden
-    \item Der öffentliche Schlüssel des Signatur-Algorithmus wird sowohl mit SHA256 als auch RIPEMD-160 gehasht, um die Adresse zu bilden
-\end{enumerate}{Für weitere Infos siehe \underline{\nameref{para:Hashfunktion}}, Seite \pageref{para:Hashfunktion}}
-
-
+\pagebreak
 \section{Asymmetrische Kryptographie}
 \paragraph*{Asymmetrische Verschlüsselung}In der asymmetrischen Kryptographie (Verschlüsselung) arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem \textbf{Schlüsselpaar}. Bestehend aus einem \textbf{öffentlichen} und einem \textbf{privaten Schlüssel}. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder \mbox{Public-Key-Verfahren}.
 
 \subsection*{Sie verstehen was Public-Key-Kryptographie ist, worauf deren Sicherheit basiert und wie sie zur Verschlüsselung, für Signaturen und zur Authentisierung verwendet werden kann}
 
-\paragraph*{Public Key Verschlüsselung}Basiert auf Funktionen, welche einfach zu berechnen sind, deren Umkehrfunktion aber (vermutlich) schwierig zu berechnen ist.
+\paragraph*{Public Key Verschlüsselung}\index{Public Key Encryption}\label{para:Public Key Encryption}Basiert auf Funktionen, welche einfach zu berechnen sind, deren Umkehrfunktion aber (vermutlich) schwierig zu berechnen ist.
 Beispiel:\newline %bleibt
 \noindent
 \begin{tabular}{|ll|}
@@ -505,33 +607,124 @@ Beispiel:\newline %bleibt
     \hline
 \end{tabular}
 
-\paragraph*{TODO}BILDER aus "`The Science of Secrecy"'
-\subsection*{Sie kennen die gängigen asymmetrischen Verschlüsselungs- und Signaturalgorithmen und wissen, worauf deren Sicherheit basiert}
-\paragraph*{TODO}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/publickey.png}
+    \caption{Alice verschlüsselt mittels Bob's Public Key asymmetrisch}
+    \label{pke}
+    \end{center}
+\end{figure}
+
+\subsection*{Sie kennen die gängigen asymmetrischen Verschlüsselungs- und Signaturalgorithmen und wissen, worauf deren Sicherheit basiert}\index{RSA}\index{Diffie-Hellman}\index{ElGamal}
+\begin{tabular}{|c|c|}
+    \hline
+        Name&Unterliegende `schwierige' Funktion\\
+        \hline
+        RSA&Faktorisieren grosser Zahlen\\
+        Diffie-Hellman&Diskrete Logarithmen berechnen\\
+        Elliptic Curve DH (ECDH) &Diskrete Logarithmen berechnen\\
+        ElGamal Verschlüsselung&Diskrete Logarithmen berechnen\\
+    \hline
+\end{tabular}
 
 
-\subsection*{Sie wissen wie Diffie-Hellmann-Schlüsselaustausch bzw. ElGamal-Verschlüsselung funktioniert}
+\subsection*{Sie wissen wie Diffie-Hellman-Schlüsselaustausch bzw. ElGamal-Verschlüsselung funktioniert}
+\paragraph*{Diffie-Hellman (DH) Schlüsselaustausch}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden. Diffie-Hellman nutzt eine diskrete Exponentialfunktion (modulare Exponentation) $b^x\ \mathrm{mod}\ m$. Der Vorteil einer solchen Funktion ist, dass man schnell ein Ergebnis (Secret Key) ausrechnen kann, während die Umkehrfunktion, der diskrete Logarithmus, um den Exponenten (Private Key) zu erhalten, nur sehr schwer auszurechnen ist.\\
+$5\equiv 4^{2} \equiv 4^{7} \equiv 4^{12} \equiv 4^{17}\ (\mathrm{mod}\ 11)\dots$\\
+Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszufinden, ob der Exponent  nun 317, 27`142 oder doch 1`492`967 ist. Weiter wird nicht der \textsl{Secret Key} selber versendet, sondern vor Ort berechnet.
 
-\paragraph*{Diffie-Hellman (DH)}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden.
+\pagebreak
+\paragraph*{Sicherer Schlüsselaustausch mittels DH\footnote{https://www.cs.uni-potsdam.de/ti/lehre/07-Kryptographie/slides/slides-5.1-anim.pdf}}\index{Schlüsselaustauschprotokoll}\index{Diffie-Hellman}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice wählt eine zufällige {\color{dunkelblau}Primzahl $p$} und zufällige {\color{dunkelblau}Basis $g\in[1,p-1$]}
+    \subitem $p$ und $g$ werden nicht geheim gehalten
+    \item Alice wählt zufällige Zahl für \textsl{Private Key} {\color{dunkelblau}$a\in[0,p-2]$}
+    \item Berechnet ihren \textsl{Public Key} {\color{dunkelblau}$A = g^a\ \mathrm{mod}\ p$}
+    \subitem Alice hält {\color{dunkelblau}$a$ geheim} und schickt $(A, g, p)$ an $\rightarrow$ Bob
+    \item Bob wählt zufällige Zahl für \textsl{Private Key} {\color{dunkelblau}$b\in[0,p-2]$}
+    \item Berechnet {\color{dunkelblau}$B = g^b\ \mathrm{mod}\ p$}
+    \subitem Bob hält {\color{dunkelblau}$b$ geheim} und schickt $B$ an $\rightarrow$ Alice
+    \item Alice berechnet {\color{dunkelblau}$B^a\ \mathrm{mod}\ p = g^{b\cdot a}\ \mathrm{mod}\ p$}
+    \item Bob berechnet {\color{dunkelblau}$A^b\ \mathrm{mod}\ p = g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Gemeinsamer \textsl{Secret Key} {\color{dunkelblau}{\color{red}$K$}$= g^{a\cdot b}\ \mathrm{mod}\ p$} ist nur Alice und Bob bekannt, ohne das Alice $b$ kennt und Bob $a$
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=6cm]{images/DH0.png}
+    \caption{Identischer Geheimschlüssel wird erzeugt\cite{wiki}}
+    \label{dh0}
+    \end{center}
+\end{figure}
 
-\paragraph*{TODO}BILD \& ev. Beispiel Wiki
+\subsubsection*{Beispiel für $p=17$ und $g=3$}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice wählt $a=7$ und berechnet $A = g^a\ \mathrm{mod}\ 17 = 2187\ \mathrm{mod}\ 17 \equiv 11$
+    \item Bob wählt $b=4$ und berechnet $B = g^b\ \mathrm{mod}\ 17 = 81\ \mathrm{mod}\ 17 \equiv 13$
+    \item Der gemeinsame Schlüssel ist $K = A^b\ \mathrm{mod}\ 17 = 14641\ \mathrm{mod}\ 17 \equiv 4$
+\end{itemize}
 
-\paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen.
 
-\paragraph*{TODO}BILD ElGamal
+\paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen. Daher ist es sicherer als RSA, welches `nur' Faktorisieren grosser Zahlen als unterliegende Funktion hat. Im Vergleich zu DH gibt es bei ElGamal weitere Teilschritte und feine Unterschiede. Die zu verschlüsselnde Nachricht {\color{red}$x$} wird nämlich in den \textsl{Secret Key} verschmelzt.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Diffie-Hellman: {\color{dunkelblau}$K= g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item ElGamal: {\color{dunkelblau}$C= ${\color{red}$x$}$\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
+\end{itemize}
 
-\paragraph*{TODO}ev. Beispielrechnung machen
+
+
+\subsubsection*{ElGamal-Verfahren im Detail}\index{ElGamal}
+\paragraph*{Schlüsselerzeugung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice wählt eine {\color{dunkelblau}grosse Primzahl $p$} und ein {\color{dunkelblau}Gruppenelement $g$ der Ordnung $p$} ($0<g<p$)
+    \item Wählt für den \textsl{Private Key} eine {\color{dunkelblau}zufällige Zahl $a\in[0,p-2]$}
+    \item Berechnet ihren \textsl{Public Key} {\color{dunkelblau}$A=g^a\ \mathrm{mod}\ p$}
+    \subitem Alice hält {\color{dunkelblau}$a$ geheim} und schickt $(A, g, p)$ an $\rightarrow$ Bob
+\end{itemize}
+Bis hierhin verlief das Ganze ziemlich ähnlich zum DH-Schlüsselaustausch.
+
+\pagebreak
+\paragraph*{Verschlüsselung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Bob hat die zu verschlüsslende Nachricht {\color{red}$x$}
+    \item Wählt für den \textsl{Private Key} eine {\color{dunkelblau}zufällige Zahl $b\in[0,p-2]$}
+    \item Berechnet seinen \textsl{Public Key} {\color{dunkelblau}$B=g^b\ \mathrm{mod}\ p$} %{\color{red}$K=x\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Erstellt \textsl{Secret Key} {\color{dunkelblau}$K=A^b\ \mathrm{mod}\ p$}
+    \item Bob verschlüsselt {\color{red}$x$} zu {\color{dunkelblau}$C= ${\color{red}$x$}$\cdot K\ \mathrm{mod}\ p$}
+    \subitem Bob hält {\color{dunkelblau}$b$ geheim} und schickt $(B, C)$ an $\rightarrow$ Alice
+\end{itemize}
+
+\paragraph*{Entschlüsselung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice entschlüsselt Ciphertext $C$ mit {\color{dunkelblau}$x=(B^{p-a-1}\ mod\ p)\cdot C\ mod\ p$}
+\end{itemize}
 
 \subsection*{Sie wissen was kryptographisch sichere Zufallszahlen sind und wo diese verwendet werden}
+\paragraph*{Sichere Zufallszahlen}\index{Sichere Zufallszahlen}Kryptographisch sichere Zufallszahlen können im Gegensatz zu Zahlen in einer gewöhnlichen Random-Funktion anhand des Seeds nicht vorausgesagt werden. Java bietet beispielsweise neben der Random-Klasse die SecureRandom-Klasse\footnote{Siehe \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/util/Random.html}{Random}} und \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html}{SecureRandom}}}. Kryptographisch sichere Zufallszahlen braucht man z.B. in den oben beschriebenen Schlüsselaustauschprotokollen.
 
-\paragraph*{TODO}
+\begin{multicols}{2}
+    \subsubsection*{Normaler Zufallszahlengenerator}\index{Random}\index{Zahlengenerator}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Zahlen sollen uniform (gleichmässig verteilt sein)
+        \item Wenn möglich: hohe Rate
+    \end{itemize}
+    Beispiel: \texttt{java.util.Random.nextInt()}\\
+    $RN1 = InitialSeed$\\
+    $RN2=(A\cdot RN1+C)\ \mathrm{mod}\ M$\\
+    $RN3=(A\cdot RN2+C)\ \mathrm{mod}\ M$
+    \paragraph*{Vorsicht}Mit 2 Zahlen können alle weiteren vorhergesagt werden!\\\vspace*{\fill}
+    \columnbreak
+    \subsubsection*{Kryptographisch sicherer Zufallszahlengenerator}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Zusätzlich: Zufallszahlen sollen nicht vorhersagbar sein
+    \end{itemize}
+    Beispiel: \texttt{java.security.SecureRandom.nextInt()}
+\end{multicols}
 
 \subsection*{Sie wissen was eine elektronische Signatur ausmacht}
-
 \paragraph*{Signatur}\index{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=12cm]{images/digisignatur1.png}
+    \includegraphics[width=8cm]{images/digisignatur1.png}
     \caption{Signatur im Detail}
     \label{digisig1}
     \end{center}
@@ -574,24 +767,25 @@ Beispiel:\newline %bleibt
 \end{figure}
 Man erkennt schnell den Vorteil dieser Methode. Ein symmetrisches Verschlüsselungsverfahren ist sehr effizient auch im Verschlüsseln von grossen Datenmengen
 
-\subsection*{Kontrollfragen SW 03}
-
-\paragraph*{Vergleichen Sie symmetrische und asymmetrische Verschlüsselung bezüglich Anzahl Schlüssel, Schlüssellänge und Geschwindigkeit der Algorithmen}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Symmetrisch:} 1 Schlüssel, Schlüsselänge eher kürzer, Geschwindigkeit hoch
-    \item \textbf{Asymmetrisch:} Mehrere Schlüssel (meistens 2), Schlüssellänge sehr sicher (lang), Geschwindigkeit tief
-\end{itemize}
-
-\paragraph*{Warum wird in der Praxis bei der Email-Verschlüsselung ein sog. hybrider Verschlüsselungsalgorithmus angewandt?}\index{Email-Verschlüsselung}\index{Hybrider Verschlüsselungsalgorithmus}Es muss schnell gehen und somit wird auf eine hybride Variante umgestiegen. Dies erhöht die Geschwindigkeit, ohne die Sicherheit zu mindern.
+\paragraph*{Hybride Signatur}Digitale Signaturen verwenden oft ähnliche oder sogar die gleichen Algorithmen wie Public Key Verschlüsselung. Das Signieren eines Dokuments entspricht dann einer Entschlüsselung mit dem Private Key, die Verifikation der Signatur entspricht der Verschlüsselung mit dem Public Key.\\
+\begin{tabular}{|cc|}
+    \hline
+        Name&Unterliegende `schwierige' Funktion\\
+        \hline
+        RSA&Faktorisieren grosser Zahlen\\
+        Digital Signature Algorithm&Diskrete Logarithmen Berechnen\\
+        Elliptic DSA&Diskrete Logarithmen Berechnen\\
+        ElGamal Signature&Diskrete Logarithmen Berechnen\\
+    \hline
+\end{tabular}
 
 
 \section{Zertifikate und SSL-TLS}
-
-\subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
+\subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}\index{Trust}
 Problematik: Wie ordnet man ein Public Key einer bestimmten Person / Entität zu?
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=14cm]{images/mitma.png}
+    \includegraphics[width=11cm]{images/mitma.png}
     \caption{Eve als man in the middle}
     \label{mitma}
     \end{center}
@@ -601,7 +795,7 @@ Problematik: Wie ordnet man ein Public Key einer bestimmten Person / Entität zu
 Alice vertraut der Authentizität von Bob's Public Key, durch direktes Überprüfen, normalerweise über den Fingerprint des Key's.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=9cm]{images/directtrust.png}
+    \includegraphics[width=8cm]{images/directtrust.png}
     \caption{Alice vertraut Bob durch direkte Überprüfung}
     \label{directtrust}
     \end{center}
@@ -617,7 +811,7 @@ Benötigt jedoch einen authentischen Kanal zum Etablieren des Trust.
 Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie signiert wurde, dessen Public Key wiederum von Bob signiert wurde, dem sie vertraut.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=12cm]{images/wot.png}
+    \includegraphics[width=10cm]{images/wot.png}
     \caption{Alice vertraut Dave indirekt durch Vertrauensnetz}
     \label{wot}
     \end{center}
@@ -639,8 +833,18 @@ Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie 
 Eine CA ist eine Organisation, welche digital eZertifikate ausstellt. Ein digitales Zertifikat ordnet einen bestimmten öffentlichen Schlüssel einer Person oder Organisation zu. Diese Zuordnung wird von der Zertifizierungstelle beglaubigt, indem sie sie mit ihrer eigenen digitalen Unterschrift versieht.\newline
 Ein Zertifikat wird durch eine sog. \textsl{Chain of Trust} beglaubigt. Eine \textsl{intermediate CA} signiert das Zertifikat (Public Key) des Endbenutzers. Das Zertifikat der intermediate CA wird wiederum von einer anderen CA unterschrieben. Das letzte Zertifikat in dieser Kette heisst \textsl{Root Certificate} und enthält den Public Key der \textsl{root CA}. Dieses Zertifikat ist normalerweise \textsl{self signed}, also von der root CA selbst unterschrieben.
 
+\paragraph*{Prüfung der Authentisierung mittels Zertifikat}\index{Authentisierung}\index{Zertifikat}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
+    \item Ist das Zertifikat und die gesamte Zertifikatskette korrekt signiert?
+    \item Traue ich der Root-CA der Zertifikatskette?
+    \item Besitzt "`Bob"' den zum Zertifikat gehörenden Private Key?
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $VERIFY_{public\,key\,Bob}(response)$
+    \end{itemize}
+\end{itemize}
 
-\subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}SSL-TLS erreicht
+\subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionell abläuft}SSL-TLS erreicht
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Authentisierung des Servers gegenüber dem Client
     \item \textsl{Optional}: Authentisierung des Clients gegenüber dem Server (`mutual SSL')
@@ -656,23 +860,16 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
-
-\subsection*{Kontrollfragen SW 04}
-\paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Ist das Zertifikat gültig? (Nicht abgelaufen, nicht revoziert)
-    \item Ist das Zertifikat und die gesamte Zertifikatskette korrekt signiert?
-    \item Traue ich der Root-CA der Zertifikatskette?
-    \item Besitzt "`Bob"' den zum Zertifikat gehörenden Private Key?
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item $VERIFY_{public\,key\,Bob}(response)$
-    \end{itemize}
-\end{itemize}
-
-\paragraph*{Eine CA hat Ihnen ein Intermediate-CA-Zertifikat ausgestellt, anstelle des bestellten Serverzertifikats. Erklären Sie, wie Sie nun vorgehen, um sich als Google auszugeben. Angenommen Sie können einen Man-in-the-Middle-Angriff machen. Können Sie nun Ihre eigene Webseite anstelle der Google-Seite anzeigen?}
-\paragraph*{TODO}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/ciphersuite.png}
+    \caption{TLS Cipher im Detail}
+    \label{ciphersuite}
+    \end{center}
+\end{figure}
 
 
+\pagebreak
 %%%%%%%%%%
 \part{Angriffe (SW~05-06)}
 \section{Angriffe auf Webanwendungen}
@@ -801,15 +998,14 @@ Same Origin Policies im Browser gibt es z.B. für Cookies, DOM access (Zugang zu
     \item \textbf{Senden des Cookies:} Cookies werden nur dann mitgeschickt, wenn die Cookie-Domain ein Domain-Suffix der URL-Domain und der Cookie-Path ein Prefix des URL-Path ist.
 \end{itemize}
 
-\paragraph*{Session Fixation}Was ist das?\\
+\paragraph*{Session Fixation}\index{Session Fixation}Was ist das?\\
 Der Sessionwert wird nach einem Login oder Loginschritt nicht geändert. Ein  angreifer mit Zugang zu einer unauthentisierten Session kann warten bis ein Benutzer sich einloggt und ist damit selbst eingeloggt.
 
 \paragraph*{Session Fixation}Was kann man dagegen tun?\\
 Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie kennen sicherheitsrelevante Header}
-
-\paragraph*{Sicherheitsrelevante Response-Header}
+\paragraph*{Sicherheitsrelevante Response-Header}\index{Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{HSTS:} \verb|Strict-Transport-Security: max-age=31536000; includeSubDomains|\\
     Seite wird nur via HTTPS aufgerufen. \verb|max-age| muss hoch gesetzt werden!
@@ -835,7 +1031,7 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
 
-\paragraph*{CSRF - Cross-Site Request Forgery}Was ist das?\\
+\paragraph*{CSRF - Cross-Site Request Forgery}\index{CSRF}Was ist das?\\
 Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzusetzen und  dadurch eine Aktion auf dem Server auszulösen. Ist der Benutzer zu dem Zeitpunkt eingeloggt, wird das Cookie automatisch mitgeschickt.
 \begin{figure}[H]
     \begin{center}
@@ -886,8 +1082,8 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreifer nicht an das Protoko
 
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
-\index{OSI-Modell}
-\subsubsection*{OSI-Layers}
+
+\subsubsection*{OSI-Layers}\index{OSI-Modell}
 Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 
 \begin{figure}[H]
@@ -919,8 +1115,8 @@ Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
     \end{center}
 \end{figure}
 
-\index{ARP-Spoofing}
-\subsubsection*{Beispiel: ARP-Spoofing auf dem Link-Layer}
+
+\subsubsection*{Beispiel: ARP-Spoofing auf dem Link-Layer}\index{ARP-Spoofing}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Beispiel_ARP_Spoofing.png}
@@ -930,7 +1126,7 @@ Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 \end{figure}
 
 \paragraph*{Spoofing: Was ist das?}
-Eine person oder ein Programm gibt sich als jemand anderen oder etwas anderes aus.\\
+Eine Person oder ein Programm gibt sich als jemand anderen oder etwas anderes aus.\\
 \textbf{Beispiele:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Telefonnummern-Spoofing (Call Centers etc.)}
@@ -951,19 +1147,18 @@ Eine person oder ein Programm gibt sich als jemand anderen oder etwas anderes au
     \item {Angaben überprüfen}
 \end{itemize}
 
-%
-\index{3-Way Handshake} \index{TCP Verbindungsaufbau}
+
 \subsubsection*{Repetition: TCP Verbindungsaufbau (vereinfacht)}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Repetition_3_way_handshake.png}
-    \caption{3-Way Handshake}
+    \caption{3-Way Handshake}\index{3-Way Handshake}\index{TCP Verbindungsaufbau}
     \label{3-Way Handshake}
     \end{center}
 \end{figure}
 
-\index{DoS}
-\paragraph*{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)
+
+\paragraph*{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)\index{DoS}
 \paragraph*{Denial of Service}Syn-Nachrichten werden mit gespoofter IP gesendet. Syn-Acknowledgements Nachrichten gehen nirgendwo hin.
 Server wird überflutet mit Abfragen und kann nicht schneller abarbeiten als Sie reinkommen.
 Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werden.
@@ -1094,15 +1289,14 @@ bewegen.
 
 \paragraph*{Social Engineering: Was kann man dagegen tun?}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Benutzer schulen ('awareness')
+    \item Benutzer schulen (`awareness')
     \item Für den Benutzer verständliche Abläufe Sicherstellen
     \item Benutzer nicht zum Umgehen von Sicherheitsmassnahmen verleiten
     \item Fraud Detection-Massnahmen
     \item Technische Massnahmen welche den Angriff verhindern, z.B. Vereinzelungsanlage, nicht vorlesbare Codes etc.
 \end{itemize}
 
-
-
+\pagebreak
 %%%%%%%%%%
 \part{Management (SW~07-09)}
 \section{Standards \& Frameworks, ISMS}
@@ -1113,7 +1307,7 @@ bewegen.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die (durch die IT verursachte) Risiken sollen identifizierbar und beherrschbar werden.
     \item Sicherheit erhalten, dass teure Informationen und Daten der Unternehmung angemessen geschützt sind.
-    \item Rechtliche (Datenschutz- oder Berufsgesetz bei Ärzten / Anwälte) und auch Marktanforderung erfüllen (wenn morgen in den Medien publik wird, dass bei der UBS Bank «gehakt» und Millionen gestohlen wurde, dann würden die Kunden nicht länger ihr Vermögen bei der UBS deponieren.
+    \item Rechtliche (Datenschutz- oder Berufsgesetz bei Ärzten / Anwälte) und auch Marktanforderung erfüllen (wenn morgen in den Medien publik wird, dass bei der UBS Bank gehackt und Millionen gestohlen wurde, dann würden die Kunden nicht länger ihr Vermögen bei der UBS deponieren.
 \end{itemize}
 \paragraph*{Vorgehen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -1135,7 +1329,7 @@ bewegen.
 \begin{figure}[H]
 \paragraph*{Überblick der Zusammenhänge}
     \begin{center}
-    \includegraphics[width=16cm]{images/iso27000.png}
+    \includegraphics[width=15cm]{images/iso27000.png}
     \caption{Zusamenhang der verschiedenen ISO Standards \cite{iso27000}}
     \label{iso27000}
     \end{center}
@@ -1177,7 +1371,7 @@ bewegen.
             \item Ein Teil der Infrastruktur: z.B. die DMZ
             \item etc.
         \end{itemize}
-        \item Kontrollziele und Steuerungen (\flqq Controls\frqq{} aus ISO 27002), welche vom ISMS berücksichtigt werden ("`Statement of Applicability"', SOA\index{SOA!Statement of Applicability})
+        \item Kontrollziele und Steuerungen (\textsl{Controls} aus ISO 27002), welche vom ISMS berücksichtigt werden ("`Statement of Applicability"', SOA\index{SOA!Statement of Applicability})
     \end{itemize}
     \item "`Scope"' und "`SOA"' definieren dem Umfang einer Zertifizierung nach ISO 27001
 \end{itemize}
@@ -1294,7 +1488,7 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=16cm]{images/BSIgrundschutz.png}
+    \includegraphics[width=14cm]{images/BSIgrundschutz.png}
     \caption{BSI-Standards und IT-Grundschutz-Kompendium \cite{heise}}
     \label{bsigrundschutz}
     \end{center}
@@ -1361,6 +1555,23 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \end{center}
 \end{figure}
 
+\paragraph*{Vergleich ISO und BSI}\index{BSI-Standards!Vergleich zu ISO}\index{ISO Standards!Vergleich zu BSI}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ISO 27001 ist eine Norm/Standard der "`High Level"' beschreibt, an was zu denken ist (Organisation, Planung, Riskmanagement)
+    \item Der BSI IT-Grundschutz ist eine "`Low Level"' Sammlung von Guidelines und Procedures zum erreichen von Sicherheitszielen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Aufgeteilt in Gefahren/Anforderungen und Massnahmen, geglieder in Bausteine
+    \end{itemize}
+\end{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Warum ist der IT-Grundschutz vollständig?
+    \item Er srpicht serh viele IT Sicherheits-Thmemen in einem breiten Spektrum an
+    \item Warum ist es nicht vollständig?
+    \item Es ist fast unmöglich einen vollständigen Katalog mit allen aktuellen Gefahren und Massnahmen zu haben -> aber ein gutes Nachschlagewerk
+    \item Was sind Bausteine?
+    \item Buasteine sind unterteilt in Katergorien z.b. Netzwerk und Gefahren(FW) Massnahmen (Updates)
+\end{itemize}
+
 \subsection*{Sie kennen die Struktur und Grundziele des NIST Cybersecurity Frameworks}\index{NIST Cybersecurity Framework}
 \paragraph*{NIST Cybersecurity Framework}\label{para:NIST}Das Cybersecurity Framework ist eine Reihe von Richtlinien für Privatunternehmen, die befolgt werden müssen, um bei den Funktionen Identify, Detect und Respond im Thema Cyberangriffe besser vorbereitet zu sein. Es enthält auch Richtlinien, wie man einen Angriff verhindern und sich von ihm erholen kann.
 Einfach ausgedrückt, ist das NIST Cybersecurity Framework eine Reihe von Best~Practices, Standards und Empfehlungen, die einem Unternehmen helfen, seine Cybersicherheitsmassnahmen zu verbessern. Das NIST Cybersecurity Framework versucht, den Mangel an Standards zu beheben, wenn es um Sicherheit geht. Derzeit gibt es grosse Unterschiede in der Art und Weise wie Unternehmen Technologien, Sprachen und Regeln zur Bekämpfung von Hackern, Datenpiraten und Ransomware einsetzen. Die verschiedenen Policies, Guidelines, Best Practices und Technologien, die in der Cybersicherheit verwendet werden, werfen ein weiteres Problem auf: Unternehmen sind nicht in der Lage, Informationen über Angriffe auszutauschen. Aber Vorsicht, das was die andere Firma dagegen getan hat, muss nicht unbedingt für das eigene Unternehmen funktionieren.
@@ -1369,7 +1580,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \paragraph*{Cybersecurity Framework Components}\index{NIST Cybersecurity Framework!Components}\label{para:NISTcomponents}Das NIST Security Framework besteht aus drei Komponenten. Dem Kern (Core), den Umsetzungsebenen (Tiers) und dem Profil (Profile).
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=6cm]{images/NISTcomponents.png}
+    \includegraphics[width=6.5cm]{images/NISTcomponents.png}
     \caption{Die Komponenten des NIST Frameworks}
     \label{nistcomponents}
     \end{center}
@@ -1395,7 +1606,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \begin{figure}[H]
 \paragraph*{Fünf Funktionen der Cybersicherheitsaufgaben}
     \begin{center}
-    \includegraphics[width=6cm]{images/NISTfunctions.png}
+    \includegraphics[width=6.5cm]{images/NISTfunctions.png}
     \caption{Fünf Frameworkfunktionen}
     \label{nistfunctions}
     \end{center}
@@ -1415,11 +1626,6 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 
 \subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
 \paragraph*{TODO}
-
-
-
-
-
 
 
 \subsubsection*{Definitionen des Begriffs 'Risiko'}
@@ -1544,7 +1750,8 @@ Zugrunde liegende Grössen:
     \end{center}
 \end{figure}
 
-\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16}\cite{iso27005}
+\pagebreak
+\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16 \cite{iso27005}}
 \index{Risiken nach ISO 27005}
 \begin{multicols}{2}
 [\paragraph*{Phisical damage:}]
@@ -1661,7 +1868,7 @@ Zugrunde liegende Grössen:
 \end{itemize}
 \end{multicols}
 
-
+\pagebreak
 \subsubsection*{Qualitative Risikoanalyse: Definition Schadensausmass} Es wird empfohlen, eine 3 bis 5-stufige Skale zu definieren, z.B.: \\
 \index{Schadensaussmass}
 \textbf{Schadensausmass:}
@@ -1967,7 +2174,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{center}
 \end{figure}
 
-\subsubsection*{IT-Grundschutz-kataloge}
+\subsubsection*{IT-Grundschutz-Kataloge}
 \index{Grundschutz - IT Grunschutz}
 \begin{figure}[H]
     \begin{center}
@@ -2651,32 +2858,15 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 
 
 \subsection*{Sie kennen verschiedene Prozesse und Vorgehensweisen für die Initiierung, Durchführung und Erfolgsprüfung einer Awareness-Kampagne und können diese anwenden}
-\paragraph*{Prozess}\index{Awareness-Prozess}\label{para:Awareness-Prozess}Der Awareness-Prozess im ISO 27002\index{ISO-Standards!ISO 27002} beschreibt den Prozess wie folgt:
+\paragraph*{Prozess}\index{Awareness-Prozess}\label{para:Awareness-Prozess}Der Awareness-Prozess im ISO 27002\index{ISO Standards!ISO 27002} beschreibt den Prozess in etwa wie folgt:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Alle Mitarbeitenden und Lieferanten des Unternehens sollten im Zusammenhang mit der von ihnen ausgeführten Tätigkeiten, bewusstseinsbildende Ausbildungen und Trainings ausführen, sowie regelmässige Updates von Bestimmungen und Verfahren erhalten.
-    \item Ein Inf
     \item Das Ziel eines Awareness-Programms ist es, das Bewusstsein von Mitarbeitenden und Lieferanten auf sicherheitsrelevante Bestimmungen und Verfahren einzuhalten, um Firmeninformationen zu schützen.
+    \item Das Unternehmen soll bewusstseinsbildende Aktivitäten Planen, wie Kampagnen (z.B. Information Security Day), Broschüren oder Newsletter erstellen
+    \item Die Aktivitäten des Awareness-Programms sollten in regelmässigen Abständen stattfinden.
+    \item Das Awareness-Programm sollte auch regelmässig erneuert werden, um von erlebten Vorfällen im Bereich der Informationssicherheit zu lernen
 \end{itemize}
 
-\paragraph*{TODO}Sorry, Bilder sind hässlich und haben keine Quellen
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=15cm]{images/Awareness_Prozess_ISO.png}
-    \caption{Awareness Prozess ISO 27002}
-    \label{Awareness Prozess ISO 27002}
-    \end{center}
-\end{figure}
-
-\paragraph*{}
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=15cm]{images/Awareness_Prozess_BSI.png}
-    \caption{Awareness Prozess BSI Grundschutz}
-    \label{Awareness Prozess BSI Grundschutz}
-    \end{center}
-\end{figure}
-
-\paragraph*{}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=13cm]{images/Prozess_der_Verhaltensänderung.png}
@@ -2685,20 +2875,22 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
-\paragraph*{Awareness muss vom obersten Management unterstützt werden!}
-\paragraph*{Awareness wird stufengerecht geschult}
+\paragraph*{Awareness und deren Bedeutung im Unternehmen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Benutzer/Anwender
-    \item IT-Mitarbeiter
-    \item Management
+    \item Awareness muss vom obersten Management unterstützt werden!
+    \item Awareness stufengerecht schulen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Benutzer/Anwender
+        \item IT-Mitarbeiter
+        \item Management
+    \end{itemize}
+    \item Schon "`kleine"' Massnahmen können die Informationssicherheit wesentlich erhöhen. "`Weniger ist mehr"'.
 \end{itemize}
-\paragraph*{Schon  	\flqq kleine\frqq  Massnahmen können die Informationssicherheit wesentlich erhöhen. -\frq  \flqq Weniger ist mehr\frqq}
-
 
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=15cm]{images/Umsetzung_Awareness-Programm.png}
-    \caption{Awareness-Umsetzungsprogramm}
+    \caption{Basisausbildung, Kampangnen und flankierende Massnahmen}
     \label{Awareness-Umsetzungsprogramm}
     \end{center}
 \end{figure}
@@ -2708,7 +2900,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Verletzungen der Vorschriften in der IT-Security können zu grossen Schäden führen
     \item Sanktionen sind zu definieren und anzuwenden (Unterstützung des Managements notwendig)
-    \item \flqq Thema geht alle an \frqq, Verstösse melden
+    \item "`Thema geht alle an"', Verstösse melden
     \item Kein Kavaliersdelikt
     \item Auswertung von Aufzeichnungen
 \end{itemize}
@@ -2800,7 +2992,7 @@ Nachteil
 Vorteil
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Mehr Sicherheit
-    \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{One-Time Pad}}, Seite \pageref{One-Time Pad}} unmöglich zu verwenden
+    \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{para:One-Time Pad}}, Seite \pageref{para:One-Time Pad}} unmöglich zu verwenden
 \end{itemize}
 Nachteil
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2811,16 +3003,16 @@ Nachteil
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
 \paragraph*{Begriffe}Bei der Zugriffskontrolle unterscheidet man drei Begriffe:
 
-\paragraph*{Authentisierung}\index{Authentisierung}Die Authentisierung ist ein \textbf{Nachweis einer Person}, dass sie tatsächlich die Person ist, die sie vorgibt zu sein.
+\paragraph*{Authentisierung}\index{Authentisierung}\label{para:Authentisierung}Die Authentisierung ist ein \textbf{Nachweis einer Person}, dass sie tatsächlich die Person ist, die sie vorgibt zu sein.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item geheime Information, dass nur ihr bekannt ist (Passowrt)
     \item Identifizierungsgegenstand (z.B. Identitätskarte)
     \item sie ist selbst das Identifizierungsobjekt (z.B. Fingerabdruck)
 \end{itemize}
 
-\paragraph*{Authentifizierung}\index{Authentifizierung}Die Authentifizierung ist die \textbf{Prüfung der behaupteten Authentisierung}. Die Authentifizierung wird von einem \textbf{Prüfer} durchgeführt. Der Prüfer überprüft die Echtheit der Authentisierung.
+\paragraph*{Authentifizierung}\index{Authentifizierung}\label{para:Authentifizierung}Die Authentifizierung ist die \textbf{Prüfung der behaupteten Authentisierung}. Die Authentifizierung wird von einem \textbf{Prüfer} durchgeführt. Der Prüfer überprüft die Echtheit der Authentisierung.
 
-\paragraph*{Autorisierung}\index{Autorisierung}Die Autorisierung räumt Rechte für die Nutzung von speziellen Diensten und Leitungen ein.
+\paragraph*{Autorisierung}\index{Autorisierung}\label{para:Autorisierung}Die Autorisierung räumt Rechte für die Nutzung von speziellen Diensten und Leistungen ein.
 
 \paragraph*{Auf die IT übertragen}Beispiel für ein Editor auf einer Wordpress Seite
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2852,14 +3044,61 @@ Nachteil
 \part{Multi-Party-Computation (SW~11)}
 \section{Cryptographic Protocols}
 \subsection*{Sie kennen einfache Beispiele von verteilten sicheren Berechnungen und verstehen wie die entsprechenden Protokolle ablaufen}
-\paragraph*{TODO}
+\paragraph*{Beispiel}Eine Rechnung wird an alle Teilnehmenden aufgeteilt und jede Partei weiss nur ihren Teil (Polynom). Werte des eigenen Polynoms werden an die anderen Teilnehmer verteilt, ein Wert wird selbst behalten. Um das Resultat zu erhalten, müssen alle zusammen ihre Werte zusammenrechnen, diese Werte sind dann die Punkte auf dem Graph des Resultats.
+Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglich, das Resultat oder die Teile der anderen Parteien herauszufinden. Das System kann umgangen werden, wenn jemand eine nichterlaubte Rechnung macht oder die letzte Person die ihr Resultat teilt ihre Antwort so anpasst das das resultierende Polynom ihre gewünschte Antwort ergibt.
+
 
 \section{Secret Sharing}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Absicherung eines Geheimnisses gegen Verrat durch einzelne
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Einzelpersonen haben nur Teilinformationen
+        \item Geheimnis kann aus Teilinformation rekonstruiert werden
+    \end{itemize}
+    \item Schutz der Gruppe gegen Blockade durch einzelne
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Geheimnis kann von Teilgruppe rekonstruiert werden
+    \end{itemize}
+    \item Sicherheitsschwelle abhäangig von Bedeutung des Geheimnisses
+\end{itemize}
+
 \subsection*{Sie kennen Arten von Sicherheit von verteilten sicheren Berechnungen und wie diese angegriffen werden können}
-\paragraph*{TODO}
+\paragraph*{Beispiel}Verwendung des linearen Secret-Sharing-Protokolls, um sicher zu bestimmen, wie viele Personen in die Badi gehen wollen.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice wählt drei shares $a_a$, $a_b$, $a_c$, sodass $a_a$ + $a_b$ + $a_c$ = $a$ mod 3, wobei $a$ Alice’s Input ist.
+    \item Alice sendet $a_a$ an Alice, ab an Bob und $a_c$ an Charlie über den paarweisen geheimen Kommunikationskanal.
+    \item Auf gleiche Art und Weise sharen Bob und Charlie ihre Inputs zwischen den drei Spielern.
+    \item Jeder Spieler addiert seine Shares modulo 3, i.e., Alice berechnet $r_a$ = $a_a$ + $b_a$ + $c_a$ mod 3 und analog für Bob und Charlie.
+    \item Die Spieler senden ihre Resultate an alle anderen Spieler.
+    \item Jeder Spieler berechnet $r$ = $r_a$ + $r_b$ + $r_c$ mod 3.
+\end{itemize}
+Das Protokoll ist sicher gegen $n - 1$ passive Gegner. Eine obere Grenze an die Summe $m$ wird dabei als bekannt vorausgesetzt (in diesem Beispiel 3). Nach Anpassen des Modulus können Alice, Bob und Charlie dieses Protokoll z.B.auch dafür verwenden, sicher ihren Notendurschnitt berechnen.
 
 \subsection*{Sie wissen welche Eigenschaften elektronisches Geld ausmachen und kennen die technischen Grundlagen von Bitcoin}
-\paragraph*{TODO}
+\paragraph*{1. Dezentralisiert \& keine Zentralbehörde}
+In den traditionellen Fiat-Währungen kontrollieren die Zentralbehörden und Banken das Finanzsystem. Mit Bitcoin und anderen Kryptowährungen können diese Transaktionen jedoch über ein verteiltes und offenes Netzwerk, das niemandem gehört, verarbeitet und validiert werden. Im Gegensatz zu zentralisierten Banksystemen sind die meisten Kryptowährungen dezentral auf verteilten Netzwerken mit weltweit verteilten Computern, auch Knoten genannt, installiert. Transaktionen werden von den Netzwerkknoten durch Kryptographie verifiziert und in einem öffentlichen, verteilten Ledger, einer sogenannten Blockchain, aufgezeichnet. Die Transaktion wird über das Peer-to-Peer-Netzwerk verbreitet und von jedem Knoten repliziert, wobei ein grosser Prozentsatz der Knoten innerhalb weniger Sekunden erreicht wird.
+
+\paragraph*{2. Anonym / Pseudoanonym}
+Da es keine Notwendigkeit für eine zentrale Behörde gibt, müssen sich die Benutzer bei Transaktionen mit Kryptocurrency nicht identifizieren. Bei einer Transaktionsanforderung wird die Transaktion vom dezentralen Netzwerk geprüft und verifiziert und entsprechend in der Blockkette erfasst. Kryptowährungen, wie Bitcoin, verwenden einen privaten Schlüssel und ein System mit öffentlichem Schlüssel, um diese Transaktionen zu authentifizieren. Das bedeutet, dass die Benutzer anonyme digitale Identitäten und digitale Brieftaschen erstellen können, um auf dem dezentralen System Transaktionen zu tätigen, und dennoch in der Lage sind, ihre Transaktionen sicher zu authentifizieren.
+
+\paragraph*{3. Irreversibel \& Unveränderlich (kann nicht rückgängig gemacht werden)}
+Kryptocurrency-Transaktionen sind irreversibel und unveränderlich. Die irreversiblen und unveränderlichen Eigenschaften von Cryptocurrency bedeuten, dass es für niemanden ausser dem Besitzer des jeweiligen privaten Schlüssels möglich ist, seine digitalen Vermögenswerte zu verschieben, und dass Transaktionen nicht mehr geändert werden können, sobald sie in der Blockkette aufgezeichnet sind. Es ist zwar nicht unmöglich, die Transaktion zu ändern, aber die sichere Kryptographie macht eine Änderung sehr schwierig, da die meisten Knoten in der Blockkette geändert werden müssen. Um betrügerische Transaktionen (die nicht rückgängig gemacht werden können) zu verhindern, werden alle Transaktionen transparent auf der Blockkette aufgezeichnet und der Öffentlichkeit zugänglich gemacht.
+
+\paragraph*{4. Begrenztes Angebot \& Knappheit}
+Fiat-Währungen (z.B. Dollar, Euro) haben einen unbegrenzten Vorrat, da die Zentralbanken beliebig viele Fiat-Währungen ausgeben können. Die Zentralbanken manipulieren im Rahmen ihrer Wirtschaftspolitik häufig den Wert der Währungen der Länder. Die meisten Länder manipulieren ihre Währung oft so, dass sie über einen bestimmten Zeitraum inflationär sind. Der inflationäre Charakter von Fiat-Währungen würde einen Wertverlust der Währung im Laufe der Zeit bedeuten. Daher könnten die Inhaber von Fiat-Währungen die Kosten des Wertverlusts tragen und auch mit der Unsicherheit der Währungsmanipulation konfrontiert sein. Auf der anderen Seite haben die meisten Kryptowährungen einen begrenzten und vorher festgelegten Vorrat an der Kryptowährung, die bei ihrer Erstellung in den zugrunde liegenden Algorithmus kodiert wird. Zum Beispiel hat Bitcoin einen maximalen Vorrat von 21 Millionen, und wenn diese Grenze erreicht ist, kann keine neue Bitcoin mehr abgebaut werden. Cryptocurrency erzeugt absichtlich eine Knappheit, um Währungsmanipulationen und den Wertverlust im Laufe der Zeit zu verhindern.
+
+\subsubsection*{Das macht es so besonders}
+\paragraph*{Effizient}
+Die Verwendung einer Peer-to-Peer-Datenbank bedeutet, dass es keine zentrale Behörde oder Zwischenhändler von Drittanbietern braucht, um Transaktionen zu bearbeiten und zu validieren. Die Benutzer können über das dezentrale System direkt miteinander kryptoelektronische Währungen abwickeln und austauschen, wobei jede Transaktion auf der Blockkette verifiziert werden kann. So kann jeder, der über das Internet verfügt, auf Knopfdruck weltweit Wertsachen austauschen. Zudem sind die Kosten für Transaktionen mit Kryptowährungen deutlich geringer als bei interkontinentalen Überweisungen.
+
+\paragraph*{Sicher}
+Da die Transaktion auf einem verteilten Ledger aufgezeichnet wird, bedeutet dies ausserdem, dass es keinen einzigen Punkt gibt, an dem eine Schwachstelle oder ein Ausfall auftreten kann. Jeder im Netzwerk hat eine Kopie des Ledgers, so dass kein zentrales System benötigt wird, da jede Transaktion gegen dieses Ledger verifiziert werden kann. Das dezentralisierte Ledger wird als Blockkette bezeichnet. Dies macht Transaktionen weniger anfällig für Hacking, Fehler und Systemausfälle (im Vergleich zu einem einzelnen und zentralen System), da die Informationen dezentral in einem verteilten Netzwerk gespeichert werden. Daher macht die Blockchain-Technologie, die Krypto-Währungen unterstützt, Transaktionen sicherer.
+
+\paragraph*{Vertrauenslos}
+Cryptocurrency ermöglicht, wie Bitcoin, ein `vertrauenswürdiges' System von Transaktionen. Das dezentrale Netzwerk bedeutet, dass niemand einem anderen vertrauen muss, damit das Netzwerk funktioniert. Die Blockkette kann jede Transaktion zwischen den Benutzern validieren. Wenn ein Benutzer eine Kryptowährungstransaktion sendet, empfangen alle Knoten diese und überprüfen, ob die digitalen Signaturen gültig sind, bevor sie in die Blockkette aufgenommen werden. Wenn die Signaturen ungültig sind, verwerfen die Knoten die Transaktion. Der Proof-of-Work-Algorithmus gibt auch einzelnen Knoten im Netzwerk einen Anreiz, diese Peer-to-Peer-Transaktionen zu validieren.
+
+\paragraph*{Wertsteigerung \& Deflationierung}
+Die meisten Kryptowährungen haben einen begrenzten Vorrat in ihrem Protokoll kodiert, wodurch ein System der Knappheit entsteht. Zum Beispiel hat Bitcoin ein maximales Angebot von 21 Millionen und sobald das Angebotslimit erreicht ist, wird keine neue Bitcoin mehr hinzugefügt. Dies macht die vorhandene Bitcoin, die im Umlauf ist, attraktiver und wertvoller als Vermögenswert. Wenn die Nachfrage nach Bitcoin wächst, bleibt das Angebot gleich, was dazu führt, dass der Wert von Bitcoin im Laufe der Zeit steigt und es somit deflationär wird. Benutzer von Kryptowährung müssen sich keine Sorgen über die Wertminderung ihrer Vermögenswerte machen (im Gegensatz zu Fiat-Währungen).
 
 \section{Zero-Knowledge-Proof}
 \subsection*{Sie wissen was Zero-Knowledge-Proofs sind und wie diese ablaufen}
@@ -2896,13 +3135,60 @@ Nachteil
 \part{Quantum (SW~12)}
 \section{Quantum Computing and Quantum Cryptography}
 \subsection*{Sie wissen was ein Quantencomputer ist und was ihn von einem "`klassischen"' Computer unterscheidet}
-\paragraph*{TODO}
+\paragraph*{Unterschied}\index{Quantencomputer}Ein Quantencomputer arbeitet mit Zuständen in Atomen. Ein $C$-Atom hat eine Grösse von unter 0.2nm, der Abstand zwischen Transistoren in einer CPU hingegen 10nm. Weiter arbeitet es mit Qubits (Quantencomputer-Bits). Anstelle von normalen Bits, kann man gewisse Probleme mit Qubits effizienter lösen als mit einem klassischen Computer.
 
 \subsection*{Sie verstehen welchen Einfluss die Existenz eines Quantencomputers auf die Kryptographie hat}
-\paragraph*{TODO}
+\paragraph*{Differenz}Quantencomputer sind gut in umkehren der vermeintlich sicheren Operationen. D.h. brute-forcing von symmetrischen Algorithmen wird einfacher.
 
 \subsection*{Sie verstehen wie Quantenschlüsselaustausch funktionert}
-\paragraph*{TODO}
+\paragraph*{Quantenschlüsselaustausch mit BB84-Protokoll}\index{Quantenschlüsselaustausch}\index{BB84-Protokoll}
+Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt das Photon durch, wenn das Photon parallel (gerade) zum Filter steht. Gefiltert wird das Photon, falls es orthogonal (quer) zum Filter steht. Steht das Photon jedoch 45° zum Filter, besteht eine je eine 50\%-ige Chance, dass das Photon entweder parallel oder orthogonal zum Filter polarisiert wird. Dabei ist das Resultat, wie das Photon polarisiert wird, gemäss Quantenmechanik zufällig.
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice sendet $n$ Photonen an Bob. Für jedes Photon wählt sie
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item eine zufällige Filterbasis (vertikal[\textbar], diagonal [$\diagdown$, $\diagup$] oder horizontal [---]). Dabei muss sie achten, alle 4 Basispositionen mit gleicher Wahrscheinlichkeit auszuwählen.
+        \item den Wert der Polarisierung (0 oder 1). Dabei wird vorgängig definiert, dass zwei Polarisierungen eine 0 bekommen (z.B. --- und $\diagdown$), die anderen zwei 1 (\textbar{} und $\diagup$).
+    \end{itemize}
+    \item Bob misst jedes der Photonen in einer seinerseits zufällig gewählten Basis und erhält das Resultat, ob er ein Photon erhalten hat oder nicht (0 oder 1)
+    \item Um aus den erhaltenen Werten einen Schlüssel zu erzeugen, vergleichen Alice und Bob die gewählten Basen (Vertikal- und Horizontalbasis +, Diagonalbasis $\times$) über einen \textbf{authentifizierten Kanal}. Werte mit unterschieden Basen werden verworfen.
+    \item Von den Messungen mit gleicher Basis wählen sie die ersten paar Bits zur Kontrolle der Übereinstimmung, die restlichen werden zu einem Schlüssel generiert
+\end{enumerate}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/Qubit0.png}
+    \caption{Alice sendet Bob ein diagonal [$\diagup$] polarisiertes Photon mit Wert 1}
+    \label{Qubit0}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/Qubit1.png}
+    \caption{Bob empfängt Photon, zufälliger senkrechter Polfilter [\textbar]aber nicht dieselbe Richtung, nur Wert ist derselbe, da diagonales Photon zufällig in senkrechte Richtung gepolt wurde}
+    \label{Qubit1}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/Qubit2.png}
+    \caption{Alice sendet weiteres polarisieretes Photon, gleich wie vorheriges}
+    \label{Qubit2}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/Qubit3.png}
+    \caption{Bob hat identische Polarisierung verwendet}
+    \label{Qubit3}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=14cm]{images/Qubit4.png}
+    \caption{Polarisierung und Bits werden überprüft}
+    \label{Qubit4}
+    \end{center}
+\end{figure}
 
 
 %%%%%%%%%%
@@ -2954,6 +3240,148 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
 
 \section{Federations}
 \subsection*{Sie verstehen wie Authentisierung mit Identity Federation abläuft, was die Voraussetzungen dafür sind und was die Vor- und Nachteile von Federations sind}
+\paragraph*{Föderierte Identität}\index{Federations}Unter einer föderierten Identität versteht man die Vernetzung einer elektronischen Identität und Eigenschaften von einer Person, welche von unabhängigen Systemen für das Identifikationsmanagement genutzt werden kann. Von der föderierten Identität macht die \textsl{single sign-on (SSO)} gebrauch. Mit nur einer Authentisierunginformation oder einem Token wird über mehrere IT-Systeme oder gar Organisationen, einem Benutzer der Zugriff gewährt. Die Rechteverteilung\footnote{{Siehe \underline{\nameref{para:Autorisierung}}, Seite \pageref{para:Autorisierung}}} für einzelne Dienste obliegt jedoch der Hoheit einzelner Systeme.
+
+\paragraph*{Funktionsweise der föderierten Identität}Nehmen wir als Beispiel SWITCH.ch als die \textsl{Authentication and Authorization Infrastructure (AAI)} Schweizer Hochschulen und Universitäten und mit SAML\footnote{{Siehe \underline{\nameref{saml}}, Seite \pageref{saml}}} arbeitet. Teilnehmer dieser "`Föderation"' (Hochschulen und Universitäten) schaffen einen \textsl{Circle of Trust}, indem sie sich auf technische Standards und organisatorische Regeln einigen. Durch die Immatrikulation an der HSLU wird einem ein Benutzername und Passwort zugewiesen. Die HSLU hat also auf SWITCH automatisch eine eduID mit meinen Angaben erstellt, da SWITCH das \textbf{Identitätmanagement} als Dienst anbietet. Auf andere Organisationen muss dies so nicht zutreffen, z.B. Google-Account, wo man selber ein Account erstellt. Angenommen, man möchte sich jetzt auf \texttt{https://elearning.hslu.ch} anmelden und wählt den SWITCHaai-Login.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai0.png}
+    \caption{SWITCHaai-Login}
+    \label{switchaai0}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Man wird auf den \textsl{Discovery Service - Where Are You From} von SWITCH umgeleitet.
+    \begin{center}
+    \includegraphics[width=10cm]{images/switchaai1.png}
+    \caption{Auswahl zu welcher Organisation ich angehöre}
+    \label{sitchaai1}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai2.png}
+    \caption{Authentisierung mit meinen Logindaten}
+    \label{switchaai2}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Das föderale System ist transparent und überprüfbar. Als User hat man die volle Kontrolle darüber, welche persönlichen Informationen vom IT-System oder Organisation eingesehen werden dürfen und/oder welche Berechtigungen zwischen den Beteiligten ausgetauscht werden dürfen.
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai3.png}
+    \caption{Transparenz der Daten und deren Nutzung}
+    \label{switchaai3}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Doch das ist jetzt nicht alles. Die föderierte Identität gewährt mit die Authentisierung innerhalb des \textsl{Circle of Trusts} der Föderation. Zum beweisen, kann man sich nun auf einem anderen Portal anmelden, welches zur selben Föderation gehört, z.B. das von der Universität Bern unter \texttt{https://ilias.unibe.ch}.
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai4.png}
+    \caption{Beispiel des Circle of Trust}
+    \label{switchaai4}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai5.png}
+    \caption{Anmeldung auf ILIAS von Universität Bern}
+    \label{switchai5}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/switchaai6.png}
+    \caption{Auch hier Transparenz der Daten}
+    \label{switchaai6}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    Erfolgreiche Anmeldung in einer anderen, von der HSLU völlig unabhängigen Organisation, wenn doch nur mit rudimentären Rechten als einfacher Benutzer. Beispielsweise können freigegebene Portfolios angeschaut werden.
+    \begin{center}
+    \includegraphics[width=16cm]{images/switchaai7.png}
+    \caption{Erfolgreich angemeldet}
+    \label{switchaai7}
+    \end{center}
+\end{figure}
+
+\paragraph*{Security Assertion Markup Language (SAML)}\index{SAML}\label{saml}Dia SAML ist ein XML-Framework zum Austausch von Authentifizierungs- und Autorisierungsinformationen. Sie stellt Funktionen bereit, um sicherheitsbezogene Informationen zu beschreiben und zu übertragen.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/SAML.png}
+    \caption{Funktionsweise der Authentifizierung und Autorisierung mittels SAML}
+    \label{SAML}
+    \end{center}
+\end{figure}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Single Sign-On
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item ein Benutzer ist nach der Anmeldung an einer Webanwendung automatisch auch zur Benutzung weiterer Anwendungen authentifiziert
+    \end{itemize}
+    \item Verteilte Transaktionen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item mehrere Benutzer arbeiten gemeinsam an einer Transaktion und teilen sich die Sicherheitsinformationen
+    \end{itemize}
+    \item Autorisierungsdienste
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item die Kommunikation mit einem Dienst läuft über eine Zwischenstation, die die Berechtigung überprüft
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{OAuth}\index{OAuth}Open Authorization ist der Name zweier verschiedener offener Protokolle, die eine standardisierte, sichere API-Autorisierung\footnote{Application Programming Interface - Eine Programmschnittstelle, welche die Anbindung an das System zur Verfügung stellt.} für Desktop-, Web- und Mobile-Anwendungen erlauben. Ein User kann mit Hilfe dieses Protokolls einer Anwendung den Zugriff auf seine Daten erlauben (Autorisierung), die von einem anderen Dienst bereitgestellt werden, ohne geheime Details seiner Zugangsberechtigung (Authentifizierung) dem Client preiszugeben. Der User kann so Dritten gestatten, in seinem Namen einen Dienst zu benutzen. Typischerweise wird dabei die Übermittlung von Passwörtern an Dritte vermieden.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/OAuth0.png}
+    \caption{Autorisierung auf einen Dienst mittels OAuth}
+    \label{oauth}
+    \end{center}
+\end{figure}
+
+\paragraph*{OpenID}\index{OpenID}OpenID ist ein dezentrales Authentifizierungssystem für webbasierte Dienste. Es erlaubt einem Benutzer, der sich bei seinem OpenID-Provider einmal mit Benutzername und Kennwort angemeldet hat, sich mithilfe der OpenID (einer URL, in diesem Kontext auch Identifier genannt) ohne Benutzername und Passwort bei allen das System unterstützenden Websites – den \textsl{Relying Parties} – anzumelden, wendet also das Single-Sign-on-Prinzip an.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/openid.png}
+    \caption{Authentisierung mit OpenID Connect}
+    \label{openid}
+    \end{center}
+\end{figure}
+
+\paragraph*{JSON Web Token (JWT)}\index{JWT}Das JWT ermöglicht den Austausch von verifizierbaren Claims. Es wird typischerweise verwendet, um in einem System mit einem Drittanbieter die Identität eines Benutzers zwischen einem Identity-Provider und einem Service-Provider auszutauschen. Des Weiteren eignet sich JWT zur Implementierung einer Stateless Session, denn da alle für die Authentifikation benötigten Informationen in dem Token übertragen werden, muss die Sitzung nicht auf dem Server gespeichert werden.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/jwt.png}
+    \caption{Aufbau eines JWTs}
+    \label{jwt}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Vor- und Nachteile von Identity Federations}
+\begin{multicols}{2}
+    \paragraph*{Chancen}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Vereinfachtes ID-Management für den User\\
+        (stärkere Passörter möglich)
+        \item Vereinfachtes Authentisierungsverfahren für\\
+        Service~Provider
+        \item Komfort durch SSO
+    \end{itemize}
+    \vspace*{\fill}
+    \columnbreak
+    \paragraph*{Risiken}
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Sicherheitsmänger bim Identity-Provider geben Zugang zum Service-Provider
+        \item Missbrauch von verwaisten Zugängen
+        \item Unerwünschtes Verhalten des Identity-Providers
+        \item Problem der Verkettung: mit einem erfolgreichen Angriff erlangt der Angreifer Zugang zu diversen Diensten
+    \end{itemize}
+\end{multicols}
+
 
 %%%%%%%%%%
 \part{Talks (SW~14)}
@@ -2961,7 +3389,7 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
 \subsection*{Sie verstehen, welche Arten von Malware es gibt, welche Massnahmen gegen Malware sinnvoll sind und wie diese wirken}
 \paragraph*{Welche Arten von Malware es gibt:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Viren:} Malware, die sich verbreitet und versteckt, indem sie andere Programme «verseucht».
+    \item \textbf{Viren:} Malware, die sich verbreitet und versteckt, indem sie andere Programme "`verseucht"'.
     \item \textbf{Dropper:} Malware, die andere Malware nachlädt.
     \item \textbf{Würmer:} Malware, die sich selbst ohne Zutun des Benutzers verbreitet.
     \item \textbf{Trojaner:} Malware, die sich verdeckt hält und spioniert, ggf. andere Funktionen nachlädt.
