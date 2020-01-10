@@ -558,7 +558,7 @@ Beispiel:\newline %bleibt
 \subsection*{Sie wissen wie hybride Verschlüsselung bzw. hybride Signaturen funktionieren}
 \paragraph*{Hybridverschlüsselung}\index{Hybridverschlüsselung}Eine Hybridverschlüsselung ist eine Kombination von symmetrischer und asymmetrischer Verschlüsselung. Dabei werden die Vorteile beider Verschlüsselungsverfahren genutzt. Symmetrische Verschlüsselung ist deutlich schneller, asymmetrische haben den Vorteil eines deutlich einfacheren Schlüsselaustausches. Der Ablauf ist folgendermassen:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Sender Alice einen zufälligen symmetrischen Schlüssel, einen Session-Key
+    \item Sender Alice wählt einen zufälligen symmetrischen Schlüssel, einen Session-Key
     \item Der Session-Key verschlüsselt die Daten/Nachricht symmetrisch
     \item Der Session-Key wird asymmetrisch mit Bob's Public-Key verschlüsselt
     \item Die verschlüsselten Sachen werden an Bob gesendet
@@ -656,6 +656,14 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=13cm]{images/SSL_TLS.png}
+    \caption{SSL / TLS}
+    \label{SSL / TLS}
+    \end{center}
+\end{figure}
 
 \subsection*{Kontrollfragen SW 04}
 \paragraph*{Was prüfen Sie alles bei einer Authentisierung mittels Zertifikat?}\index{Authentisierung}\index{Zertifikat}
@@ -1412,13 +1420,38 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \section{Risiko-Management und IT-Grundschutz}
 
 
-
 \subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
-\paragraph*{TODO}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/IT-Grundschutz-Aufbau.png}
+    \caption{IT-Grundschutz-Aufbau}
+    \label{IT-Grundschutz-Aufbau}
+    \end{center}
+\end{figure}
 
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ISO 27001 ist eine Norm/Standard der 'High Level' beschreibt an was zu denken ist. (Organisation, Planung, Risikomanagement)
+    \item Der BSI IT Grundschutz ist eine 'Low Level' Sammlung von Guidelines und Procedures zum erreichen von Sicherheitszielen.
+    \item Der IT Grundschutz ist aufgeteilt in Gefahren / Anforderungen und Massnahmen, jeweils gegliedert in \textbf{Bausteine}
+\end{itemize}
 
+\paragraph*{Warum ist der IT Grundschutz vollständig?}
+Er spricht \textbf{sehr} viele IT Sicherheits-Themen in einem breiten Spektrum an.
 
+\paragraph*{Warum ist der IT Grundschutz nicht vollständig?} Es ist fast unmöglich einen vollständigen Katalog mit allen aktuellen Gefahren und Massnahmen zu haben \textgreater aber ein gutes Nachschlagewerk
 
+\paragraph*{Was sind Bausteine?} Bausteine sind unterteilt in Kategorien (z.B. Netzwerk) und Gefahren (Firewall Kompromittierung) und Massnahmen (Updates, Konfigurationen, ...)
+
+\subsubsection*{Bausteine}
+
+Hier noch ein Ausschnitt der Bausteine aus der Seite vom BSI.bund.de:
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Bausteine.png}
+    \caption{Bausteine IT Grundschutz Katalog}
+    \label{Bausteine IT Grundschutz Katalog}
+    \end{center}
+\end{figure}
 
 
 
@@ -1503,6 +1536,14 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     \item Unprofessionelles Projekt-Management
 \end{itemize}
 
+\subsubsection*{OWASP TOP 10}\index{OWASP}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/OWASP_Top_10.png}
+    \caption{OWASP TOP 10 IT Security Bedrohungen}
+    \label{OWASP TOP 10}
+    \end{center}
+\end{figure}
 
 \paragraph*{Begriff: Operationelle Risiken} Sämtliche betrieblichen Risiken, welche in einer Unternehmung Schäden verursachen können.
 Grosse Bedeutung haben operationelle Risiken im Bankwesen.
