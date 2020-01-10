@@ -82,9 +82,7 @@
 \part{Einführung (SW~01)}
 \section{Einführung}
 \subsection*{Einführung in das Thema "`Management von Informationssicherheit"'}
-\paragraph*{Daten, Information und Wissen}
-Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen.
-Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
+\paragraph*{Daten, Information und Wissen}Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen. Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
 
 \paragraph*{Missbrauch}Informationen müssen vor Missbrauch geschützt werden
 \begin{figure}[H]
@@ -243,7 +241,7 @@ Denn das Management trägt die Risiken und entscheidet über die eingesetzten Re
 \end{itemize}
 
 \subsection*{Grundziele (Schutzziele) von Informationssicherheit}
-\paragraph*{Verfügbarkeit}\index{Verfügbarkeit}\index{Grundziele Informationssicherheit}\index{Schutzziele}
+\paragraph*{Verfügbarkeit}\index{Grundziele Informationssicherheit}\index{Schutzziele}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Verfügbarkeit} ist gewährleistet, wenn in der vom Benutzer gewünschten Zeit auf Dienste oder Informationen zugegriffen werden kann (Ausfallquote)
     \item Engl.: \textbf{Availability}
@@ -557,7 +555,19 @@ Verwendung von Hashfunktionen
 
 \subsection*{Sie wissen was ein keyed Hash (HMAC) ist und wofür dieser verwendet werden kann}
 
-\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5 und einem geheimen Schlüssel basiert.
+\paragraph*{HMAC}Ein Keyed-Hash Message Authentication Code (HMAC) ist ein Message Authentication Code (MAC), dessen Konstruktion auf einer kryptografischen Hash-Funktion, wie z.B. MD5 und einem geheimen Schlüssel basiert. Der Hashwert wird aus dem Message-Body und einem angehängtem Key erstellt. Es ist eine \textbf{symmetrische} Kryptographie, d.h. beide Parteien müssen den Key besitzen.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Authentifizieren einer Nachricht
+    \item Sicherstellen des Ursprungs einer Nachricht (\textbf{Authentizität})
+    \item Sicherstellen der \textbf{Integrität} einer Nachricht
+    \item Im Gegensatz zu einem normalen Hash (z.B. MD5) ist ein HMAC zusätzlich "`keyed"', also abhängig von einem Schlüssel
+    \item HMAC wird z.B. im Rahmen von IPSEC verwendet
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item IPSEC ist ein Protokoll, welches mehrere Elemente vereint\\
+        (Schlüsselaustausch, symmetrische Verschlüsselung, Authentifizierung von Nachrichten, etc.)
+        \item der Schlüsselaustausch von HMAC erfolgt im Rahmen von IPSEC (IKE\footnote{Internet Key Exchange}) via Diffie-Hellman
+    \end{itemize}
+\end{itemize}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/hmac.png}
@@ -619,23 +629,24 @@ Beispiel:\newline %bleibt
 
 
 \subsection*{Sie wissen wie Diffie-Hellman-Schlüsselaustausch bzw. ElGamal-Verschlüsselung funktioniert}
-\paragraph*{Diffie-Hellman (DH) Schlüsselaustausch}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden. Diffie-Hellman nutzt eine diskrete Exponentialfunktion (modulare Exponentation) $b^x\ \mathrm{mod}\ m$. Der Vorteil einer solchen Funktion ist, dass man schnell ein Ergebnis (secret key) ausrechnen kann, während die Umkehrfunktion, der diskrete Logarithmus, um den Exponenten (private key) zu erhalten, nur sehr schwer auszurechnen ist.\\
+\paragraph*{Diffie-Hellman (DH) Schlüsselaustausch}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden. Diffie-Hellman nutzt eine diskrete Exponentialfunktion (modulare Exponentation) $b^x\ \mathrm{mod}\ m$. Der Vorteil einer solchen Funktion ist, dass man schnell ein Ergebnis (Secret Key) ausrechnen kann, während die Umkehrfunktion, der diskrete Logarithmus, um den Exponenten (Private Key) zu erhalten, nur sehr schwer auszurechnen ist.\\
 $5\equiv 4^{2} \equiv 4^{7} \equiv 4^{12} \equiv 4^{17}\ (\mathrm{mod}\ 11)\dots$\\
-Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszufinden, ob der Exponent  nun 317, 27`142 oder doch 1`492`967 ist. Weiter wird nicht der \textsl{secret key} selber versendet, sondern vor Ort berechnet.
+Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszufinden, ob der Exponent  nun 317, 27`142 oder doch 1`492`967 ist. Weiter wird nicht der \textsl{Secret Key} selber versendet, sondern vor Ort berechnet.
 
 \pagebreak
-\subsubsection*{Sicherer Schlüsselaustausches mittels DH}\index{Schlüsselaustauschprotokoll}\index{Diffie-Hellman}
-\paragraph*{Protokoll mit Diskreten Logarithmen über $\mathbb{Z}_p$\footnote{https://www.cs.uni-potsdam.de/ti/lehre/07-Kryptographie/slides/slides-5.1-anim.pdf}}
+\paragraph*{Sicherer Schlüsselaustausch mittels DH\footnote{https://www.cs.uni-potsdam.de/ti/lehre/07-Kryptographie/slides/slides-5.1-anim.pdf}}\index{Schlüsselaustauschprotokoll}\index{Diffie-Hellman}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Alice wählt eine {\color{dunkelblau}Primzahl $p$} und {\color{dunkelblau}Erzeuger $g$ von $\mathbb{Z}_p$} mit $2 \leqslant g \leqslant p-2$
+    \item Alice wählt eine zufällige {\color{dunkelblau}Primzahl $p$} und zufällige {\color{dunkelblau}Basis $g\in[1,p-1$]}
     \subitem $p$ und $g$ werden nicht geheim gehalten
-    \item Alice wählt zufällige Zahl {\color{dunkelblau}$a\in[0,p-2]$} und berechnet {\color{dunkelblau}$A = g^a\ \mathrm{mod}\ p$}
+    \item Alice wählt zufällige Zahl für \textsl{Private Key} {\color{dunkelblau}$a\in[0,p-2]$}
+    \item Berechnet ihren \textsl{Public Key} {\color{dunkelblau}$A = g^a\ \mathrm{mod}\ p$}
     \subitem Alice hält {\color{dunkelblau}$a$ geheim} und schickt $(A, g, p)$ an $\rightarrow$ Bob
-    \item Bob wählt zufällige Zahl {\color{dunkelblau}$b\in[0,p-2]$} und berechnet {\color{dunkelblau}$B = g^b\ \mathrm{mod}\ p$}
-    \subitem Bob hält {\color{dunkelblau}$b$ geheim} und schickt $B$ an Alice
-    \item Alice berechnet {\color{dunkelblau}$B^a\ \mathrm{mod}\ p = g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Bob wählt zufällige Zahl für \textsl{Private Key} {\color{dunkelblau}$b\in[0,p-2]$}
+    \item Berechnet {\color{dunkelblau}$B = g^b\ \mathrm{mod}\ p$}
+    \subitem Bob hält {\color{dunkelblau}$b$ geheim} und schickt $B$ an $\rightarrow$ Alice
+    \item Alice berechnet {\color{dunkelblau}$B^a\ \mathrm{mod}\ p = g^{b\cdot a}\ \mathrm{mod}\ p$}
     \item Bob berechnet {\color{dunkelblau}$A^b\ \mathrm{mod}\ p = g^{a\cdot b}\ \mathrm{mod}\ p$}
-    \item Gemeinsamer Schlüssel {\color{dunkelblau}{\color{red}$K$}$= g^{a\cdot b}\ \mathrm{mod}\ p$} ist nur Alice und Bob bekannt, ohne das Alice $b$ kennt und Bob $a$
+    \item Gemeinsamer \textsl{Secret Key} {\color{dunkelblau}{\color{red}$K$}$= g^{a\cdot b}\ \mathrm{mod}\ p$} ist nur Alice und Bob bekannt, ohne das Alice $b$ kennt und Bob $a$
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
@@ -653,31 +664,45 @@ Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszuf
 \end{itemize}
 
 
-\paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen. Daher ist es sicherer als RSA, welches `nur' Faktorisieren grosser Zahlen als unterliegende Funktion hat. Im Vergleich zu DH gibt es bei ElGamal weitere Teilschritte und feine Unterschiede. Die zu verschlüsselnde Nachricht wird in den \textsl{secret key} verschmelzt.
+\paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen. Daher ist es sicherer als RSA, welches `nur' Faktorisieren grosser Zahlen als unterliegende Funktion hat. Im Vergleich zu DH gibt es bei ElGamal weitere Teilschritte und feine Unterschiede. Die zu verschlüsselnde Nachricht {\color{red}$x$} wird nämlich in den \textsl{Secret Key} verschmelzt.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Diffie-Hellman: {\color{dunkelblau}$K= g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item ElGamal: {\color{dunkelblau}$C= ${\color{red}$x$}$\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
+\end{itemize}
 
-\subsubsection*{ElGamal-Verfahren im Detail\footnote{https://www.cs.uni-potsdam.de/ti/lehre/07-Kryptographie/slides/slides-5.2-anim.pdf}}\index{ElGamal}
+
+
+\subsubsection*{ElGamal-Verfahren im Detail}\index{ElGamal}
 \paragraph*{Schlüsselerzeugung}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Alice wählt eine {\color{dunkelblau}grosse Primzahl $p$} und ein {\color{dunkelblau}Gruppenelement $g$ der Ordnung $p$}
-    \item Alice wählt eine {\color{dunkelblau}zufällige Zahl $a\in[0,p-2]$} und berechnet {\color{red}$A=g^a\ \mathrm{mod}\ p$}
+    \item Alice wählt eine {\color{dunkelblau}grosse Primzahl $p$} und ein {\color{dunkelblau}Gruppenelement $g$ der Ordnung $p$} ($0<g<p$)
+    \item Wählt für den \textsl{Private Key} eine {\color{dunkelblau}zufällige Zahl $a\in[0,p-2]$}
+    \item Berechnet ihren \textsl{Public Key} {\color{dunkelblau}$A=g^a\ \mathrm{mod}\ p$}
     \subitem Alice hält {\color{dunkelblau}$a$ geheim} und schickt $(A, g, p)$ an $\rightarrow$ Bob
 \end{itemize}
 Bis hierhin verlief das Ganze ziemlich ähnlich zum DH-Schlüsselaustausch.
+
+\pagebreak
 \paragraph*{Verschlüsselung}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Gesamtschlüssel ist {\color{red}$K=x\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
-    \item Text wird in {\color{dunkelblau}Blöcke der Länge $\log_2 \frac{p}{8}$} zerlegt (ein Byte pro Buchstabe)
-    \subitem Jeder {\color{dunkelblau}Textblock} wird als {\color{dunkelblau}Binärdarstellung einer Zahl $x$} interpretiert
-    \item Bob wählt {\color{dunkelblau}zuälliges $b\in[0,p-2]$} und berechnet seinen öffentlichen Schlüssel {\color{dunkelblau}$B=g^b\ \mathrm{mod}\ p$}
-    \item Bob verschlüsselt $x$ zu {\color{dunkelblau}$y=x\cdot A^b\ \mathrm{mod}\ p$}
-    \item {\color{red}\textbf{TODO: WTF... literally... what the fucking fuck?! *fliptable}}
+    \item Bob hat die zu verschlüsslende Nachricht {\color{red}$x$}
+    \item Wählt für den \textsl{Private Key} eine {\color{dunkelblau}zufällige Zahl $b\in[0,p-2]$}
+    \item Berechnet seinen \textsl{Public Key} {\color{dunkelblau}$B=g^b\ \mathrm{mod}\ p$} %{\color{red}$K=x\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
+    \item Erstellt \textsl{Secret Key} {\color{dunkelblau}$K=A^b\ \mathrm{mod}\ p$}
+    \item Bob verschlüsselt {\color{red}$x$} zu {\color{dunkelblau}$C= ${\color{red}$x$}$\cdot K\ \mathrm{mod}\ p$}
+    \subitem Bob hält {\color{dunkelblau}$b$ geheim} und schickt $(B, C)$ an $\rightarrow$ Alice
+\end{itemize}
+
+\paragraph*{Entschlüsselung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Alice entschlüsselt Ciphertext $C$ mit {\color{dunkelblau}$x=(B^{p-a-1}\ mod\ p)\cdot C\ mod\ p$}
 \end{itemize}
 
 \subsection*{Sie wissen was kryptographisch sichere Zufallszahlen sind und wo diese verwendet werden}
 \paragraph*{Sichere Zufallszahlen}\index{Sichere Zufallszahlen}Kryptographisch sichere Zufallszahlen können im Gegensatz zu Zahlen in einer gewöhnlichen Random-Funktion anhand des Seeds nicht vorausgesagt werden. Java bietet beispielsweise neben der Random-Klasse die SecureRandom-Klasse\footnote{Siehe \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/util/Random.html}{Random}} und \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html}{SecureRandom}}}. Kryptographisch sichere Zufallszahlen braucht man z.B. in den oben beschriebenen Schlüsselaustauschprotokollen.
 
 \begin{multicols}{2}
-    \subsubsection*{Normaler Zufallszahlengenerator}
+    \subsubsection*{Normaler Zufallszahlengenerator}\index{Random}\index{Zahlengenerator}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Zahlen sollen uniform (gleichmässig verteilt sein)
         \item Wenn möglich: hohe Rate
@@ -695,50 +720,11 @@ Bis hierhin verlief das Ganze ziemlich ähnlich zum DH-Schlüsselaustausch.
     Beispiel: \texttt{java.security.SecureRandom.nextInt()}
 \end{multicols}
 
-
-
-\iffalse %Kommentarblock
-\lstset{language=Java}
-\begin{lstlisting}
-import java.util.Random;
-
-public class Randomness {
-
-    // implemented after https://docs.oracle.com/javase/7/docs/api/java/util/Random.html
-    public static int next(long seed) {
-        int bits = 32;
-        long seed2 = (seed * 0x5DEECE66DL + 0xBL) & ((1L << 48) - 1);
-        return (int) (seed2 >>> (48 - bits));
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Starting");
-        long i1 = 1767252209L;  //Random number 1
-        long i2 = -1664600482L; //Random number 2
-        long seed = 0;
-        for (int i = 0; i < 65536; i++) {
-            seed = i1 * 65536 + i;
-            if (next(seed) == i2) {
-                System.out.println("Seed found: " + seed);
-                break;
-            }
-        }
-        Random random = new Random((seed ^ 0x5DEECE66DL) & ((1L << 48) - 1));
-        int o1 = random.nextInt();
-        int o2 = random.nextInt();
-        System.out.println("So we have that nextInt is: " + o1 + " and the third one is: " + o2 + " with seed: " + seed);
-
-    }
-}
-\end{lstlisting}
-\fi
-
 \subsection*{Sie wissen was eine elektronische Signatur ausmacht}
-
 \paragraph*{Signatur}\index{Signatur}Die elektronische Signatur ist ein technisches Verfahren zur Überprüfung der Echtheit eines Dokuments, einer elektronischen Nachricht oder anderer elektronischer Daten sowie der Identität des Unterzeichnenden. Sie basiert auf einer Zertifizierungsinfrastruktur, die von vertrauenswürdigen Dritten verwaltet wird: den Anbieterinnen von Zertifizierungsdiensten. Die elektronische Signatur und die handschriftliche Unterschrift werden zudem mit dem neuen Gesetz unter bestimmten Bedingungen als gleichwertig betrachtet.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=12cm]{images/digisignatur1.png}
+    \includegraphics[width=8cm]{images/digisignatur1.png}
     \caption{Signatur im Detail}
     \label{digisig1}
     \end{center}
@@ -781,13 +767,25 @@ public class Randomness {
 \end{figure}
 Man erkennt schnell den Vorteil dieser Methode. Ein symmetrisches Verschlüsselungsverfahren ist sehr effizient auch im Verschlüsseln von grossen Datenmengen
 
-\section{Zertifikate und SSL-TLS}
+\paragraph*{Hybride Signatur}Digitale Signaturen verwenden oft ähnliche oder sogar die gleichen Algorithmen wie Public Key Verschlüsselung. Das Signieren eines Dokuments entspricht dann einer Entschlüsselung mit dem Private Key, die Verifikation der Signatur entspricht der Verschlüsselung mit dem Public Key.\\
+\begin{tabular}{|cc|}
+    \hline
+        Name&Unterliegende `schwierige' Funktion\\
+        \hline
+        RSA&Faktorisieren grosser Zahlen\\
+        Digital Signature Algorithm&Diskrete Logarithmen Berechnen\\
+        Elliptic DSA&Diskrete Logarithmen Berechnen\\
+        ElGamal Signature&Diskrete Logarithmen Berechnen\\
+    \hline
+\end{tabular}
 
-\subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}
+
+\section{Zertifikate und SSL-TLS}
+\subsection*{Sie kennen die verschiedenen Arten von "`Trust"'}\index{Trust}
 Problematik: Wie ordnet man ein Public Key einer bestimmten Person / Entität zu?
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=14cm]{images/mitma.png}
+    \includegraphics[width=11cm]{images/mitma.png}
     \caption{Eve als man in the middle}
     \label{mitma}
     \end{center}
@@ -797,7 +795,7 @@ Problematik: Wie ordnet man ein Public Key einer bestimmten Person / Entität zu
 Alice vertraut der Authentizität von Bob's Public Key, durch direktes Überprüfen, normalerweise über den Fingerprint des Key's.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=9cm]{images/directtrust.png}
+    \includegraphics[width=8cm]{images/directtrust.png}
     \caption{Alice vertraut Bob durch direkte Überprüfung}
     \label{directtrust}
     \end{center}
@@ -813,7 +811,7 @@ Benötigt jedoch einen authentischen Kanal zum Etablieren des Trust.
 Alice vertraut der Authentizität von Daves Public Key, weil dieser von Charlie signiert wurde, dessen Public Key wiederum von Bob signiert wurde, dem sie vertraut.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=12cm]{images/wot.png}
+    \includegraphics[width=10cm]{images/wot.png}
     \caption{Alice vertraut Dave indirekt durch Vertrauensnetz}
     \label{wot}
     \end{center}
@@ -846,7 +844,7 @@ Ein Zertifikat wird durch eine sog. \textsl{Chain of Trust} beglaubigt. Eine \te
     \end{itemize}
 \end{itemize}
 
-\subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionelle abläuft}SSL-TLS erreicht
+\subsection*{Sie wissen was SSL/TLS ist, welche Funktionalität es erreicht und wie das Protokoll konzeptionell abläuft}SSL-TLS erreicht
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Authentisierung des Servers gegenüber dem Client
     \item \textsl{Optional}: Authentisierung des Clients gegenüber dem Server (`mutual SSL')
@@ -862,9 +860,16 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/ciphersuite.png}
+    \caption{TLS Cipher im Detail}
+    \label{ciphersuite}
+    \end{center}
+\end{figure}
 
 
-
+\pagebreak
 %%%%%%%%%%
 \part{Angriffe (SW~05-06)}
 \section{Angriffe auf Webanwendungen}
@@ -993,15 +998,14 @@ Same Origin Policies im Browser gibt es z.B. für Cookies, DOM access (Zugang zu
     \item \textbf{Senden des Cookies:} Cookies werden nur dann mitgeschickt, wenn die Cookie-Domain ein Domain-Suffix der URL-Domain und der Cookie-Path ein Prefix des URL-Path ist.
 \end{itemize}
 
-\paragraph*{Session Fixation}Was ist das?\\
+\paragraph*{Session Fixation}\index{Session Fixation}Was ist das?\\
 Der Sessionwert wird nach einem Login oder Loginschritt nicht geändert. Ein  angreifer mit Zugang zu einer unauthentisierten Session kann warten bis ein Benutzer sich einloggt und ist damit selbst eingeloggt.
 
 \paragraph*{Session Fixation}Was kann man dagegen tun?\\
 Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie kennen sicherheitsrelevante Header}
-
-\paragraph*{Sicherheitsrelevante Response-Header}
+\paragraph*{Sicherheitsrelevante Response-Header}\index{Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{HSTS:} \verb|Strict-Transport-Security: max-age=31536000; includeSubDomains|\\
     Seite wird nur via HTTPS aufgerufen. \verb|max-age| muss hoch gesetzt werden!
@@ -1027,7 +1031,7 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
 
-\paragraph*{CSRF - Cross-Site Request Forgery}Was ist das?\\
+\paragraph*{CSRF - Cross-Site Request Forgery}\index{CSRF}Was ist das?\\
 Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzusetzen und  dadurch eine Aktion auf dem Server auszulösen. Ist der Benutzer zu dem Zeitpunkt eingeloggt, wird das Cookie automatisch mitgeschickt.
 \begin{figure}[H]
     \begin{center}
@@ -1078,8 +1082,8 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreifer nicht an das Protoko
 
 \subsection*{Sie kennen Beispiele von Angriffen auf verschiedenen Ebenen des Protokollstacks und wissen was diese bewirken}
 
-\index{OSI-Modell}
-\subsubsection*{OSI-Layers}
+
+\subsubsection*{OSI-Layers}\index{OSI-Modell}
 Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 
 \begin{figure}[H]
@@ -1111,8 +1115,8 @@ Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
     \end{center}
 \end{figure}
 
-\index{ARP-Spoofing}
-\subsubsection*{Beispiel: ARP-Spoofing auf dem Link-Layer}
+
+\subsubsection*{Beispiel: ARP-Spoofing auf dem Link-Layer}\index{ARP-Spoofing}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Beispiel_ARP_Spoofing.png}
@@ -1122,7 +1126,7 @@ Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 \end{figure}
 
 \paragraph*{Spoofing: Was ist das?}
-Eine person oder ein Programm gibt sich als jemand anderen oder etwas anderes aus.\\
+Eine Person oder ein Programm gibt sich als jemand anderen oder etwas anderes aus.\\
 \textbf{Beispiele:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Telefonnummern-Spoofing (Call Centers etc.)}
@@ -1143,19 +1147,18 @@ Eine person oder ein Programm gibt sich als jemand anderen oder etwas anderes au
     \item {Angaben überprüfen}
 \end{itemize}
 
-%
-\index{3-Way Handshake} \index{TCP Verbindungsaufbau}
+
 \subsubsection*{Repetition: TCP Verbindungsaufbau (vereinfacht)}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Repetition_3_way_handshake.png}
-    \caption{3-Way Handshake}
+    \caption{3-Way Handshake}\index{3-Way Handshake}\index{TCP Verbindungsaufbau}
     \label{3-Way Handshake}
     \end{center}
 \end{figure}
 
-\index{DoS}
-\paragraph*{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)
+
+\paragraph*{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)\index{DoS}
 \paragraph*{Denial of Service}Syn-Nachrichten werden mit gespoofter IP gesendet. Syn-Acknowledgements Nachrichten gehen nirgendwo hin.
 Server wird überflutet mit Abfragen und kann nicht schneller abarbeiten als Sie reinkommen.
 Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werden.
@@ -1286,7 +1289,7 @@ bewegen.
 
 \paragraph*{Social Engineering: Was kann man dagegen tun?}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Benutzer schulen ('awareness')
+    \item Benutzer schulen (`awareness')
     \item Für den Benutzer verständliche Abläufe Sicherstellen
     \item Benutzer nicht zum Umgehen von Sicherheitsmassnahmen verleiten
     \item Fraud Detection-Massnahmen
@@ -1297,7 +1300,7 @@ bewegen.
 
 \paragraph*{TODO}
 
-
+\pagebreak
 %%%%%%%%%%
 \part{Management (SW~07-09)}
 \section{Standards \& Frameworks, ISMS}
@@ -1330,7 +1333,7 @@ bewegen.
 \begin{figure}[H]
 \paragraph*{Überblick der Zusammenhänge}
     \begin{center}
-    \includegraphics[width=16cm]{images/iso27000.png}
+    \includegraphics[width=15cm]{images/iso27000.png}
     \caption{Zusamenhang der verschiedenen ISO Standards \cite{iso27000}}
     \label{iso27000}
     \end{center}
@@ -1489,7 +1492,7 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=16cm]{images/BSIgrundschutz.png}
+    \includegraphics[width=14cm]{images/BSIgrundschutz.png}
     \caption{BSI-Standards und IT-Grundschutz-Kompendium \cite{heise}}
     \label{bsigrundschutz}
     \end{center}
@@ -1556,6 +1559,23 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \end{center}
 \end{figure}
 
+\paragraph*{Vergleich ISO und BSI}\index{BSI-Standards!Vergleich zu ISO}\index{ISO Standards!Vergleich zu BSI}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ISO 27001 ist eine Norm/Standard der "`High Level"' beschreibt, an was zu denken ist (Organisation, Planung, Riskmanagement)
+    \item Der BSI IT-Grundschutz ist eine "`Low Level"' Sammlung von Guidelines und Procedures zum erreichen von Sicherheitszielen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Aufgeteilt in Gefahren/Anforderungen und Massnahmen, geglieder in Bausteine
+    \end{itemize}
+\end{itemize}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Warum ist der IT-Grundschutz vollständig?
+    \item Er srpicht serh viele IT Sicherheits-Thmemen in einem breiten Spektrum an
+    \item Warum ist es nicht vollständig?
+    \item Es ist fast unmöglich einen vollständigen Katalog mit allen aktuellen Gefahren und Massnahmen zu haben -> aber ein gutes Nachschlagewerk
+    \item Was sind Bausteine?
+    \item Buasteine sind unterteilt in Katergorien z.b. Netzwerk und Gefahren(FW) Massnahmen (Updates)
+\end{itemize}
+
 \subsection*{Sie kennen die Struktur und Grundziele des NIST Cybersecurity Frameworks}\index{NIST Cybersecurity Framework}
 \paragraph*{NIST Cybersecurity Framework}\label{para:NIST}Das Cybersecurity Framework ist eine Reihe von Richtlinien für Privatunternehmen, die befolgt werden müssen, um bei den Funktionen Identify, Detect und Respond im Thema Cyberangriffe besser vorbereitet zu sein. Es enthält auch Richtlinien, wie man einen Angriff verhindern und sich von ihm erholen kann.
 Einfach ausgedrückt, ist das NIST Cybersecurity Framework eine Reihe von Best~Practices, Standards und Empfehlungen, die einem Unternehmen helfen, seine Cybersicherheitsmassnahmen zu verbessern. Das NIST Cybersecurity Framework versucht, den Mangel an Standards zu beheben, wenn es um Sicherheit geht. Derzeit gibt es grosse Unterschiede in der Art und Weise wie Unternehmen Technologien, Sprachen und Regeln zur Bekämpfung von Hackern, Datenpiraten und Ransomware einsetzen. Die verschiedenen Policies, Guidelines, Best Practices und Technologien, die in der Cybersicherheit verwendet werden, werfen ein weiteres Problem auf: Unternehmen sind nicht in der Lage, Informationen über Angriffe auszutauschen. Aber Vorsicht, das was die andere Firma dagegen getan hat, muss nicht unbedingt für das eigene Unternehmen funktionieren.
@@ -1564,7 +1584,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \paragraph*{Cybersecurity Framework Components}\index{NIST Cybersecurity Framework!Components}\label{para:NISTcomponents}Das NIST Security Framework besteht aus drei Komponenten. Dem Kern (Core), den Umsetzungsebenen (Tiers) und dem Profil (Profile).
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=6cm]{images/NISTcomponents.png}
+    \includegraphics[width=6.5cm]{images/NISTcomponents.png}
     \caption{Die Komponenten des NIST Frameworks}
     \label{nistcomponents}
     \end{center}
@@ -1590,7 +1610,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \begin{figure}[H]
 \paragraph*{Fünf Funktionen der Cybersicherheitsaufgaben}
     \begin{center}
-    \includegraphics[width=6cm]{images/NISTfunctions.png}
+    \includegraphics[width=6.5cm]{images/NISTfunctions.png}
     \caption{Fünf Frameworkfunktionen}
     \label{nistfunctions}
     \end{center}
@@ -1610,11 +1630,6 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 
 \subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
 \paragraph*{TODO}
-
-
-
-
-
 
 
 \subsubsection*{Definitionen des Begriffs 'Risiko'}
@@ -1739,7 +1754,7 @@ Zugrunde liegende Grössen:
     \end{center}
 \end{figure}
 
-\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16}\cite{iso27005}
+\subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16 \cite{iso27005}}
 \index{Risiken nach ISO 27005}
 \begin{multicols}{2}
 [\paragraph*{Phisical damage:}]
@@ -2846,32 +2861,15 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 
 
 \subsection*{Sie kennen verschiedene Prozesse und Vorgehensweisen für die Initiierung, Durchführung und Erfolgsprüfung einer Awareness-Kampagne und können diese anwenden}
-\paragraph*{Prozess}\index{Awareness-Prozess}\label{para:Awareness-Prozess}Der Awareness-Prozess im ISO 27002\index{ISO-Standards!ISO 27002} beschreibt den Prozess wie folgt:
+\paragraph*{Prozess}\index{Awareness-Prozess}\label{para:Awareness-Prozess}Der Awareness-Prozess im ISO 27002\index{ISO Standards!ISO 27002} beschreibt den Prozess in etwa wie folgt:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Alle Mitarbeitenden und Lieferanten des Unternehens sollten im Zusammenhang mit der von ihnen ausgeführten Tätigkeiten, bewusstseinsbildende Ausbildungen und Trainings ausführen, sowie regelmässige Updates von Bestimmungen und Verfahren erhalten.
-    \item Ein Inf
     \item Das Ziel eines Awareness-Programms ist es, das Bewusstsein von Mitarbeitenden und Lieferanten auf sicherheitsrelevante Bestimmungen und Verfahren einzuhalten, um Firmeninformationen zu schützen.
+    \item Das Unternehmen soll bewusstseinsbildende Aktivitäten Planen, wie Kampagnen (z.B. Information Security Day), Broschüren oder Newsletter erstellen
+    \item Die Aktivitäten des Awareness-Programms sollten in regelmässigen Abständen stattfinden.
+    \item Das Awareness-Programm sollte auch regelmässig erneuert werden, um von erlebten Vorfällen im Bereich der Informationssicherheit zu lernen
 \end{itemize}
 
-\paragraph*{TODO}Sorry, Bilder sind hässlich und haben keine Quellen
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=15cm]{images/Awareness_Prozess_ISO.png}
-    \caption{Awareness Prozess ISO 27002}
-    \label{Awareness Prozess ISO 27002}
-    \end{center}
-\end{figure}
-
-\paragraph*{}
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=15cm]{images/Awareness_Prozess_BSI.png}
-    \caption{Awareness Prozess BSI Grundschutz}
-    \label{Awareness Prozess BSI Grundschutz}
-    \end{center}
-\end{figure}
-
-\paragraph*{}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=13cm]{images/Prozess_der_Verhaltensänderung.png}
@@ -2880,16 +2878,19 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
-\paragraph*{Awareness muss vom obersten Management unterstützt werden!}
-\paragraph*{Awareness wird stufengerecht geschult}
+\paragraph*{Awareness und deren Bedeutung im Unternehmen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Benutzer/Anwender
-    \item IT-Mitarbeiter
-    \item Management
+    \item Awareness muss vom obersten Management unterstützt werden!
+    \item Awareness stufengerecht schulen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Benutzer/Anwender
+        \item IT-Mitarbeiter
+        \item Management
+    \end{itemize}
+    \item Schon "`kleine"' Massnahmen können die Informationssicherheit wesentlich erhöhen. "`Weniger ist mehr"'.
 \end{itemize}
 
 \begin{figure}[H]
-Schon "`kleine"'  Massnahmen können die Informationssicherheit wesentlich erhöhen.  "`Weniger ist mehr"'.
     \begin{center}
     \includegraphics[width=15cm]{images/Umsetzung_Awareness-Programm.png}
     \caption{Basisausbildung, Kampangnen und flankierende Massnahmen}
@@ -3226,7 +3227,7 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
 \subsection*{Sie verstehen wie Authentisierung mit Identity Federation abläuft, was die Voraussetzungen dafür sind und was die Vor- und Nachteile von Federations sind}
 \paragraph*{Föderierte Identität}\index{Federations}Unter einer föderierten Identität versteht man die Vernetzung einer elektronischen Identität und Eigenschaften von einer Person, welche von unabhängigen Systemen für das Identifikationsmanagement genutzt werden kann. Von der föderierten Identität macht die \textsl{single sign-on (SSO)} gebrauch. Mit nur einer Authentisierunginformation oder einem Token wird über mehrere IT-Systeme oder gar Organisationen, einem Benutzer der Zugriff gewährt. Die Rechteverteilung\footnote{{Siehe \underline{\nameref{para:Autorisierung}}, Seite \pageref{para:Autorisierung}}} für einzelne Dienste obliegt jedoch der Hoheit einzelner Systeme.
 
-\paragraph*{Funktionsweise der föderierten Identität}Nehmen wir als Beispiel SWITCH.ch als die \textsl{Authentication and Authorization Infrastructure (AAI)} Schweizer Hochschulen und Universitäten. Teilnehmer dieser "`Föderation"' (Hochschulen und Universitäten) schaffen einen \textsl{Circle of Trust}, indem sie sich auf technische Standards und organisatorische Regeln einigen. Durch die Immatrikulation an der HSLU wird einem ein Benutzername und Passwort zugewiesen. Die HSLU hat also auf SWITCH automatisch eine eduID mit meinen Angaben erstellt, da SWITCH das \textbf{Identitätmanagement} als Dienst anbietet. Auf andere Organisationen muss dies so nicht zutreffen, z.B. Google-Account, wo man selber ein Account erstellt. Angenommen, man möchte sich jetzt auf \texttt{https://elearning.hslu.ch} anmelden und wählt den SWITCHaai-Login.
+\paragraph*{Funktionsweise der föderierten Identität}Nehmen wir als Beispiel SWITCH.ch als die \textsl{Authentication and Authorization Infrastructure (AAI)} Schweizer Hochschulen und Universitäten und mit SAML\footnote{{Siehe \underline{\nameref{saml}}, Seite \pageref{saml}}} arbeitet. Teilnehmer dieser "`Föderation"' (Hochschulen und Universitäten) schaffen einen \textsl{Circle of Trust}, indem sie sich auf technische Standards und organisatorische Regeln einigen. Durch die Immatrikulation an der HSLU wird einem ein Benutzername und Passwort zugewiesen. Die HSLU hat also auf SWITCH automatisch eine eduID mit meinen Angaben erstellt, da SWITCH das \textbf{Identitätmanagement} als Dienst anbietet. Auf andere Organisationen muss dies so nicht zutreffen, z.B. Google-Account, wo man selber ein Account erstellt. Angenommen, man möchte sich jetzt auf \texttt{https://elearning.hslu.ch} anmelden und wählt den SWITCHaai-Login.
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/switchaai0.png}
@@ -3295,7 +3296,55 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
     \end{center}
 \end{figure}
 
-\paragraph*{TODO}SAML, OAuth, OpenID, JWT
+\paragraph*{Security Assertion Markup Language (SAML)}\index{SAML}\label{saml}Dia SAML ist ein XML-Framework zum Austausch von Authentifizierungs- und Autorisierungsinformationen. Sie stellt Funktionen bereit, um sicherheitsbezogene Informationen zu beschreiben und zu übertragen.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/SAML.png}
+    \caption{Funktionsweise der Authentifizierung und Autorisierung mittels SAML}
+    \label{SAML}
+    \end{center}
+\end{figure}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Single Sign-On
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item ein Benutzer ist nach der Anmeldung an einer Webanwendung automatisch auch zur Benutzung weiterer Anwendungen authentifiziert
+    \end{itemize}
+    \item Verteilte Transaktionen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item mehrere Benutzer arbeiten gemeinsam an einer Transaktion und teilen sich die Sicherheitsinformationen
+    \end{itemize}
+    \item Autorisierungsdienste
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item die Kommunikation mit einem Dienst läuft über eine Zwischenstation, die die Berechtigung überprüft
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{OAuth}\index{OAuth}Open Authorization ist der Name zweier verschiedener offener Protokolle, die eine standardisierte, sichere API-Autorisierung\footnote{Application Programming Interface - Eine Programmschnittstelle, welche die Anbindung an das System zur Verfügung stellt.} für Desktop-, Web- und Mobile-Anwendungen erlauben. Ein User kann mit Hilfe dieses Protokolls einer Anwendung den Zugriff auf seine Daten erlauben (Autorisierung), die von einem anderen Dienst bereitgestellt werden, ohne geheime Details seiner Zugangsberechtigung (Authentifizierung) dem Client preiszugeben. Der User kann so Dritten gestatten, in seinem Namen einen Dienst zu benutzen. Typischerweise wird dabei die Übermittlung von Passwörtern an Dritte vermieden.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/OAuth0.png}
+    \caption{Autorisierung auf einen Dienst mittels OAuth}
+    \label{oauth}
+    \end{center}
+\end{figure}
+
+\paragraph*{OpenID}\index{OpenID}OpenID ist ein dezentrales Authentifizierungssystem für webbasierte Dienste. Es erlaubt einem Benutzer, der sich bei seinem OpenID-Provider einmal mit Benutzername und Kennwort angemeldet hat, sich mithilfe der OpenID (einer URL, in diesem Kontext auch Identifier genannt) ohne Benutzername und Passwort bei allen das System unterstützenden Websites – den \textsl{Relying Parties} – anzumelden, wendet also das Single-Sign-on-Prinzip an.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/openid.png}
+    \caption{Authentisierung mit OpenID Connect}
+    \label{openid}
+    \end{center}
+\end{figure}
+
+\paragraph*{JSON Web Token (JWT)}\index{JWT}Das JWT ermöglicht den Austausch von verifizierbaren Claims. Es wird typischerweise verwendet, um in einem System mit einem Drittanbieter die Identität eines Benutzers zwischen einem Identity-Provider und einem Service-Provider auszutauschen. Des Weiteren eignet sich JWT zur Implementierung einer Stateless Session, denn da alle für die Authentifikation benötigten Informationen in dem Token übertragen werden, muss die Sitzung nicht auf dem Server gespeichert werden.\cite{wiki}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/jwt.png}
+    \caption{Aufbau eines JWTs}
+    \label{jwt}
+    \end{center}
+\end{figure}
 
 \subsubsection*{Vor- und Nachteile von Identity Federations}
 \begin{multicols}{2}
