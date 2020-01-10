@@ -1,5 +1,6 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage{ngerman}
+\usepackage[utf8]{inputenc}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
 \usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
@@ -80,8 +81,11 @@
 
 %%%%%%%%%%
 \part{Einführung (SW~01)}
+
 \section{Einführung}
+
 \subsection*{Einführung in das Thema "`Management von Informationssicherheit"'}
+
 \paragraph*{Daten, Information und Wissen}Information ist die Verknüpfung von Daten in Form von Zahlen, Worten und Fakten zu interpretierbaren Zusammenhängen. Durch die Vernetzung von Informationen entsteht Wissen, das zunächst personenbezogen ist.
 
 \paragraph*{Missbrauch}Informationen müssen vor Missbrauch geschützt werden
@@ -93,7 +97,9 @@
     \end{center}
 \end{figure}
 
+
 \subsection*{Motivation / Bedrohungen}
+
 \paragraph*{Was gefährdet die Informationen?} Welche Gefährdungen/Bedrohungen gibt es?\index{Gefährdungen}\index{Bedrohungen}\index{Informationssicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Nicht vorsätzliche (zufällige) Gefährdungen/Bedrohungen
@@ -232,6 +238,7 @@ Denn das Management trägt die Risiken und entscheidet über die eingesetzten Re
     \item Schrittweise und stetig umsetzen
 \end{itemize}
 
+
 \subsection*{Grundbegriffe}\label{sec:Grundbegriffe}
 \textbf{Zutritts-, Zugangs-, Zugriffskontrolle}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -239,6 +246,7 @@ Denn das Management trägt die Risiken und entscheidet über die eingesetzten Re
     \item \textbf{\textsl{Zugangskontrolle: }}Schutz des logischen Systems (Bsp. Betriebssystem)\index{Zugangskontrolle}
     \item \textbf{\textsl{Zugriffskontrolle: }}Daten-bezogen; Schutz der Operationen (Bsp. Dateisystem)\index{Zugriffskontrolle}
 \end{itemize}
+
 
 \subsection*{Grundziele (Schutzziele) von Informationssicherheit}
 \paragraph*{Verfügbarkeit}\index{Grundziele Informationssicherheit}\index{Schutzziele}
@@ -288,7 +296,7 @@ Denn das Management trägt die Risiken und entscheidet über die eingesetzten Re
     \item Sicherheit und Risiko sind voneinander abhängig
 \end{itemize}
 
-\paragraph*{Integrale\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch}, holistische\footnote{ganzheitlich}, Informations- und IT-Sicherheit}
+\paragraph*{Integrale\footnote{Die Integrale Sicherheit überprüft Personen und Unternehmen mit Zugang zu vertraulichen oder geheimen Informationen, Materialien oder Anlagen. - https://www.sbis.ch}, holistische\footnote{ganzheitlich}, Informations- und IT-Sicherheit}\index{Integrale Sicherheit}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Integral: Umfassende Betrachtung \textbf{aller} Sicherheitsaspekte einer Organisation
     \item Holistisch: Funktionsorientierte und stufengerechte Förderung des Verständnisses für Sicherheit bei Mitarbeitenden, Sicherheitsfachleuten und Management
@@ -312,13 +320,17 @@ Denn das Management trägt die Risiken und entscheidet über die eingesetzten Re
     \item \textbf{Datenschutz}: Schutz der Persönlichkeit und er Grundrechte von Personen, über die Daten bearbeitet werden
 \end{itemize}
 
+
+
+%%%%%%%%%%
 \part{Kryptographie (SW~02-04)}
 \section{Symmetrische Kryptographie}
 \subsection*{Sie verstehen was Steganographie ist}
 \paragraph*{Steganographie}\index{Steganographie}Verstecken von Information, z.B. in Bildern oder Audiofiles. \underline{\href{https://www.petitcolas.net/steganography/index.html}{Siehe Link}}\footnote{https://www.petitcolas.net/steganography/index.html}
 
 
-\subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}\index{Private-Key-Kryptographie}
+\subsection*{Sie verstehen was Private-Key-Kryptographie ist, welche Arten von Sicherheit es gibt und welche Angriffsarten auf Verschlüsselung existieren}\index{Private Key Kryptographie}
+
 \paragraph*{Zeichencodierung}Kodierung (\textsl{Encoding}) heisst, einen Wert mit Symbolen eines Zeichensatzes darzustellen. Beispiel:\newline %bleibt
 \begin{tabular}{|ll|}
     \hline
@@ -331,10 +343,10 @@ Denn das Management trägt die Risiken und entscheidet über die eingesetzten Re
 \end{tabular}
 {\color{red}\textbf{Achtung: Kodierung $\neq$ Verschlüsselung}}
 
-\paragraph*{Symmetrische Verschlüsselung}Bei symmetrischen Verschlüsselungsverfahren gibt es im Gegensatz zu den asymmetrischen Verfahren, \textbf{nur einen einzigen Schlüssel}. Dieser Schlüssel ist für die Verschlüsselung, als auch für die Entschlüsselung zuständig.\index{Symmetrische Kryptographie}
+\paragraph*{Symmetrische Verschlüsselung}\index{Symmetrische Kryptographie}Bei symmetrischen Verschlüsselungsverfahren gibt es im Gegensatz zu den asymmetrischen Verfahren, \textbf{nur einen einzigen Schlüssel}. Dieser Schlüssel ist für die Verschlüsselung, als auch für die Entschlüsselung zuständig.
 
-\paragraph*{Secret Key Verschlüsselung}Secret Key (`Symmetrische') Verschlüsselung wird zwischen zwei Parteien verwendet, welche einen \textbf{gemeinsamen Schlüssel} besitzen. Ausserdem wird sie oft verwendet, wenn der gleiche Benutzer ein Dokument verschlüsseln und zu einem späteren Zeitpunkt wieder entschlüsseln muss.\index{Secret Key}
-\begin{figure}[ht]
+\paragraph*{Secret Key Verschlüsselung}\index{Secret Key}Secret Key (`Symmetrische') Verschlüsselung wird zwischen zwei Parteien verwendet, welche einen \textbf{gemeinsamen Schlüssel} besitzen. Ausserdem wird sie oft verwendet, wenn der gleiche Benutzer ein Dokument verschlüsseln und zu einem späteren Zeitpunkt wieder entschlüsseln muss.
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=14cm]{images/secretkey.png}
     \caption{Alice verschlüsselt, Bob entschlüsselt mit dem gemeinsamen Schlüssel}
@@ -466,7 +478,6 @@ Besitzt man diese Information nicht oder möchte man auf die Häufigkeitsanalyse
 
 
 \subsection*{Sie wissen welche modernen Verschlüsselungsalgorithmen in der Praxis verwendet werden und was deren Eigenschaften sind}
-
 \paragraph*{Secret Key Verschlüsselung: Algorithmen}Beispiele für symmetrische Verschlüsselung \newline
 \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -629,6 +640,7 @@ Beispiel:\newline %bleibt
 
 
 \subsection*{Sie wissen wie Diffie-Hellman-Schlüsselaustausch bzw. ElGamal-Verschlüsselung funktioniert}
+
 \paragraph*{Diffie-Hellman (DH) Schlüsselaustausch}Diffie-Hellman ist ein Schlüsselvereinbarungsprotokoll. Der vereinbarte gemeinsame geheime Schlüssel kann danach zur Verschlüsselung der Nachricht verwendet werden. Diffie-Hellman nutzt eine diskrete Exponentialfunktion (modulare Exponentation) $b^x\ \mathrm{mod}\ m$. Der Vorteil einer solchen Funktion ist, dass man schnell ein Ergebnis (Secret Key) ausrechnen kann, während die Umkehrfunktion, der diskrete Logarithmus, um den Exponenten (Private Key) zu erhalten, nur sehr schwer auszurechnen ist.\\
 $5\equiv 4^{2} \equiv 4^{7} \equiv 4^{12} \equiv 4^{17}\ (\mathrm{mod}\ 11)\dots$\\
 Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszufinden, ob der Exponent  nun 317, 27`142 oder doch 1`492`967 ist. Weiter wird nicht der \textsl{Secret Key} selber versendet, sondern vor Ort berechnet.
@@ -656,6 +668,7 @@ Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszuf
     \end{center}
 \end{figure}
 
+
 \subsubsection*{Beispiel für $p=17$ und $g=3$}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Alice wählt $a=7$ und berechnet $A = g^a\ \mathrm{mod}\ 17 = 2187\ \mathrm{mod}\ 17 \equiv 11$
@@ -663,13 +676,11 @@ Rest 5  ist schnell ausgerechnet, aber es ist praktisch nicht möglich herauszuf
     \item Der gemeinsame Schlüssel ist $K = A^b\ \mathrm{mod}\ 17 = 14641\ \mathrm{mod}\ 17 \equiv 4$
 \end{itemize}
 
-
 \paragraph*{ElGamal-Verschlüsselung}ElGamal verwendet DH um einen asymmetrischen Verschlüsselungsalgorithmus zu erstellen. Daher ist es sicherer als RSA, welches `nur' Faktorisieren grosser Zahlen als unterliegende Funktion hat. Im Vergleich zu DH gibt es bei ElGamal weitere Teilschritte und feine Unterschiede. Die zu verschlüsselnde Nachricht {\color{red}$x$} wird nämlich in den \textsl{Secret Key} verschmelzt.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Diffie-Hellman: {\color{dunkelblau}$K= g^{a\cdot b}\ \mathrm{mod}\ p$}
     \item ElGamal: {\color{dunkelblau}$C= ${\color{red}$x$}$\cdot g^{a\cdot b}\ \mathrm{mod}\ p$}
 \end{itemize}
-
 
 
 \subsubsection*{ElGamal-Verfahren im Detail}\index{ElGamal}
@@ -697,6 +708,7 @@ Bis hierhin verlief das Ganze ziemlich ähnlich zum DH-Schlüsselaustausch.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Alice entschlüsselt Ciphertext $C$ mit {\color{dunkelblau}$x=(B^{p-a-1}\ mod\ p)\cdot C\ mod\ p$}
 \end{itemize}
+
 
 \subsection*{Sie wissen was kryptographisch sichere Zufallszahlen sind und wo diese verwendet werden}
 \paragraph*{Sichere Zufallszahlen}\index{Sichere Zufallszahlen}Kryptographisch sichere Zufallszahlen können im Gegensatz zu Zahlen in einer gewöhnlichen Random-Funktion anhand des Seeds nicht vorausgesagt werden. Java bietet beispielsweise neben der Random-Klasse die SecureRandom-Klasse\footnote{Siehe \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/util/Random.html}{Random}} und \underline{\href{https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html}{SecureRandom}}}. Kryptographisch sichere Zufallszahlen braucht man z.B. in den oben beschriebenen Schlüsselaustauschprotokollen.
@@ -751,7 +763,7 @@ Bis hierhin verlief das Ganze ziemlich ähnlich zum DH-Schlüsselaustausch.
 \subsection*{Sie wissen wie hybride Verschlüsselung bzw. hybride Signaturen funktionieren}
 \paragraph*{Hybridverschlüsselung}\index{Hybridverschlüsselung}Eine Hybridverschlüsselung ist eine Kombination von symmetrischer und asymmetrischer Verschlüsselung. Dabei werden die Vorteile beider Verschlüsselungsverfahren genutzt. Symmetrische Verschlüsselung ist deutlich schneller, asymmetrische haben den Vorteil eines deutlich einfacheren Schlüsselaustausches. Der Ablauf ist folgendermassen:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Sender Alice einen zufälligen symmetrischen Schlüssel, einen Session-Key
+    \item Sender Alice wählt einen zufälligen symmetrischen Schlüssel, einen Session-Key
     \item Der Session-Key verschlüsselt die Daten/Nachricht symmetrisch
     \item Der Session-Key wird asymmetrisch mit Bob's Public-Key verschlüsselt
     \item Die verschlüsselten Sachen werden an Bob gesendet
@@ -860,11 +872,20 @@ Beispiele für SSL/TLS-ciphers:
     \item \verb|TLS_RSA_WITH_3DES_EDE_CBC_SHA|
     \item \verb|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384|
 \end{itemize}
+
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/ciphersuite.png}
     \caption{TLS Cipher im Detail}
     \label{ciphersuite}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=13cm]{images/SSL_TLS.png}
+    \caption{SSL / TLS}
+    \label{SSL / TLS}
     \end{center}
 \end{figure}
 
@@ -891,9 +912,9 @@ Was unterscheidet eine Webanwendung aus Sicherheitssicht zu anderen Anwendungen?
     \end{itemize}
 \end{itemize}
 
-\paragraph*{HTTP}Der Browser kommuniziert mit dem Webserver über das \textbf{Hypertext Transfer Protokoll (HTTP)}. HTTP besteht aus \textsl{Requests} und \textsl{Reponses}.
+\paragraph*{HTTP}\index{HTTP}Der Browser kommuniziert mit dem Webserver über das \textbf{Hypertext Transfer Protokoll (HTTP)}. HTTP besteht aus \textsl{Requests} und \textsl{Reponses}.
 
-\paragraph*{HTTP-Request-Methoden}Die häufigsten HTTP-Request-Methoden sind \textbf{GET} und \textbf{POST}.
+\paragraph*{HTTP-Request-Methoden}\index{HTTP!Requests}Die häufigsten HTTP-Request-Methoden sind \textbf{GET} und \textbf{POST}.
 Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
 
 \paragraph*{GET}\verb|https://www.hslu.ch/?p=5 HTTP/1.1|\\
@@ -912,7 +933,7 @@ Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
     \item Wird nicht gecachet
 \end{itemize}
 
-\paragraph*{Häufigste Reponse-Codes}
+\paragraph*{Häufigste Reponse-Codes}\index{HTTP!Response-Codes}\index{Response-Codes}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item 200 OK
     \item 204 No Content
@@ -943,7 +964,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
     \end{center}
 \end{figure}
 
-\paragraph*{Cookies}Cookies sind kurze Textdaten, welche vom Server als Header an den Browser übermittelt werden und von diesem ebenso als Header bei requests wieder mitgesendet werden. Cookies werden vom Browser verwaltet. Die meistgenutzte Möglichkeit ist es, ein Cookie zu setzen. Jedoch dürfen auch Cookies nicht client-seitig angepasst werden können!
+\paragraph*{Cookies}\index{Cookies}Cookies sind kurze Textdaten, welche vom Server als Header an den Browser übermittelt werden und von diesem ebenso als Header bei requests wieder mitgesendet werden. Cookies werden vom Browser verwaltet. Die meistgenutzte Möglichkeit ist es, ein Cookie zu setzen. Jedoch dürfen auch Cookies nicht client-seitig angepasst werden können!
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/HTTPCookie.png}
@@ -963,7 +984,7 @@ Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen p
 
 \subsection*{Sie wissen was eine Session ist und welche Eigenschaften einer Session bei welchen Angriffen wichtig sind bzw wie sie gegen gewisse Angriffe Schutz bieten}
 
-\paragraph*{Session} Eine Session ist der Zeitraum, in dem ein Client eine stehende Verbindung mit einem Server hat; vom Login bis zum Logout. Der Server vergibt dem Client eine eindeutige Session-ID. Die Sitzungsdaten (z.B. Warenkorb) werden im Server gespeichert. Bei jedem Request gibt der Client seine Session-ID mit, damit der Server beim Response die zugehörigen Daten dieser ID übermitteln kann. Es gibt auch Sessions ohne stehende Verbindung (ohne Login). Dies wird zu Statistikzwecken verwendet, z.B. um die Bewegung des Besuchers auf der Website zu verfolgen. Oder aber auch um einen Warenkorb ohne Login verwenden zu können.
+\paragraph*{Session}\index{Session}Eine Session ist der Zeitraum, in dem ein Client eine stehende Verbindung mit einem Server hat; vom Login bis zum Logout. Der Server vergibt dem Client eine eindeutige Session-ID. Die Sitzungsdaten (z.B. Warenkorb) werden im Server gespeichert. Bei jedem Request gibt der Client seine Session-ID mit, damit der Server beim Response die zugehörigen Daten dieser ID übermitteln kann. Es gibt auch Sessions ohne stehende Verbindung (ohne Login). Dies wird zu Statistikzwecken verwendet, z.B. um die Bewegung des Besuchers auf der Website zu verfolgen. Oder aber auch um einen Warenkorb ohne Login verwenden zu können.
 
 \paragraph*{Schwaches Session-Management}Was ist das?
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -1005,7 +1026,7 @@ Der Sessionwert wird nach einem Login oder Loginschritt nicht geändert. Ein  an
 Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie kennen sicherheitsrelevante Header}
-\paragraph*{Sicherheitsrelevante Response-Header}\index{Response-Header}
+\paragraph*{Sicherheitsrelevante Response-Header}\index{Response-Header}\index{HTTP!Response-Header}
 \begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{HSTS:} \verb|Strict-Transport-Security: max-age=31536000; includeSubDomains|\\
     Seite wird nur via HTTPS aufgerufen. \verb|max-age| muss hoch gesetzt werden!
@@ -1031,7 +1052,7 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
 
 \subsection*{Sie verstehen wie ein Cross-Site-Request-Forgery-Angriff abläuft und wie man sich dagegen schützen kann}
 
-\paragraph*{CSRF - Cross-Site Request Forgery}\index{CSRF}Was ist das?\\
+\paragraph*{CSRF - Cross-Site Request Forgery}\index{CSRF}\index{CSRF!Cross-Site Request Forgery\index{XSRF!siehe {CSRF}}}Was ist das?\\
 Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzusetzen und  dadurch eine Aktion auf dem Server auszulösen. Ist der Benutzer zu dem Zeitpunkt eingeloggt, wird das Cookie automatisch mitgeschickt.
 \begin{figure}[H]
     \begin{center}
@@ -1057,7 +1078,7 @@ Der Angreifer bringt einen Benutzer dazu, einen Request aus seinem Browser abzus
     \item \textbf{Bedrohungen auf Link-Layer:} Spoofing\index{Link-Layer}\index{Spoofing}
     \item \textbf{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)\index{Transport-Layer}\index{DoS}
     \item \textbf{Bedrohungen auf SSL / TLS:} Preisgabe Sensitiver Daten\index{SSL/TLS}\index{Sensitive Daten}
-    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection\index{Anwendungslayer}\index{Cross Site Scripting (XSS)}\index{Code-Injection}\index{XSS! siehe {Cross Site Scripting (XSS)}}
+    \item \textbf{Bedrohungen auf Anwendungslayer:} Cross Site Scripting (XSS), Code Injection\index{Anwendungslayer}\index{Cross Site Scripting (XSS)}\index{Code Injection}\index{XSS! siehe {Cross Site Scripting (XSS)}}
     \item \textbf{Bedrohungen auf Layer 8 (Mensch):} Social Engineering\index{Layer 8}\index{Social Engineering}
 \end{itemize}
 
@@ -1084,8 +1105,6 @@ Bei einem \textbf{aktiven Angriff} hält sich der Angreifer nicht an das Protoko
 
 
 \subsubsection*{OSI-Layers}\index{OSI-Modell}
-Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
-
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/OSI-Layers.png}
@@ -1095,8 +1114,6 @@ Die 7 Tierschichten des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
 \end{figure}
 
 \subsubsection*{OSI vs Internet Reference Model}
-Die 7 Tierschicht des OSI-Models, wobei die 8te sich auf den Mensch bezieht.
-
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/OSIvsIRM.png}
@@ -1170,8 +1187,8 @@ Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werd
     \end{center}
 \end{figure}
 
-\index{DRDoS}
-\paragraph*{Beispiel: Distributed Reflection Denial of Service}
+
+\paragraph*{Beispiel: Distributed Reflection Denial of Service}\index{DRDoS}
 \noindent
 "`\textsl{Hierbei adressiert der Angreifer seine Datenpakete nicht direkt an das Opfer, sondern an regulär arbeitende Internetdienste, trägt jedoch als Absenderadresse die des Opfers ein (IP-Spoofing). Die Antworten auf diese Anfragen stellen dann für das Opfer den eigentlichen DoS-Angriff dar. Durch diese Vorgehensweise ist der Ursprung des Angriffs für den Angegriffenen nicht mehr direkt ermittelbar.}"' - Wikipedia
 
@@ -1186,7 +1203,7 @@ Als Resultat kann somit von den meisten Benutzern die Seite nicht angezeigt werd
 \paragraph*{Denial of Service: Was kann man dagegen tun?} Jedes System bricht irgendwann zusammen! Es geht darum sicherzustellen, dass dabei keine bleibenden Schäden am
 Kernsystem entstehen und das System nach einem Angriff schnell wieder funktionsfähig zu machen.
 
-\subsubsection*{Schutzbeispiele:}
+\subsubsection*{Schutzbeispiele}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Beschränkung der Anzahl (Web-) Requests pro Zeiteinheit / IP }
     \item \textbf{Sicherstellen, dass der "`Flaschenhals"' weit vorne auftritt (z.B. Firewall) um Kernsysteme zu schützen}
@@ -1203,9 +1220,7 @@ Kernsystem entstehen und das System nach einem Angriff schnell wieder funktionsf
     \end{center}
 \end{figure}
 
-\subsubsection*{Bedrohung auf SSL / TLS (Preigabe Sensitiver Daten)}
-
-\index{Sensitive Daten}
+\subsubsection*{Bedrohung auf SSL / TLS (Preigabe Sensitiver Daten)}\index{Sensitive Daten}
 \paragraph*{Preisgaber Sensitiver Daten: Was ist das?} Angreifer stehlen Schlüssel, Passwörter, Geschäftsgeheimnsisse,
 Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder vom Client
 
@@ -1270,8 +1285,9 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
     \item Verwenden eines sicheren APIs
 \end{itemize}
 
-\index{Layer 8}\index{Layer 8}
+
 \subsubsection*{Layer 8}
+Die 7 Tierschichten des OSI-Models, wobei die 8. sich auf den Mensch bezieht.\index{Layer 8}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Layer8.png}
@@ -1280,8 +1296,7 @@ Personendaten oder andere sensitive Daten vom Server, bei der Übertragung oder 
     \end{center}
 \end{figure}
 
-\index{Social Engineering}
-\paragraph*{Social Engineering: Was ist das?}Zwischenmenschliche Beeinflussungen mit dem Ziel, bei
+\paragraph*{Social Engineering: Was ist das?}\index{Social Enginering}Zwischenmenschliche Beeinflussungen mit dem Ziel, bei
 Personen bestimmte Verhaltensweisen hervorzurufen, sie zum
 Beispiel zur Preisgabe von vertraulichen Informationen, zum
 Kauf eines Produktes oder zur Freigabe von Finanzmitteln zu
@@ -1296,19 +1311,21 @@ bewegen.
     \item Technische Massnahmen welche den Angriff verhindern, z.B. Vereinzelungsanlage, nicht vorlesbare Codes etc.
 \end{itemize}
 
+
 \pagebreak
 %%%%%%%%%%
 \part{Management (SW~07-09)}
 \section{Standards \& Frameworks, ISMS}
-
 \subsection*{Sie wissen, was ein ISMS ist und wie man damit umgeht}
 \paragraph*{ISMS}\index{ISMS}Ein \textsl{Information Security Management System (ISMS)} (auf Deutsch: Managementsystem für die Informationssicherheit) definiert Regeln, Methoden und Abläufe, um die IT-Sicherheit in einem Unternehmen zu gewährleisten, zu steuern, zu kontrollieren und zu optimieren.
+
 \paragraph*{Zweck}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die (durch die IT verursachte) Risiken sollen identifizierbar und beherrschbar werden.
     \item Sicherheit erhalten, dass teure Informationen und Daten der Unternehmung angemessen geschützt sind.
     \item Rechtliche (Datenschutz- oder Berufsgesetz bei Ärzten / Anwälte) und auch Marktanforderung erfüllen (wenn morgen in den Medien publik wird, dass bei der UBS Bank gehackt und Millionen gestohlen wurde, dann würden die Kunden nicht länger ihr Vermögen bei der UBS deponieren.
 \end{itemize}
+
 \paragraph*{Vorgehen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Man sollte einen Prozess unterhalten, mit dem die Risiken der Informationssicherheit identifiziert und bewertet werden können. Dazu sollen Kontrollen bestimmt, eingeführt und stetig verbessert werden können.
@@ -1455,6 +1472,7 @@ bewegen.
     \item Er spezifiziert den ganzen Risiko Management Prozess, beginnend mit der Risiko Analyse bis zum Plan für den Umgang mit den identifizierten Risiken
 \end{itemize}
 
+
 \subsection*{Sie finden sich in den Standards ISO 27001 und 27002 zurecht}
 \paragraph*{Unterschiede}Die Kontrollen in ISO 27002 haben dieselbe Bezeichnung wie in Anhang A von ISO 27001. In ISO 27002 wird Kontrolle 6.1.2 beispielsweise als „Aufgabentrennung“ bezeichnet, in ISO 27001 als „A.6.1.2 Aufgabentrennung.“ Der Unterschied liegt jedoch in der Detailgenauigkeit – im Durchschnitt erklärt ISO 27002 ein Steuerelement auf einer ganzen Seite.
 
@@ -1462,7 +1480,8 @@ Und zu guter Letzt ist der Unterschied, dass ISO 27002 keine Unterscheidung zwis
 
 Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt existieren, warum wurden sie nicht zusammengeführt, um damit die positiven Seiten beider Normen hervorzubringen? Die Antwort ist die Benutzerfreundlichkeit – eine einzelne Norm wäre zu komplex und zu gross für eine praktische Anwendung\cite{advisera}.
 
-\subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}\index{BSI-Standards}
+
+\subsection*{Sie verstehen die Grundzüge der BSI-Standards (BSI=Bundesamt für Sicherheit in der Informationstechnik, Deutschland)}\index{BSI Standards}
 \paragraph*{BSI}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Unabhängige und neutrale Stelle für Fragen der Informationssicherheit in der INformationsgesellschaft
@@ -1494,7 +1513,7 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \end{center}
 \end{figure}
 
-\paragraph*{BSI-Standard 200-1 - Managementsysteme für Informationssicherheit}\index{BSI-Standards!BSI 200-1}\label{para:BSI 200-1}
+\paragraph*{BSI-Standard 200-1 - Managementsysteme für Informationssicherheit}\index{BSI Standards!BSI 200-1}\label{para:BSI 200-1}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Zielgruppe: Management
     \item Definiert allgemeine Anforderungen an ein ISMS
@@ -1504,7 +1523,7 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \item Enthält diverse Hinweise zur Zusammenarbeit Sicherheitsmanagement und Datenschutz
 \end{itemize}
 
-\paragraph*{BSI-Standard 200-2 - IT-Grundschutz-Vorgehensweise}\index{BSI-Standards!BSI 200-2}\label{para:BSI 200-2}
+\paragraph*{BSI-Standard 200-2 - IT-Grundschutz-Vorgehensweise}\index{BSI Standards!BSI 200-2}\label{para:BSI 200-2}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Konkretisiert die Darstellung de ISMS nach BSI-Standard 200-1
     \item Beschreibt Aufbau und Betrieb eines ISMS in der Praxis
@@ -1520,7 +1539,7 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \end{itemize}
 \end{itemize}
 
-\paragraph*{BSI-Standard 200-3 - Risikoanalyse auf Basis von IT-Grundschutz}\index{BSI-Standards!BSI 200-3}\label{para:BSI 200-3}
+\paragraph*{BSI-Standard 200-3 - Risikoanalyse auf Basis von IT-Grundschutz}\index{BSI Standards!BSI 200-3}\label{para:BSI 200-3}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die Standard-Sicherheitsmassnahmen der IT-Grundschutzkataloge sind in der Regel ausreichend
     \item Es gibt allerdings auch Ausnahmen
@@ -1541,7 +1560,7 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \end{center}
 \end{figure}
 
-\paragraph*{BSI-Standard 100-4 - Notfallmanagement}\index{BSI-Standards!BSI 100-4}
+\paragraph*{BSI-Standard 100-4 - Notfallmanagement}\index{BSI Standards!BSI 100-4}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Methodik zur Etabliereung und Aufrechterhaltung eines unternehmensweiten, internen Notfallmanagements
     \item Führt zu einem eigenständigen Managementsystem für die Geschäftsfortführung und Notfallbewältigung
@@ -1555,23 +1574,6 @@ Es stellt sich die Frage: warum ist es so, dass diese zwei Normen getrennt exist
     \end{center}
 \end{figure}
 
-\paragraph*{Vergleich ISO und BSI}\index{BSI-Standards!Vergleich zu ISO}\index{ISO Standards!Vergleich zu BSI}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item ISO 27001 ist eine Norm/Standard der "`High Level"' beschreibt, an was zu denken ist (Organisation, Planung, Riskmanagement)
-    \item Der BSI IT-Grundschutz ist eine "`Low Level"' Sammlung von Guidelines und Procedures zum erreichen von Sicherheitszielen
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Aufgeteilt in Gefahren/Anforderungen und Massnahmen, geglieder in Bausteine
-    \end{itemize}
-\end{itemize}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Warum ist der IT-Grundschutz vollständig?
-    \item Er srpicht serh viele IT Sicherheits-Thmemen in einem breiten Spektrum an
-    \item Warum ist es nicht vollständig?
-    \item Es ist fast unmöglich einen vollständigen Katalog mit allen aktuellen Gefahren und Massnahmen zu haben -> aber ein gutes Nachschlagewerk
-    \item Was sind Bausteine?
-    \item Buasteine sind unterteilt in Katergorien z.b. Netzwerk und Gefahren(FW) Massnahmen (Updates)
-\end{itemize}
-
 \subsection*{Sie kennen die Struktur und Grundziele des NIST Cybersecurity Frameworks}\index{NIST Cybersecurity Framework}
 \paragraph*{NIST Cybersecurity Framework}\label{para:NIST}Das Cybersecurity Framework ist eine Reihe von Richtlinien für Privatunternehmen, die befolgt werden müssen, um bei den Funktionen Identify, Detect und Respond im Thema Cyberangriffe besser vorbereitet zu sein. Es enthält auch Richtlinien, wie man einen Angriff verhindern und sich von ihm erholen kann.
 Einfach ausgedrückt, ist das NIST Cybersecurity Framework eine Reihe von Best~Practices, Standards und Empfehlungen, die einem Unternehmen helfen, seine Cybersicherheitsmassnahmen zu verbessern. Das NIST Cybersecurity Framework versucht, den Mangel an Standards zu beheben, wenn es um Sicherheit geht. Derzeit gibt es grosse Unterschiede in der Art und Weise wie Unternehmen Technologien, Sprachen und Regeln zur Bekämpfung von Hackern, Datenpiraten und Ransomware einsetzen. Die verschiedenen Policies, Guidelines, Best Practices und Technologien, die in der Cybersicherheit verwendet werden, werfen ein weiteres Problem auf: Unternehmen sind nicht in der Lage, Informationen über Angriffe auszutauschen. Aber Vorsicht, das was die andere Firma dagegen getan hat, muss nicht unbedingt für das eigene Unternehmen funktionieren.
@@ -1580,11 +1582,13 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \paragraph*{Cybersecurity Framework Components}\index{NIST Cybersecurity Framework!Components}\label{para:NISTcomponents}Das NIST Security Framework besteht aus drei Komponenten. Dem Kern (Core), den Umsetzungsebenen (Tiers) und dem Profil (Profile).
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=6.5cm]{images/NISTcomponents.png}
+    \includegraphics[width=6cm]{images/NISTcomponents.png}
     \caption{Die Komponenten des NIST Frameworks}
     \label{nistcomponents}
     \end{center}
 \end{figure}
+
+\noindent
 \textsl{Tiers} und \textsl{Profile} haben wir nicht durchgenommen, weshalb dies nicht weiter beschrieben wird.
 
 \paragraph*{Core}\index{NIST Cybersecurity Framework!Core}\label{para:NISTcore}Der Framework-Kern definiert die Aktivitäten, die Sie durchführen müssen, um unterschiedliche Cybersicherheitsergebnisse zu erzielen. Diese wird in vier verschiedene Elemente unterteilt:
@@ -1606,7 +1610,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \begin{figure}[H]
 \paragraph*{Fünf Funktionen der Cybersicherheitsaufgaben}
     \begin{center}
-    \includegraphics[width=6.5cm]{images/NISTfunctions.png}
+    \includegraphics[width=6cm]{images/NISTfunctions.png}
     \caption{Fünf Frameworkfunktionen}
     \label{nistfunctions}
     \end{center}
@@ -1620,16 +1624,40 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \end{itemize}
 
 
+\pagebreak
 \section{Risiko-Management und IT-Grundschutz}
+\subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}\index{Risiko-Management}\index{Grundschutz!IT Grundschutz}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=12cm]{images/IT-Grundschutz-Aufbau.png}
+    \caption{IT-Grundschutz-Aufbau}
+    \label{IT-Grundschutz-Aufbau}
+    \end{center}
+\end{figure}
 
+\paragraph*{Vergleich ISO und BSI}\index{BSI Standards!Vergleich zu ISO}\index{ISO Standards!Vergleich zu BSI}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item ISO 27001 ist eine Norm/Standard der 'High Level' beschreibt an was zu denken ist. (Organisation, Planung, Risikomanagement)
+    \item Der BSI IT Grundschutz ist eine 'Low Level' Sammlung von Guidelines und Procedures zum erreichen von Sicherheitszielen.
+    \item Der IT Grundschutz ist aufgeteilt in Gefahren / Anforderungen und Massnahmen, jeweils gegliedert in \textbf{Bausteine}
+\end{itemize}
 
+\paragraph*{Warum ist der IT Grundschutz vollständig?}Er spricht \textbf{sehr} viele IT Sicherheits-Themen in einem breiten Spektrum an.
 
-\subsection*{Sie kennen den Aufbau der IT-Grundschutz-Kataloge und deren Anwendungsweise}
-\paragraph*{TODO}
+\paragraph*{Warum ist der IT Grundschutz nicht vollständig?}Es ist fast unmöglich einen vollständigen Katalog mit allen aktuellen Gefahren und Massnahmen zu haben $\rightarrow$ aber ein gutes Nachschlagewerk
 
+\paragraph*{Was sind Bausteine?}\index{Grundschutz!Bausteine}Bausteine sind unterteilt in Kategorien (z.B. Netzwerk) und Gefahren (Firewall Kompromittierung) und Massnahmen (Updates, Konfigurationen, ...)
 
-\subsubsection*{Definitionen des Begriffs 'Risiko'}
-\index{Risikodefinition}
+\begin{figure}[H]
+\paragraph*{Bausteine}Hier noch ein Ausschnitt der Bausteine aus der Seite vom BSI.bund.de:
+    \begin{center}
+    \includegraphics[width=8cm]{images/Bausteine.png}
+    \caption{Bausteine IT Grundschutz Katalog}
+    \label{Bausteine IT Grundschutz Katalog}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Definitionen des Begriffs `Risiko'}\index{Risikodefinition}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Quelle Duden:} \\ Möglicher negativer Ausgang bei einer Unternehmung, mit
     dem Nachteile, Verlust, Schäden verbunden sind; mit einem
@@ -1641,10 +1669,9 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     unerwünschte und ungeplante Abweichung und deren Folgen
     von System-Zielen
 \end{itemize}
-\paragraph*{}Hinweis: Dem Risiko kann auch eine positive Abweichung, d.h. eine Chance, gegenüberstehen.
+Hinweis: Dem Risiko kann auch eine positive Abweichung, d.h. eine Chance, gegenüberstehen.
 
-\subsubsection*{Risikomanagement-Stile}
-\index{Risikomanagement - Stile}
+\subsubsection*{Risikomanagement-Stile}\index{Risikomanagement - Stile}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=11cm]{images/KPMG_Risikomanagementstile.png}
@@ -1654,7 +1681,7 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
 \end{figure}
 
 \subsubsection*{Unternehmensrisiken}
-\index{Risiken Aufzählung}
+\index{Risiken im Unternehmen}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=13cm]{images/KPMG_Risiken.png}
@@ -1663,9 +1690,8 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     \end{center}
 \end{figure}
 
-\subsubsection*{Risiken im Bereich ICT}
-
-\paragraph*{Organisatorische Risiken:}
+\subsubsection*{Risiken im Bereich ICT}\index{Risiken im ICT Bereich}
+\paragraph*{Organisatorische Risiken}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Nicht autorisierte Zugriffe auf Informationen und
     Applikationen
@@ -1675,14 +1701,14 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     \item Datendiebstahl
 \end{itemize}
 
-\paragraph*{Anwendungs- und prozessbezogene Risiken:}
+\paragraph*{Anwendungs- und prozessbezogene Risiken}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Veraltete und nicht integrierte Softwarelösungen
     (Insellösungen)
     \item Fehlende strategische Neuorientierung
 \end{itemize}
 
-\paragraph*{Infrastrukturelle Risiken:}
+\paragraph*{Infrastrukturelle Risiken}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item IT-Infrastruktur kann den Ansprüchen (z. B.
     Leistungsfähigkeit) nicht gerecht werden
@@ -1695,27 +1721,35 @@ Das NIST Cybersecurity Framework zielt darauf ab, all dies zu beseitigen. Mit ei
     \item Mangelhafte Dokumentation der Systeme
 \end{itemize}
 
-\paragraph*{Kostenbezogene Risiken:}
+\paragraph*{Kostenbezogene Risiken}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Fehlende Kostentransparenz
     \item Mangelhafte Projektdefinition und -organisation mit
     daraus resultierenden Kostenüberschreitungen
 \end{itemize}
 
-\paragraph*{Projektbezogene Risiken:}
+\paragraph*{Projektbezogene Risiken}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Run-away-Projekte (Zeit, Kosten und Termine laufen aus
     dem Ruder)
     \item Unprofessionelles Projekt-Management
 \end{itemize}
 
+\subsubsection*{OWASP TOP 10}\index{OWASP Top 10}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/OWASP_Top_10.png}
+    \caption{OWASP TOP 10 IT Security Bedrohungen}
+    \label{OWASP TOP 10}
+    \end{center}
+\end{figure}
 
 \paragraph*{Begriff: Operationelle Risiken} Sämtliche betrieblichen Risiken, welche in einer Unternehmung Schäden verursachen können.
 Grosse Bedeutung haben operationelle Risiken im Bankwesen.
 \index{Operationelle Risiken}
 
-\subsection*{Das Risikoanalyse-Verfahren verstehen}
 
+\subsection*{Das Risikoanalyse-Verfahren verstehen}
 \subsubsection*{Bestimmung / Messung von Risiken}
 
 Zugrunde liegende Grössen:
@@ -1724,19 +1758,18 @@ Zugrunde liegende Grössen:
     \item \textbf{Schadensausmass}
 \end{itemize}
 
-\index{Risiko Berechnung}
-\paragraph*{Risiko = Eintretenshäufigkeit * Schadensausmass}
+\paragraph*{Risiko = Eintretenshäufigkeit * Schadensausmass}\index{Risiko Berechnung}
 
 \subsubsection*{Quantitative vs. qualitative Risiko-Analyse}
-\index{quantitative vs. qualitative Risikoanalyse}
-\paragraph*{Quantitative Risikoanalyse:}
+\index{Quantitative vs. qualitative Risikoanalyse}
+\paragraph*{Quantitative Risikoanalyse}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die an der Risikoanalyse beteiligten Grössen sollen numerisch exakt berechnet werden.
     \item Der monetäre Wert von Assets muss genau bekann sein.
     \item Die Eintrittshäufigkeit muss genau eingeschätzt werden (für Naturkatastrophen gibt es Tabellen, für andere Szenarien ist eine solche Schätzung oft sehr schwierig)
 \end{itemize}
 
-\paragraph*{Qualitative Risikoanalyse:}
+\paragraph*{Qualitative Risikoanalyse}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die an der Risikoanalyse beteiligten Grössen werden anhand einer mehrstufigen Skala nur eingeschätzt, z.B. Schadensausmass '4' auf einer 5-stufigen Skala.
 \end{itemize}
@@ -1752,7 +1785,7 @@ Zugrunde liegende Grössen:
 
 \pagebreak
 \subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16 \cite{iso27005}}
-\index{Risiken nach ISO 27005}
+\index{Risiken nach ISO 27005}\index{ISO Standards!ISO 27005}
 \begin{multicols}{2}
 [\paragraph*{Phisical damage:}]
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -1868,6 +1901,7 @@ Zugrunde liegende Grössen:
 \end{itemize}
 \end{multicols}
 
+
 \pagebreak
 \subsubsection*{Qualitative Risikoanalyse: Definition Schadensausmass} Es wird empfohlen, eine 3 bis 5-stufige Skale zu definieren, z.B.: \\
 \index{Schadensaussmass}
@@ -1906,11 +1940,9 @@ Zugrunde liegende Grössen:
 
 
 \subsection*{Eine einfache Risikoanalyse durchführen können}
-
 \subsubsection*{Definition Eintrittshäufigkeit nach Sicherheitshandbuch}
 \index{Eintrittshäufigkeit}
 Es wird empfohlen, eine 3 bis 5-stufige Skala zu definieren
-
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Sehr selten}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -1960,17 +1992,15 @@ Es wird empfohlen, eine 3 bis 5-stufige Skala zu definieren
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/Risikobewältigung2.png}
-    \caption{Risk-Map2}
+    \caption{Risk-Map, Umgang mit Risiken}
     \label{Risk-Map2}
     \end{center}
 \end{figure}
 
-\subsubsection*{Umgang mit Risiken / Risikobewältigung }
-\index{Risikobewältigung}
-\index{Restrisiken}
+\subsubsection*{Umgang mit Risiken / Risikobewältigung }\index{Risikobewältigung}\index{Restrisiken}\index{Mitigation (Verminderung)}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Risiken vermeiden:}\\Anpassen oder aufgeben von Geschäftsprozessen, sodass die Risiken nicht mehr vorhanden sind.
-    \item \textbf{Risiken vermindern:}\\Mit geeigneten Sicherheitsmassnahmen das Schadensausmass oder die Eintrittshäufigkeit reduzieren.
+    \item \textbf{Risiken vermindern (Mitigation):}\\Mit geeigneten Sicherheitsmassnahmen das Schadensausmass oder die Eintrittshäufigkeit reduzieren.
     \item \textbf{Risiken übertragen (transferieren):}\\Überwälzung finanzieller Schäden auf Versicherungen, Outsourcer doer Benutzer einers Service.
     \item \textbf{Risiken tragen:}\\Akzeptieren von Risiken (Restrisiken)
 \end{itemize}
@@ -2017,7 +2047,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Context Establishment:}\\Gegenstand, Zweck, Absichten,
+    \item \textbf{Context Establishment}\index{Risiko-Management-Prozess!Context Establishment}\\Gegenstand, Zweck, Absichten,
     Ziele, Fokus und relevante Einflüsse, Randbedingungen und
     Abgrenzungen aus externer und interner Sicht festlegen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2034,7 +2064,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
         \item Akzeptanzkriterien (z.B. Akzeptanzlinie)
         \item Dokumentationsvorgaben
     \end{itemize}
-    \item \textbf{Risk Identification:}\\Objekte, Bedrohungen,
+    \item \textbf{Risk Identification}\index{Risiko-Management-Prozess!Ristk Identification}\\Objekte, Bedrohungen,
     Schwachstellen und bereits existierende Massnahmen
     erfassen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2043,7 +2073,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
         \item Identifikation der vorhandenen Vulnerabilities (Schwachstellen)
         \item Relevante Kausalketten (Ursachen/Wirkungen und Konsequenzen) zusammenstellen
     \end{itemize}
-    \item \textbf{Risk Estimation:}\\Häufigkeit und Schadensausmass
+    \item \textbf{Risk Estimation}\index{Risiko-Management-Prozess!Risk Estimation}\\Häufigkeit und Schadensausmass
     einschätzen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item \textbf{Teil-Analysen:}
@@ -2054,7 +2084,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
         \item Qualitative oder quantitative Risiko-Analyse
         \item Semi-quantitative Analyse
     \end{itemize}
-    \item \textbf{Risk Evaluation:}\\Bewertung der identifizierten Risiken im
+    \item \textbf{Risk Evaluation}\index{Risiko-Management-Prozess!Rist Evaluation}\\Bewertung der identifizierten Risiken im
     definierten Kontext (Bsp. zeitl. Prioritäten für die
     Umsetzung von Massnahmen; Reduktion Häufigkeit oder
     Schadensausmass?; Abwägung Risiken/Chancen etc.)
@@ -2067,10 +2097,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
         \item Risiken mit Attributen versehen: z.B. „wichtig“, „dringlich“ oder „beobachten“
         \item Entscheid über allenfalls notwendige Nachbesserung der Assessment-Ergebnisse
     \end{itemize}
-    \item \textbf{Risk Treatment:}\\Definition, Konzeption, Planung und
-    Umsetzung von Massnahmen aufgrund der bei der
-    Risk Evaluation definierten Anforderungen (Varianten:
-    vermeiden, vermindern, transferieren, tragen)
+    \item \textbf{Risk Treatment}\index{Risiko-Management-Prozess!Risk Treatment}\\Definition, Konzeption, Planung und Umsetzung von Massnahmen aufgrund der bei der Risk Evaluation definierten Anforderungen (Varianten: vermeiden, vermindern, transferieren, tragen)
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Berücksichtigung Anforderungen an Massnahmen
         \item Auswahl von Massnahmen mit Hilfe von ISO/IEC 27002
@@ -2084,17 +2111,14 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
         \item Kosten-/Nutzen-Untersuchungen
         \item Umsetzungsplan
     \end{itemize}
-    \item \textbf{Risk Acceptance:}\\Formaler Akzept des Risk
-    Treatment Plans sowie der Restrisiko-Einschätzung
-    durch das zuständige Management
+    \item \textbf{Risk Acceptance}\index{Risiko-Management-Prozess!Risk Acceptance}\\Formaler Akzept des Risk Treatment Plans sowie der Restrisiko-Einschätzung durch das zuständige Management
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Bewältigungsplan (mit Verantwortlichkeiten und Terminen) sowie Restrisiko-Einschätzung müssen durch das zuständige Management formal akzeptiert sein
         \item Restrisiken, die nach der Bewältigung die Akzeptanz-Kriterien nicht erfüllen, müssen schriftlich begründet und durch das zuständige Management schriftlich zur Kenntnis genommen und akzeptiert werden.
         \item Massnahmen-Überwachung, -Überprüfung Erneute Risiko-Einschätzung und –Bewertung aufgrund veränderter Situation
         \item Wiederholung im Rahmen eines jährlichen Risikoberichts (z.B. synchron zum rollierenden Strategieprozess)
     \end{itemize}
-    \item \textbf{Risk Communication:}\\Information der direkt
-    Beteiligten und der Betroffenen in jedem Teilprozess
+    \item \textbf{Risk Communication}\index{Risiko-Management-Prozess!Risk Communication}\\Information der direkt Beteiligten und der Betroffenen in jedem Teilprozess
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Kommunikation mit Beteiligten und Betroffenen (z.B. Anspruchsgruppen)
         \item angemessene Kommunikation unter Fachpersonen, Experten, Entscheidungsträgern und Anspruchsgruppen
@@ -2103,8 +2127,9 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
         \item Einsatz „stark strukturierter“ Kommunikationsformen
         \item Kommunikations-Konzept für Risiko-Kommunikation im Normalbetrieb, für risikorelevante Ereignisse und in Notfallsituationen
     \end{itemize}
-    \item \textbf{Risk Monitoring and Review:}\\Prozess und RisikoSituation bezüglich allfälliger Veränderungen
-    überwachen
+
+    \pagebreak
+    \item \textbf{Risk Monitoring and Review}\index{Risiko-Management-Prozess!Risk Monitoring and Review}\\Prozess und RisikoSituation bezüglich allfälliger Veränderungen überwachen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Prozess und Risiko-Situation überwachen (z.B. Überwachung Änderungs-Prozesse, Entwicklungsprozesse und Betriebsprozesse)
         \item Überwachung mit Risiko-Indikatoren und mit Frühwarnsystem
@@ -2119,22 +2144,11 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \paragraph*{Kriterien für die Prozesswiederholung:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Externer Trigger:}\\Sich ändernde
-    Umgebungsbedingungen; inakzeptable Restrisiken
-    aufgrund ungenügend realisierter Massnahmen; neue
-    regulatorische Anforderungen
-    \item \textbf{Periodische Durchführung:}\\Synchron mit anderen
-    Management-Prozessen (z. B. Strategieprozess)
+    Umgebungsbedingungen; inakzeptable Restrisiken aufgrund ungenügend realisierter Massnahmen; neue regulatorische Anforderungen
+    \item \textbf{Periodische Durchführung:}\\Synchron mit anderen Management-Prozessen (z. B. Strategieprozess)
 \end{itemize}
 
 \subsubsection*{Verfahren für den Umgang mit Risiken}
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf.png}
-    \caption{Schutzbedarf}
-    \label{Schutzbedarf}
-    \end{center}
-\end{figure}
-
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Grundschutz (z.B. gemäss BSI)
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2153,6 +2167,14 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=8cm]{images/Schutzbedarf.png}
+    \caption{Schutzbedarf}
+    \label{Schutzbedarf}
+    \end{center}
+\end{figure}
+
 
 \subsubsection*{Kombinierter Ansatz: Grundschutz und Risikoanalyse}
 \index{Kombinierter Ansatz}
@@ -2165,7 +2187,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 
 \subsubsection*{BSI-Standard 200-3: Risikoanalyse auf Basis von IT-Grundschutz}
-\index{BSI-Standards!BSI 200-3}
+\index{BSI Standards!BSI 200-3}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/BSI200-3.png}
@@ -2175,7 +2197,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 
 \subsubsection*{IT-Grundschutz-Kataloge}
-\index{Grundschutz - IT Grunschutz}
+\index{Grundschutz!IT-Grundschutz}
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=8cm]{images/IT-Grundschutz-Kataloge.png}
@@ -2186,19 +2208,13 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 
 
 \subsection*{Die Unterschiede zum Grundschutzverfahren kennen}
-\paragraph*{Bemerkungen zu den IT-Grundschutz-Katalogen}
+\paragraph*{Bemerkungen zu den IT-Grundschutz-Katalogen}\index{Grundschutz!IT-Grundschutz}\index{Grundschutz!Kataloge}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Die Beschreibung der Gefährdungen dient lediglich
-    der Sensibilisierung und der Begründung von
-    Massnahmen und hat im Grundschutz-Vorgehen keine
-    weitere Funktion!
-    \item Das BSI macht keine Unterscheidung zwischen
-    Gefahren und Schwachstellen!
-    \item Die Inhalte haben Empfehlungscharakter und sind
-    keine 'Gesetze'!
+    \item Die Beschreibung der Gefährdungen dient lediglich der Sensibilisierung und der Begründung von Massnahmen und hat im Grundschutz-Vorgehen keine weitere Funktion!
+    \item Das BSI macht keine Unterscheidung zwischen Gefahren und Schwachstellen!
+    \item Die Inhalte haben Empfehlungscharakter und sind keine 'Gesetze'!
     \item Es gibt keine Garantie auf Vollständigkeit!
-    \item IT-Grundschutz-Massnahmen müssen gegebenenfalls
-    individuell angepasst und angewendet werden!
+    \item IT-Grundschutz-Massnahmen müssen gegebenenfalls individuell angepasst und angewendet werden!
 \end{itemize}
 
 \subsection*{Sie verstehen die Idee, die Ziele und die Konzepte des IT-Grundschutz-Vorgehens}
@@ -2215,13 +2231,9 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 
 \paragraph*{Grundregeln beim Vorgehen nach IT-Gruzndschutz}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Die Initiative für IT-Sicherheit geht vom Management
-    aus
-    \item Die Verantwortung für IT-Sicherheit liegt beim
-    Management
-    \item Nur wenn sich das Management um
-    Informationssicherheit bemüht, wird die Aufgabe auch
-    wahrgenommen
+    \item Die Initiative für IT-Sicherheit geht vom Management aus
+    \item Die Verantwortung für IT-Sicherheit liegt beim Management
+    \item Nur wenn sich das Management um Informationssicherheit bemüht, wird die Aufgabe auch wahrgenommen
 \end{itemize}
 
 \paragraph*{Erstellung eines IT-Sicherheitskonzepts} Der blau hinterlegte Bereich beschreibt diejenigen Schritte, welche notwendig sind, um einen IT-Grundschutz zu etablieren. Als Resultat des erstellten IT-Grundschutzes liegt ein Sicherheitskonzept vor.
@@ -2239,34 +2251,25 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \item Standardbasierend
     \item Vollständigkeit der \textbf{Massnahmenpakete}
     \item Keine detaillierte Risikoanalyse notwendig
-    \item Gleichmässiger, umfassender Schutz auf
-    allen Objekten
+    \item Gleichmässiger, umfassender Schutz auf allen Objekten
     \item Einfach und schnell anwendbar
-    \item Definierte Basis für weitergehende
-    Schutzmassnahmen (ergänzende
-    Sicherheitsanalyse)
+    \item Definierte Basis für weitergehende Schutzmassnahmen (ergänzende Sicherheitsanalyse)
 \end{itemize}
 
 \paragraph*{Achtung beim IT-Grundschutz!!}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Ungenügender Schutz bei erhöhten Risiken
-    oder besonderem Schutzbedarf
-    \item Mögliche Einschränkung der Funktionalität
-    durch Überschutz
+    \item Ungenügender Schutz bei erhöhten Risiken oder besonderem Schutzbedarf
+    \item Mögliche Einschränkung der Funktionalität durch Überschutz
     \item Begründung von Massnahmen schwierig
-    \item Je nach Detaillierungsgrad, Anspruch an
-    Aktualität und Vollständigkeit des
-    Massnahmenkataloges aufwändig
-    \item Vorteile des Grundschutzvorgehens nicht
-    durch administrativen 'Overkill' zunichte
-    machen
+    \item Je nach Detaillierungsgrad, Anspruch an Aktualität und Vollständigkeit des Massnahmenkataloges aufwändig
+    \item Vorteile des Grundschutzvorgehens nicht durch administrativen `Overkill' zunichte machen
 \end{itemize}
 
 \subsubsection*{Kreuzreferenztabellen}
 \index{Kreuzreferenztabellen}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Kreuzreferenztabellen.png}
+    \includegraphics[width=12cm]{images/Kreuzreferenztabellen.png}
     \caption{Kreuzreferenztabellen}
     \label{Kreuzreferenztabellen}
     \end{center}
@@ -2284,15 +2287,16 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{itemize}
     \item Wichtig:
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Anzahl 'X' ist kein Mass für die Wichtigkeit einer Massnahme
+        \item Anzahl `X' ist kein Mass für die Wichtigkeit einer Massnahme
         \item Nur die wichtigsten Gefährdungen sind aufgeführt
     \end{itemize}
 \end{itemize}
 
 
 %wenn möglich neue Seite
+\pagebreak %the monkey paw has granted your wish, but you will cut with a probability of 3.14159% between your fingers, as soon as you touch a sheet of paper
 \subsection*{Sie können die Teilschritte zum Aufbau eines Sicherheitskonzeptes nach IT-Grundschutz durchführen, kombinierte Risikoanalyse}
-
+\index{Grundschutz!Teilschritte}
 \subsubsection*{IT-Strukturanalyse}
 \index{Strukturanalyse}
 \begin{figure}[H]
@@ -2304,58 +2308,43 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 
 \paragraph*{IT-Strukturanalyse - Erhebung Netzwerkplan}
-
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Netzwerkplan |\textsl{aktualisieren}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Netzwerkpläne sind meist nicht auf dem
-        aktuellsten Stand
-        \item Entsprechende Informationen beschaffen bei
-        IT-Verantwortlichen, Administratoren resp.
-        Netz- und Systemmanagement
+        \item Netzwerkpläne sind meist nicht auf dem aktuellsten Stand
+        \item Entsprechende Informationen beschaffen bei IT-Verantwortlichen, Administratoren resp. Netz- und Systemmanagement
     \end{itemize}
     \item Netwerkplan \textsl{auserten}
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item  Welche IT-Systeme gibt es? (Clients, Server,
-        Netzwerk-Komponenten etc.)
+        \item  Welche IT-Systeme gibt es? (Clients, Server, Netzwerk-Komponenten etc.)
         \item Welche Verbindungen zw. diesen Systemen?
-        \item Welche Verbindungen nach aussen (Einwahl,
-        Internet, VPN etc.)
+        \item Welche Verbindungen nach aussen (Einwahl, Internet, VPN etc.)
     \end{itemize}
 \end{itemize}
 
 \paragraph*{IT-Strukturanalyse - Komplexitätsreduktion}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Gleichartige Komponenten zu Gruppen
-    zusammenfassen
+    \item Gleichartige Komponenten zu Gruppen zusammenfassen
     \item Mögliche Gruppierungskriterien
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Systeme von gleichem Typ
         \item Systeme mit gleicher oder nahezu gleicher Konfiguration
-        \item Systeme mit gleicher oder nahezu gleicher
-        Netzwerkanbindung
-        \item Systeme mit gleichen administrativen und
-        infrastrukturellen Rahmenbedingungen
+        \item Systeme mit gleicher oder nahezu gleicher Netzwerkanbindung
+        \item Systeme mit gleichen administrativen und infrastrukturellen Rahmenbedingungen
         \item Systeme, welche für gleiche Aufgaben genutzt werden
         \item Systeme, welche den gleichen Schutzbedarf aufweisen
     \end{itemize}
-    \item Die bei der Komplexitätsreduktion entstandenen
-    Gruppen werden fortan wie einzelne Objekte
-    behandelt
-    \item Wichtig: Keine Komponenten mit zu
-    unterschiedlichem Schutzbedarf zusammen fassen,
-    Beispiele:
+    \item Die bei der Komplexitätsreduktion entstandenen Gruppen werden fortan wie einzelne Objekte behandelt
+    \item Wichtig: Keine Komponenten mit zu unterschiedlichem Schutzbedarf zusammen fassen, Beispiele:
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Clients der Geschäftsleitung nicht in Gruppe der
-        'normalen' Clients integrieren
-        \item Dito für Clients von Entwicklungsabteilung,
-        Personalabteilung, Buchhaltung und IT-Administration
+        \item Clients der Geschäftsleitung nicht in Gruppe der `normalen' Clients integrieren
+        \item Dito für Clients von Entwicklungsabteilung, Personalabteilung, Buchhaltung und IT-Administration
         \item Sie alle haben einen erhöhten Schutzbedarf
     \end{itemize}
 \end{itemize}
 
-\paragraph*{}Beispiel für das Resultat einer Komplexitätsreduktion (Gruppen gleichartiger Komponenten)
 \begin{figure}[H]
+Beispiel für das Resultat einer Komplexitätsreduktion (Gruppen gleichartiger Komponenten)
     \begin{center}
     \includegraphics[width=12cm]{images/Komplexitätsreduktion.png}
     \caption{Komplexitätsreduktion}
@@ -2374,11 +2363,8 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 
 \paragraph*{IT-Strukturanalyse - Zuordnung von Systemen und Anwendungen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Der Schutzbedarf eines IT-Systems hängt vom
-    Schutzbedarf der Anwendungen ab, welche es
-    unterstützt
-    \item IT-Systeme (Server, Clients) und Anwendungen
-    werden einander deshalb zugeordnet
+    \item Der Schutzbedarf eines IT-Systems hängt vom Schutzbedarf der Anwendungen ab, welche es unterstützt
+    \item IT-Systeme (Server, Clients) und Anwendungen werden einander deshalb zugeordnet
 \end{itemize}
 \begin{figure}[H]
     \begin{center}
@@ -2389,12 +2375,8 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Für den Schutzbedarf eines Systems ist diejenige
-    Anwendung mit den höchsten
-    Sicherheitsanforderungen (bezüglich Vertraulichkeit,
-    Integrität und Verfügbarkeit) relevant
-    \item Es gilt das sog. Maximumprinzip (vgl. zugehörige
-    Folien)
+    \item Für den Schutzbedarf eines Systems ist diejenige Anwendung mit den höchsten Sicherheitsanforderungen (bezüglich Vertraulichkeit, Integrität und Verfügbarkeit) relevant
+    \item Es gilt das sog. Maximumprinzip (vgl. zugehörigeFolien)
 \end{itemize}
 
 \subsubsection*{Schutzbedarfsfeststellung}
@@ -2413,28 +2395,20 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     betrachteten Informationsverbunds
     \item Zu beantwortende Fragen:
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Wie viel Schutz benötigen die identifizierten
-        Objekte?
-        \item Wie kommt man zu einer begründeten und
-        nachvollziehbaren Einschätzung des
-        Schutzbedarfs?
-        \item Welche Objekte haben einen erhöhten
-        Schutzbedarf?
+        \item Wie viel Schutz benötigen die identifizierten Objekte?
+        \item Wie kommt man zu einer begründeten und nachvollziehbaren Einschätzung des Schutzbedarfs?
+        \item Welche Objekte haben einen erhöhten Schutzbedarf?
     \end{itemize}
 \end{itemize}
 
 \begin{multicols}{2}[\paragraph*{Schutzbedarfsfeststellung–Vorgehen}]
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Definition der Schutzbedarfskategorien
-    entsprechend der Besonderheiten der
-    Organisation (sog. Individualisierung)
+    \item Definition der Schutzbedarfskategorien entsprechend der Besonderheiten der Organisation (sog. Individualisierung)
     \item Schutzbedarfsfeststellung
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item von IT-Anwendungen und Daten
         \item davon abgeleitet von IT-Systemen
-        \item davon abgeleitet von
-        Kommunikationsverbindungen und
-        IT-Räumen
+        \item davon abgeleitet von Kommunikationsverbindungen und IT-Räumen
     \end{itemize}
     \item Dokumentation und Interpretation der Ergebnisse
 \end{itemize}\vspace*{\fill}
@@ -2448,10 +2422,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
 \end{figure}
 \end{multicols}
 
-
-
-\paragraph*{Schutzbedarfsfeststellung – Schutzbedarfskategorien} Die IT-Grundschutz-Vorgehensweise empfiehlt drei Schutzbedarfskategorien anhand der maximalen
-Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und der Verfügbarkeit:
+\paragraph*{Schutzbedarfsfeststellung – Schutzbedarfskategorien} Die IT-Grundschutz-Vorgehensweise empfiehlt drei Schutzbedarfskategorien anhand der maximalen Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und der Verfügbarkeit:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item \textbf{Normal / Niedrig bis mittel}\\Begrenzte und überschaubare Schäden
     \item \textbf{Hoch}\\Beträchtliche Schäden möglich
@@ -2461,16 +2432,11 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 
 \paragraph*{Schutzbedarfsfeststellung – Individualisierung der Kategorien}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Die Definition der Auswirkungen von
-    Schadensereignissen einer bestimmten Kategorie
-    muss die individuellen Eigenschaften resp.
-    Besonderheiten der Organisation berücksichtigen
-    \item Folgende typischen Schadszenarien können der
-    Definition zu Grunde gelegt werden
+    \item Die Definition der Auswirkungen von Schadensereignissen einer bestimmten Kategorie muss die individuellen Eigenschaften resp. Besonderheiten der Organisation berücksichtigen
+    \item Folgende typischen Schadszenarien können der Definition zu Grunde gelegt werden
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Verstoss gegen Gesetze/Vorschriften/Verträge
-        \item Beeinträchtigung des informationellen
-        Selbstbestimmungsrechts
+        \item Beeinträchtigung des informationellen Selbstbestimmungsrechts
         \item Beeinträchtigung der persönlichen Unversehrtheit
         \item Beeinträchtigung der Aufgabenerfüllung
         \item Negative Aussenwirkung (Imageschäden)
@@ -2478,30 +2444,9 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
     \end{itemize}
 \end{itemize}
 
-%\begin{figure}[H]
-%    \begin{center}
-%    \includegraphics[width=8cm]{images/Schutzbedarf_ex1.png}
-%    \caption{Schutzbedarfkategorie niedrig bis mittel}
-%    \label{Schutzbedarfkategorie Ex.1}
-%    \end{center}
-%\end{figure}
-%\begin{figure}[H]
-%    \begin{center}
-%    \includegraphics[width=8cm]{images/Schutzbedarf_ex2.png}
-%    \caption{Schutzbedarfkategorie hoch}
-%    \label{Schutzbedarfkategorie Ex.2}
-%    \end{center}
-%\end{figure}
-%\begin{figure}[H]
-%    \begin{center}
-%    \includegraphics[width=8cm]{images/Schutzbedarf_ex3.png}
-%    \caption{Schutzbedarfkategorie sehr hoch}
-%    \label{Schutzbedarfkategorie Ex.3}
-%    \end{center}
-%\end{figure}
 
-\subsubsection*{Schutzbedarfsfeststellung – Abhängigkeiten / Vererbung von Schutzbedarf}
 \begin{figure}[H]
+\subsubsection*{Schutzbedarfsfeststellung – Abhängigkeiten / Vererbung von Schutzbedarf}
     \begin{center}
     \includegraphics[width=5.5cm]{images/Vererbung Schutzbedarf.png}
     \caption{Vererbung Schutzbedarf}
@@ -2509,44 +2454,31 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
     \end{center}
 \end{figure}
 
+\begin{figure}[H]
 \subsubsection*{Schutzbedarfsfeststellung – Maximumprinzip}
 \index{Maximumprinzip}
-\begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/Schutzbedarf - Maximumprinzip.png}
+    \includegraphics[width=9cm]{images/Schutzbedarf - Maximumprinzip.png}
     \caption{Schutzbedarf - Maximumprinzip}
     \label{Schutzbedarf - Maximumprinzip}
     \end{center}
 \end{figure}
 
+\pagebreak
 \paragraph*{Schutzbedarfsfeststellung – Regeln}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item \textbf{Maximumprinzip}\\
-    Höchster Schutzbedarf der Anwendungen, welche ein
-    System nutzen, gilt für das System
-    \item \textbf{Kumulationseffekt}
-    System hat höheren Schutzbedarf als die zugeordneten
-    Anwendungen (höherer Schaden aufgrund von
-    gleichzeitigem Ausfall von mehreren Anwendungen)
-    \item \textbf{Verteilungseffekt}
-    System hat niedrigeren Schutzbedarf als die zugeordnete
-    Anwendung (Anwendung ist auf mehrere Systeme verteilt;
-    auf dem betrachteten System laufen nur weniger wichtige
-    Teile davon)
+    \item \textbf{Maximumprinzip}\\Höchster Schutzbedarf der Anwendungen, welche ein System nutzen, gilt für das System
+    \item \textbf{Kumulationseffekt}\\System hat höheren Schutzbedarf als die zugeordneten Anwendungen (höherer Schaden aufgrund von gleichzeitigem Ausfall von mehreren Anwendungen)
+    \item \textbf{Verteilungseffekt}\\System hat niedrigeren Schutzbedarf als die zugeordnete Anwendung (Anwendung ist auf mehrere Systeme verteilt; auf dem betrachteten System laufen nur weniger wichtige Teile davon)
 \end{itemize}
 
 \paragraph*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Anwendungen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Für alle IT-Anwendungen muss der Schutzbedarf für die
-    drei Grundwerte Vertraulichkeit, Verfügbarkeit und
-    Integrität bestimmt werden
+    \item Für alle IT-Anwendungen muss der Schutzbedarf für die drei Grundwerte Vertraulichkeit, Verfügbarkeit und Integrität bestimmt werden
     \item Grundlage: Schutzbedarf der verarbeiteten Daten
     \item Hilfsmittel: Die definierten Schadensszenarien
-    \item Die Szenarien müssen dabei aus der Sicht der Nutzer der
-    IT-Anwendungen betrachtet werden \textgreater 'Was wäre,
-    wenn...'-Fragen stellen
-    \item Die evaluierten Schutzbedarfskategorien müssen begründet
-    und dokumentiert werden (auch für die GL verständlich!)
+    \item Die Szenarien müssen dabei aus der Sicht der Nutzer der IT-Anwendungen betrachtet werden\\ $\Rightarrow$ `Was wäre, wenn...'-Fragen stellen
+    \item Die evaluierten Schutzbedarfskategorien müssen begründet und dokumentiert werden (auch für die GL verständlich!)
 \end{itemize}
 
 \subsubsection*{Schutzbedarfsfeststellung – Schutzbedarf von IT-Anwendungen}
@@ -2568,16 +2500,11 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
     \end{center}
 \end{figure}
 
+\pagebreak
 \paragraph*{Schutzbedarfsfeststellung – IT-Räume}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Vererbung und Maximumprinzip berücksichtigen:
-    Schutzbedarf bemisst sich am Schutzbedarf der ITSysteme und der Informationen, welche im IT-Raum
-    gelagert und verarbeitet werden
-    \item Evtl. müssen Kummulationseffekte berücksichtigt
-    werden: Höherer Schutzbedarf als für die einzelnen
-    Objekte im Raum, z. B. bei gespiegelten
-    (redundanten) Servern mit normalen
-    Verfügbarkeitsanforderungen (Erklärung?)
+    \item Vererbung und Maximumprinzip berücksichtigen: Schutzbedarf bemisst sich am Schutzbedarf der ITSysteme und der Informationen, welche im IT-Raum gelagert und verarbeitet werden
+    \item Evtl. müssen Kummulationseffekte berücksichtigt werden: Höherer Schutzbedarf als für die einzelnen Objekte im Raum, z. B. bei gespiegelten (redundanten) Servern mit normalen Verfügbarkeitsanforderungen (Erklärung?)
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Antwort: Zwei redundante Server im gleichen Raum erhöhen den Schutzbedarf des Raums, da beim Ausfall des Raums das redundante System als Ganzes nicht mehr verfügbar ist.
     \end{itemize}
@@ -2585,7 +2512,7 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=10cm]{images/Schutzbedarf IT-Räume.png}
+    \includegraphics[width=12cm]{images/Schutzbedarf IT-Räume.png}
     \caption{Schutzbedarf IT-Räume}
     \label{Schutzbedarf IT-Räume}
     \end{center}
@@ -2595,39 +2522,31 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Folgende Verbindungen sind als kritisch einzustufen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Verbindungen in ein öffentliches Netz (Internet,
-        Telefonnetz etc.) oder über öffentlichen Grund
-        \item Verbindungen, über die besonders schützenswerte
-        Informationen übertragen werden
-        \item Verbindungen, über die vertrauliche Informationen nicht
-        übertragen werden dürfen
+        \item Verbindungen in ein öffentliches Netz (Internet, Telefonnetz etc.) oder über öffentlichen Grund
+        \item Verbindungen, über die besonders schützenswerte Informationen übertragen werden
+        \item Verbindungen, über die vertrauliche Informationen nicht übertragen werden dürfen
     \end{itemize}
-    \item Der Schutzbedarf der übertragenen Informationen
-    leitet sich vom Schutzbedarf der miteinander
-    verbundenen IT-Systeme ab
+    \item Der Schutzbedarf der übertragenen Informationen leitet sich vom Schutzbedarf der miteinander verbundenen IT-Systeme ab
 \end{itemize}
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=11cm]{images/Schutzbedarf Kommunikationsverbindungen.png}
+    \includegraphics[width=12cm]{images/Schutzbedarf Kommunikationsverbindungen.png}
     \caption{Schutzbedarf Kommunikationsverbindungen}
     \label{Schutzbedarf Kommunikationsverbindungen}
     \end{center}
 \end{figure}
 
 \paragraph*{Schutzbedarfsfeststellung – Interpretation der Ergebnisse}
-
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Schutzbedarfskategorien:
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item \textbf{Normal / Niedrig bis mittel}\\
         Standard-Sicherheitsmassnahmen
         \item \textbf{Hoch}\\
-        Standard-Sicherheitsmassnahmen + evtl. ergänzende
-        Sicherheitsanalyse
+        Standard-Sicherheitsmassnahmen + evtl. ergänzende Sicherheitsanalyse
         \item \textbf{Sehr hoch}\\
-        Standard-Sicherheitsmassnahmen + zwingend
-        ergänzende Sicherheitsanalyse
+        Standard-Sicherheitsmassnahmen + zwingend ergänzende Sicherheitsanalyse
     \end{itemize}
 \end{itemize}
 
@@ -2642,8 +2561,7 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 \end{figure}
 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Nachbilden des erhobenen IT-Verbunds mit
-    Hilfe der vorgegebenen IT-GrundschutzBausteine
+    \item Nachbilden des erhobenen IT-Verbunds mit Hilfe der vorgegebenen IT-GrundschutzBausteine
     \item Ergebnis: \textbf{IT-Grundschutz-Modell}
 \end{itemize}
 
@@ -2656,32 +2574,21 @@ Schäden und Folgeschäden bei Verlust der Vertraulichkeit, der Integrität und 
 \end{figure}
 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Die Modellierung erfolgt entsprechend
-    dem Schichtenmodell der IT-GrundschutzBausteine (Total 85 Bausteine)
-    \item Schichtweise werden diejenigen Bausteine
-    ausgewählt, welche für die Sicherheit des ITVerbunds notwendig sind
-    \item Ausgewählte Bausteine werden dem jeweiligen
-    Zielobjekt (IT-Systeme, Räume etc.) zugeordnet
-    \item Bei Bedarf können Bausteine im Rahmen der
-    Modellierung modifiziert werden (z. B. Ergänzung um
-    zusätzliche Massnahmen oder Konkretisierung von
-    technischen Details)
+    \item Die Modellierung erfolgt entsprechend dem Schichtenmodell der IT-GrundschutzBausteine (Total 85 Bausteine)
+    \item Schichtweise werden diejenigen Bausteine ausgewählt, welche für die Sicherheit des ITVerbunds notwendig sind
+    \item Ausgewählte Bausteine werden dem jeweiligen Zielobjekt (IT-Systeme, Räume etc.) zugeordnet
+    \item Bei Bedarf können Bausteine im Rahmen der Modellierung modifiziert werden (z. B. Ergänzung um zusätzliche Massnahmen oder Konkretisierung von technischen Details)
 \end{itemize}
 
-\paragraph*{}Wichtig: Abschliessende Prüfung auf Vollständigkeit
-durchführen
+\paragraph*{Wichtig:}Abschliessende Prüfung auf Vollständigkeit durchführen
 
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Alle übergreifenden Aspekte berücksichtigt?
-    \item Alle Gebäude, Räume, Schutzschränke inkl. Verkabelung
-    im Hinblick auf infrastrukturelle Sicherheit
-    berücksichtigt?
+    \item Alle Gebäude, Räume, Schutzschränke inkl. Verkabelung im Hinblick auf infrastrukturelle Sicherheit berücksichtigt?
     \item Alle IT-Systeme einbezogen?
-    \item Alle netzwerktechnischen Sicherheitsaspekte
-    berücksichtigt?
+    \item Alle netzwerktechnischen Sicherheitsaspekte berücksichtigt?
     \item Alle Anwendungen berücksichtigt?
-    \item Alle Objekte ohne unmittelbar passenden Baustein durch
-    andere Bausteine angemessen modelliert?
+    \item Alle Objekte ohne unmittelbar passenden Baustein durch andere Bausteine angemessen modelliert?
 \end{itemize}
 
 \begin{figure}[H]
@@ -2692,18 +2599,15 @@ durchführen
     \end{center}
 \end{figure}
 
-\paragraph*{IT-Grundschutzanalyse – Basis-Sicherheitscheck} Der Basis-Sicherheitscheck soll folgende
-Fragen beantworten:
+\paragraph*{IT-Grundschutzanalyse – Basis-Sicherheitscheck} Der Basis-Sicherheitscheck soll folgende Fragen beantworten:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Sind meine Informationen hinreichend
-    geschützt?
+    \item Sind meine Informationen hinreichend geschützt?
     \item Was bleibt noch zu tun?
 \end{itemize}
 \noindent
 Vorgehen:
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Bereits umgesetzte Massnahmen mit den
-    Empfehlungen der IT-Grundschutz-Kataloge vergleichen
+    \item Bereits umgesetzte Massnahmen mit den Empfehlungen der IT-Grundschutz-Kataloge vergleichen
 \end{itemize}
 
 \begin{figure}[H]
@@ -2726,13 +2630,10 @@ Vorgehen:
 \paragraph*{Organisatorische Vorarbeiten:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Vorhandene Dokumente sichten
-    \item Beizug externer Stellen klären/organisieren (Provider,
-    Outsourcing-Partner etc.)
-    \item Ermittlung der Interviewpartner (entsprechend
-    Schichtenmodell)
+    \item Beizug externer Stellen klären/organisieren (Provider, Outsourcing-Partner etc.)
+    \item Ermittlung der Interviewpartner (entsprechend Schichtenmodell)
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-        \item Übergeordnete Aspekte: Personalabteilung,
-        konzeptionell Verantwortliche etc.
+        \item Übergeordnete Aspekte: Personalabteilung, konzeptionell Verantwortliche etc.
         \item Infrastruktur: Haustechnik, evtl. Externe
         \item IT-Systeme / Netze: System- / Netzadministratoren
         \item IT-Anwendungen: Anwendungsverantwortliche
@@ -2742,8 +2643,7 @@ Vorgehen:
 
 \paragraph*{Soll-Ist-Vergleich:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Erheben des Umsetzungsstatus der einzelnen
-    Massnahmen mithilfe der Interviews
+    \item Erheben des Umsetzungsstatus der einzelnen Massnahmen mithilfe der Interviews
     \item Mögliche Umsetzungsstati
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item \textbf{Entbehrlich:}\\benötigt immer eine Begründung!
@@ -2830,7 +2730,6 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \end{itemize}
 
 \paragraph*{Beispiel eines Realisierungsplans}
-
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=10cm]{images/Beispiel eines Realisierungsplans.png}
@@ -2848,8 +2747,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
-
-
+\pagebreak
 \section{Awareness}
 \subsection*{Sie verstehen die Wichtigkeit der "`Awareness"'}\index{Awareness}
 \paragraph*{Bedeutung}In Verbindung mit der IT: Sich bewusst sein, wie Wertvoll Informationen sind und welches Ausmass es haben kann, wenn diese an Unbefugte gelangen. Wie z.B. Passwörter für den Fernzugriff auf die wichtigsten Servern.
@@ -2869,7 +2767,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=13cm]{images/Prozess_der_Verhaltensänderung.png}
+    \includegraphics[width=12cm]{images/Prozess_der_Verhaltensänderung.png}
     \caption{Prozess der Verhaltensänderung}
     \label{Prozess der Verhaltensaenderung}
     \end{center}
@@ -2895,7 +2793,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
-\paragraph*{Umsetzung wie folgt} Basisausbildung, Kampagnen und flankierende Massnahmen
+\paragraph*{Umsetzung wie folgt:} Basisausbildung, Kampagnen und flankierende Massnahmen
 \paragraph*{Umgang mit Verstössen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Verletzungen der Vorschriften in der IT-Security können zu grossen Schäden führen
@@ -2906,10 +2804,11 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \end{itemize}
 
 \subsection*{Sie kennen die relevanten Erfolgsfaktoren der Mitarbeiter-Sensibilisierung und -Schulung und können diese in einer Kampagne umsetzen}
-\paragraph*{TODO}
+\paragraph*{TODO}\ \
 
 
 %%%%%%%%%%
+\pagebreak
 \part{Access Control (SW~10)}
 \section{Access Control}\index{Access Control}
 
@@ -2988,18 +2887,27 @@ Nachteil
 
 
 \subsection*{Sie wissen wie verschiedene Authentisierungstoken technisch funktionieren, was deren Vor- und Nachteile sind und wie sie beim Login oder bei der Transaktionsbestätigung im e-Banking eingesetzt werden}
-\paragraph*{Token}Bei einem Token, resp. Security-Token, handelt es sich um eine Hardwarekomponente zur Authentisierung von Usern, welche neben weiteren Sicherheitsmerkmalen wie PIN oder Passwort zur Anwendung kommt. \\ \\
-Vorteil
+\paragraph*{Token}Bei einem Token, resp. Security-Token, handelt es sich um eine Hardwarekomponente zur Authentisierung von Usern, welche neben weiteren Sicherheitsmerkmalen wie PIN oder Passwort zur Anwendung kommt.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=16cm]{images/token.png}
+    \caption{Verschiedene Varianten von Token und Authentisierungsmethoden}
+    \label{token}
+    \end{center}
+\end{figure}
+\paragraph*{Vorteil}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Mehr Sicherheit
     \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{para:One-Time Pad}}, Seite \pageref{para:One-Time Pad}} unmöglich zu verwenden
 \end{itemize}
-Nachteil
+\paragraph*{Nachteil}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Etwas zeitaufwändiger als nur ein Passwort
     \item Braucht Komponenten um zu funktionieren
 \end{itemize}
 
+\pagebreak
 \subsection*{Sie wissen was Authentisierung, Autorisierung ist, warum diese wichtig sind und wie Angriffe darauf ablaufen}
 \paragraph*{Begriffe}Bei der Zugriffskontrolle unterscheidet man drei Begriffe:
 
@@ -3045,7 +2953,7 @@ Nachteil
 \section{Cryptographic Protocols}
 \subsection*{Sie kennen einfache Beispiele von verteilten sicheren Berechnungen und verstehen wie die entsprechenden Protokolle ablaufen}
 \paragraph*{Beispiel}Eine Rechnung wird an alle Teilnehmenden aufgeteilt und jede Partei weiss nur ihren Teil (Polynom). Werte des eigenen Polynoms werden an die anderen Teilnehmer verteilt, ein Wert wird selbst behalten. Um das Resultat zu erhalten, müssen alle zusammen ihre Werte zusammenrechnen, diese Werte sind dann die Punkte auf dem Graph des Resultats.
-Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglich, das Resultat oder die Teile der anderen Parteien herauszufinden. Das System kann umgangen werden, wenn jemand eine nichterlaubte Rechnung macht oder die letzte Person die ihr Resultat teilt ihre Antwort so anpasst das das resultierende Polynom ihre gewünschte Antwort ergibt.
+Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglich, das Resultat oder die Teile der anderen Parteien herauszufinden. Das System kann umgangen werden, wenn jemand eine nichterlaubte Rechnung macht oder die letzte Person, die ihr Resultat teilt, ihre Antwort so anpasst, dass das resultierende Polynom ihre gewünschte Antwort ergibt.
 
 
 \section{Secret Sharing}
@@ -3100,6 +3008,7 @@ Cryptocurrency ermöglicht, wie Bitcoin, ein `vertrauenswürdiges' System von Tr
 \paragraph*{Wertsteigerung \& Deflationierung}
 Die meisten Kryptowährungen haben einen begrenzten Vorrat in ihrem Protokoll kodiert, wodurch ein System der Knappheit entsteht. Zum Beispiel hat Bitcoin ein maximales Angebot von 21 Millionen und sobald das Angebotslimit erreicht ist, wird keine neue Bitcoin mehr hinzugefügt. Dies macht die vorhandene Bitcoin, die im Umlauf ist, attraktiver und wertvoller als Vermögenswert. Wenn die Nachfrage nach Bitcoin wächst, bleibt das Angebot gleich, was dazu führt, dass der Wert von Bitcoin im Laufe der Zeit steigt und es somit deflationär wird. Benutzer von Kryptowährung müssen sich keine Sorgen über die Wertminderung ihrer Vermögenswerte machen (im Gegensatz zu Fiat-Währungen).
 
+\pagebreak
 \section{Zero-Knowledge-Proof}
 \subsection*{Sie wissen was Zero-Knowledge-Proofs sind und wie diese ablaufen}
 \paragraph*{Zero-Knowledge-Proof}\index{Zero-Knowledge-Proof}Das Zero-Knowledge-Proof ist eine Technik etwas zu beweisen, ohne den eigentlichen Inhalt preiszugeben.
@@ -3115,7 +3024,7 @@ Die meisten Kryptowährungen haben einen begrenzten Vorrat in ihrem Protokoll ko
         \item 1 Zeile
         \item 1 Spalte
         \item 1 kleines Quadrat, oder
-        \item alle vorgegebenen Zahlen
+        \item alle Start-Zahlen
     \end{itemize}
     \item Victor akzeptiert, falls er Paula nicht beim Schummeln erwischt
 \end{enumerate}
@@ -3125,7 +3034,7 @@ Die meisten Kryptowährungen haben einen begrenzten Vorrat in ihrem Protokoll ko
     \item Wenn Paula keine Lösung hat, kann sie mit einer Wahrscheinlichkeit von $\frac{27}{28}\thickapprox 96\%$ trotzdem durchkommen
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item $\Rightarrow$Wiederholen mit \textbf{neuer Permutation} bis Victor überzeugt ist, dass Paula die richtige Lösung hat
-        \item z.B. bei 150 Wiederholungen liegt die Wahrscheinlichkeit, dass Paula mit Schummeln durchkommt bei $(\frac{27}{28})^{150}<\textbf{0.5\%}$
+        \item z.B. bei 150 Wiederholungen liegt die Wahrscheinlichkeit, dass Paula mit Schummeln durchkommt bei $(\frac{27}{28})^{150}<\textbf{0.5\%}$\footnote{9 Zeilen+ 9 Spalten + 9 Quadrate + Start-Zahlen}
     \end{itemize}
     \item Victor lernt somit nichts über den Inhalt der Lösung, nur dass eine Lösung existiert und Paula sie kennt
 \end{itemize}
@@ -3140,6 +3049,7 @@ Die meisten Kryptowährungen haben einen begrenzten Vorrat in ihrem Protokoll ko
 \subsection*{Sie verstehen welchen Einfluss die Existenz eines Quantencomputers auf die Kryptographie hat}
 \paragraph*{Differenz}Quantencomputer sind gut in umkehren der vermeintlich sicheren Operationen. D.h. brute-forcing von symmetrischen Algorithmen wird einfacher.
 
+\pagebreak
 \subsection*{Sie verstehen wie Quantenschlüsselaustausch funktionert}
 \paragraph*{Quantenschlüsselaustausch mit BB84-Protokoll}\index{Quantenschlüsselaustausch}\index{BB84-Protokoll}
 Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt das Photon durch, wenn das Photon parallel (gerade) zum Filter steht. Gefiltert wird das Photon, falls es orthogonal (quer) zum Filter steht. Steht das Photon jedoch 45° zum Filter, besteht eine je eine 50\%-ige Chance, dass das Photon entweder parallel oder orthogonal zum Filter polarisiert wird. Dabei ist das Resultat, wie das Photon polarisiert wird, gemäss Quantenmechanik zufällig.
@@ -3156,14 +3066,14 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=14cm]{images/Qubit0.png}
+    \includegraphics[width=13cm]{images/Qubit0.png}
     \caption{Alice sendet Bob ein diagonal [$\diagup$] polarisiertes Photon mit Wert 1}
     \label{Qubit0}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=14cm]{images/Qubit1.png}
+    \includegraphics[width=13cm]{images/Qubit1.png}
     \caption{Bob empfängt Photon, zufälliger senkrechter Polfilter [\textbar]aber nicht dieselbe Richtung, nur Wert ist derselbe, da diagonales Photon zufällig in senkrechte Richtung gepolt wurde}
     \label{Qubit1}
     \end{center}
@@ -3192,6 +3102,7 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
 
 
 %%%%%%%%%%
+\pagebreak
 \part{WAF, Federations (SW~13)}
 \section{Firewalls}
 \subsection*{Sie wissen was die Aufgaben einer Firewall sind}
@@ -3221,15 +3132,15 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
 \end{itemize}
 
 
-\subsubsection*{Muss eine WAF Zugriff auf den 'private key' des Server-Zertifikats für eingehende SSL-Verbindungen haben? Warum?}
-\pagebreak
+\subsubsection*{Muss eine WAF Zugriff auf den `private key' des Server-Zertifikats für eingehende SSL-Verbindungen haben? Warum?}
+
 \subsubsection*{Diskutiern Sie gegen welche Angriffe URL-encryption' schützt.}
 \index{URL-Encryption}
 \paragraph*{Was ist URL-encryption?}Dynamisch verschlüsselte URLs (kombiniert mit kryptographisch geschützten HTML-Formularen) verhindern, dass jemand
 illegale Anfragen oder böswillige Benutzerdaten an den Anwendungsserver zu senden. Absolut keine internen Informationen über die Webanwendung werden potenziellen Angreifern offengelegt. Angreifer können die
 Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt sind.
 \\
-\textgreater Dynamic white-listing with URL encryption = positive security model
+$\Rightarrow$ Dynamic white-listing with URL encryption = positive security model
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die Webanwendung definiert die erlaubten Anfragen.
     \item Nur erlaubte URLs werden an den Applikationsserver weitergeleitet, alles andere wird blockiert.
@@ -3238,6 +3149,7 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
 
 \paragraph*{Diskutieren Sie, welche Funktionalitäten einer WAF gegen Cross-Site Scripting (XSS) schützen.} Sie können eine Firewall verwenden, um Angriffe auf Ihre Website virtuell zu patchen. Diese Methode fängt Angriffe wie XSS, RCE oder SQLi ab, bevor böswillige Anfragen Ihre Website überhaupt erreichen.
 
+\pagebreak
 \section{Federations}
 \subsection*{Sie verstehen wie Authentisierung mit Identity Federation abläuft, was die Voraussetzungen dafür sind und was die Vor- und Nachteile von Federations sind}
 \paragraph*{Föderierte Identität}\index{Federations}Unter einer föderierten Identität versteht man die Vernetzung einer elektronischen Identität und Eigenschaften von einer Person, welche von unabhängigen Systemen für das Identifikationsmanagement genutzt werden kann. Von der föderierten Identität macht die \textsl{single sign-on (SSO)} gebrauch. Mit nur einer Authentisierunginformation oder einem Token wird über mehrere IT-Systeme oder gar Organisationen, einem Benutzer der Zugriff gewährt. Die Rechteverteilung\footnote{{Siehe \underline{\nameref{para:Autorisierung}}, Seite \pageref{para:Autorisierung}}} für einzelne Dienste obliegt jedoch der Hoheit einzelner Systeme.
@@ -3311,6 +3223,7 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
     \end{center}
 \end{figure}
 
+\pagebreak
 \paragraph*{Security Assertion Markup Language (SAML)}\index{SAML}\label{saml}Dia SAML ist ein XML-Framework zum Austausch von Authentifizierungs- und Autorisierungsinformationen. Sie stellt Funktionen bereit, um sicherheitsbezogene Informationen zu beschreiben und zu übertragen.\cite{wiki}
 \begin{figure}[H]
     \begin{center}
@@ -3385,7 +3298,7 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
 
 %%%%%%%%%%
 \part{Talks (SW~14)}
-\section{Malware}
+\section{Malware}\index{Malware}
 \subsection*{Sie verstehen, welche Arten von Malware es gibt, welche Massnahmen gegen Malware sinnvoll sind und wie diese wirken}
 \paragraph*{Welche Arten von Malware es gibt:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -3405,14 +3318,14 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
 \paragraph*{Massnahmen gegen Malware:} Sollten verhältnismässig ausgewählt werden, konsequent durchgesetzt und verifiziert.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/expertvsnonexpert.png}
+    \includegraphics[width=9cm]{images/expertvsnonexpert.png}
     \caption{Experts vs Non-Experts}
     \label{expertvsnonexpert}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/massnahmenpost.png}
+    \includegraphics[width=9cm]{images/massnahmenpost.png}
     \caption{Positionierung Massnahmen}
     \label{massnahmenpost}
     \end{center}
@@ -3447,13 +3360,15 @@ Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt 
     \item Prüfungen gegen Standards reichen nicht (zu wenig spezifisch)
 \end{itemize}
 
+
+\pagebreak
 \section{WAF}
 \subsection*{Sie verstehen wo Machine-Learning in einer WAF eingesetzt werden kann und was einen Machine-Learning-Ansatz vom "`herkömmlichen"' Einsatz einer WAF unterscheidet}
 \paragraph*{Wo Machine-Learning in einer WAF eingesetzt wird:} Detection of new/unknown attacks in productive traffic. From catching requests (not useful) to catching sessions (useful). Am Anfang wurde die Attack/Safe payloads angeschaut, die jedoch unnutzlich (does not adequately address real problem (robustness)) sind im vergleich zum requests und sessions.
 \paragraph*{Attack/Safe payload approach:} Mittels supervised learning die existeriende Lösung verbessern. Die Data wird angeschaut anstatt die requests/sessions. Good Strings beeinhalten ca. 1k human input strings und 10k technische strings (HTTP Headers...). Bad Strings beeinhalten ca. 500k attack payloads. Die approach war gemäss die Boosting Trees Model die die solche features haben: quote-count, quote-parity, keyword-count, SQL-comment-count, length, shrinkageAbsolute, unicodeCount, controlCount, punctuationRatio. Es ist zwar genau jedoch wird die echte Problem damit nicht gelöst, nämlich die robustness problem.
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=8cm]{images/requirementML.png}
+    \includegraphics[width=10cm]{images/requirementML.png}
     \caption{Requirement and current solutions}
     \label{requirementML}
     \end{center}
