@@ -1296,10 +1296,6 @@ bewegen.
     \item Technische Massnahmen welche den Angriff verhindern, z.B. Vereinzelungsanlage, nicht vorlesbare Codes etc.
 \end{itemize}
 
-
-
-\paragraph*{TODO}
-
 \pagebreak
 %%%%%%%%%%
 \part{Management (SW~07-09)}
@@ -1754,6 +1750,7 @@ Zugrunde liegende Grössen:
     \end{center}
 \end{figure}
 
+\pagebreak
 \subsubsection*{Bedrohungen nach ISO 27005 (Annex C, 1/3) Citation kap. 8 s.16 \cite{iso27005}}
 \index{Risiken nach ISO 27005}
 \begin{multicols}{2}
@@ -1871,7 +1868,7 @@ Zugrunde liegende Grössen:
 \end{itemize}
 \end{multicols}
 
-
+\pagebreak
 \subsubsection*{Qualitative Risikoanalyse: Definition Schadensausmass} Es wird empfohlen, eine 3 bis 5-stufige Skale zu definieren, z.B.: \\
 \index{Schadensaussmass}
 \textbf{Schadensausmass:}
@@ -2177,7 +2174,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{center}
 \end{figure}
 
-\subsubsection*{IT-Grundschutz-kataloge}
+\subsubsection*{IT-Grundschutz-Kataloge}
 \index{Grundschutz - IT Grunschutz}
 \begin{figure}[H]
     \begin{center}
@@ -2898,6 +2895,7 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \end{center}
 \end{figure}
 
+\paragraph*{Umsetzung wie folgt} Basisausbildung, Kampagnen und flankierende Massnahmen
 \paragraph*{Umgang mit Verstössen}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Verletzungen der Vorschriften in der IT-Security können zu grossen Schäden führen
@@ -3222,6 +3220,23 @@ Photonen werden mittels einen polarisierten Filter gefiltert. Der Filter lässt 
     \item Logging und Monitoring
 \end{itemize}
 
+
+\subsubsection*{Muss eine WAF Zugriff auf den 'private key' des Server-Zertifikats für eingehende SSL-Verbindungen haben? Warum?}
+\pagebreak
+\subsubsection*{Diskutiern Sie gegen welche Angriffe URL-encryption' schützt.}
+\index{URL-Encryption}
+\paragraph*{Was ist URL-encryption?}Dynamisch verschlüsselte URLs (kombiniert mit kryptographisch geschützten HTML-Formularen) verhindern, dass jemand
+illegale Anfragen oder böswillige Benutzerdaten an den Anwendungsserver zu senden. Absolut keine internen Informationen über die Webanwendung werden potenziellen Angreifern offengelegt. Angreifer können die
+Details der Anfrage oder die URL-Parameter nicht sehen, weil sie verschlüsselt sind.
+\\
+\textgreater Dynamic white-listing with URL encryption = positive security model
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Webanwendung definiert die erlaubten Anfragen.
+    \item Nur erlaubte URLs werden an den Applikationsserver weitergeleitet, alles andere wird blockiert.
+    \item Nur ein positives Sicherheitsmodell kann unbekannte Angriffe und Zero-Day-Exploits verhindern.
+\end{itemize}
+
+\paragraph*{Diskutieren Sie, welche Funktionalitäten einer WAF gegen Cross-Site Scripting (XSS) schützen.} Sie können eine Firewall verwenden, um Angriffe auf Ihre Website virtuell zu patchen. Diese Methode fängt Angriffe wie XSS, RCE oder SQLi ab, bevor böswillige Anfragen Ihre Website überhaupt erreichen.
 
 \section{Federations}
 \subsection*{Sie verstehen wie Authentisierung mit Identity Federation abläuft, was die Voraussetzungen dafür sind und was die Vor- und Nachteile von Federations sind}
