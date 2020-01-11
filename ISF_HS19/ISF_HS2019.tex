@@ -42,11 +42,11 @@
 \title{ISF HS 2019}
 \author[1]{Victor Fernández}
 \author[2]{Hillary Funke}
+\author[2]{Simon Monai}
 \author[2]{Estefania C. Otero}
 \author[3]{\\Pavaskar Parameswaran}
 \author[3]{Kevin Soares Correia}
 \author[2]{Johannen Yilmaz}
-\author[2]{Simon Monai}
 \affil[1]{HSLU Informatik}
 \affil[2]{HSLU Information and Cyber Security}
 \affil[3]{HSLU Wirtschaftsinformatik}
@@ -1175,7 +1175,7 @@ Eine Person oder ein Programm gibt sich als jemand anderen oder etwas anderes au
     \end{center}
 \end{figure}
 
-
+\pagebreak
 \paragraph*{Bedrohungen auf Transport-Layer:} Denial of Service (DoS)\index{DoS}
 \paragraph*{Denial of Service}Syn-Nachrichten werden mit gespoofter IP gesendet. Syn-Acknowledgements Nachrichten gehen nirgendwo hin.
 Server wird überflutet mit Abfragen und kann nicht schneller abarbeiten als Sie reinkommen.
@@ -2230,7 +2230,7 @@ Wirtschaftlichkeit und den Faktor Mensch nie ausser Acht lassen!
     \end{center}
 \end{figure}
 
-\paragraph*{Grundregeln beim Vorgehen nach IT-Gruzndschutz}
+\paragraph*{Grundregeln beim Vorgehen nach IT-Grundschutz}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Die Initiative für IT-Sicherheit geht vom Management aus
     \item Die Verantwortung für IT-Sicherheit liegt beim Management
@@ -2642,6 +2642,7 @@ Vorgehen:
     \item Termine planen
 \end{itemize}
 
+\pagebreak
 \paragraph*{Soll-Ist-Vergleich:}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Erheben des Umsetzungsstatus der einzelnen Massnahmen mithilfe der Interviews
@@ -2659,17 +2660,18 @@ Vorgehen:
     \end{itemize}
 \end{itemize}
 
-\subsubsection*{Ergänzende Sicherheitsanalyse}
-\index{Ergänzende Sicherheitsanalyse}
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=6cm]{images/Ergänzende Sicherheitsanalyse.png}
-    \caption{Ergänzende Sicherheitsanalyse}
-    \label{Ergänzende Sicherheitsanalyse}
-    \end{center}
-\end{figure}
-
-Sie ist durchzuführen, wenn für einzelne Zielobjekte
+\begin{multicols}{2}
+    [\subsubsection*{Ergänzende Sicherheitsanalyse}]
+    \index{Ergänzende Sicherheitsanalyse}
+    \begin{figure}[H]
+        \begin{center}
+        \includegraphics[width=6cm]{images/Ergänzende Sicherheitsanalyse.png}
+        \caption{Ergänzende Sicherheitsanalyse}
+        \label{Ergänzende Sicherheitsanalyse}
+        \end{center}
+    \end{figure}
+    \noindent
+    Sie ist durchzuführen, wenn für einzelne Zielobjekte
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item die Schutzbedarfskategorie 'hoch' oder
     'sehr hoch' in mindestens einem der drei
@@ -2678,6 +2680,9 @@ Sie ist durchzuführen, wenn für einzelne Zielobjekte
     \item Objekte in untypischer Weise oder
     Einsatzumgebung betrieben werden
 \end{itemize}
+\end{multicols}
+
+
 
 \paragraph*{Ergänzende Sicherheitsanalyse - Ergebnis}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
@@ -2986,7 +2991,7 @@ Das Protokoll ist sicher gegen $n - 1$ passive Gegner. Eine obere Grenze an die 
 
 \paragraph*{Shamir's Secret Sharing} \index{Secret Sharing!Shamir's Secret Sharing} erlaubt das Aufteilen eines Secrets $s$ über $T$ Personen, wobei $n \leq T$ Personen für das Öffnen des Schlüssels benötigt werden. Dazu wird das Secret in einer Funktion $(n-1)$-ten Grades mit folgenden Aufbau versteckt:
 $$f(x)=s+a_1*x+a_2*x^2+a_3*x^3+...+x_{n-1}*x^{n-1}$$
-$a_i$ wird in diesem Fall zufällig gewählt und ist allen bekannt, während $s$ geheim bleibt. 
+$a_i$ wird in diesem Fall zufällig gewählt und ist allen bekannt, während $s$ geheim bleibt.
 Der Wert von $s$ lässt sich durch Rekonstruktion der Funktion $f(x)$ anhand von $n$ Punkten herausfinden und mittels $s=f(x=0)$ berechnen.\\
 \textit{(Bei einer Funktion $n$-ten Grades werden zur Bestimmung der Funktion $n+1$ Punkte benötigt um diese Eindeutig zu bestimmen)}.\\
 In einem weiteren Schritt werden die Shares $p$ mithilfe von $x \geq 1$ berechnet (das Secret sollte geheim bleiben) und verteilt:\\
@@ -2996,7 +3001,7 @@ $$p_3 = f(x=3)$$
 $$p_i = f(x=i)$$
 $$p_T = f(x=T)$$
 In einem letzten Schritt müssen wieder mindestens $n$ Shares zusammenkommen, um die Funktion anhand von ihren Werten zu berechnen und damit das Secret $s$ zu erlangen.\\
-Dieses Protokoll ist gegen $n-1$ Gegner sicher. 
+Dieses Protokoll ist gegen $n-1$ Gegner sicher.
 
 \subsection*{Sie wissen welche Eigenschaften elektronisches Geld ausmachen und kennen die technischen Grundlagen von Bitcoin}
 \paragraph*{1. Dezentralisiert \& keine Zentralbehörde}
@@ -3024,7 +3029,7 @@ Cryptocurrency ermöglicht, wie Bitcoin, ein `vertrauenswürdiges' System von Tr
 \paragraph*{Wertsteigerung \& Deflationierung}
 Die meisten Kryptowährungen haben einen begrenzten Vorrat in ihrem Protokoll kodiert, wodurch ein System der Knappheit entsteht. Zum Beispiel hat Bitcoin ein maximales Angebot von 21 Millionen und sobald das Angebotslimit erreicht ist, wird keine neue Bitcoin mehr hinzugefügt. Dies macht die vorhandene Bitcoin, die im Umlauf ist, attraktiver und wertvoller als Vermögenswert. Wenn die Nachfrage nach Bitcoin wächst, bleibt das Angebot gleich, was dazu führt, dass der Wert von Bitcoin im Laufe der Zeit steigt und es somit deflationär wird. Benutzer von Kryptowährung müssen sich keine Sorgen über die Wertminderung ihrer Vermögenswerte machen (im Gegensatz zu Fiat-Währungen).
 
-\pagebreak
+
 \section{Zero-Knowledge-Proof}
 \subsection*{Sie wissen was Zero-Knowledge-Proofs sind und wie diese ablaufen}
 \paragraph*{Zero-Knowledge-Proof}\index{Zero-Knowledge-Proof}Das Zero-Knowledge-Proof ist eine Technik etwas zu beweisen, ohne den eigentlichen Inhalt preiszugeben.
