@@ -47,9 +47,9 @@
 \author[3]{Kevin Soares Correia}
 \author[2]{Johannen Yilmaz}
 \affil[1]{HSLU Informatik}
-\affil[2]{HSLU Information and Cybersecurity}
+\affil[2]{HSLU Information and Cyber Security}
 \affil[3]{HSLU Wirtschaftsinformatik}
-\date{Dezember 2019}
+\date{Januar 2020}
 
 
 \addtolength{\oddsidemargin}{-.875in}
@@ -1040,7 +1040,7 @@ Sessionwert nach jedem Authentisierungsschritt ändern.
     Definiert, welche Resourcen (z.B. Bilder, Scripts, Fonts, etc.) von wo eingebunden werden können
     \item \textbf{CORS} \verb|Access-Control-Allow-Origin: http://foo.example|\\
     Cross-Origin Resource Sharing (CORS) ist ein Mechanismus, der Webbrowsern oder auch anderen Webclients Cross-Origin-Requests ermöglicht. Zugriffe dieser Art sind normalerweise durch die Same-Origin-Policy (SOP) untersagt. CORS ist ein Kompromiss zugunsten grösserer Flexibilität im Internet unter Berücksichtigung möglichst hoher Sicherheitsmassnahmen.
-    \item \textbf{Caching-Options} {\color{red}TODO: hat jemand Infos?}
+    \item \textbf{Caching-Options} \verb|Last-Modified: Mon, 08 Dec 2014 19:23:51 GMT; ETag: "5485fac7-ae74"; Cache-Control: max-age=533280; Expires: Sun, 03 May 2015 23:02:37 GMT|\\ (Nicht sicherheitsrelevant) Ist ein Mechanismus, der den Umgang mit dem Inhalt von Seiten Browser um Proxy steuert. So können z.B. unnötige Request und erneute Downloads vermieden werden, ohne die Aktualität des Inhalts zu beeinträchtigen. Unter HTTP/1.0 mit dem Header \verb|Pragma|
     \item \textbf{HPKP ({\color{red}deprecated!}):}
     \verb|Public-Key-Pins:|\\
     \verb|pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";|\\
@@ -2899,7 +2899,7 @@ Nachteil
 \paragraph*{Vorteil}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Mehr Sicherheit
-    \item Wenn Token verloren geht: für Unbefute ohne OTP\footnote{Siehe \underline{\nameref{para:One-Time Pad}}, Seite \pageref{para:One-Time Pad}} unmöglich zu verwenden
+    \item Wenn Token verloren geht: für Unbefugte ohne OTP\footnote{Siehe \underline{\nameref{para:One-Time Pad}}, Seite \pageref{para:One-Time Pad}} unmöglich zu verwenden
 \end{itemize}
 \paragraph*{Nachteil}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
