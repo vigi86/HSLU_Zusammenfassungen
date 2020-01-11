@@ -2982,6 +2982,19 @@ Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglic
 \end{itemize}
 Das Protokoll ist sicher gegen $n - 1$ passive Gegner. Eine obere Grenze an die Summe $m$ wird dabei als bekannt vorausgesetzt (in diesem Beispiel 3). Nach Anpassen des Modulus können Alice, Bob und Charlie dieses Protokoll z.B.auch dafür verwenden, sicher ihren Notendurschnitt berechnen.
 
+\paragraph*{Shamir's Secret Sharing} erlaubt das Aufteilen eines Secrets $s$ über $T$ Personen, wobei $n \leq T$ Personen für das Öffnen des Schlüssels benötigt werden. Dazu wird das Secret in einer Funktion $(n-1)$-ten Grades mit folgenden Aufbau versteckt:
+$$f(x)=s+a_1*x+a_2*x^2+a_3*x^3+...+x_{n-1}*x^{n-1}$$
+$a_i$ wird in diesem Fall zufällig gewählt und ist allen bekannt, während $s$ geheim bleibt. 
+Der Wert von $s$ lässt sich durch Rekonstruktion der Funktion $f(x)$ anhand von $n$ Punkten herausfinden und mittels $s=f(x=0)$ berechnen.\\
+\textit{(Bei einer Funktion $n$-ten Grades werden zur Bestimmung der Funktion $n+1$ Punkte benötigt um diese Eindeutig zu bestimmen)}.\\
+In einem weiteren Schritt werden die Shares $p$ mithilfe von $x \geq 1$ berechnet (das Secret sollte geheim bleiben) und verteilt:\\
+$$p_1 = f(x=1)$$
+$$p_2 = f(x=2)$$
+$$p_3 = f(x=3)$$
+$$p_i = f(x=i)$$
+$$p_T = f(x=T)$$
+In einem letzten Schritt müssen wieder mindestens $n$ Shares zusammenkommen, um die Funktion anhand von ihren Werten zu berechnen und damit das Secret $s$ zu erlangen.
+
 \subsection*{Sie wissen welche Eigenschaften elektronisches Geld ausmachen und kennen die technischen Grundlagen von Bitcoin}
 \paragraph*{1. Dezentralisiert \& keine Zentralbehörde}
 In den traditionellen Fiat-Währungen kontrollieren die Zentralbehörden und Banken das Finanzsystem. Mit Bitcoin und anderen Kryptowährungen können diese Transaktionen jedoch über ein verteiltes und offenes Netzwerk, das niemandem gehört, verarbeitet und validiert werden. Im Gegensatz zu zentralisierten Banksystemen sind die meisten Kryptowährungen dezentral auf verteilten Netzwerken mit weltweit verteilten Computern, auch Knoten genannt, installiert. Transaktionen werden von den Netzwerkknoten durch Kryptographie verifiziert und in einem öffentlichen, verteilten Ledger, einer sogenannten Blockchain, aufgezeichnet. Die Transaktion wird über das Peer-to-Peer-Netzwerk verbreitet und von jedem Knoten repliziert, wobei ein grosser Prozentsatz der Knoten innerhalb weniger Sekunden erreicht wird.
