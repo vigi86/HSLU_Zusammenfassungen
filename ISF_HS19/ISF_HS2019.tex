@@ -2972,7 +2972,7 @@ Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglic
 \end{itemize}
 
 \subsection*{Sie kennen Arten von Sicherheit von verteilten sicheren Berechnungen und wie diese angegriffen werden können}
-\paragraph*{Beispiel}Verwendung des linearen Secret-Sharing-Protokolls, um sicher zu bestimmen, wie viele Personen in die Badi gehen wollen.
+\paragraph*{Beispiel}Verwendung des linearen Secret-Sharing-Protokolls\index{Secret Sharing}, um sicher zu bestimmen, wie viele Personen in die Badi gehen wollen.
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
     \item Alice wählt drei shares $a_a$, $a_b$, $a_c$, sodass $a_a$ + $a_b$ + $a_c$ = $a$ mod 3, wobei $a$ Alice’s Input ist.
     \item Alice sendet $a_a$ an Alice, ab an Bob und $a_c$ an Charlie über den paarweisen geheimen Kommunikationskanal.
@@ -2983,7 +2983,7 @@ Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglic
 \end{itemize}
 Das Protokoll ist sicher gegen $n - 1$ passive Gegner. Eine obere Grenze an die Summe $m$ wird dabei als bekannt vorausgesetzt (in diesem Beispiel 3). Nach Anpassen des Modulus können Alice, Bob und Charlie dieses Protokoll z.B.auch dafür verwenden, sicher ihren Notendurschnitt berechnen.
 
-\paragraph*{Shamir's Secret Sharing} erlaubt das Aufteilen eines Secrets $s$ über $T$ Personen, wobei $n \leq T$ Personen für das Öffnen des Schlüssels benötigt werden. Dazu wird das Secret in einer Funktion $(n-1)$-ten Grades mit folgenden Aufbau versteckt:
+\paragraph*{Shamir's Secret Sharing} \index{Secret Sharing!Shamir's Secret Sharing} erlaubt das Aufteilen eines Secrets $s$ über $T$ Personen, wobei $n \leq T$ Personen für das Öffnen des Schlüssels benötigt werden. Dazu wird das Secret in einer Funktion $(n-1)$-ten Grades mit folgenden Aufbau versteckt:
 $$f(x)=s+a_1*x+a_2*x^2+a_3*x^3+...+x_{n-1}*x^{n-1}$$
 $a_i$ wird in diesem Fall zufällig gewählt und ist allen bekannt, während $s$ geheim bleibt. 
 Der Wert von $s$ lässt sich durch Rekonstruktion der Funktion $f(x)$ anhand von $n$ Punkten herausfinden und mittels $s=f(x=0)$ berechnen.\\
