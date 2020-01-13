@@ -956,7 +956,7 @@ Es existieren aber auch \textbf{PUT, HEAD, DELETE, PATCH, OPTIONS}.
     \end{center}
 \end{figure}
 \noindent
-Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen per weiteren Requests mitzuschicken. Die Zustände werde mit einem Cookie oder einem "`Hidden field"' erfasst.
+Die einzige Möglichkeit einen Zustand an den Client zu übergeben ist, diesen per weiteren Requests mitzuschicken. Die Zustände werden mit einem Cookie oder einem "`Hidden field"' erfasst.
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=12cm]{images/HTTPZustand1.png}
@@ -2965,16 +2965,16 @@ Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglic
 
 \section{Secret Sharing}
 \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
-    \item Absicherung eines Geheimnisses gegen Verrat durch einzelne
+    \item Absicherung eines Geheimnisses gegen Verrat durch einzelne Teilinformation
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Einzelpersonen haben nur Teilinformationen
         \item Geheimnis kann aus Teilinformation rekonstruiert werden
     \end{itemize}
-    \item Schutz der Gruppe gegen Blockade durch einzelne
+    \item Schutz der Gruppe gegen Blockade durch einzelne Teilgruppe
     \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
         \item Geheimnis kann von Teilgruppe rekonstruiert werden
     \end{itemize}
-    \item Sicherheitsschwelle abhäangig von Bedeutung des Geheimnisses
+    \item Sicherheitsschwelle abhängig von Bedeutung des Geheimnisses
 \end{itemize}
 
 \subsection*{Sie kennen Arten von Sicherheit von verteilten sicheren Berechnungen und wie diese angegriffen werden können}
@@ -2987,7 +2987,7 @@ Wenn mindestens die Hälfte der Teilnehmenden fair spielen, ist es nicht möglic
     \item Die Spieler senden ihre Resultate an alle anderen Spieler.
     \item Jeder Spieler berechnet $r$ = $r_a$ + $r_b$ + $r_c$ mod 3.
 \end{itemize}
-Das Protokoll ist sicher gegen $n - 1$ passive Gegner. Eine obere Grenze an die Summe $m$ wird dabei als bekannt vorausgesetzt (in diesem Beispiel 3). Nach Anpassen des Modulus können Alice, Bob und Charlie dieses Protokoll z.B. auch dafür verwenden, sicher ihren Notendurchschnitt berechnen.
+Das Protokoll ist sicher gegen $n - 1$ passive Gegner. Eine obere Grenze an die Summe $m$ wird dabei als bekannt vorausgesetzt (in diesem Beispiel 3). Nach Anpassen des Modulos können Alice, Bob und Charlie dieses Protokoll z.B. auch dafür verwenden, sicher ihren Notendurchschnitt berechnen.
 
 \paragraph*{Shamir's Secret Sharing} \index{Secret Sharing!Shamir's Secret Sharing} erlaubt das Aufteilen eines Secrets $s$ über $T$ Personen, wobei $n \leq T$ Personen für das Öffnen des Schlüssels benötigt werden. Dazu wird das Secret in einer Funktion $(n-1)$-ten Grades mit folgenden Aufbau versteckt:
 $$f(x)=s+a_1*x+a_2*x^2+a_3*x^3+...+x_{n-1}*x^{n-1}$$
