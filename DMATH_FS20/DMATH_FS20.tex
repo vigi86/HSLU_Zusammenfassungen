@@ -39,10 +39,12 @@
 \thispagestyle{empty}
 \pagebreak
 
+\part{Logik und Beweise}
 \section{Logik}
-\paragraph{Propositionen (Aussagen)}Eine Proposition ist ein Satz, der entweder wahr (Wahrheitswert w) oder falsch (Wahrheitswert f) ist.
-\paragraph{Negation}Ist $p$ eine Propostion, dann ist die Proposition "`Es ist nicht der Fall, dass p gilt"' die Negation von $p$; man schreibt $\neg p$ und liest "`nicht p"'.
-\paragraph{Wahrheitstabelle}Die Wahrheitstabelle stellt die Beziehungen zwischen den Wahrheitswerten von Propositionen dar. Sie ist vor allem dann nützlich, wenn Propositionen aus einfachen Propositionen konstruiert werden.\\
+\subsection{Propositionen (Aussagen)}Eine Proposition ist ein Satz, der entweder wahr (Wahrheitswert w) oder falsch (Wahrheitswert f) ist.
+\subsection{Negation}Ist $p$ eine Propostion, dann ist die Proposition "`Es ist nicht der Fall, dass p gilt"' die Negation von $p$; man schreibt $\neg p$ und liest "`nicht p"'.
+
+\subsection{Wahrheitstabelle}Die Wahrheitstabelle stellt die Beziehungen zwischen den Wahrheitswerten von Propositionen dar. Sie ist vor allem dann nützlich, wenn Propositionen aus einfachen Propositionen konstruiert werden.\\
 \begin{tabular}{|c|c|}
     \hline
         $p$&$\neg p$\\
@@ -51,9 +53,12 @@
         f&w\\
     \hline
 \end{tabular}
-\paragraph{Konjunktion - UND-Verknüpfung}Die Propositionen $p\wedge q$ (gelesen "`p und q"') heisst Konjunktion der Propositionen p und q, falls diese genau dann wahr ist, wenn p und q wahr sind; andernfalls ist sie falsch.
-\paragraph{Disjunktion - ODER-Verknüpfung}Die Propositionen $p\vee q$ (gelesen "`p oder q"') heisst Disjunktion der Propositionen p und q falls diese wahr ist, wenn mindestens eine der Propositionen p oder q wahr ist; andernfalls ist sie falsch.
-\paragraph{Konjunktion und Disjunktion}UND- und ODER-Verknüpfung\\
+
+\subsection{Konjunktion - UND-Verknüpfung}Die Propositionen $p\wedge q$ (gelesen "`p und q"') heisst Konjunktion der Propositionen p und q, falls diese genau dann wahr ist, wenn p und q wahr sind; andernfalls ist sie falsch.
+
+\subsection{Disjunktion - ODER-Verknüpfung}Die Propositionen $p\vee q$ (gelesen "`p oder q"') heisst Disjunktion der Propositionen p und q falls diese wahr ist, wenn mindestens eine der Propositionen p oder q wahr ist; andernfalls ist sie falsch.
+
+\subsection{Konjunktion und Disjunktion}UND- und ODER-Verknüpfung\\
 \begin{tabular}{|c|c|c|c|}
     \hline
         $p$&$q$&$p\wedge q$&$p\vee q$\\
@@ -64,6 +69,62 @@
         f&f&f&f\\
     \hline
 \end{tabular}
-\paragraph{XOR-Verknüpfung (eXklusives OR, EXOR)}
+
+\subsection{XOR-Verknüpfung (eXklusives OR, EXOR)}Die Propositionen $p \oplus q$ (gelesen "`p exor q"') heisst XOR-Verknüpfung der Propositionen p und q, falls diese genau dann wahr ist, wenn genau eine der Propositionen p oder q wahr ist (aber nicht beide gleichzeitig); ansonsten ist sie falsch.\\
+\begin{tabular}{|c|c|c|}
+    \hline
+        $p$&$q$&$p\oplus q$\\
+        \hline
+        w&w&f\\
+        w&f&w\\
+        f&w&w\\
+        f&f&f\\
+    \hline
+\end{tabular}
+
+\subsection{Implikationen (Subjunktion)}Die Implikationen $p \rightarrow q$ (gelesen "`p impliziert q"' oder "`falls p, dann q"') ist diejenige Proposition, die genau dann falsch ist, wenn p wahr und q falsch ist; andernfalls ist die Implikation wahr. p heisst auch \textbf{Hypothese} und q \textbf{Konklusion}.\\
+\begin{tabular}{|c|c|c|}
+    \hline
+        $p$&$q$&$p\rightarrow q$\\
+        \hline
+        w&w&w\\
+        w&f&f\\
+        f&w&w\\
+        f&f&w\\
+    \hline
+\end{tabular}
+
+\subsection{Bikonditional (Bijunktion)}Das Bikonditional $p \leftrightarrow q$ (gelesen "`p genau dann, wenn q"') ist diejenige Proposition, die wahr ist, wenn p und q dieselben Wahrheitswerte haben und sons falsch.\\
+Beispiel: Falls p = "`Sie können den Flug nehmen"' und q = "`Sie kaufen ein Ticket"' zwei Aussagen sind, dann gilt sicher $p \leftrightarrow q$ was lautet: "`Sie können den Flug nehmen, genau dann, wenn Sie ein Ticket kaufen."'
+
+\subsection{Priorität von Logischen Operatoren}Jeder Operator hat eine Priorität die entscheidet, wann der Operator angewandt wird.\\
+\begin{tabular}{|c|c|}
+    \hline
+        Operator&Priorität\\
+        \hline
+        $\neg$ &1\\
+        \hline
+        $\wedge$ &2\\
+        $\vee$ &2\\
+        \hline
+        $\rightarrow$ &3\\
+        $\leftrightarrow$ &3\\
+    \hline
+\end{tabular}
+
+\section{Proportionale Äquivalenzen}
+
+\subsection{Tautologie}Eine zusammengesetzte Aussage, die immer wahr (falsch) ist heisst Tautologie (Kontradiktion oder Widerspruch).\\
+\begin{tabular}{|c|c|c|c|}
+    \hline
+        $p$&$\neg q$&$p \vee \neg q$&$p \wedge \neg q$\\
+        \hline
+        w&f&w&f\\
+        f&w&w&f\\
+    \hline
+\end{tabular}
+
+\subsection{Logische Äquivalenz}Die Aussagen p und q heissen logisch äquivalent, falls $p \leftrightarrow q$ eine Tautologie ist. Man schreibt dann $p \Leftrightarrow q$ (oder auch $p \equiv q$ bzw. $p \sim q$)
+\paragraph{TODO Logische Äquivalenzgesetze}
 
 \end{document}
