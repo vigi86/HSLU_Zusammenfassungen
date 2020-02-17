@@ -1,0 +1,69 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty, xcolor}
+\usepackage{lastpage}
+\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
+\usepackage[hidelinks]{hyperref}
+\usepackage[hang,flushmargin]{footmisc}
+\makeindex
+
+\definecolor{dunkelblau}{rgb}{0,0.4,0.6}
+\subsectionfont{\color{dunkelblau}}
+
+\title{DMATH FS 2020}
+\author{Victor Fernández}
+\date{Januar 2020}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+% muss nach Änderung der margin kommen!
+\pagestyle{fancy}
+\fancyhf{} %reset
+\fancyhead[L]{HSLU}
+\fancyhead[C]{DMATH}
+\fancyhead[R]{\thepage/\pageref{LastPage}}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\thispagestyle{empty}
+\pagebreak
+
+\section{Logik}
+\paragraph{Propositionen (Aussagen)}Eine Proposition ist ein Satz, der entweder wahr (Wahrheitswert w) oder falsch (Wahrheitswert f) ist.
+\paragraph{Negation}Ist $p$ eine Propostion, dann ist die Proposition "`Es ist nicht der Fall, dass p gilt"' die Negation von $p$; man schreibt $\neg p$ und liest "`nicht p"'.
+\paragraph{Wahrheitstabelle}Die Wahrheitstabelle stellt die Beziehungen zwischen den Wahrheitswerten von Propositionen dar. Sie ist vor allem dann nützlich, wenn Propositionen aus einfachen Propositionen konstruiert werden.\\
+\begin{tabular}{|c|c|}
+    \hline
+        $p$&$\neg p$\\
+        \hline
+        w&f\\
+        f&w\\
+    \hline
+\end{tabular}
+\paragraph{Konjunktion - UND-Verknüpfung}Die Propositionen $p\wedge q$ (gelesen "`p und q"') heisst Konjunktion der Propositionen p und q, falls diese genau dann wahr ist, wenn p und q wahr sind; andernfalls ist sie falsch.
+\paragraph{Disjunktion - ODER-Verknüpfung}Die Propositionen $p\vee q$ (gelesen "`p oder q"') heisst Disjunktion der Propositionen p und q falls diese wahr ist, wenn mindestens eine der Propositionen p oder q wahr ist; andernfalls ist sie falsch.
+\paragraph{Konjunktion und Disjunktion}UND- und ODER-Verknüpfung\\
+\begin{tabular}{|c|c|c|c|}
+    \hline
+        $p$&$q$&$p\wedge q$&$p\vee q$\\
+        \hline
+        w&w&w&w\\
+        w&f&f&w\\
+        f&w&f&w\\
+        f&f&f&f\\
+    \hline
+\end{tabular}
+\paragraph{XOR-Verknüpfung (eXklusives OR, EXOR)}
+
+\end{document}
