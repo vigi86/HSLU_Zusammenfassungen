@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{sectsty, xcolor}
 \usepackage{lastpage}
-\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
+\usepackage{amsmath, amsfonts, amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
 \usepackage[hidelinks]{hyperref}
 \usepackage[hang,flushmargin]{footmisc}
 \makeindex
@@ -165,5 +165,24 @@ Beispiel: Falls p = "`Sie können den Flug nehmen"' und q = "`Sie kaufen ein Tic
 \subsection{Indirekte Beweis}
 \paragraph{Beweis durch Kontraposition}Falls ein direkter Beweis schwierig ist, kann man versuchen einen indirekten Beweis, z.B. din Beweis durch Kontraposition zu führen: statt zu zeigen, dass $p \rightarrow q$ gilt, zeigt man, dass die logisch äquivalente Aussage $\neg q \rightarrow \neg p$ gilt.
 \paragraph{Beweis durch Kontradiktion (Widerspruch)}Eine weitere Möglichkeit des indirekten Beweises ist der Beweis durch Kontradiktion (Widerspruch). Um die Aussage $p$ zu beweisen, nimmt man an $\neg p$ sei wahr und führt diese Aussage durch logisches Schliessen auf den Widerspruch $q (g=F)$, d.h. $\neg p \rightarrow q$ (also $\neg p \rightarrow F$). Somit muss $\neg p$ falsch und damit $p$ wahr sein.
+
+\section{Mengenlehre}
+\subsection{Definition}
+Eine Menge ist eine ungeordntete Zusammenfassung wohldefinierter, unterscheidbarer Objekt, genannt Elemente, zu einem Ganzen.\\
+Für irgend ein Objekt $x$ gilt dann bezüglich der Menge $A$ entweder $x\in A$ oder dann als $x\notin A$.
+\paragraph{Mengen}
+%\usepackage{amsmath}
+\begin{align*}
+&\mathbb{N}=\{1, 2, 3, \dots\}, \mathbb{N}_0=\{0, 1, 2, 3 \dots\} &&\text{Menge der natürlichen Zahlen (mit Null)}\\
+&\mathbb{Z}\{\dots,-3,-2,-1,0,1,2,3,\dots\} &&\text{Menge der ganzen Zahlen}\\
+&\mathbb{Z}^+=\{1,2,3,\dots\} &&\text{Menge der positiven ganzen Zahlen}\\
+&\mathbb{Q}=\begin{Bmatrix} \frac{q}{p}\bigg|p\in \mathbb{Z}\wedge q\in \mathbb{N} \end{Bmatrix} &&\text{Menge der Brüche}\\
+&\mathbb{R} &&\text{Menge der Reellen Zahlen}\\
+&\mathbb{C} &&\text{Menge der komplexen Zahlen}\\
+\end{align*}
+Es braucht $\mathbb{R}$, denn die Gleichung $x^2=2$ hat in $\mathbb{Q}$ keine Lösung. Analog braucht es $\mathbb{C}$, denn die Gleichung $x^2=-1$ hat in $\mathbb{R}$ keine Lösung.
+
+\paragraph{Spezielle Mengen}
+
 
 \end{document}
