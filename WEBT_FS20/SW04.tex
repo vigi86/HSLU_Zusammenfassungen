@@ -1,0 +1,185 @@
+\part{SW04 - CSS}
+\section{Inhalt}
+\subsection{Wissen, wie die \textbf{Kaskadenkette} zur schlussendlichen Darstellungsform führt}
+\paragraph{Kaskadierung}Falls mehrere, sich eventuell wiedersprechnde Styles definiert sind, muss ein Regelwerk zur Anwendung kommen um zu einem Ergebnis zu gelangen.
+\noindent
+Grundprinzip dieses Regelwerkes: $\rightarrow$Prioritätsreihenfolge:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Gewichtung (Schlüsselwort \texttt{!important})
+    \item Herkunft (Web-Author, Benutzer, Browser)
+    \item Besonderheit (je spezifischer desto mehr Gewicht)
+    \item Ergebnisabfolge (Reihenfolge in der die Definitionen festgelegt wurden)
+\end{itemize}
+
+\paragraph{Prioritätenreihenfolge nach Herkunft}
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Falls Deklarationnen des Browser
+    \item Deklarationen des Benutzers\footnote{Benutzer$\Rightarrow$Webseite Besucher$\rightarrow$also seine Browsereinstellungen}
+    \item Interne/Externe CSS-Anweisungen des Web-Authors
+    \item Inline CSS-Anweisungen des Web-Authors
+    \item Deklarationen des Web-Authors die \texttt{!important} enthalten
+    \item Deklarationen des Benutzers\textsuperscript{1} die \texttt{!important} enthalten
+\end{enumerate}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Der Vorrang der \textbf{!important-Benutzer}- gegenüber den \textbf{!important-Autoren}- Styles wurde mit dem CSS2-Standard neu festgelegt.
+\end{itemize}
+
+\paragraph{Unterschiedliche Ausgabemedien}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Es ist möglich für verschiedene Ausgabemedien Stylesheets zu definieren
+    \item Dadurch können die verschiedenen Charakteristiken der Ausgabemedien (Drucker, Screen, Sprachausgabe, etc.) besser berücksichtigt werden
+    \item Das Attribut \texttt{media} definiert, für welches Ausgabemedium der entsprechende Style definiert ist
+\end{itemize}
+
+\paragraph{Unterschiedliche Ausgabemedien}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Beispiel, Ausgabe für Bildschrim oder Drucker (hier im HTML-Code)
+\end{itemize}
+\begin{lstlisting}
+<head>
+    <title>Seitentitel</title>
+    <link href="standard.css" rel="stylesheet" media="screen" title="Standard-Layout">
+    <link href="druck.css" rel="stylesheet" media="print" title="Druckoptimiertes Layout">
+    <link href="aural.css" rel="stylesheet" media="speech" title="Sprachausgabe">
+</head>
+\end{lstlisting}
+
+\paragraph{Unterschiedliche Ausgabemedien}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item standard.css\\ist das Standard-Stylesheet für die Bildschrimanzeige
+    \item print.css\\ist das Standard-Stylesheet für den Ausdruck
+    \item aural.css\\ist für zukünftige Definitionen bezüglich der Sprachausgabe vorgesehen. Z.B. Sprechgeschwindigkeit, männliche oder weibliche Stimme, etc.
+\end{itemize}
+
+\paragraph{Schriftformatierung: Grundsätzliches}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item definiert Schriftart bzw. -typ\\
+    \texttt{font-family}
+    \item Beispiel:\\
+    \verb|font-family:"Times New Roman";|
+    \item Es kann sein, dass diese Schriftart auf dem Rechner des Benutzers nicht vorhanden ist, deshalb lassen sich Alternativen angeben:\\
+    \verb|font-family:"Times New Roman", Garamond, serif;|
+    \item Möchte man nur den Schrifttyp angeben, sucht das System des Benutzers die passende Schriftart dazu aus:\\
+    \texttt{font-family:sans-serif;}
+\end{itemize}
+
+\paragraph{Schriftformatierung: Schriftgrösse und -neigung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Fast jede Eigenschaft der Schriftart lassen sich steuern, sei es Grösse, Neigung, Dicke, etc.
+    \item \texttt{font-size} legt die Grösse fest, z.B. absolut: \texttt{font-size:20px;} oder relativ: \texttt{font-size:small;}
+    \item Die relativen Angaben sind abhängig vom OS, Browser oder anderen Einstellungen
+    \item \texttt{font-style} steuert die Neigung, \texttt{font-variant} die Varianten der Schrift: \texttt{font-style:italic;} ergibt eine kursive Darstellung, \texttt{font-variant:small-caps;} zeigt Kapitälchen\footnote{Kapitälchen: die Kleinbuchstaben werden als grosse Buchstaben dargestellt, doch in der höhe von Kleinbuchstaben}
+\end{itemize}
+
+\paragraph{Schriftformatierung: Schriftdicke und -farbe}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item \texttt{font-weight} legt die Schriftdicke fest. Es sind sowohl absolute als auch relative Angaben möglich: \texttt{font-weight:bold;} oder \texttt{font-weight:600}
+    \item \textbf{Achtung:} nicht jede Schriftart unterstützt diese Angaben!
+    \item Die Eigenschaft \texttt{color} verändert die Farbe. es können Farbworte oder Tripelwerte verwendet werden:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \texttt{color:black;}
+        \item \texttt{color:\#88AAFF;}
+        \item \texttt{color:rgb(23\%,50\%,95\%);}
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Schriftformatierung: Textdekoration}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item CSS versteht u.A. folgende Arten der Textdekoration: Über-, Durch- oder Unterstrichen
+    \item Die Eigenschaft \texttt{text-decoration} steuert die Darstellung:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \texttt{text-decoration:underline;}
+        \item \texttt{text-decoration:overline;}
+        \item \texttt{text-decoration:line-through;}
+    \end{itemize}
+    \item Weitere Möglichkeiten:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \texttt{text-decoration:blink;} (zu vermeiden!)
+        \item \texttt{text-decoration:none;}
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Schriftformatierung: Texttransformation}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Eigenschaft \texttt{text-transform} verändert die Gross- und Kleinschreibung eines Textes:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \texttt{text-transform:uppercase;}
+        \item \texttt{text-transform:lowercase;}
+        \item \texttt{text-transform:normal;}
+        \item \texttt{text-transform:capitalize}
+    \end{itemize}
+    \item \texttt{capitalize} stellt alle Wortanfänge mit Grossbuchstaben dar
+\end{itemize}
+
+\paragraph{Schriftformatierung: Kurzform der Schriftformatierungen}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Um effizienter die Schriftformatierung festzulegen, können die Eigenschaften \texttt{font-family, font-size, font-variant} und \texttt{font-weight} zusammengefasst in der \texttt{font} Eigenschaft angegeben werden
+    \item Beispiele:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \texttt{font:italic 14px Arial;}
+        \item \texttt{font:lighter 12pt monospace;}
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Attribut-bedingte Formatierung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item CSS-Formatierungen lassen sich auf Elemente mit bestimmten Attributen begrenzen
+    \item Beispiele:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item legt Farbe für alle h1 Überschriften fest, welche ein Alignment haben\\
+        \verb|{h1[align] {color:blue}|
+        \item stellt alle Absätze, die ein Namenattribut mit Inhalt "`Text"' haben, mit Kapitälchen dar\\
+        \verb|p[name*="Text"] {font-variant:small-caps;}|
+        \item weist allen zentriert ausgerichteten HTML-Elementen eine Farbe zu\\
+        \verb|*[align=center] {color:red;}|
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Individuelle CSS-Formate}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Um Elementen individuelle Formate zu geben, verwendet man die individuelle Formatierung
+    \item Jedes Element kann ein \textbf{eindutiges} Attribut \textbf{id} besitzen (Element-ID)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Element-IDs kann man auch für JavaScript brauchen!
+    \end{itemize}
+    \item Beispiel:\\
+    \verb|#eins {color:blue;}|\\
+    \verb|<p id="eins">Absatz</p>|
+\end{itemize}
+
+\paragraph{Hintergrundbilder}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Hintergrundbilder einer Seite lassen sich folgendermassen festlegen:\\
+    \verb|body {background-image:url(bild.jpg);}|
+    \item Man kann aber auch nur für einen Abschnitt ein Hintergrundbild festlegen:\\
+    \verb|p {background-image:url(bild.jpg);}|
+    \item Je nach Grösse kann das Bild mehrfach wiederholt werden, sowohl horizontal als auch vertikal:
+    \begin{lstlisting}
+table {
+    background-image:url(bild.jpg);
+    background-repeat:repeat-x;
+    background-repeat:repeat-y;
+}
+    \end{lstlisting}
+\end{itemize}
+
+\paragraph{Zentrieren von Containern}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Weil das \texttt{align} Attribut nur für Textabschnitte gilt, kann es \textbf{nicht} zum zentrieren von \texttt{$<$div$>$} Containern bzw. neuen HTML5 Block-Elementen verwendet werden
+    \item Man verwendet dazu die CSS Eigenschaft \texttt{margin}
+    \item Beispiel:
+    \verb|<div style="margin:auto">Containerinhalt</div>|
+\end{itemize}
+
+\paragraph{Fliesstext - float}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Mittels der \texttt{float} Eigenschaft kann man Text um Bereiche herum fliessen lassen (oder verbieten)
+    \item Beispiel:
+    \begin{lstlisting}
+<p>
+    <span style="color:red; float:left; font-size:2.5em; padding-right:2px;">D</span>as ist eine umfliessende Initiale, in der nur der erste Buchstabe eines Textes gross geschrieben wird
+</p>
+    \end{lstlisting}
+\end{itemize}
+
+\paragraph{Mehrspaltiges Layout: Definition}\lstinline|<p class="blub">hallo</p>|

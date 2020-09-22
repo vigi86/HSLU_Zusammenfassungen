@@ -1,0 +1,164 @@
+\part{SW 03 - Bäume}
+\section{Lernziele}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Sie wissen wie eine baumartige Datenstruktur aufgebaut ist
+    \item Sie kennen verschiedene Beispiele von Baumstrukturen
+    \item Sie kennen die Grundelemente eines Baumes:\\
+    Wurzel, Knoten, Blatt und Kanten
+    \item Sie können die Kenngrössen eines Baumes beschreiben
+\end{itemize}
+
+\subsection{Verwendung und Arten von Baumstrukturen}
+Zwei grundlegende Szenarien:
+\begin{enumerate}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die Daten haben bereits inhärent eine hierarchische Struktur, welche man entsprechend abbilden will. Beispiele:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Dateisystem mit Verzeichnissen und Dateien
+        \item Stammbaum (Genealogie)
+        \item Vererbungshierarchie in Java (nur mit Einfachvererbung)
+    \end{itemize}
+    \item Wenn man in einer geordneten Datenmenge einzelne Elemente sehr schnell finden will $\rightarrow$binärer Suchbaum
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Die Suche über eine Baumstruktur hat typisch nur einen Aufwand von $\mathcal{O}(\log n)$, und ist somit der rein sequenziellen Suche mit \textbf{$\mathcal{O}(n)$} deutlich überlegen
+    \end{itemize}
+\end{enumerate}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Mit Ausnahme der Wurzel (Ursprung des Baumes, die \textbf{alle} baumartigen Strukturen haben) können Bäume sehr stark variieren:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Unterschiedliche Anzahl Äste
+        \item Unterschiedliche Länge (Tiefe) der Äste
+        \item Die Breite (Grad) und die Höhe der Bäume ist sehr variabel
+    \end{itemize}
+    \item Je nach Anwendungszweck definiert man mehr oder weniger \textbf{Restriktionen}, welche dann zu spezifischeren Baumstrukturen führen, welche auch spezifischere Eigenschaften aufweisen
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Zweks Beschleunigung und/oder einfacherer Algorithmen
+    \end{itemize}
+\end{itemize}
+
+\subsection{Gerichtete und ungerichtete Bäume}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ein ungerichteter Baum ist eine reine Hierarchie
+    \item Out-Tree, Navigation von der Wurzel \textbf{nach unten} zu den Blättern
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $\rightarrow$Kanten (Pfeile) gehen von der Wurzel aus. Am Häufigsten!
+    \end{itemize}
+    \item In-Tree, Navigation von den Blättern \textbf{nach oben} zur Wurzel
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item $\rightarrow$Kanten (Pfeile) zeigen zur Wurzel hin. Seltener.
+    \end{itemize}
+    \item Diverse Spezialformen von Bäumen (Beispiele)
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \textbf{Binär}-Baum - am einfachsten und häufigsten
+        \item \textbf{AVL}-Baum - höhenbalancierter Binärbaum
+        \item \textbf{B}-Baum - balancierter Baum, \textbf{nicht} zwingend binär!
+        \item \textbf{B*}-Baum - restriktivere Form B-Baumes (ebenfalls balanciert)
+        \item \textbf{Binomial}-Baum - speziell strukturierter Baum
+        \item etc.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Kenngrössen von Bäumen}
+\subsubsection{Ordnung}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die \textbf{Ordnung} (order) eines Baumes definiert, wie viele Kinder ein Knoten \textbf{maximal} haben darf
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Die Anzahl muss in eine konkreten (Teil-)BAum aber \textbf{nicht} zwingend erreicht werden
+    \end{itemize}
+    \item Die Ordnung ist eine Definition!
+\end{itemize}
+
+\subsubsection{Grad}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Der \textbf{Grad} (degree) eines Knotens sagt, wie viele Kinder ein bestimmter Knoten \textbf{aktuell} tatsächlich hat
+    \item Bei einem Baum, z.B. der \textbf{fünften} Ordnung, darf der Grad jedes einzelnen Knotens \textbf{maximal 5} betragen, also maximal fünf Kinder
+\end{itemize}
+
+\subsubsection{Pfad}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Als \textbf{Pfad} (path) eines Knotens bezeichnet man den Weg von der Wurzel bis zum entsprechenden Knoten, bzw. Blatt
+\end{itemize}
+
+\subsubsection{Tiefe}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die \textbf{Tiefe} (depth) eines Knotens beschreibt die Länge seines Pfades. Dazu werden die Kanten auf seinem Pfad gezählt
+    \item Achtung: Es gibt auch eine Zählweise die bei 1 beginnt; es ist nicht einheitlich geregelt
+\end{itemize}
+
+\subsubsection{Niveaus / Ebenen (levels)}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Als \textbf{Niveau} oder \textbf{Ebene} bezeichnet man die Menge aller Knoten, welche die gleiche \textbf{Tiefe} haben
+\end{itemize}
+
+\subsubsection{Höhe}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Die \textbf{Höhe} (height) eines Baumes definiert sich aus der \textbf{Tiefe} des Knotens, welcher am \textbf{weitesten} von der Wurzel entfernt ist, bzw. aus der Anzahl der \textbf{Niveaus}
+\end{itemize}
+
+\subsubsection{Gewicht}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Das \textbf{Gewicht} (weight) eines Baumes definiert sich über die Anzahl der enthaltenen Knoten
+\end{itemize}
+
+\subsection{Füllgrade}
+\subsubsection{Ausgefüllt}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ein Baum wird als \textbf{ausgefüllt} bezeichnet, wenn \textbf{jeder innere Knoten} die \textbf{maximale} Anzahl an Kindern hat
+    \item Der \textbf{Grad aller} inneren Knoten ist somit \textbf{gleich} der \textbf{Ordnung} des Baumes
+\end{itemize}
+
+\subsubsection{Voll}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ein Baum wird als \textbf{voll} bezeichnet, wenn das \textbf{letzte} Niveau linksbündig (oder auch rechts) angeordnet ist, und alle \textbf{restlichen} Niveaus die \textbf{maximale} Anzahl an Kindern enthalten
+\end{itemize}
+
+\subsubsection{Vollständig oder komplett}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ein Baum wird als \textbf{vollständig} oder \textbf{komplett} bezeichnet, wenn \textbf{jedes} Niveau die \textbf{maximale} Anzahl Knoten enthält
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Er hat dann für sein \textbf{Gewicht} die \textbf{minimale} Anzahl \textbf{Niveaus}
+        \item Die Struktur ist immer \textbf{symmetrisch} und ausgeglichen
+    \end{itemize}
+\end{itemize}
+
+\section{Binäre Bäume}
+\subsection{Lernziele}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Sie sind mit binären Bäumen vertraut
+    \item Sie kennen die Algorithmen, um binäre Bäume auf unterschiedliche Arten zu traversieren
+    \item Sie sind mit den spezielen Eigenschaften von binären Suchbäumen vertraut
+    \item Sie wissen wie das Suche, Einfügen und Entfernen von Knoten in binären Suchbäumen konzeptionell abläuft
+    \item Sie verstehen, was ein ausgeglichener Baum ist und wie man diesen Zustand herstellen kann
+\end{itemize}
+
+\subsection{Binärer Baum}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ein \textbf{binärer Baum} (binary tree) ist als Baum mit \textbf{Ordnung 2} definiert. Jeder Knoten hat somit maximal \textbf{zwei} Kinder
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item Diese werden als \textbf{linker und rechter} Kindknoten bezeichnet
+    \end{itemize}
+    \item Binäre Bäume sind in der Informatik \textbf{sehr} beliebt, weil:
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item durch die Beschränkung auf die \textbf{Ordnung 2} einige Algorithmen stark vereinfacht werden
+        \item auf binären Bäumen unterschiedliche Durchlaufordnungen ($\rightarrow$Traversierungen) möglich sind
+        \item die Suche in einem binären (Such-)Baum einer binären Suche entspricht
+    \end{itemize}
+\end{itemize}
+
+\subsection{Traversieren eines binären Baumes}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Aufgrund der spezifischen Eigenschaft von binären Bäumen (Ordnung 2) kann man diese auf \textbf{drei} unterschiedliche Arten traversieren (vergleiche dazu Iteration bei \textbf{Listen})
+    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+        \item \textbf{Preorder} - Hauptreihenfolge
+        \item \textbf{Postorder} - Nebenreihenfolge
+        \item \textbf{Inorder} - Symmetrische Reihenfolge
+    \end{itemize}
+    \item Die Algorithmen, welche diese drei verschiedenen Traversierungsarten beschreiben, sind alle \textbf{rekursive} Algorithen
+    \item Alle Traversierungen sind direkt abhängig von der Anzahl Knoten und haben somit einen Aufwand von $\mathcal{O}(n)$
+\end{itemize}
+
+\subsubsection{Preorder}
+\subsubsection{Postorder}
+\subsubsection{Inorder}
+
+\subsection{Binäre Suchbäume}
+\subsection{Geordneter binärer Suchbaum}
