@@ -4,7 +4,7 @@
 \usepackage{sectsty}
 \usepackage[table]{xcolor}
 \usepackage{lastpage}
-\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
+\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol, xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{listings}
@@ -14,7 +14,6 @@
 \definecolor{pred}{rgb}{0.9,0,0}
 \definecolor{pgrey}{rgb}{0.46,0.45,0.48}
 \definecolor{background}{rgb}{0.95,0.95,0.92}
-\definecolor{dunkelblau}{rgb}{0,0.4,0.6}
 \lstset{language=Java,
   backgroundcolor=\color{background},
   frame=single,
@@ -40,11 +39,16 @@
 
 \makeindex
 
-\subsectionfont{\color{dunkelblau}}
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
+\setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=*}
+\setlength\parindent{0pt}
 
-\title{AD FS 2020}
+\definecolor{dunkelblau}{rgb}{0,0.4,0.6}
+%\subsectionfont{\color{dunkelblau}}
+
+\title{AD HS 2020}
 \author{Victor Fernández}
-\date{Januar 2020}
+\date{\today}
 
 \addtolength{\oddsidemargin}{-.875in}
 \addtolength{\evensidemargin}{-.875in}
@@ -62,6 +66,8 @@
 \fancyfoot[C]{}
 \fancyfoot[R]{}
 \renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
+
+\newcommand{\todo}[1]{\textcolor{red}{//TODO: #1//\\[1em]}}
 
 \begin{document}
 

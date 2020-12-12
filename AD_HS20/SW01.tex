@@ -1,7 +1,7 @@
 \part{SW 01 - Einführung Algorithmen, Datenstrukturen \& Komplexität}
 \section{Lernziele}
 Sie \dots
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{enumerate}
     \item können beschreiben, was ein Algorithmus ist
     \item können erläutern, was gleichwertige Algorithmen sind
     \item können erläutern, weshalb Algorithmen und Datenstrukturen eng zusammenhängen
@@ -11,18 +11,19 @@ Sie \dots
     \item kennen die wichtigsten Ordnungsfunktionen im Vergleich
     \item kennen wichtige Aspekte bei der Interpretation einer Ordnung
     \item wissen, welche Ordnungen praktisch versagen!
-\end{itemize}
+\end{enumerate}
 
 \section{Algorithmen}
 \subsection{Definition Algorithmus}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
+    \item[]{\color{red}1. Sie können beschreiben, was ein Algorithmus ist}
     \item Ein Algorithmus ist ein \textbf{präzise festgelegtes Verfahren zur Lösung eines Problems}; genauer gesagt, zur Lösung einer Problem\textbf{klasse} (beinhaltend gleichartige Probleme, häufig unendlich viele).
     \item Algorithmus=Lösungsverfahren (Rezept, Anleitung)
     \item Probleme bzw. Problemklassen, die mit Algorithmen gelöst werden können, heissen \textbf{$\Rightarrow$ berechenbar}
 \end{itemize}
 
 \subsection{Beispiele}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item Berechnung des \textbf{ggT} für zwei natürliche Zahlen (Euklidischer Algorithmus)
     \item Zeichnen der \textbf{Verbindungslinie}, welche zwei Punkte verbindet (Bresenham Algorithmus)
     \item \textbf{Sortierung} von zufällig vorliegenden ganzen Zahlen (Mergesort Algorithmus)
@@ -33,7 +34,7 @@ Sie \dots
 \end{itemize}
 
 \subsection{Eigenschaften eines Algorithmus}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item schrittweises Verfahren
     \item ausführbare Schritte
     \item eindeutiger nächster Schritt (\textbf{determiniert})
@@ -41,15 +42,15 @@ Sie \dots
 \end{itemize}
 
 \subsection{Algorithmen vs. Informatik}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item Der Computer:
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item arbeitet schrittweise
         \item Anweisung für Anweisung (jede Anweisung korrespondiert mit einem ausführbaren Befehl)
         \item arbeitet präzise und schnell
     \end{itemize}
     \item Algorithmen sind zentrales Thema in der Informatik und in der Mathematik
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item \textbf{Algorithmentheorie}: Guter Lösungsalgorithmus für bestimmte Problemstellung?
         \item \textbf{Komplexitätstheorie}: Ressourcenverbrauch von Rechenzeit und Speicherbedarf?
         \item \textbf{Berechenbarkeitstheorie}: Was ist mit einer Maschine grundsätzlich lösbar und was nicht?
@@ -57,7 +58,7 @@ Sie \dots
 \end{itemize}
 
 \subsection{Algorithmen und Datenstrukturen}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item \textbf{Algorithmen operieren auf Datenstrukturen} und \textbf{Datenstrukturen bedingen spezifische Algorithmen}. Beides ist eng miteinander verbunden.
     \item Bei vielen Algorithmen hängt der \textbf{Ressourcenbedarf}, d.h. die benötigte Laufzeit und der Speicherbedarf, bon der Verwendung geeigneter Datenstrukturen ab.
 \end{itemize}
@@ -130,49 +131,49 @@ public static int ggtRekursiv(final int a, final int b) {
 Eine Datenstruktur ist ein \textbf{Konzept zur Speicherung und Organisation von Daten}. Es handelt sich um eine \textbf{Struktur}, weil die Daten in einer bestimmten Art und Weise angeordnet und verknüpft werden, um den Zugriff auf sie und ihre Verwaltung möglichst effizient zu ermöglichen.\\
 Datenstrukturen sind daher insbesondere auch durch die \textbf{Operationen} charakterisiert, welche Zugriff und Verwaltung realisieren.
 \subsection{Beispiele}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item \textbf{Array}: direkter Zugriff (+), fixe Grösse (-)
     \item \textbf{Liste}: flexible Grösse (+), sequentieller Zugriff (-)
 \end{itemize}
 
 \section{Komplexität}
 \subsection{Definition Komplexität}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item Komplexität (auch Aufwand oder Kosten) eines Algorithmus
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item \textbf{Ressourcenbedarf = f (Eingabedaten)}
     \end{itemize}
     \subitem D.h. "`Wie hängt der Ressourcenbedarf von den Eingabedaten ab?"'
     \item Ressourcenbedarf
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item Rechenzeit: \textbf{Zeitkomplexität}
         \item Speicherbedarf: \textbf{Speicherkomplexität}
     \end{itemize}
     \item Eingabedaten
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item Grösse der Daten\textbf{menge} (z.B. 10 vs. 1'000'000'000 zu sortierende Elemente)
         \item Grösse eines Daten\textbf{wertes} (z.B. 10! vs. 1'000'000'000!)
     \end{itemize}
 \end{itemize}
 
 \subsection*{Was interessiert uns?}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item \textbf{Wie wächst der Ressourcenbedarf}, wenn eine grössere Datenmenge bzw. grössere Datenwerte zu verarbeiten sind? Z.B.
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item Verdoppelt oder vervierfacht sich der Ressourcenbedarf für das Sortieren der doppelten Datenmenge?
         \item Bleibt der Ressourcenbedarf gleich, wenn wir den ggT von zwei sehr grossen Zahlenwerten berechnen wollen?
     \end{itemize}
     \item Es interessiert an dieser Stelle \textbf{NICHT} der exakte/absolute Ressourcenbedarf! Z.B.
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item Die ggT-Berechnung von 1'000'000'489 und 9'123'000'124 auf dem Computer XY mit der Konfiguration Z dauert 420ms.
         \item Entsprechende Rechenzeiten sind für jeden Computer anders. Möchte man die Rechenzeit reduzieren, so lässt sich jederzeit ein schnellerer Computer kaufen!
     \end{itemize}
 \end{itemize}
 
 \subsubsection{Zeitkomplexität Implementation}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item Annahmen:
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item Die Methoden \texttt{task1()}, \texttt{task2()} und \texttt{task3()} besitzen in etwa dieselben Rechenzeiten
         \item Die Schleifensteuerungen beanspruchen im Vergleich vernachlässigbare kleine Ausführungszeiten
     \end{itemize}
@@ -193,22 +194,22 @@ public static void task(final int n) {
 $\rightarrow$ Rechenzeit T von \texttt{task(n)}: $T=f(n)\sim 4+3\cdot n+2n^2$
 
 \subsubsection{Zeitkomplexität für grosse n}
-\paragraph{TODO Tabelle Zeitkomplexität}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\paragraph{\todo{Tabelle Zeitkomplexität}}
+\begin{itemize}
     \item Für grosse n dominiert der Anteil von \textbf{$n^2$}
     \item Für grosse n verlaufen die Funktionen parallel, d.h. unterscheiden sich nur durch einen konstanten Faktor (vgl. logarith. Massstäbe!)
     \item Wir sagen:
-    \begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \begin{itemize}
         \item f(n) ist von der \textbf{Ordnung $O(n^2)$} bzw. die
         \item Rechenzeit von \texttt{task(n)} verhält sich gemäss \textbf{Ordnung $O(n^2)$}
     \end{itemize}
 \end{itemize}
-\paragraph{TODO Big-O \& Ordnungsfunktionen}
+\paragraph{\todo{Big-O \& Ordnungsfunktionen}}
 
-\part{Rekursion}
+\part{SW 01 - Rekursion}
 \section{Lernziele}
 Sie \dots
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item können beschreiben, was Algorithmen und Datenstrukturen mit Selbstähnlichkeit und Selbstbezug zu tun haben
     \item können bei einer rekursiven Methode Rekursionsbasis und Rekursionsvorschrift identifizieren
     \item können gut nachvollziehbar aufzeichnen, wie eine rekursive Methode abgearbeitet wird
@@ -221,15 +222,15 @@ Sie \dots
 \subsection{Iterative Fakultätsberechnung}
 \subsection{Rekursive Fakultätsberechnung}
 \section{Call Stack}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item Für die Ausführung eines Programmes verwendet die Java Virtual Machine (JVM) zwei wichtige Speicher: \textbf{Heap} und \textbf{Call Stack}
     \item \textbf{Heap}: In diesem Speicherbereich werden die Objekte gespeichert, d.h. deren Instanzvariablen bzw. Zustände. Nicht mehr referenzierbare Objekte werden durch den Garbage Collector (GC) automatisch gelöscht.
     \item \textbf{Call Stack}: Letztendlich wid bei der Ausführung eines Java-Programmes eine Kette von Methoden aufgerufen, bzw. abgearbeitet. Ursprung ist die \texttt{main()}-Methode. Jeder Methodenaufruf bedingt gewissen Speicher, insbesondere für die aktuellen Parameter und lokalen Variablen. Dazu dient der Call Stack. Ein neuer Methodenaufruf bewirkt, dass der Call Stack wächst, bzw. darauf ein zusätzlicher \textbf{Stack Frame} angelegt wird.
 \end{itemize}
-\paragraph{TODO Bild Call Stack}7
+\paragraph{\todo{Bild Call Stack}}
 
 \subsection{Mächtigkeit der Rekursion}
-\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+\begin{itemize}
     \item Rekursion und Iteration sind praktisch \textbf{gleich mächtig}
     \item D.h. die Menge der berechenbaren Problemstellungen bei Verwendung der Rekursion und Verwendung der Iteration ist gleich
     \item D.h. eine rekursive Implementation lässt sich grundsätzlich immer in eine gleichwertige iterative Implementation umprogrammieren und umgekehrt
