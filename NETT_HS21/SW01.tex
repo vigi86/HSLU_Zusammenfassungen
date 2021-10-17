@@ -1,0 +1,85 @@
+\part{SW 01 - Networking Today \& Networking Trends}
+\section{Lernziele (Leitfragen)}
+\begin{enumerate}
+    \item Wieso sind Computernetzwerke wichtig in unserem Leben?
+    \item Wieso sind Computernetzwerke wichtig für Unternehmen und unsere Berufe?
+    \item Wieso ist Kenntnis der Computernetzwerke wichtig für die Wirtschaftsinformatik?
+    \item Was ist ein \flqq End Device\frqq{} (Endgerät)? Geben Sie Beispiele.
+    \item Was ist ein ``intermediary (network) device'' (Netzwerkkomponente), oder Netzwerkgerät? Geben Sie Beispiele.
+    \item Wie funktioniert das \flqq Client-Server\frqq{} Modell? Geben Sie Beispiele.
+    \item Wie funktioniert das \flqq Peer-to-peer\frqq{} Modell? Geben Sie Beispiele.
+    \item Wie unterscheiden sich physikalische und logische Netzwerkdiagramme?
+    \item Wie kann man anhand ihrer Grösse Computernetzwerke klassifizieren?
+    \item Wie unterschieden sich LANs und WANs? Was ist ihre Beziehung?
+    \item Was ist das Internet? Wer besitzt das Internet? Was für Organisationen sind in der Entwicklung des Internets beteiligt?
+    \item Was ist der Unterschied zwischen einem Intranet und einem Extranet?
+    \item Wie verbinden sich normalerweise Häuser, Wohnungen und HomeOffices mit dem Internet?
+    \item Wie verbinden sich normalerweise Büros und Unternehmern mit dem Internet?
+    \item Was bedeutet Konvergenz im Kontext der Computernetzwerke?
+    \item Was bedeutet \flqq fault tolerance\frqq{}  (Fehlertoleranz) im Kontext der Computernetzwerke? Geben Sie ein Beispiel
+    \item Was bedeutet \flqq scalability\frqq{}  (Skalierbarkeit) im Kontext der Computernetzwerke? Geben Sie ein Beispiel
+    \item Was bedeutet \flqq quality of service (QoS)\frqq{}  im Kontext der Computernetzwerke? Geben Sie ein Beispiel
+    \item Wieso ist Netzwerksicherheit wichtig?
+    \item Was sind die drei Hauptinformationssicherheitsziele?
+    \item Was ist \flqq BYOD\frqq{}  und was sind seine Auswirkungen für Geschäfte und Unternehmen?
+    \item Was ist \flqq cloud computing\frqq{} ? Was für Cloud Arten gibt es?
+    \item Was ist die Verbindung zwischen \flqq cloud computing\frqq{}  und Computernetzwerken?
+\end{enumerate}
+
+\section{Antworten}
+\subsection*{Wieso sind Computernetzwerke wichtig in unserem Leben?}
+Die zunehmende Digitalisierung erfordert eine immer grössere Vernetzung im Alltag. Sei es beruflich mit E-Mails, Website, Dateitransfer, cloudbasierte Lösungen etc. oder auch privat mit digitalem Fernsehen, Streamingangeboten von Videos und Musik, bis zur Smart-Watch.
+\subsection*{Wieso sind Computernetzwerke wichtig für Unternehmen und unsere Berufe?}
+Für moderne Unternehmen ist es heutzutage wichtig vernetzt zu sein. Man verfügt beispielsweise über IP-Telefone, Fileserver, Mailserver, Virtual-Machine-Server, Rendering-Server etc. Um auf all diese Dienste zugreifen zu können, muss ein Computernetzwerk bestehen.
+\subsection*{Wieso ist Kenntnis der Computernetzwerke wichtig für die Wirtschaftsinformatik?}
+Die Berufsausrichtung/-aussicht der Wirtschaftsinformatikspezialisten tendiert dazu, dass sie leitende Angestellte werden. Genehmigungen für Budgetanträge im Bereich der Informatik erfordern daher ein gutes Know-How von Komponenten, die in der Branche verwendet werden.
+\subsection*{Was ist ein \flqq End Device\frqq{} (Endgerät)? Geben Sie Beispiele.}
+\begin{itemize}
+    \item Smartphone \& IP-Telefone
+    \item Drucker
+    \item Notebook
+    \item Server (physisch)
+    \item Tablet
+    \item IoT-Geräte\footnote{Internet of Things - vom intelligenten Kühlschrank bis zum selbstfahrenden Auto.}
+\end{itemize}
+\subsection*{Was ist ein ``intermediary (network) device'' (Netzwerkkomponente), oder Netzwerkgerät? Geben Sie Beispiele.}
+\begin{itemize}
+    \item (Wireless) Router
+    \item LAN \& Multilayer Switches
+\end{itemize}
+\subsection*{Wie funktioniert das \flqq Client-Server\frqq{} Modell? Geben Sie Beispiele.}
+Das Modell beschreibt die Rolle eines zentralen Dienstanbieters (Server), der Dienstnutzern (Clients) den Zugang zu seinen Diensten verschafft. Der Client bezieht lediglich den Dienst, indem es dem Server einen \textsl{\textbf{request}} sendet, der Server antwortet mit der \textsl{\textbf{response}}.
+\subsection*{Wie funktioniert das \flqq Peer-to-peer\frqq{} Modell? Geben Sie Beispiele.}
+Hier übernimmt ein Client gleichzeitig die Funktion eines Servers. Dadurch wird der Client zu einem \textsl{\textbf{Peer}}. Peers bieten daher Dienste und Ressourcen an und nehmen aber gleichzeitig Dienste von anderen Peers in Anspruch.
+\subsection*{Wie unterscheiden sich physikalische und logische Netzwerkdiagramme?}
+\paragraph{Das physikalisches Netzwerkdiagramm}zeigt, wie der Name sagt, den \textsl{\textbf{räumlich physikalischen Standort}} der Netzwerkkomponenten. //TODO: Grafik
+\paragraph{Das logische Netzwerkdiagramm}zeigt hingegen über welche \textsl{\textbf{Ports (interfaces)}} die Komponenten angeschlossen sind, sowie welche \textsl{\textbf{Netzwerkadressierung}} gegeben wurde. Merkmale sind Netzwerkadressen, IP-Adressen von Endgeräten, Subnetzmasken, je nach Anwendung auch MAC-Adressen\footnote{Media-Access-Control}. Man spricht auch von einer \textsl{physischen Adresse} oder \textsl{Geräteadresse}. //TODO: Grafik
+\subsection*{Wie kann man anhand ihrer Grösse Computernetzwerke klassifizieren?}
+Es gibt diverse Grössen von Netzwerke. Namentlich sind das:
+\begin{itemize}
+    \item LAN - Local Area Network. Lokales Netz, mal abgesehen von Subnetzen, auf die Wohnung, Büro oder Firma beschränkt.
+    \item MAN - Metropolitan Area Network. Meistens ein Verbund von LANs, welche auf ``kürzere Distanzen'' (bis zu ca. 100 km) durch einen Backbone (Netz mit besonders grosser Übertragungsrate über Glasfaser) vernetzt sind. MANs werden durch Internetdienstanbieter (ISP - Internet Service Provider) betrieben.
+    \item WAN - Wide Area Network. Verbund und Backbone von MANs. Salopp: ``Ze Internet''.
+\end{itemize}
+Die Aufzählung ist nicht abschliessend, denn es gibt z.B. Body Area Network (z.B. medizinische Geräte), Personal Are Network (z.B. Bluetooth), City Area Network, Global Area Network etc.
+\subsection*{Wie unterschieden sich LANs und WANs? Was ist ihre Beziehung?}
+Sie pflegen eine versteckte Beziehung. Kann ihre Liebe so weiterlodern, inmitten von Intrigen, Verrat und Krieg zwischen den Königshäusern?
+\subsection*{Was ist das Internet? Wer besitzt das Internet? Was für Organisationen sind in der Entwicklung des Internets beteiligt?}
+Bill Gates besitzt das Internet.\\
+Quelle: \url{https://www.facebook.com/Ballybegpostofficeandgeneralconveniencestore/videos/845703122288697/}\\
+Das Internet gehört im Grunde genommen niemandem. Die Organisation IETF\footnote{Internet Engineering Task Force} befasst sich jedoch mit der Weiterentwicklung des Internets, um dessen Funktionsweise zu verbessern.
+\subsection*{Was ist der Unterschied zwischen einem Intranet und einem Extranet?}
+Auf das Intranet kann nur von innerhalb des LANs zugegriffen werden. Das Extranet bietet hingegen eine Erweiterung des Intranets, die von einer Gruppe von externen Benutzer verwendet werden darf. Extranets bieten Informationen die z.B. an Kunden oder Partnern zugänglich gemacht werden.
+\subsection*{Wie verbinden sich normalerweise Häuser, Wohnungen und HomeOffices mit dem Internet?}
+Kabelnetz, DSL - Digital Subscriber Line, Dial-Up Modem, GSM - Global System for Mobile Communications, Satellit.
+\subsection*{Wie verbinden sich normalerweise Büros und Unternehmern mit dem Internet?}
+Dedicated Leased Lines, Metro Ethernet (ethernetbasierte MANs), Business DSL, Satellit.
+\subsection*{Was bedeutet Konvergenz im Kontext der Computernetzwerke?}
+\subsection*{Was bedeutet \flqq fault tolerance\frqq{} (Fehlertoleranz) im Kontext der Computernetzwerke? Geben Sie ein Beispiel}
+\subsection*{Was bedeutet \flqq scalability\frqq{} (Skalierbarkeit) im Kontext der Computernetzwerke? Geben Sie ein Beispiel}
+\subsection*{Was bedeutet \flqq quality of service (QoS)\frqq{} im Kontext der Computernetzwerke? Geben Sie ein Beispiel}
+\subsection*{Wieso ist Netzwerksicherheit wichtig?}
+\subsection*{Was sind die drei Hauptinformationssicherheitsziele?}
+\subsection*{Was ist \flqq BYOD\frqq{} und was sind seine Auswirkungen für Geschäfte und Unternehmen?}
+\subsection*{Was ist \flqq cloud computing\frqq{}? Was für Cloud Arten gibt es?}
+\subsection*{Was ist die Verbindung zwischen \flqq cloud computing\frqq{} und Computernetzwerken?}
