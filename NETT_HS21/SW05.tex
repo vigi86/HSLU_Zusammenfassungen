@@ -1,0 +1,86 @@
+\part{SW 05/06 - Network Layer - Vermittlungsschicht}
+\section{Lernziele (Leitfragen) SW 05}
+\begin{itemize}
+    \item Was ist der Zweck der Vermittlungsschicht?
+    \item Was für Protokolle findet man in der Vermittlungsschicht?
+    \item Was sind die wichtigsten Merkmale des IPv4 Protokolls?
+    \item Wie lange sind IPv4 Adressen?
+    \item Wie sind IPv4 Adressen unterteilt?
+    \item Wie findet man die Netzwerkadresse anhand der Hostadresse und der Subnetzmaske?
+    \item Was ist die Verbindung zwischen Subnetzmasken und «Slash Notation»?
+    \item Was ist der Unterschied zwischen Private und Public IPv4 Adressen?
+    \item Wie werden Private IPv4 Adressen verwendet im Internet?
+    \item Wieso brauchen wir Private IPv4 Adressen?
+    \item Was ist eine Loopbackadresse? Wie wird diese Adresse verwendet?
+    \item Was sind «Link-Local» (APIPA) Adressen? Wie und wann werden diese Adressen verwendet?
+    \item Wie routet ein Host seine eigenen IPv4 Pakete?
+    \item Was ist die Rolle der Default Gateway in dem Routing Prozess?
+\end{itemize}
+
+\section{Antworten}
+\subsection*{Was ist der Zweck der Vermittlungsschicht?}
+\begin{itemize}
+    \item *Addressing end devices
+    \item Encapsulation
+    \begin{itemize}
+        \item IP encaplsulates the transport layer segment
+        \item IP can use either an IPv4 or IPv6 packet and not impact the layer 4 segment
+        \item IP packet will be examined by all layer 3 devices as it traverses the network
+        \item The IP addressing does not change from source to destination (except when NAT is used)
+    \end{itemize}
+    \item *Routing
+    \item De-Encapsulation
+\end{itemize}
+
+\subsection*{Was für Protokolle findet man in der Vermittlungsschicht?}
+\subsection*{Was sind die wichtigsten Merkmale des IPv4 Protokolls?}
+Network Layer is connectionless
+\begin{itemize}
+    \item No connection (establishment): packets are just sent
+    \item No control information (synchronizations, acknowledgements, etc.)
+    \item The destination will receive the packet... hopefully!
+\end{itemize}
+
+Network Layer does best effort
+\begin{itemize}
+    \item No delivery guarantee
+    \item No mechanism to resend data
+    \item Does not know if the other device is operational or if it received the packet
+\end{itemize}
+
+Network Layer is media independent
+\begin{itemize}
+    \item IP does not care about the Data Link Layer or the Physical Layer
+    \item With one exception: try not to exceed the Data Link Layer Maximum Transfer Unit (MTU)
+    \begin{itemize}
+        \item MTU must be provided by the Data Link Layer
+        \item Undesirable for the Network Layer packet size to exceed the DL Layer MTU
+        \item What happens if the IP packet is larger than the DL MTU?
+    \end{itemize}
+\end{itemize}
+\subsection*{Wie lange sind IPv4 Adressen?}
+4 bytes = 32 bits
+\subsection*{Wie sind IPv4 Adressen unterteilt?}
+\begin{itemize}
+    \item Network Address
+    \item Host Address
+    \item Broadcast Address
+\end{itemize}
+\subsection*{Wie findet man die Netzwerkadresse anhand der Hostadresse und der Subnetzmaske?}
+//TODO
+\subsection*{Was ist die Verbindung zwischen Subnetzmasken und «Slash Notation»?}
+//TODO
+\subsection*{Was ist der Unterschied zwischen Private und Public IPv4 Adressen?}
+Auf private IPv4 Adressen kann von aussen nicht direkt zugegriffen werden. Diese sind nach aussen hin unsichtbar.
+\subsection*{Wie werden Private IPv4 Adressen verwendet im Internet?}
+NAT
+\subsection*{Wieso brauchen wir Private IPv4 Adressen?}
+Um innerhalb des LANs auf Endgeräte zugreifen zu können.
+\subsection*{Was ist eine Loopbackadresse? Wie wird diese Adresse verwendet?}
+Die Loopbackadresse zeigt auf den eigenen Host. Diese wird meistens dazu genutzt, um Programme, die als Server dienen können, lokal zu betreiben.
+\subsection*{Was sind «Link-Local» (APIPA) Adressen? Wie und wann werden diese Adressen verwendet?}
+//TODO
+\subsection*{Wie routet ein Host seine eigenen IPv4 Pakete?}
+//TODO
+\subsection*{Was ist die Rolle der Default Gateway in dem Routing Prozess?}
+//TODO

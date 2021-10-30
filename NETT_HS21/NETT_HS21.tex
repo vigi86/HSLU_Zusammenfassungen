@@ -4,8 +4,9 @@
 \usepackage{sectsty}
 \usepackage[table]{xcolor}
 \usepackage{lastpage}
-\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol, xcolor}
+\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makecell, makeidx, multicol, multirow, tabularx, textcomp, xcolor}
 \usepackage[hidelinks]{hyperref}
+\usepackage[all]{hypcap}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{listings}
 \lstloadlanguages{SQL, Java, R}
@@ -60,7 +61,7 @@
 \pagestyle{fancy}
 \fancyhf{} %reset
 \fancyhead[L]{HSLU}
-\fancyhead[C]{AD}
+\fancyhead[C]{NETT}
 \fancyhead[R]{\thepage/\pageref{LastPage}}
 \fancyfoot[L]{}
 \fancyfoot[C]{}
@@ -76,7 +77,16 @@
 \thispagestyle{empty}
 \pagebreak
 \input{SW01.tex}
+\pagebreak
 \input{SW02.tex}
+\pagebreak
 \input{SW03.tex}
+\pagebreak
 \input{SW04.tex}
+\pagebreak
+\input{SW05.tex}
+\pagebreak
+\input{SW06.tex}
+\listoffigures
+\listoftables
 \end{document}
