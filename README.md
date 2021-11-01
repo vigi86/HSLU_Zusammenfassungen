@@ -4,6 +4,6 @@
 
 ISF: 100%
 
-WEBT: 50% bis SW06
+WEBT: ca. 30% bis SW04
 
 NETT: work in progress
