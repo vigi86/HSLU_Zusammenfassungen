@@ -8,6 +8,8 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[all]{hypcap}
 \usepackage[hang,flushmargin]{footmisc}
+\usepackage[acronym,nopostdot,toc]{glossaries}
+\setacronymstyle{long-short}
 \usepackage{listings}
 \lstloadlanguages{SQL, Java, R}
 \definecolor{pblue}{rgb}{0.13,0.13,1}
@@ -39,6 +41,8 @@
 }
 
 \makeindex
+\makeglossaries
+\loadglsentries{Glossar.tex}
 
 \setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
 \setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=*}
@@ -89,6 +93,36 @@
 \input{SW06.tex}
 \pagebreak
 \input{SW07.tex}
+
+%! Verzeichnisse (Quellen, Abbildung, Abkürzung)
+% Abbildungsverzeichnis
+\newpage
+\phantomsection\label{sec:Abbildungsverzeichnis}\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
+
+% Akronyme
+\newpage
+\glsaddall
+\printglossary[type=\acronymtype, nonumberlist]
+
+% Glossar
+\newpage
+\printglossary[title={Glossar}, nonumberlist]
+
+% Index
+\printindex
+\thispagestyle{fancy}
+
+% Tabellenverzeichnis
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
+\thispagestyle{fancy}
+
+% Quellen
+%\newpage
+%\phantomsection
+%\addcontentsline{toc}{section}{Quellen}
+%\printbibliography[title={Quellen}]
 \end{document}
