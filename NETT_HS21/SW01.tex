@@ -1,4 +1,4 @@
-\part{SW 01 - Networking Today \& Networking Trends}
+\part{SW 01 - Networking Today \& Networking Trends}\label{part:sw01}
 \section{Lernziele (Leitfragen)}
 \begin{enumerate}
     \item Wieso sind Computernetzwerke wichtig in unserem Leben?
@@ -28,13 +28,17 @@
 
 \section{Antworten}
 \subsection*{Wieso sind Computernetzwerke wichtig in unserem Leben?}
-Die zunehmende Digitalisierung erfordert eine immer grössere Vernetzung im Alltag. Sei es beruflich mit E-Mails, Website, Dateitransfer, cloudbasierte Lösungen etc. oder auch privat mit digitalem Fernsehen, Streamingangeboten von Videos und Musik, bis zur Smart-Watch.
+Die zunehmende Digitalisierung erfordert eine immer grössere Vernetzung im Alltag. Sei es beruflich mit E-Mails, Website, Dateitransfer, cloudbasierte Lösungen etc. oder auch privat mit digitalem Fernsehen, \mbox{Streamingangeboten} von Videos und Musik, bis zur Smart-Watch.
+
 \subsection*{Wieso sind Computernetzwerke wichtig für Unternehmen und unsere Berufe?}
 Für moderne Unternehmen ist es heutzutage wichtig vernetzt zu sein. Man verfügt beispielsweise über IP-Telefone, Fileserver, Mailserver, Virtual-Machine-Server, Rendering-Server etc. Um auf all diese Dienste zugreifen zu können, muss ein Computernetzwerk bestehen.
-\subsection*{Wieso ist Kenntnis der Computernetzwerke wichtig für die Wirtschaftsinformatik?}
+
+\subsection*{Wieso ist Kenntnis der Computernetzwerke wichtig für die Wirtschafts\-informatik?}
 Die Berufsausrichtung/-aussicht der Wirtschaftsinformatikspezialisten tendiert dazu, dass sie leitende Angestellte werden. Genehmigungen für Budgetanträge im Bereich der Informatik erfordern daher ein gutes Know-How von Komponenten, die in der Branche verwendet werden.
+
 \pagebreak
-\subsection*{Was ist ein \flqq End Device\frqq{} (Endgerät)? Geben Sie Beispiele.}
+
+\subsection*{Was ist ein \flqq End Device\frqq{} (Endgerät)? Geben Sie Beispiele.}\index{End Device}
 \begin{itemize}
     \item Smartphone \& IP-Telefone
     \item Drucker
@@ -43,17 +47,21 @@ Die Berufsausrichtung/-aussicht der Wirtschaftsinformatikspezialisten tendiert d
     \item Tablet
     \item IoT-Geräte\footnote{Internet of Things - vom intelligenten Kühlschrank bis zum selbstfahrenden Auto.}
 \end{itemize}
-\subsection*{Was ist ein ``intermediary (network) device'' (Netzwerkkomponente), oder Netzwerkgerät? Geben Sie Beispiele.}
+
+\subsection*{Was ist ein ``intermediary (network) device'' (Netzwerkkomponente), oder Netzwerkgerät? Geben Sie Beispiele.}\index{Intermediary Network Device}
 \begin{itemize}
-    \item (Wireless) Router
+    \item (Wireless-)Router
     \item LAN \& Multilayer Switches
 \end{itemize}
-\subsection*{Wie funktioniert das \flqq Client-Server\frqq{} Modell? Geben Sie Beispiele.}
+
+\subsection*{Wie funktioniert das \flqq Client-Server\frqq{} Modell? Geben Sie Beispiele.}\index{Model!Client-Server}
 Das Modell beschreibt die Rolle eines zentralen Dienstanbieters (Server), der Dienstnutzern (Clients) den Zugang zu seinen Diensten verschafft. Der Client bezieht lediglich den Dienst, indem es dem Server einen \textsl{\textbf{request}} sendet, der Server antwortet mit der \textsl{\textbf{response}}.
-\subsection*{Wie funktioniert das \flqq Peer-to-peer\frqq{} Modell? Geben Sie Beispiele.}
+
+\subsection*{Wie funktioniert das \flqq Peer-to-peer\frqq{} Modell? Geben Sie Beispiele.}\index{Model!Peer to Peer}
 Hier übernimmt ein Client gleichzeitig die Funktion eines Servers. Dadurch wird der Client zu einem \textsl{\textbf{Peer}}. Peers bieten daher Dienste und Ressourcen an und nehmen aber gleichzeitig Dienste von anderen Peers in Anspruch.
+
 \subsection*{Wie unterscheiden sich physikalische und logische Netzwerkdiagramme?}
-\paragraph{Das physikalisches Netzwerkdiagramm}zeigt, wie der Name sagt, den \textsl{\textbf{räumlich physikalischen Standort}} der Netzwerkkomponenten.
+\index{Netzwerkdiagramm!physikalisch}\textbf{Das physikalisches Netzwerkdiagramm} zeigt, wie der Name sagt, den \textsl{\textbf{räumlich physikalischen Standort}} der Netzwerkkomponenten.
 \begin{figure}[H]
     \begin{center}
     \label{pic:physical_topology}
@@ -61,7 +69,7 @@ Hier übernimmt ein Client gleichzeitig die Funktion eines Servers. Dadurch wird
     \caption{Physikalisches Netzwerkdiagramm (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
-\paragraph{Das logische Netzwerkdiagramm}zeigt hingegen über welche \textsl{\textbf{Ports (interfaces)}} die Komponenten angeschlossen sind, sowie welche \textsl{\textbf{Netzwerkadressierung}} gegeben wurde. Merkmale sind Netzwerkadressen, IP-Adressen von Endgeräten, Subnetzmasken, je nach Anwendung auch MAC-Adressen\footnote{Media-Access-Control}. Man spricht auch von einer \textsl{physischen Adresse} oder \textsl{Geräteadresse}.
+\index{Netzwerkdiagramm!logisch}\textbf{Das logische Netzwerkdiagramm} zeigt hingegen über welche \textsl{\textbf{Ports (interfaces)}} die Komponenten angeschlossen sind, sowie welche \textsl{\textbf{Netzwerkadressierung}} gegeben wurde. Merkmale sind Netzwerkadressen, IP-Adressen von Endgeräten, Subnetzmasken, je nach Anwendung auch MAC-Adressen\footnote{Media-Access-Control (//TODO Acronym)}. Man spricht auch von einer \textsl{physischen Adresse} oder \textsl{Geräteadresse}.
 \begin{figure}[H]
     \begin{center}
     \label{pic:logical_topology}
@@ -69,24 +77,32 @@ Hier übernimmt ein Client gleichzeitig die Funktion eines Servers. Dadurch wird
     \caption{Logisches Netzwerkdiagramm (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
-\subsection*{Wie kann man anhand ihrer Grösse Computernetzwerke klassifizieren?}
-Es gibt diverse Grössen von Netzwerke. Namentlich sind das:
+
+\subsection*{Wie kann man anhand ihrer Grösse Computernetzwerke klassifizieren?}\index{Netzwerk!Klassen}
+Es gibt diverse Grössen von Netzwerken. Namentlich sind das:
 \begin{itemize}
-    \item LAN - Local Area Network. Lokales Netz, mal abgesehen von Subnetzen, auf die Wohnung, Büro oder Firma beschränkt.
-    \item MAN - Metropolitan Area Network. Meistens ein Verbund von LANs, welche auf ``kürzere Distanzen'' (bis zu ca. 100 km) durch einen Backbone (Netz mit besonders grosser Übertragungsrate über Glasfaser) vernetzt sind. MANs werden durch Internetdienstanbieter (ISP - Internet Service Provider) betrieben.
-    \item WAN - Wide Area Network. Verbund und Backbone von MANs. Salopp: ``das Internet''.
+    \item LAN\label{LAN} - Local Area Network. Lokales Netz, mal abgesehen von Subnetzen, auf die Wohnung, Büro oder Firma beschränkt.
+    \item MAN\label{MAN} - Metropolitan Area Network. Meistens ein Verbund von LANs, welche auf ``kürzere Distanzen'' (bis zu ca. 100 km) durch einen Backbone (Netz mit besonders grosser Übertragungsrate über Glasfaser) vernetzt sind. MANs werden durch Internetdienstanbieter (ISP - Internet Service Provider) betrieben.
+    \item WAN\label{WAN} - Wide Area Network. Verbund und Backbone von MANs. Salopp: ``das Internet''.
 \end{itemize}
 Die Aufzählung ist nicht abschliessend, denn es gibt z.B. Body Area Network (z.B. medizinische Geräte), Personal Are Network (z.B. Bluetooth), City Area Network, Global Area Network etc.
+
 \subsection*{Wie unterschieden sich LANs und WANs? Was ist ihre Beziehung?}
-Sie pflegen eine versteckte Beziehung. Kann ihre Liebe so weiterlodern, inmitten von Intrigen, Verrat und Krieg zwischen den Königshäusern? //TODO
+Ein \textbf{LAN} beschränkt sich auf das interne Netzwerk einer Firma oder privat in der Wohnung. Es gibt private IP-Adressen, welche nur im Intranet existieren. (//TODO Referenz) Ein \textbf{WAN} ist einfach ausgedrückt das Internet. Die Beziehung zueinander ist so, dass man normalerweise vom LAN auf das WAN zugreifen kann, umgekehrt aber nicht. Weitere Infos über IPs siehe \hyperref[part:sw0506]{\underline{\nameref{part:sw0506}, Seite \pageref{part:sw0506}}}
+
+%Sie pflegen eine versteckte Beziehung. Kann ihre Liebe so weiterlodern, inmitten von Intrigen, Verrat und Krieg zwischen den Königshäusern?
+
 \subsection*{Was ist das Internet? Wer besitzt das Internet? Was für Organisationen sind in der Entwicklung des Internets beteiligt?}
-Das Internet ist ein globaler Verbund von Rechnernetzwerken, welches die Nutzung von diversen Diensten wie WWW, Email, FTP u.v.m. bietet. Das Internet gehört im Grunde genommen niemandem. Die Organisation IETF\footnote{Internet Engineering Task Force} befasst sich jedoch mit der Weiterentwicklung des Internets, um dessen Funktionsweise zu verbessern.\footnote{\url{https://www.facebook.com/Ballybegpostofficeandgeneralconveniencestore/videos/845703122288697/}}
+Das Internet ist ein globaler Verbund von Rechnernetzwerken, welches die Nutzung von diversen Diensten wie WWW, Email, FTP u.v.m. bietet. Das Internet gehört im Grunde genommen niemandem. Die Organisation \underline{\acrshort{ietf}}\index{IETF} befasst sich jedoch mit der Weiterentwicklung des Internets, um dessen Funktionsweise zu verbessern.\footnote{\url{https://www.facebook.com/Ballybegpostofficeandgeneralconveniencestore/videos/845703122288697/}}
 \subsection*{Was ist der Unterschied zwischen einem Intranet und einem Extranet?}
 Auf das Intranet kann nur von innerhalb des LANs zugegriffen werden. Das Extranet bietet hingegen eine Erweiterung des Intranets, die von einer Gruppe von externen Benutzer verwendet werden darf. Extranets bieten Informationen die z.B. an Kunden oder Partnern zugänglich gemacht werden.
+
 \subsection*{Wie verbinden sich normalerweise Häuser, Wohnungen und HomeOffices mit dem Internet?}
 Kabelnetz, DSL - Digital Subscriber Line, Dial-Up Modem, GSM - Global System for Mobile Communications, Satellit.
+
 \subsection*{Wie verbinden sich normalerweise Büros und Unternehmern mit dem Internet?}
 Dedicated Leased Lines, Metro Ethernet (ethernetbasierte MANs), Business DSL, Satellit.
+
 \subsection*{Was bedeutet Konvergenz im Kontext der Computernetzwerke?}
 Voneinander getrennte Netze werden zusammengeführt. Bsp.: klassische Telefonie funktioniert zunehmend über VoIP (Voice over IP).
 
@@ -104,6 +120,7 @@ Voneinander getrennte Netze werden zusammengeführt. Bsp.: klassische Telefonie 
     \caption{Modernes, konvergiertes Netz (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
+
 \subsection*{Was bedeutet \flqq fault tolerance\frqq{} (Fehlertoleranz) im Kontext der Computernetzwerke? Geben Sie ein Beispiel}
 Beim Ausfall einer wichtigen Netzwerkkomponente wie z.B. Router, wird mit redundantem Aufbau eines Netzwerkes die Verbindung weiterhin gewährleistet.
 \begin{figure}[H]
@@ -113,7 +130,9 @@ Beim Ausfall einer wichtigen Netzwerkkomponente wie z.B. Router, wird mit redund
     \caption{Fault tolerance - Fehlertoleranz (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
+
 \pagebreak
+
 \subsection*{Was bedeutet \flqq scalability\frqq{} (Skalierbarkeit) im Kontext der Computernetzwerke? Geben Sie ein Beispiel}
 Die Skalierbarkeit eines Netzwerkes beschreibt die Fähigkeit/Möglichkeit, ein Netzwerk ohne grossen Aufwand zu erweitern.
 \begin{figure}[H]
@@ -123,6 +142,7 @@ Die Skalierbarkeit eines Netzwerkes beschreibt die Fähigkeit/Möglichkeit, ein 
     \caption{scalability - Skalierbarkeit (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
+
 \subsection*{Was bedeutet \flqq quality of service (QoS)\frqq{} im Kontext der Computernetzwerke? Geben Sie ein Beispiel}
 Das QoS dient zur Priorisierung von Netzwerkdiensten und -paketen. Ein Telefonat über VoIP ist wichtiger als eine Webseite, die vielleicht ein paar Millisekunden länger braucht um angezeigt zu werden.
 \begin{figure}[H]
@@ -132,8 +152,10 @@ Das QoS dient zur Priorisierung von Netzwerkdiensten und -paketen. Ein Telefonat
     \caption{Quality of service}
     \end{center}
 \end{figure}
+
 \subsection*{Wieso ist Netzwerksicherheit wichtig?}
 Um Unbefugten nicht versehentlichen oder absichtlichen Zugriff auf das Netzwerk zu gewähren.
+
 \subsection*{Was sind die drei Hauptinformationssicherheitsziele?}
 Informationssicherheit ist das höchste Gut, der heilige Grahl der Informatik. Die drei Hauptziele sind:
 \begin{itemize}
@@ -142,8 +164,10 @@ Informationssicherheit ist das höchste Gut, der heilige Grahl der Informatik. D
     \item \textbf{Verfügbarkeit} (availability): Verhinderung von Systemausfällen und Gewährleistung der Verfügbarkeit der Daten innerhalb eines definierten Zeitraums.
 \end{itemize}
 Informationssicherheit wird im Modul ISF - Information Security Fundamentals genauer erarbeitet.
+
 \subsection*{Was ist \flqq BYOD\frqq{} und was sind seine Auswirkungen für Geschäfte und Unternehmen?}
 Bring Your Own Device. Für Unternehmen bedeutet dies, dass Komponenten wie Smartphones und Notebooks in das Netzwerk eingebunden werden, welche vielleicht nicht über spezielle Schutzmassnahmen verfügen, als wenn es von der firmeneigenen Informatikabteilung zur Verfügung gestellt werden würde. Umso besser muss das Netzwerk gegen mögliche Bedrohungen, die dieses Philosophie mit sich bringt, geschützt werden.
+
 \subsection*{Was ist \flqq cloud computing\frqq{}? Was für Cloud Arten gibt es?}
 Clouds sind verschiedene Dienstleistungen, welche physisch nicht mehr verfügbar sind. Bekanntestes Anwendungsbeispiel ist die File-Cloud. Man hat nicht einen eigenen File-Server, sondern einen externen Anbieter, einen CSP - Could Service Provider, der den Zugang auf die darunterliegende Infrastruktur ermöglicht. Im Grunde gibt es drei Hauptformen von Angeboten:
 \begin{itemize}
@@ -172,5 +196,6 @@ Wichtig dabei ist, dass es vier verschiedene Arten von Clouds gibt.
 \end{itemize}
 
 Wie bei allem gibt es Vor- und Nachteile bei der Nutzung solcher Angebote.
+
 \subsection*{Was ist die Verbindung zwischen \flqq cloud computing\frqq{} und Computernetzwerken?}
 Cloud Computing ist ein Dienstleitungsangebot von Cloud Service Providern. Ein Computernetzwerk ist die darunterliegende Struktur zur Gewährleistung der Datenübertragung.
