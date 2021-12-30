@@ -16,36 +16,53 @@
 \end{itemize}
 
 \section{Antworten}
-\subsection*{Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?}
-//TODO
+\subsection*{Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?}\label{sub:csma}
+//TODO Ich glaube das war der Vortrag von Th.?
+
 \subsection*{Was ist der Zweck der Sicherungsschicht?}
-//TODO
-\subsection*{Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?}
-Logical Link Control
+//TODO Referenz zu SW02. Beschreibung bereits vorhanden. $\rightarrow$ Label in SW02 erstellen. (Was sind die Schichten des OSI Models?)
+
+\subsection*{Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?}\index{LLC - Logical Link Control}\index{MAC - Media Access Control}
+\begin{itemize}
+    \item Logical Link Control (LLC) kommuniziert zwischen Netzwerksoftware der oberen Schichten und der MAC-Subschicht.
+    \item Media Access Control (MAC) ist für die Datenkapselung und Verwaltung des Zugriffs auf das Übertragungsmedium verantwortlich. Siehe Frage oben \underline{\hyperref[sub:csma]{Unterschied CSMA/CD und CSMA/CA}}, Seite \pageref{sub:csma}.
+\end{itemize}
+//TODO Subschichten Bild oder Tabelle
+
 \subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}
 //TODO
+
 \subsection*{Was für Felder findet man in der Sicherungsschicht Frame?}
 \begin{itemize}
     \item Head
     \item Data
     \item Trailer
 \end{itemize}
-//TODO Frame Fields picture
-\subsection*{Was sind die wichtigsten Merkmale von MAC Adressen?}
+//TODO Frame Fields picture, Folie S. 16, Tabelle?
+
+\subsection*{Was sind die wichtigsten Merkmale von MAC Adressen?}\index{MAC-Adresse}
 \begin{itemize}
     \item 48 bits = 12 hex-Ziffern = 6 bytes
     \item einzigartig
     \item Erste Hälfte von Hersteller, zweite Hälfte zufällig
 \end{itemize}
+Beispiel Darstellung einer MAC-Adresse: 3D-8F-45-27-3C-1A oder 3D:8F:45:27:3C:1A
+
 \subsection*{Was machen Endgeräte, wenn ihre NIC ein Frame im Medium erkennen?}
-//TODO
+//TODO: Glossareintrag NIC: Network Interface Controller/Card, Netzwerkkarte.\\
+
+
 \subsection*{Wie werden Sicherungsschicht Frames in einem Switch bearbeitet? }
-//TODO
+//TODO Folie S. 21 ff
+
 \subsection*{Wie funktioniert der «Learn-and-forward» Prozess?}
-//TODO
+//TODO Folie S. 24 ff
+
 \subsection*{Was ist der Unterschied zwischen «Unicast» und «Broadcast» Frames?}
 //TODO
+
 \subsection*{Was ist der Zweck ARPs?}
-Das Address Resolution Protocol vermittelt zwischen der Sicherungsschicht und der Netzwerkschicht.
+Das Address Resolution Protocol vermittelt zwischen der Sicherungsschicht - Data Link (2) und der Vermittlungsschicht - Network (3). Es dient dazu, zu einer Netzwerkadresse der Internetschicht (IPv4-Adresse) die physische Adresse der Sicherungsschicht (MAC-Adresse) zu ermitteln. Die ermittelte MAC-Adresse wird in einer ARP-Tabelle hinterlegt.
+
 \subsection*{Wie funktioniert ARP?}
 //TODO
