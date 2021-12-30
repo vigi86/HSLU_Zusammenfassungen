@@ -1,0 +1,142 @@
+\part{SW 12}
+\section{Lernziele (Leitfragen)}
+\begin{itemize}
+    \item Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?
+    \item Geben Sie ein Beispiel von einem ‘Man-in-the-middle’ Angriff
+    \item Wie funktioniert einem ‘Trust Exploitation’ Angriff?
+    \item Geben Sie ein Beispiel für eine typische Softwareschwachstelle und eventuelle Folgen deren Nutzung (exploitation)
+    \item Geben Sie ein Beispiel von einem ‘Denial-of-Service’ Angriff
+    \item Wieso sind ‘Denial-of-Service’ Angriffe i.d.R. schwierig zu verhindern?
+    \item Was ist ‘Defense-in-depth’?
+    \item Wozu werden IDSs und IPSs verwendet? Wie unterschieden sie sich?
+    \item Was Sind ‘Data Loss Prevention Systems’? Geben Sie ein Beispiel eines solchen Systems
+    \item Geben Sie drei Beispiele von unsicheren Netzwerkprotokollen und deren entsprechenden sicheren Protokolle
+    \item Wieso sind Backups wichtig? Was ist bei der Durchführung von Backups zu beachten (aus Sicherheits- und Betriebssicht)?
+    \item Wieso ist Multifaktor Authentifizierung den Passwörtern zu bevorzugen?
+    \item Was ist der Zweck einer Firewall?
+    \item Wie funktioniert eine «First Generation (Packet Filter) Firewall»?
+    \item Wie funktioniert eine «Second Generation (Stateful) Firewall»?
+    \item Wie funktioniert eine moderne Firewall?
+    \item Was ist ein «Proxy» und was ist sein Zweck?
+    \item Was ist der Zweck einer Web Application Firewall (WAF)?
+    \item Was ist eine VPN? Wieso ist es «Virtual», wieso ist es «Private»?
+    \item Was sind die Vorteile von VPNs im Vergleich zu traditionellen privaten Netzwerken?
+    \item Was sind die Hauptarten von VPNs?
+    \item Was sind die Hauptarten von Remote Access VPNs?
+    \item Was ist IPSec? Was ist seine Verwendung?
+    \item Woraus besteht eine IPSec Security Association?
+    \item Was ist der Unterschied zwischen Transport und Tunnel Modi in IPSec?
+\end{itemize}
+
+\section{Antworten}
+\subsection*{Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?}
+Beispielsweise können MAC-Adressen, IP-Adressen wie Default-Gateway, DNS etc. gefälscht werden. Die Folge wäre ein DoS (Denial of Service).
+\subsection*{Geben Sie ein Beispiel von einem ‘Man-in-the-middle’ Angriff}
+Ein Angreifer stellt sich zwischen
+\subsection*{Wie funktioniert einem ‘Trust Exploitation’ Angriff?}
+Eve <-x-> Alice <---> Bob <---> Eve
+\subsection*{Geben Sie ein Beispiel für eine typische Softwareschwachstelle und eventuelle Folgen deren Nutzung (exploitation)}
+RDP
+\subsection*{Geben Sie ein Beispiel von einem ‘Denial-of-Service’ Angriff}
+
+\subsection*{Wieso sind ‘Denial-of-Service’ Angriffe i.d.R. schwierig zu verhindern?}
+\subsection*{Was ist ‘Defense-in-depth’?}
+Verschiedene Verteidigungsmechanismen auf verschiedenen Layern bereitstellen.
+
+\subsection*{Wozu werden IDSs und IPSs verwendet? Wie unterschieden sie sich?}
+\begin{itemize}
+    \item Intrusion Detection System: Ein Angriff wird erkannt und geblockt
+    \item Intrusion Prevention System: Ein Angriff wird im Vornherein erkannt und unterbrochen.
+\end{itemize}
+\subsection*{Was Sind ‘Data Loss Prevention Systems’? Geben Sie ein Beispiel eines solchen Systems}
+Verhindern, dass sensitive Daten beispielsweise auf USB-Sticks kopiert werden, oder Emails keine sensitive Daten als Anhang haben.
+\subsection*{Geben Sie drei Beispiele von unsicheren Netzwerkprotokollen und deren entsprechenden sicheren Protokolle}
+FTP(S), HTTP(S), Telnet <-> SSH.
+
+\subsection*{Wieso sind Backups wichtig? Was ist bei der Durchführung von Backups zu beachten (aus Sicherheits- und Betriebssicht)?}
+\subsection*{Wieso ist Multifaktor Authentifizierung den Passwörtern zu bevorzugen?}
+\subsection*{Was ist der Zweck einer Firewall?}
+\begin{itemize}
+    \item Kontrollpunkt: Netzwerk-/ Datenverkehr erlauben oder verweigern
+    \item Realisierung: Hard- und/oder Software
+    \item Datenverkehr durch die Firewall muss autorisiert werden: Firewall-Rules
+    \item Sie selbst muss gegen Angriffe möglichst resistent sein
+\end{itemize}
+
+\subsection*{Wie funktioniert eine «First Generation (Packet Filter) Firewall»?}
+Vorteile:
+\begin{itemize}
+    \item Jedes Paket
+    \begin{itemize}
+        \item einzeln angeschaut
+        \item in jede Richtung separat
+        \item Paketinhalt nicht kontrolliert
+    \end{itemize}
+    \item In wenigen Fällen angewendet
+    \item Kann mit modernen Routern realisiert werdenSehr schnell \& günstig
+\end{itemize}
+Nachteile:
+\begin{itemize}
+    \item Schwierig zu konfigurieren
+    \item Probleme mit gewissen Protokollen wie FTP
+    \begin{itemize}
+        \item Ankommende Verbindung für FTP Data
+    \end{itemize}
+    //TODO
+\end{itemize}
+
+\subsection*{Wie funktioniert eine «Second Generation (Stateful) Firewall»?}
+\begin{itemize}
+    \item Paket Filter mit Intelligenz
+    \item Zusammenhänge zwischen Paketen werden berücksichtigt
+    \item Antwort auf ein vorher ausgehendes Paket wird wieder reingelassen
+    \item Paket-Inhalt (Daten) nicht kontrolliert
+\end{itemize}
+
+\subsection*{Wie funktioniert eine moderne Firewall?}
+\begin{itemize}
+    \item System: Software und ev. Hardware
+    \item Kann (auch) ausgefeilte Angriffe erkennen und blockieren
+    \item Fassen drei Schlüsselfunktionen zusammen:
+    \begin{itemize}
+        \item Techniken von professionellen (stateful) Firewalls
+        \item Intrusion Detection \& Prevention Systems (IDS \& IPS)
+        \item Applikations-Kontrolle (mittels Deep-Packet-Inspection)
+    \end{itemize}
+    \item Evtl. externe (freie und kostenpflichtige) Quellen (feeds) mit weiteren Informationen integriert
+    \begin{itemize}
+        \item Somit könnten z.B. bei einer bekannt gewordenen Phishing-Attacke automatisch solche Sites direkt auf der Firewall gesperrt werden
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Was ist ein «Proxy» und was ist sein Zweck?}
+Vorteile:
+\begin{itemize}
+    \item Einfacher zu konfigurieren
+    \item Keine vertieften TCP/IP Kenntnisse erforderlich
+    \item Relativ sicher im Vergleich zu Packet Filter
+\end{itemize}
+Nachteile:
+\begin{itemize}
+    \item Relativ langsam im Vergleich zum Paket Filter
+    \item Falls neue oder nicht unterstützte Protokolle verwendet werden, sollen, muss eine neue Firewall //TODO
+    \item Ressourcenintensiv
+\end{itemize}
+
+\subsection*{Was ist der Zweck einer Web Application Firewall (WAF)?}
+\begin{itemize}
+    \item Schutz eines oder mehrerer Web-Server
+    \item Zusätzlich zur `'normalen'' Firewall (nicht als Ersatz)
+    \item Schutz gegen SQL-Injection, XSS etc. (z.B. OWASP Top 10)
+    \item Evtl. Validierung von Cookies, Session State, User etc.
+    \item Proaktiver Schutz gegen neue (ev. noch nicht entdeckte) Sicherheitslücken
+    \item Know-How Transfer Software-Entwickler $\rightarrow$ Firewall Administrator
+\end{itemize}
+
+\subsection*{Was ist eine VPN? Wieso ist es «Virtual», wieso ist es «Private»?}
+\subsection*{Was sind die Vorteile von VPNs im Vergleich zu traditionellen privaten Netzwerken?}
+\subsection*{Was sind die Hauptarten von VPNs?}
+\subsection*{Was sind die Hauptarten von Remote Access VPNs?}
+\subsection*{Was ist IPSec? Was ist seine Verwendung?}
+\subsection*{Woraus besteht eine IPSec Security Association?}
+\subsection*{Was ist der Unterschied zwischen Transport und Tunnel Modi in IPSec?}
