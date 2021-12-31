@@ -30,7 +30,7 @@ Eselsbrücke: \underline{$\mathbb{A}$}lle \underline{$\mathbb{T}$}iere \underlin
 \caption{TCP/IP Modell}
 \end{table}
 
-\subsection*{Was sind die Schichten des OSI Models? Beschreiben Sie den Zweck jeder Schicht}\index{Modell!OSI}
+\subsection*{Was sind die Schichten des OSI Models? Beschreiben Sie den Zweck jeder Schicht}\index{Modell!OSI}\label{sub:SchichtenOSIModell}
 Das OSI Modell besteht aus 7 Schichten.\\
 Eselsbrücke: \underline{$\mathbb{A}$}lle \underline{$\mathbb{P}$}riester \underline{$\mathbb{S}$}aufen \underline{$\mathbb{T}$}equilla \underline{$\mathbb{N}$}ach \underline{$\mathbb{D}$}er \underline{$\mathbb{P}$}redigt\\
 
@@ -69,26 +69,39 @@ Eselsbrücke: \underline{$\mathbb{A}$}lle \underline{$\mathbb{P}$}riester \under
     \hline
 
 \end{tabularx}
-\caption{OSI Modell //TODO Quelle: Buch Rüdiger Schreiner}
+\caption{OSI Modell\cite{Schreiner2019}}
 \end{table}
-\subsection*{Was ist die Verbindung zwischen dem TCP/IP Modell und dem OSI Modell?}
+\subsection*{Was ist die Verbindung zwischen dem TCP/IP Modell und dem OSI Modell?}\label{sub:VerbindungTCPundOSIModell}
 \begin{figure}[H]
     \begin{center}
     \label{pic:osi_tcpip}
     \includegraphics[width=\textwidth]{images/osi_tcpip.jpg}
-    \caption[Vergleich OSI mit TCP/IP Modell]{Vergleich OSI mit TCP/IP Modell\footnotemark //TODO Quelle}
+    \caption[Vergleich OSI mit TCP/IP Modell]{Vergleich OSI mit TCP/IP Modell\cite{FSDeutschland}}
     \end{center}
 \end{figure}
-\footnotetext{\url{https://media.fs.com/images/community/wp-content/uploads/2017/11/comparison-of-OSI-and-TCPIP.jpg}}
 
-\subsection*{Nehmen Sie eine typische Netzwerkapplikation als Beispiel. Anhand des TCP/IP Models, erläutern Sie wie Nachrichten zwischen den End-Devices ausgetauscht sind.}
-//TODO Siehe Zeichnung L. - lesbar zeichnen\dots
+\subsection*{Nehmen Sie eine typische Netzwerkapplikation als Beispiel. Anhand des TCP/IP Models, erläutern Sie wie Nachrichten zwischen den End-Devices ausgetauscht sind.}\label{sub:BeispielNetzwerkapplikation}
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:tcp1}
+    \includegraphics[width=\textwidth]{images/Nachrichtenaustausch01.png}
+    \caption{Weg eines Datenpaketes}
+    \end{center}
+\end{figure}
 
-\subsection*{Wieso muss man Zahlensysteme verstehen, wenn man sich mit Computernetzwerken beschäftigt?}
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:tcp2}
+    \includegraphics[width=\textwidth]{images/Nachrichtenaustausch02.png}
+    \caption{Einzelschritte der Kapselung, Beispiel anhand DNS request}
+    \end{center}
+\end{figure}
+
+\subsection*{Wieso muss man Zahlensysteme verstehen, wenn man sich mit Computernetzwerken beschäftigt?}\label{sub:ZahlensystemeVerstehen}
 Das Rechnen mit anderen Zahlensystemen wie Binär ist im Umgang mit Computernetzwerken insofern wichtig, weil gewisse Rechnungen (z.B. Subnetz) einfacher sind. Auch sind gewisse Zahlen in anderen Formaten dargestellt wie MAC-Adressen oder IPv6, welche in Hexadezimal dargestellt werden, weil diese kompakter sind als Dezimal.
 
 \pagebreak
-\subsection*{Wie kann man einfach und schnell zwischen Binär, Hexadezimal und Dezimal umrechnen?}
+\subsection*{Wie kann man einfach und schnell zwischen Binär, Hexadezimal und Dezimal umrechnen?}\label{sub:RechnenBinHexDez}
     Über den Rechner vom Betriebssystem:
     \begin{figure}[H]
         \begin{center}
