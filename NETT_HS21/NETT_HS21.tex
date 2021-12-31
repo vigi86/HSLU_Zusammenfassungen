@@ -1,6 +1,6 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{ngerman}
+\usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{sectsty}
@@ -42,6 +42,8 @@
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
 
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
 \makeindex
 \makeglossaries
 \loadglsentries{Glossar.tex}
@@ -77,7 +79,8 @@
 \newcommand{\todo}[1]{\textcolor{red}{#1//\\[1em]}}
 
 \begin{document}
-
+%\footnotemark
+%\footnotetext{blabla}
 \maketitle
 \tableofcontents
 \thispagestyle{empty}
@@ -130,8 +133,8 @@
 \thispagestyle{fancy}
 
 % Quellen
-%\newpage
-%\phantomsection
-%\addcontentsline{toc}{section}{Quellen}
-%\printbibliography[title={Quellen}]
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Quellen}
+\printbibliography[title={Quellen}]
 \end{document}
