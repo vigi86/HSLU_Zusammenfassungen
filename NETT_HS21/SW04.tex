@@ -16,18 +16,57 @@
 \end{itemize}
 
 \section{Antworten}
-\subsection*{Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?}\label{sub:csma}
-//TODO Ich glaube das war der Vortrag von Th.?
+\subsection*{Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?}\label{sub:csma}\index{CSMA - Carrier Sense Multiple Access}
+//TODO Sollte für die Logik zu SW03 T1 verschoben werden.\\
 
-\subsection*{Was ist der Zweck der Sicherungsschicht?}
-//TODO Referenz zu SW02. Beschreibung bereits vorhanden. $\rightarrow$ Label in SW02 erstellen. (Was sind die Schichten des OSI Models?)
+\textbf{CSMA: Carrier Sense Multiple Access}
+\begin{itemize}
+    \item Sender hört den Datenverkehr auf der Leitung ab (= carrier sense)
+    \item Sender wartet, bis der Kanal frei ist
+    \item sobald der Kanal frei ist, darf gesendet werden
+    \item falls mehrere Sender (fast) gleichzeitig anfangen zu senden:\\Kollision $\rightarrow$ Wiederholung nach zufälliger Zeitspanne
+\end{itemize}\,\\
 
-\subsection*{Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?}\index{LLC - Logical Link Control}\index{MAC - Media Access Control}
+\textbf{CSMA/CA (CA = Collision Avoidance)}
+\begin{itemize}
+    \item Kollisionsvermeidung durch zufällige Wartezeit nach Erkennung eines freien Kanals
+    \item z.B. WLAN 802.11-DCF (Distributed Coordination Function)
+\end{itemize}\,\\
+
+\textbf{CSMA/CD (Collision Detection)}
+\begin{itemize}
+    \item sobald eine Kollision erkannt wird, wird die Übertragung abgebrochen
+    \item z.B. Ethernet
+\end{itemize}\,\\
+
+\begin{tabularx}{\textwidth}{X|X}
+    \multicolumn{1}{X}{CSMA/CD}&\multicolumn{1}{X}{CSMA/CA}\\
+    \hline
+    $\bullet$ Greift nach der Kollision&$\bullet$ Greift vor der Kollision\\
+    $\bullet$ Genutzt in kabelgebundenen Netzwerken&$\bullet$ Genutzt in kabellosen Netzwerken\\
+    $\bullet$ Reduziert die `'recovery time'' nach einer Kollision&$\bullet$ Minimiert Kollisionsgefahr\\
+    $\bullet$ Bei Konflikt wird erneut gesendet&$\bullet$ Sendet zuerst die Info, dass etwas übermittelt wird\\
+    $\bullet$ Effektiver als das einfache CSMA&$\bullet$ ähnlich effizient wie CSMA\\
+\end{tabularx}
+
+
+\subsection*{Was ist der Zweck der Sicherungsschicht?}\label{sub:Sicherungsschicht}
+Siehe \textbf{\hyperref[sub:SchichtenOSIModell]{Schichten des OSI Modells}} (Seite \pageref{sub:SchichtenOSIModell}).
+
+\pagebreak
+\subsection*{Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?}\label{sub:LLC_MAC}\index{LLC - Logical Link Control}\index{MAC - Media Access Control}
 \begin{itemize}
     \item Logical Link Control (LLC) kommuniziert zwischen Netzwerksoftware der oberen Schichten und der MAC-Subschicht.
     \item Media Access Control (MAC) ist für die Datenkapselung und Verwaltung des Zugriffs auf das Übertragungsmedium verantwortlich. Siehe Frage oben \underline{\hyperref[sub:csma]{Unterschied CSMA/CD und CSMA/CA}}, Seite \pageref{sub:csma}.
 \end{itemize}
-//TODO Subschichten Bild oder Tabelle
+
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:DataLinkLayer_LLC_MAC}
+    \includegraphics[width=\textwidth]{images/DLL_Sublayers.jpg}
+    \caption{Subschichten der Sicherungsschicht / des Data Link Layers (\textsuperscript{\textcopyright}Cisco)}
+    \end{center}
+\end{figure}
 
 \subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}
 //TODO
