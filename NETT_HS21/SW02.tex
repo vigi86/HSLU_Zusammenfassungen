@@ -137,9 +137,9 @@ Wir teilen also mit 16:\\
     125&$\div$&16&($16^1$)&= 7 (ganz links)&R  13 (mit nächst tiefere Potenz teilen)\\
     13&$\div$&1&($16^0$) &= 13&\\[1em]
 \end{tabular}\\
-Also hat man jetzt $7\times16^1+13\times16^0$. Das Hexadezimalsystem geht ja aber von 0-F, somit ist die 13 ein D (\dots, 9, 10=A, 11=B, 12=C, 13=D, 14=E, 15=F). Das Ergebnis ist als 0x7D. Auch easy.\\
-Umgekehrt von Hexadezimal auf Dezimal umzurechnen, folgt man dem nun bekannten Potenz-Prinzip.\\
-Hexadezimal und Binär ist Bubieinfach. Dazu nimmt man Binär halbe Bytes und stellt die Zahlen gegenüber.\\
+Also hat man jetzt $7\times16^1+13\times16^0$. Das Hexadezimalsystem geht ja aber von 0-F, somit ist die 13 ein D (\dots, 9, 10=A, 11=B, 12=C, 13=D, 14=E, 15=F). Das Ergebnis ist als 0x7D. Auch easy.\\[1em]
+Umgekehrt von Hexadezimal auf Dezimal umzurechnen, folgt man dem nun bekannten Potenz-Prinzip.\\$7\times16^1+13\times16^0=125_{10}$\\[1em]
+Hexadezimal und Binär ist Bubieinfach. Dazu nimmt man Binär halbe Bytes (Nibble) und stellt die Zahlen gegenüber.\\
 \begin{tabular}{cccc|cccc}
     $2^3$&$2^2$&$2^1$&$2^0$&$2^3$&$2^2$&$2^1$&$2^0$\\
     0&1&1&1&1&1&0&1\\
@@ -163,4 +163,5 @@ Nun können wir überall dort, wo ein Exponent steht, die Zahl Schreiben. Übera
     \hline
     \multicolumn{4}{c|}{1}&\multicolumn{1}{c|}{0}&\multicolumn{4}{c|}{14 = E}&\multicolumn{1}{c|}{0}&\multicolumn{4}{c|}{13 = D}&\multicolumn{4}{c}{4}\\
 \end{tabular}\\[1em]
-Das Ergebnis ist also 0x10E0D4, Binär 0b0001 0000 1110 0000 1101 0100.
+Das Ergebnis ist also 0x10E0D4, Binär 0b0001 0000 1110 0000 1101 0100.\\[1em]
+Hexadezimal zu Dezimal wie vorhin bereits beschrieben: $1\times16^5+14\times16^3+13\times16^1+4\times16^0=1106132_{10}$
