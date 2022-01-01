@@ -6,21 +6,28 @@
 
 % \newacronym{label}{short}{long}
 \newacronym{apipa}{APIPA}{Automatic Private IP Addressing}
+\newacronym{boyd}{BOYD}{Bring your own Device}
 \newacronym{dsl}{DSL}{Digital Subscriber Line}
 \newacronym{ietf}{IETF}{Internet Engineering Task Force}
 \newacronym{gsm}{GSM}{Global System for Mobile Communication}
 \newacronym{iot}{IoT}{Internet of Things}
 \newacronym{mac}{MAC}{Media Access Control}
+\newacronym{nic}{NIC}{Network Interface Controller/Card}
 \newacronym{voip}{VoIP}{Voice over IP}
 
 % \newglossaryentry{label}{name={%<name%>},description={%<description%>}}
 \newglossaryentry{APIPA}
 {
   name={\acrlong{apipa}},
-  description={//TODO}
+  description={\acrfull{apipa} ist eine sogenannte Link-Local Address. Es ist eine vom Betriebssystem automatisch zugewiesene IP-Adresse, falls das System auf DHCP eingestellt ist, jedoch nichts vom DHCP offeriert wurde. Dies weil entweder kein DHCP-Server im Netzwerk vorhanden ist oder dieser keine Antwort gibt.\\Der Adressbereich in IPv4 ist 169.254.0.0/16 (196.254.0.0 - 169.254.255.255).}
 }
 \newglossaryentry{IoT}
 {
   name={\acrlong{iot}},
   description={Begriff für Technologien einer globalen Infrastruktur der Informationsgesellschaften, die es ermöglicht, physische und virtuelle Objekte miteinander zu vernetzen und sie durch Informations- und Kommunikationstechniken zusammenarbeiten zu lassen. Vernetzung allerlei Dinge von der Wetterstation zuhause, dem intelligenten Kühlschrank bis hin zum selbstfahrenden Auto.}
+}
+\newglossaryentry{NIC}
+{
+  name={\acrlong{nic}},
+  description={Ein \acrshort{nic} ist die Netzwerkkarte eines Clients.}
 }
