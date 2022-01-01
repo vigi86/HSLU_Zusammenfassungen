@@ -74,8 +74,18 @@ Siehe auch \underline{\hyperref[sub:SchichtenOSIModell]{Schichten des OSI Modell
     \end{center}
 \end{figure}
 
-\subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}
-//TODO
+\subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}\index{CSMA - Carrier Sense Multiple Access}
+Heutzutage wird vor allem das \textbf{CSMA/CD} im Ethernet und \textbf{CSMA/CA} im WLAN verwendet. Altertümliche Zugriffsverfahren waren zwei Varianten von \textbf{Token Passing}.\\[1em]
+Beim \textbf{Token Ring} wird das Netzwerk in Form eines Ringes verlegt. Ein Rechner im Ring ist der Token Master. Er verwaltet und kontrolliert ein Bitmuster, das Token. Dieses wird von Gerät zu Gerät weitergereicht. Ist das Token "`leer"', darf es der momentane Besitzer entnehmen. Er sendet nun Daten zum Empfänger. Der Empfänger quittiert dem Sender den Empfang der Daten, und der Sender reicht daraufhin das Token wieder weiter. Geht dsa Token verloren, wird es vom Master neu generiert.\\[1em]
+Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur dass hier nicht im Ring gearbeitet wird, sondern wieder auf Thin-Wire (Koaxial) oder der universellen Gebäudeverkabelung (UGV). Hierbei wird das Token auf dem Bus weitergereicht. Erreicht es das Ende des Busses, wird es wieder zum Anfang zurückgereicht. Damit wird virtuell die Ringstruktur im Hintergrund wiederhergestellt\cite{Schreiner2019}.
+
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:Token}
+    \includegraphics[width=\textwidth]{images/Token.jpg}
+    \caption{Links: Token Ring. Rechts oben kleines Bild: Token wird auf einem Bus weitergereicht und am Ende wird es zum Anfang zurückgereicht und wieder gesendet.\cite{Schreiner2019}}
+    \end{center}
+\end{figure}
 
 \subsection*{Was für Felder findet man in der Sicherungsschicht Frame?}
 Es gibt einen \textbf{Header}, \textbf{Data} und einen \textbf{Trailer}. Header und Trailer sind einzelne Felder unterteilt:
@@ -167,7 +177,6 @@ I. LEARN: Untersuche die Source-MAC-Adresse
     \end{itemize}
 \end{enumerate}\,\\[1em]
 
-\newpage
 II. FORWARD: Finde Destination-MAC-Adresse
 \begin{itemize}
     \item Destination-MAC-Adresse ist unicast:
