@@ -1,46 +1,17 @@
 \documentclass[10pt,a4paper]{article}
+% Sprachgebundene Pakete
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{sectsty}
+% --
 \usepackage[table]{xcolor}
-\usepackage{lastpage}
-\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makecell, makeidx, multicol, multirow, tabularx, textcomp, xcolor}
+\usepackage{amssymb, csquotes, enumitem, fancyhdr, graphicx, float, lastpage, makecell, makeidx, multicol, multirow, sectsty, tabularx, textcomp, xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage[all]{hypcap}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage[acronym,nopostdot,toc]{glossaries}
 \setacronymstyle{long-short}
-\usepackage{listings}
-\lstloadlanguages{SQL, Java, R}
-\definecolor{pblue}{rgb}{0.13,0.13,1}
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\definecolor{pred}{rgb}{0.9,0,0}
-\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
-\definecolor{background}{rgb}{0.95,0.95,0.92}
-\lstset{
-  backgroundcolor=\color{background},
-  frame=single,
-  rulecolor=\color{pgrey},
-  showspaces=false,
-  showtabs=false,
-  breaklines=true,
-  showstringspaces=false,
-  breakatwhitespace=true,
-  commentstyle=\color{pgreen},
-  keywordstyle=\color{pblue},
-  stringstyle=\color{pred},
-  breaklines=true,
-  numbers=left,
-  numberstyle=\tiny\color{pgrey},
-  basicstyle=\ttfamily\footnotesize,
-  inputencoding=utf8,
-  extendedchars=true,
-  literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1,
-  moredelim=[il][\textcolor{pgrey}]{\$\$},
-  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
-}
 
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{bibliography.bib}
@@ -122,6 +93,9 @@
 
 % Index
 %! //TODO Index in ToC
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Index}
 \printindex
 \thispagestyle{fancy}
 

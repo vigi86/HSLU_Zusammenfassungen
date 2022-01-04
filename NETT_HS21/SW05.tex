@@ -7,12 +7,12 @@
     \item Wie lange sind IPv4 Adressen?
     \item Wie sind IPv4 Adressen unterteilt?
     \item Wie findet man die Netzwerkadresse anhand der Hostadresse und der Subnetzmaske?
-    \item Was ist die Verbindung zwischen Subnetzmasken und «Slash Notation»?
+    \item Was ist die Verbindung zwischen Subnetzmasken und \flqq Slash Notation\frqq{}?
     \item Was ist der Unterschied zwischen Private und Public IPv4 Adressen?
     \item Wie werden Private IPv4 Adressen verwendet im Internet?
     \item Wieso brauchen wir Private IPv4 Adressen?
     \item Was ist eine Loopbackadresse? Wie wird diese Adresse verwendet?
-    \item Was sind «Link-Local» (APIPA) Adressen? Wie und wann werden diese Adressen verwendet?
+    \item Was sind \flqq Link-Local\frqq{} (APIPA) Adressen? Wie und wann werden diese Adressen verwendet?
     \item Wie routet ein Host seine eigenen IPv4 Pakete?
     \item Was ist die Rolle der Default Gateway in dem Routing Prozess?
 \end{itemize}
@@ -20,69 +20,110 @@
 \section{Antworten}
 \subsection*{Was ist der Zweck der Vermittlungsschicht?}
 \begin{itemize}
-    \item *Addressing end devices
-    \item Encapsulation
+    \item \textbf{Adressierung von Endgeräten }
+    \item Datenkapselung
     \begin{itemize}
-        \item IP encaplsulates the transport layer segment
-        \item IP can use either an IPv4 or IPv6 packet and not impact the layer 4 segment
-        \item IP packet will be examined by all layer 3 devices as it traverses the network
-        \item The IP addressing does not change from source to destination (except when NAT is used)
+        \item IP kapselt das Transport Layer Segment
+        \item IP kann entweder ein \textbf{IPv4 oder IPv6} Paket verwenden ohne Einfluss auf das Layer 4 Segment zu haben
+        \item IP Paket \textbf{wird von allen Layer 3 Geräten untersucht}, während es durch das Netzwerk übertragen wird
+        \item Die IP Adressierung ändert sich vom Ursprung (source) bis zum Ziel (destination) nicht, mit Ausnahme wenn NAT verwendet wird (Siehe Glossar: \gls{nat})
     \end{itemize}
-    \item *Routing
-    \item De-Encapsulation
+    \item \textbf{Routen}
+    \item Entkapselung
+\end{itemize}\,\\
+Siehe auch \underline{\hyperref[sub:SchichtenOSIModell]{Schichten des OSI Modells}} (Seite \pageref{sub:SchichtenOSIModell}).
+
+\subsection*{Was für Protokolle findet man in der Vermittlungsschicht?}\index{IP - Internet Protocol}
+Allgemein \textsl{Internet Protocol}. \textbf{IP - Internet Protocol (v4\&v6), IPsec - Internet Protocol Security, ICMP - Internet Control Message Protocol, IPX - Internet Packet Exchange (veraltet, von Firma Novell)}.
+
+\subsection*{Was sind die wichtigsten Merkmale des IPv4 Protokolls?}\index{IP - Internet Protocol}
+Die Funktionsweise vom Internet Protocol ist
+\begin{itemize}
+    \item Adressierung von Endgeräten
+    \item Kapselung
+    \item Routing
+    \item Entkapselung
 \end{itemize}
 
-\subsection*{Was für Protokolle findet man in der Vermittlungsschicht?}
-\subsection*{Was sind die wichtigsten Merkmale des IPv4 Protokolls?}
-Network Layer is connectionless
+IP ist so gestaltet, dass es einen möglichst geringen "`Overhead"' hat. Folglich:
 \begin{itemize}
-    \item No connection (establishment): packets are just sent
-    \item No control information (synchronizations, acknowledgements, etc.)
-    \item The destination will receive the packet... hopefully!
-\end{itemize}
-
-Network Layer does best effort
-\begin{itemize}
-    \item No delivery guarantee
-    \item No mechanism to resend data
-    \item Does not know if the other device is operational or if it received the packet
-\end{itemize}
-
-Network Layer is media independent
-\begin{itemize}
-    \item IP does not care about the Data Link Layer or the Physical Layer
-    \item With one exception: try not to exceed the Data Link Layer Maximum Transfer Unit (MTU)
+    \item Es ist verbindungslos
     \begin{itemize}
-        \item MTU must be provided by the Data Link Layer
-        \item Undesirable for the Network Layer packet size to exceed the DL Layer MTU
-        \item What happens if the IP packet is larger than the DL MTU?
+        \item Keinen Verbindungsaufbau: Pakete werden einfach gesendet
+        \item Keine Kontrollinformationen (synchronizations, acknowledgements, etc.)
+        \item Das Ziel wird das Paket\dots\textbf{\textsl{vielleicht}}\dots erhalten
+    \end{itemize}
+    \item Es funktioniert nach dem \textsl{best effort} Prinzip
+    \begin{itemize}
+        \item Keine Garantie für Zustellung
+        \item Kein Mechanismus um Daten erneut zu senden
+        \item Unwissen darüber, ob Ziel betriebsbereit ist oder ob es das Paket erhalten hat
+    \end{itemize}
+    \item Unabhängig des Übertragungsmediums
+    \begin{itemize}
+        \item IP interessiert sich nicht über das Data Link Layer (Sicherungsschicht) oder des Physical Layer (physikalische Schicht)
+        \item Mit einer Ausnahme: nicht die die maximale Übertragungseinheit, Maximum Transfer Unit (MTU), der Sicherungsschicht überschreiten!
+        \begin{itemize}
+            \item MTU muss durch das Data Link Layer gegeben werden
+            \item Es ist unerwünscht, dass das Paket des Network Layers (Vermittlungsschicht) die MTU des Data Link Layer (Sicherungsschicht) überschreitet
+            \item Was passiert, wenn das Paket grösser als die MTU ist? ($\rightarrow$ Fragmentierung des Paketes in mehrere Pakete)
+        \end{itemize}
     \end{itemize}
 \end{itemize}
+
 \subsection*{Wie lange sind IPv4 Adressen?}
 4 bytes = 32 bits
+
 \subsection*{Wie sind IPv4 Adressen unterteilt?}
 \begin{itemize}
-    \item Network Address
-    \item Host Address
-    \item Broadcast Address
+    \item Netzwerkadresse
+    \item Hostadresse
+    \item Broadcast Adresse
 \end{itemize}
+
 \subsection*{Wie findet man die Netzwerkadresse anhand der Hostadresse und der Subnetzmaske?}
-//TODO
-\subsection*{Was ist die Verbindung zwischen Subnetzmasken und «Slash Notation»?}
-//TODO
+Angenommen, die Hostadresse ist 192.168.10.11 und die Subnetzmaske 255.255.248.0. Man stellt beide Adressen als Binärwerte dar. Die Bits der beiden Adressen werden UND-verknüpft ($1\wedge1=1,\, 0\wedge1=0$).\\
+
+\begin{tabularx}{\textwidth}{lccccccc}
+    % 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8
+    & \multicolumn{5}{c}{\cellcolor{lime}Netzwerk Teil}&&\cellcolor{violet!50}Host Teil\\
+    \multirow{2}{*}{IPv4 Hostadresse}&\cellcolor{lime}192&\cellcolor{lime}.&\cellcolor{lime}168&\cellcolor{lime}.&\cellcolor{lime}\color{orange}10&.&\cellcolor{violet!50}11\\
+    &1100 0000&.&1010 1000&.&0000 1010&.&0000 1011\\
+
+    \multicolumn{8}{c}{}\\
+
+    \multirow{2}{*}{Subnetzmaske}&255&.&255&.&248&.&\cellcolor{violet!50}0\\
+    &\cellcolor{lime}1111 1111&\cellcolor{lime}.&\cellcolor{lime}1111 1111&\cellcolor{lime}.&\cellcolor{lime}1111 1\noindent\colorbox{violet!50}{000}&.&\cellcolor{violet!50}0000 0000\\
+
+    \hline
+
+    \multirow{2}{*}{IPv4 Netzwerkadresse}&192&.&168&.&8&.&0\\
+    &1100 0000&.&1010 1000&.&0000 1000&.&0000 0000\\
+\end{tabularx}
+{\color{red}Achtung!} Die orange 10 gehört eigentlich schon zum Host. Das dritte Byte in der Subnetzmaske zeigt welche Bits zum Netzwerk gehören und welche zum Host. Die Netzwerkadresse ist 192.168.8.0/21, der Hostbereich also 192.168.8.1-192.168.15.254. Betrachtet man die 1000 bei der Subnetzmaske und diese dann auf 1111 "`auffüllt"', gibt das ja 15. Deswegen ist der Hostbereich auf diesem Byte 8-15.
+
+\subsection*{Was ist die Verbindung zwischen Subnetzmasken und \flqq Slash Notation\frqq{}?}
+Die Subnetzmaske stellt die 4 Bytes in dezimaler Form dar. Die Slash Notation
+
 \subsection*{Was ist der Unterschied zwischen Private und Public IPv4 Adressen?}\label{sub:private_public_IP}
 Auf private IPv4 Adressen kann von aussen nicht direkt zugegriffen werden. Diese sind nach aussen hin unsichtbar.
+
 \subsection*{Wie werden Private IPv4 Adressen verwendet im Internet?}
-NAT
+Gar nicht. Mittels NAT wird die private Adresse in eine öffentliche getauscht. Jeder Router bekommt vom Internetprovider (z.B. Swisscom, UPC etc.) eine öffentliche Adresse zugewiesen. Öffentliche IP-Adressen sind einzigartig, private kommen aber in jedem LAN vor.
+
 \subsection*{Wieso brauchen wir Private IPv4 Adressen?}
-Um innerhalb des LANs auf Endgeräte zugreifen zu können.
+Um innerhalb des LANs auf Endgeräte zugreifen zu können. Auch deswegen, weil es inzwischen mehr Netzwerkgeräte gibt als es IP-Adressen zur Verfügung hat.
+
 \subsection*{Was ist eine Loopbackadresse? Wie wird diese Adresse verwendet?}
-Die Loopbackadresse zeigt auf den eigenen Host. Diese wird meistens dazu genutzt, um Programme, die als Server dienen können, lokal zu betreiben.
-\subsection*{Was sind «Link-Local» (APIPA) Adressen? Wie und wann werden diese Adressen verwendet?}\index{\acrfull{apipa}}\glsadd{APIPA}\label{sub:APIPA}
-//TODO
+Die Loopbackadresse zeigt auf den eigenen Host, das eigene NIC. Diese wird meistens dazu genutzt, um Programme, die als Server dienen können, lokal zu betreiben oder um zu überprüfen, ob die eigene Netzwerkkarte betriebsbereit ist.
+
+\subsection*{Was sind \flqq Link-Local\frqq{} (APIPA) Adressen? Wie und wann werden diese Adressen verwendet?}\index{APIPA - \acrlong{apipa}}\label{sub:APIPA}
+\acrfull{apipa} ist eine sogenannte Link-Local Address. Es ist eine vom Betriebssystem automatisch zugewiesene IP-Adresse, falls das System auf DHCP eingestellt ist, jedoch nichts vom DHCP offeriert wurde. Dies weil entweder kein DHCP-Server im Netzwerk vorhanden ist oder dieser keine Antwort gibt.\\Der Adressbereich in IPv4 ist 169.254.0.0/16 (169.254.0.0 - 169.254.255.255).
+
 \subsection*{Wie routet ein Host seine eigenen IPv4 Pakete?}
-//TODO
+Er schickt sie an den Gateway, vorausgesetzt es geht ins Internet. Im LAN geht es direkt an das Ziel.
+
 \subsection*{Was ist die Rolle der Default Gateway in dem Routing Prozess?}
-//TODO
+Geht ein Datenpaket ins Internet, "`übersetzt"' der Router die private IP-Adresse in eine öffentliche. (Siehe Glossar: \gls{nat})
 
 %? //TODO http://www.steves-internet-guide.com/ipv6-guide/
