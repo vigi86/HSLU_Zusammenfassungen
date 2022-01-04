@@ -103,7 +103,7 @@ Angenommen, die Hostadresse ist 192.168.10.11 und die Subnetzmaske 255.255.248.0
 {\color{red}Achtung!} Die orange 10 gehört eigentlich schon zum Host. Das dritte Byte in der Subnetzmaske zeigt welche Bits zum Netzwerk gehören und welche zum Host. Die Netzwerkadresse ist 192.168.8.0/21, der Hostbereich also 192.168.8.1-192.168.15.254. Betrachtet man die 1000 bei der Subnetzmaske und diese dann auf 1111 "`auffüllt"', gibt das ja 15. Deswegen ist der Hostbereich auf diesem Byte 8-15.
 
 \subsection*{Was ist die Verbindung zwischen Subnetzmasken und \flqq Slash Notation\frqq{}?}
-Die Subnetzmaske stellt die 4 Bytes in dezimaler Form dar. Die Slash Notation
+Die Subnetzmaske stellt die 4 Bytes in dezimaler Form dar. Sie definiert, welcher Bereich zu welchem Netz gehört. Die Slash Notation gibt an, wie viele 1 von links nach rechts es gibt. 
 
 \subsection*{Was ist der Unterschied zwischen Private und Public IPv4 Adressen?}\label{sub:private_public_IP}
 Auf private IPv4 Adressen kann von aussen nicht direkt zugegriffen werden. Diese sind nach aussen hin unsichtbar.
