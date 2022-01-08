@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty}
+\usepackage[table]{xcolor}
+\usepackage{lastpage}
+\usepackage{amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol, xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{listings}
+\lstloadlanguages{SQL, Java}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{background}{rgb}{0.95,0.95,0.92}
+\lstset{language=Java,
+  backgroundcolor=\color{background},
+  frame=single,
+  rulecolor=\color{pgrey},
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny\color{pgrey},
+  basicstyle=\ttfamily\footnotesize,
+  inputencoding=utf8,
+  extendedchars=true,
+  literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1,
+  moredelim=[il][\textcolor{pgrey}]{\$\$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\makeindex
+
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
+\setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=*}
+\setlength\parindent{0pt}
+
+\definecolor{dunkelblau}{rgb}{0,0.4,0.6}
+%\subsectionfont{\color{dunkelblau}}
+
+\title{AD HS 2020}
+\author{Victor Fernández}
+\date{\today}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+% muss nach Änderung der margin kommen!
+\pagestyle{fancy}
+\fancyhf{} %reset
+\fancyhead[L]{HSLU}
+\fancyhead[C]{AD}
+\fancyhead[R]{\thepage/\pageref{LastPage}}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
+
+\newcommand{\todo}[1]{\textcolor{red}{#1//\\[1em]}}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\thispagestyle{empty}
+\pagebreak
+\input{SW01.tex}
+\input{SW02.tex}
+\input{SW03.tex}
+\input{SW04.tex}
+\end{document}

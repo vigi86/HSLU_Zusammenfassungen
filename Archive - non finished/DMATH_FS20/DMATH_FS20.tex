@@ -1,0 +1,188 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty, xcolor}
+\usepackage{lastpage}
+\usepackage{amsmath, amsfonts, amssymb, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol}
+\usepackage[hidelinks]{hyperref}
+\usepackage[hang,flushmargin]{footmisc}
+\makeindex
+
+\definecolor{dunkelblau}{rgb}{0,0.4,0.6}
+\subsectionfont{\color{dunkelblau}}
+
+\title{DMATH FS 2020}
+\author{Victor Fernández}
+\date{Januar 2020}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+% muss nach Änderung der margin kommen!
+\pagestyle{fancy}
+\fancyhf{} %reset
+\fancyhead[L]{HSLU}
+\fancyhead[C]{DMATH}
+\fancyhead[R]{\thepage/\pageref{LastPage}}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\thispagestyle{empty}
+\pagebreak
+
+\part{Logik und Beweise}
+\section{Logik}
+\subsection{Propositionen (Aussagen)}Eine Proposition ist ein Satz, der entweder wahr (Wahrheitswert w) oder falsch (Wahrheitswert f) ist.
+\subsection{Negation}Ist $p$ eine Propostion, dann ist die Proposition "`Es ist nicht der Fall, dass p gilt"' die Negation von $p$; man schreibt $\neg p$ und liest "`nicht p"'.
+
+\subsection{Wahrheitstabelle}Die Wahrheitstabelle stellt die Beziehungen zwischen den Wahrheitswerten von Propositionen dar. Sie ist vor allem dann nützlich, wenn Propositionen aus einfachen Propositionen konstruiert werden.\\
+\begin{tabular}{|c|c|}
+    \hline
+        $p$&$\neg p$\\
+        \hline
+        w&f\\
+        f&w\\
+    \hline
+\end{tabular}
+
+\subsection{Konjunktion - UND-Verknüpfung}Die Propositionen $p\wedge q$ (gelesen "`p und q"') heisst Konjunktion der Propositionen p und q, falls diese genau dann wahr ist, wenn p und q wahr sind; andernfalls ist sie falsch.
+
+\subsection{Disjunktion - ODER-Verknüpfung}Die Propositionen $p\vee q$ (gelesen "`p oder q"') heisst Disjunktion der Propositionen p und q falls diese wahr ist, wenn mindestens eine der Propositionen p oder q wahr ist; andernfalls ist sie falsch.
+
+\subsection{Konjunktion und Disjunktion}UND- und ODER-Verknüpfung\\
+\begin{tabular}{|c|c|c|c|}
+    \hline
+        $p$&$q$&$p\wedge q$&$p\vee q$\\
+        \hline
+        w&w&w&w\\
+        w&f&f&w\\
+        f&w&f&w\\
+        f&f&f&f\\
+    \hline
+\end{tabular}
+
+\subsection{XOR-Verknüpfung (eXklusives OR, EXOR)}Die Propositionen $p \oplus q$ (gelesen "`p exor q"') heisst XOR-Verknüpfung der Propositionen p und q, falls diese genau dann wahr ist, wenn genau eine der Propositionen p oder q wahr ist (aber nicht beide gleichzeitig); ansonsten ist sie falsch.\\
+\begin{tabular}{|c|c|c|}
+    \hline
+        $p$&$q$&$p\oplus q$\\
+        \hline
+        w&w&f\\
+        w&f&w\\
+        f&w&w\\
+        f&f&f\\
+    \hline
+\end{tabular}
+
+\subsection{Implikationen (Subjunktion)}Die Implikationen $p \rightarrow q$ (gelesen "`p impliziert q"' oder "`falls p, dann q"') ist diejenige Proposition, die genau dann falsch ist, wenn p wahr und q falsch ist; andernfalls ist die Implikation wahr. p heisst auch \textbf{Hypothese} und q \textbf{Konklusion}.\\
+\begin{tabular}{|c|c|c|}
+    \hline
+        $p$&$q$&$p\rightarrow q$\\
+        \hline
+        w&w&w\\
+        w&f&f\\
+        f&w&w\\
+        f&f&w\\
+    \hline
+\end{tabular}
+
+\subsection{Bikonditional (Bijunktion)}Das Bikonditional $p \leftrightarrow q$ (gelesen "`p genau dann, wenn q"') ist diejenige Proposition, die wahr ist, wenn p und q dieselben Wahrheitswerte haben und sons falsch.\\
+Beispiel: Falls p = "`Sie können den Flug nehmen"' und q = "`Sie kaufen ein Ticket"' zwei Aussagen sind, dann gilt sicher $p \leftrightarrow q$ was lautet: "`Sie können den Flug nehmen, genau dann, wenn Sie ein Ticket kaufen."'
+
+\subsection{Priorität von Logischen Operatoren}Jeder Operator hat eine Priorität die entscheidet, wann der Operator angewandt wird.\\
+\begin{tabular}{|c|c|}
+    \hline
+        Operator&Priorität\\
+        \hline
+        $\neg$ &1\\
+        \hline
+        $\wedge$ &2\\
+        $\vee$ &2\\
+        \hline
+        $\rightarrow$ &3\\
+        $\leftrightarrow$ &3\\
+    \hline
+\end{tabular}
+
+\section{Proportionale Äquivalenzen}
+
+\subsection{Tautologie}Eine zusammengesetzte Aussage, die immer wahr (falsch) ist heisst Tautologie (Kontradiktion oder Widerspruch).\\
+\begin{tabular}{|c|c|c|c|}
+    \hline
+        $p$&$\neg q$&$p \vee \neg q$&$p \wedge \neg q$\\
+        \hline
+        w&f&w&f\\
+        f&w&w&f\\
+    \hline
+\end{tabular}
+
+\subsection{Logische Äquivalenz}Die Aussagen p und q heissen logisch äquivalent, falls $p \leftrightarrow q$ eine Tautologie ist. Man schreibt dann $p \Leftrightarrow q$ (oder auch $p \equiv q$ bzw. $p \sim q$)
+\paragraph{TODO Logische Äquivalenzgesetze}
+
+\section{Prädikate und Quantoren}
+\subsection{Prädikate}Ein Prädikat ist eine Folge von Wörtern die Variablen enthalten und für jede (erlaubte) Belegung dieser VAriablen zu einer Aussage werden. Man nennt die Aussage $P(x)$ auch den Wert der proportionalen Funktion P für x.
+
+\subsection{Quantoren}
+\paragraph{Allquantor - FOR$\forall$LL}Ist P(x) wahr für alle x aus einer bestimmten Universalmenge, dann schreibt man $\forall x P(x)$ und liest: "`für alle x gilt P(x)"'.
+\paragraph{Existenzquantor - $\exists$XISTS}Ist P(x) wahr für mindestens ein x aus einer bestimmten Universalmenge, dann schreibt man $\exists x P(x)$ und liest: "`es existiert ein x für welches P(x) wahr ist"'. Falls genau ein Element x existiert, für welches P(x) wahr ist, dann schreibt man $\exists !xP(x)$.
+\paragraph{Gebundene Variabeln}Wird ein Quantor auf eine Variable x angewandt, dann nennt man diese Variable gebunden, ansonsten frei.
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item In  $\forall xQ(x,y)$ ist die Variable x gebunden, die Variable y aber frei.
+    \item In $\exists x(P(x) \wedge Q(x)) \vee \forall xR(x)$ sind alle Variablen gebunden.
+\end{itemize}
+\paragraph{TODO Beispiele und verschachtelte Quantoren}
+
+\section{Beweise}
+\subsection{Mathematische Beweise in der Wissenschaft}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Ein Satz (Theorem) ist eine Aussage, von der man zeigen kann, dass sie wahr ist.
+    \item Um zu zeigen, dass ein Satz wahr ist, verwendet man eine Abfolge (Sequenz) von (wahren) Aussagen, die zusammen ein Argument, genannt Beweis ergeben.
+    \item Aussagen können Axiome oder Postulate enthalten (=grundlegende Annahmen der mathematischen Strukturen. Diese werden eben angenommen und müssen daher nicht bewiesen werden).
+    \item Durch logisches (also gewissen Regelnd gehorchendes) Schliessen werden Folgerungen gemacht, die zusammen den Beweis ergeben.
+    \item Ein Lemma oder Hilfssatz ist ein einfacher Satz, der in Beweisen von komplizierten Sätzen verwendet wird.
+    \item Ein Korollar ist eine einfache Folgerung eines Satzes.
+\end{itemize}
+
+\subsection{Direkte Beweis}Der direkte Beweis wenn $p$ dann $q$, oder die Implikation $p \rightarrow q$ gründet darauf, dass aufgrund der Richtigkeit von $p$ die Richtigkeit von $q$ folgt.\\
+\begin{tabular}{|c|c|c|c|}
+    \hline
+        $p$&$q$&$p \rightarrow q$&$p \wedge (p \rightarrow q)$\\
+        \hline
+        1&1&1&1\\
+        1&0&0&0\\
+        0&1&1&0\\
+        0&0&1&0\\
+    \hline
+\end{tabular}
+\subsection{Indirekte Beweis}
+\paragraph{Beweis durch Kontraposition}Falls ein direkter Beweis schwierig ist, kann man versuchen einen indirekten Beweis, z.B. din Beweis durch Kontraposition zu führen: statt zu zeigen, dass $p \rightarrow q$ gilt, zeigt man, dass die logisch äquivalente Aussage $\neg q \rightarrow \neg p$ gilt.
+\paragraph{Beweis durch Kontradiktion (Widerspruch)}Eine weitere Möglichkeit des indirekten Beweises ist der Beweis durch Kontradiktion (Widerspruch). Um die Aussage $p$ zu beweisen, nimmt man an $\neg p$ sei wahr und führt diese Aussage durch logisches Schliessen auf den Widerspruch $q (g=F)$, d.h. $\neg p \rightarrow q$ (also $\neg p \rightarrow F$). Somit muss $\neg p$ falsch und damit $p$ wahr sein.
+
+\section{Mengenlehre}
+\subsection{Definition}
+Eine Menge ist eine ungeordntete Zusammenfassung wohldefinierter, unterscheidbarer Objekt, genannt Elemente, zu einem Ganzen.\\
+Für irgend ein Objekt $x$ gilt dann bezüglich der Menge $A$ entweder $x\in A$ oder dann als $x\notin A$.
+\paragraph{Mengen}
+%\usepackage{amsmath}
+\begin{align*}
+&\mathbb{N}=\{1, 2, 3, \dots\}, \mathbb{N}_0=\{0, 1, 2, 3 \dots\} &&\text{Menge der natürlichen Zahlen (mit Null)}\\
+&\mathbb{Z}\{\dots,-3,-2,-1,0,1,2,3,\dots\} &&\text{Menge der ganzen Zahlen}\\
+&\mathbb{Z}^+=\{1,2,3,\dots\} &&\text{Menge der positiven ganzen Zahlen}\\
+&\mathbb{Q}=\begin{Bmatrix} \frac{q}{p}\bigg|p\in \mathbb{Z}\wedge q\in \mathbb{N} \end{Bmatrix} &&\text{Menge der Brüche}\\
+&\mathbb{R} &&\text{Menge der Reellen Zahlen}\\
+&\mathbb{C} &&\text{Menge der komplexen Zahlen}\\
+\end{align*}
+Es braucht $\mathbb{R}$, denn die Gleichung $x^2=2$ hat in $\mathbb{Q}$ keine Lösung. Analog braucht es $\mathbb{C}$, denn die Gleichung $x^2=-1$ hat in $\mathbb{R}$ keine Lösung.
+
+\paragraph{Spezielle Mengen}
+
+
+\end{document}

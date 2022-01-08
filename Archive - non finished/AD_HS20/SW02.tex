@@ -1,0 +1,131 @@
+\part{SW 02 - Datenstrukturen}
+\section{Lernziele}
+\begin{itemize}
+    \item Sie kennen Eigenschaften von Datenstrukturen
+    \item Sie können die Komplexität von Operationen auf unterschiedlichen Datenstrukturen beurteilen
+    \item Sie kennen den Aufbau, die Eigenschaften und die Funktionsweise ausgewählter Datenstrukturen
+    \item Sie können Datenstrukturen exemplarisch selbst implementieren
+    \item Sie können abhängig von Anforderungen die geeigneten Implementationen von Datenstrukturen auswählen
+\end{itemize}
+
+\subsection{Eigenschaften von Datenstrukturen}
+\begin{itemize}
+    \item In welcher Reihenfolge oder Sortierung werden die Elemente Abgelegt
+    \item Welche Operationen werden zur Verfügung gestellt
+    \item Ist die Datenstruktur dynamisch oder statisch (Grösse)
+    \item Bestehen zwischen den Elementen explizite oder implizite Beziehungen
+    \item Besteht direkter oder nur indirekter/sequenzieller Zugriff auf die einzelnen Datenelemente
+    \item Wie gross ist der Aufwand für die einzelnen Operationen, speziell in Abhängigkeit zur Datenmenge
+\end{itemize}
+
+\subsection{Reihenfolge uns Sortierung}
+\begin{itemize}
+    \item Datenstrukturen als reine Sammlung: Die einzelnen Datenelemente sind darin ungeordnet abgelegt und die Reihenfolge ist nicht deterministisch
+    \begin{itemize}
+        \item Analogie: Steinhaufen
+    \end{itemize}
+    \item Datenstrukturen welche die Datenelemente in einer bestimmten Reihenfolge (z.B. in der Folge des Einfügens) enthalten und diese implizit beibehalten
+    \begin{itemize}
+        \item Analogie: Stapel von Büchern
+    \end{itemize}
+    \item Datenstrukturen welche die Elemente (typisch beim Einfügen) implizit sortieren / ordnen
+    \begin{itemize}
+        \item Analogie: Vollautomatisches Hochregal
+    \end{itemize}
+    \item Auch abhängig von der Implementation bzw. Nutzung
+\end{itemize}
+
+\subsection{Operation auf Datenstrukturen}
+\begin{itemize}
+    \item Es gibt einige elementare Methoden die auf Datenstrukturen angewendet werden können
+    \begin{itemize}
+        \item Einfügen von Elementen
+        \item Suchen von Elementen
+        \item Entfernen von Elementen
+        \item Ersetzen von Elementen
+    \end{itemize}
+in Datenstrukturen
+    \item Operation in Abhängigkeit einer (optionalen) Reihenfolge oder Sortierung (natürlich oder speziell)
+    \begin{itemize}
+        \item Nachfolger: Nachfolgendes Datenelement
+        \item Vorgänger: Vorangehendes Datenelement
+        \item Sortierung: Sortieren der Datenelemente nach Attributwerten
+        \item Maxima und Minima: kleinstes und grösstes Datenelement
+    \end{itemize}
+\end{itemize}
+
+\subsection{Statische vs. dynamische Datenstruktur}
+\begin{itemize}
+    \item Eine \textbf{statische} Datenstruktur hat nach ihrer Initialisierung eien feste, unveränderliche Grösse. Sie kann somit nur eine beschränkte Anzahl Elemente aufnehmen.
+    \begin{itemize}
+        \item Analogie: Getränkeflasche
+        \begin{itemize}
+            \item Grösse der Flasche ist gegeben, ebenso maximaler Inhalt
+            \item Die Flasche selber nimmt immer denselben Platz ein
+        \end{itemize}
+    \end{itemize}
+    \item Eine \textbf{dynamische} Datenstruktur hingegen kann ihre Grösse während der Lebensdauer verändern. Sie kann somit eine beliebige\footnote{natürlich begrenzt durch den verfügbaren Speicher} Anzahl Elemente aufnehmen
+    \begin{itemize}
+        \item Analogie: Luftballon
+        \begin{itemize}
+            \item Je nach Gasvolumen deht sich der Luftballon räumlich aus oder zieht sich wieder zusammen
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Explizite vs. implizite Beziehungen}
+\begin{itemize}
+    \item Bei \textbf{expliziten} Datenstrukturen werden die Beziehungen zwischen den Daten von jedem Element \textbf{selber explizit} mit Referenzen festgehalten
+    \begin{itemize}
+        \item Analogie: Fahrradkette
+        \begin{itemize}
+            \item Kettenglieder sind explizit miteinander verknüpft
+            \item jedes Kettenglied kennt seine Nachbarglieder
+        \end{itemize}
+    \end{itemize}
+    \item Bei \textbf{impliziten} Datenstrukturen werden die Beziehungen zwischen den Daten \textbf{nicht} von den Elementen selber festgehalten
+    \begin{itemize}
+        \item Die Beziehungen werden quasi von \textsl{aussen} definiert, z.B. über eine externe Nummerierung (Index)
+        \item Analogie: Buchregal mit Büchern
+        \begin{itemize}
+            \item Bücher stehen einfach (ggf. auch geordnet) nebeneinander
+            \item das einzelne Buch weiss nicht wo es steht, bzw. hingehört
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Aufwand von Operationen}
+\begin{itemize}
+    \item Der \textbf{Aufwand} (Rechnen- und Speicherkomplexität) variiert sowohl für die verschiedenen Operationen als auch (oft) in Abhängigkeit der enthaltenen Datenmenge in einer Datenstruktur
+    \item Meistens interessiert uns \textsl{nur} die Ordnung, also wie sich der Aufwand in Abhängigkeit zur Anzahl der Elemente verhält
+    \item Beispiele:
+    \begin{itemize}
+        \item Buch auf einen Stapel legen (ungeordnet):\\ \textbf{$\mathcal{O}(1)\rightarrow$}Konstant
+        \item Buch in der Bibliothek alphabetisch einordnen:\\ im schlechtesten Fall \textbf{$\mathcal{O}(n)\rightarrow$}Linear
+        \item Eine unsortierte Menge von Büchern alphabetisch ordnen:\\ im schlechtesten Fall \textbf{$\mathcal{O}(n^2)\rightarrow$}Quadratisch (Polynomial)
+    \end{itemize}
+\end{itemize}
+
+\section{Arrays}
+\subsection{Eigenschaften}
+\begin{itemize}
+    \item \textbf{Statische} Datenstruktur
+    \begin{itemize}
+        \item Grösse wird bei Initialisierung festgelegt. Beispiel:
+        \begin{lstlisting}
+char[] demo = new char[10];
+        \end{lstlisting}
+    \end{itemize}
+    \item \textbf{Implizite} Datenstruktur
+    \begin{itemize}
+        \item Die einzelnen Elemente haben keine Beziehung untereinander bzw. keine Referenzen aufeinander
+    \end{itemize}
+    \item \textbf{Direkter} Zugriff
+    \begin{itemize}
+        \item Auf jedes Element kann über den Index direkt zugegriffen werden
+    \end{itemize}
+    \item \textbf{Reihenfolge} der Elemente
+    \begin{itemize}
+        \item Der Array behält die Positionen der Datenelemente, so wie sie zugewiesen / eingeordnet wurden, unverändert bei
+    \end{itemize}
+\end{itemize}

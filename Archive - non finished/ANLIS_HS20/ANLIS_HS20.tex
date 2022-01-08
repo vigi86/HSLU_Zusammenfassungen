@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty, xcolor}
+\usepackage{lastpage}
+\usepackage{amsfonts, amssymb, array, enumitem, fancyhdr, graphicx, float, makeidx, textcomp, multicol, tabularx}
+\usepackage[fleqn]{amsmath} %Math-Environment linksbündig
+\usepackage{MnSymbol}
+\usepackage[hidelinks]{hyperref}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{tikz}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
+\setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=*}
+\setlength\parindent{0pt}
+
+\makeindex
+
+% \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
+% \subsectionfont{\color{dunkelblau}}
+
+\title{ANLIS HS 2020}
+\author{Victor Fernández}
+\date{}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+% muss nach Änderung der margin kommen!
+\pagestyle{fancy}
+\fancyhf{} %reset
+\fancyhead[L]{HSLU}
+\fancyhead[C]{ANLIS}
+\fancyhead[R]{\thepage/\pageref{LastPage}}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
+
+\newcommand{\todo}[1]{\textcolor{red}{//TODO: #1//\\[1em]}}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\thispagestyle{empty}
+\pagebreak
+\input{SW01}
+\newpage
+\input{Formeln}
+\printindex
+\end{document}

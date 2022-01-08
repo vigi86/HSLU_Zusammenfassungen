@@ -1,0 +1,117 @@
+\part{SW 04 - Hashtabellen}
+\section{Lernziele}
+\begin{itemize}
+    \item Sie verstehen wie Hashtabellen funktionieren
+    \item Sie kennen verschiedene Implementationsvarianten von Hashtabellen
+    \item Sie sind sich der Wichtigkeit guter Hashwerte im Klaren
+    \item Sie kennen verschiedene Varianten zur Kollisionsbehandlung bei Hashtabellen
+    \item Sie haben eine Vorstellung über den Ablauf und den Aufwand der grundlegenden Operationen auf Hashtabellen
+    \item Sie können für die jeweiligen Szenarien geeignete Datenstrukturen auswählen und beurteilen
+\end{itemize}
+
+\section{Hashwerte für Datenstrukturen nutzen}
+\subsection{Grundlagen}
+\subsection{Berechnung}
+
+\section{Hashtabelle - Grundidee}
+\subsection{Grundidee}
+
+\section{Kollisionen}
+\begin{itemize}
+    \item
+\end{itemize}
+\subsection{Umgang mit Kollisionen}
+\subsection{Sondieren}
+
+\section{Operationen}
+\subsection{Grundlagen}
+\subsection{Einfügen (ohne Kollisionen)}
+\subsection{Einfügen (mit Kollisionen)}
+\subsection{Suchen}
+\subsubsection{Einfache Fälle}
+\subsubsection{Enthaltenes Element mit Kollision}
+\subsubsection{Nicht Enthaltenes Element mit Kollision}
+\subsection{Entfernen - Fall 1}
+\subsection{Entfernen - Fall 2}
+\subsection{Ununterbrochene Sondierungskette}
+\subsection{Entfernen eines Elementes - mit Grabstein}
+\subsection{Kollisionsbehandlung mit Sondierungskette}
+
+\section{Hashtabellen mit verketteten Listen}
+\begin{itemize}
+    \item
+\end{itemize}
+\subsection{Hashtabellen mit Listen - Vor- und Nachteile}
+
+\section{Wichtige Rahmenbedingungen für Hashtabellen}
+\begin{itemize}
+    \item
+\end{itemize}
+\subsection{Empfehlung - Immutable Objects}
+
+\section{Java: Hash-basierende Datenstrukturen}
+\subsection{Java Collection Framework - Hash-Datenstrukturen}
+\subsection{\texttt{equals()} und \texttt{hashCode()}}
+
+\part{SW 04 - Datenstrukturen: Tipps für die (Java-)Praxis}
+\section{Lernziele}
+\begin{itemize}
+    \item Sie können eine achtsame Auswahl der geeigneten Datenstrukturen treffen
+    \item Sie kennen verschiedene Tipps und Hinweise beim Umgang mit Datenstrukturen
+    \item Sie können typische Programmierfehler im Zusammenhang mit Datenstrukturen bei Java vermeiden
+    \item Sie kennen ausgewählte Hinweise aus dem Buch "`Effective Java"' von Joshua Bloch
+    \item Sie kennen alternative Datenstrukturen (Thirdparties) und können diese beurteilen
+\end{itemize}
+
+\section{Datenstrukturen und Nebenläufigkeit}
+\subsection{"`Veraltete"' Implementationen}
+\subsection{Collections sind nicht thread safe implementiert}
+\subsection{"`Synchronized"' ist nicht gleich "`Concurrent"'!}
+
+\section{Ergänzende Hinweise zu \texttt{equals()}}
+\subsection{Hinweise zur Implementation von \texttt{equals()}}
+\subsection{Empfehlung für gute \texttt{equals()}-Methoden}
+
+\section{Ergänzende Hinweise zu \texttt{hashCode()}}
+\subsection{Hinweise zur Implementation von \texttt{hashCode()}}
+\subsection{Hashwerte von elementaren Datentypen}
+\subsection{Empfehlung für gute \texttt{hashCode()}-Methoden}
+
+\section{Minimiere die Mutierbarkeit (Immutable Objects)}
+\begin{itemize}
+    \item
+\end{itemize}
+\subsection{Eigenschaften einer unveränderbaren Klasse}
+\subsection{Beispiel einer unveränderlichen Klasse - \texttt{Point}}
+\subsection{Vorteile von unveränderbaren Objekten}
+\subsection{Empfehlung - Immutable Klassen }
+\subsection{Immutable bzw. Unmodifiable Collections}
+
+\section{Leere Collections, nicht \texttt{null}}
+\subsection{Rückgabe von \texttt{null}-Objects}
+\subsection{\texttt{null}-Werte müssen immer explizit behandelt werden}
+\subsection{Rückgabe von \texttt{null}-Werten ist fehleranfälliger}
+\subsection{Empfehlung - Verwendung von "`empty collections"'}
+
+\section{Generische Datenstrukturen (ohne raw-Types) verwenden}
+\subsection{Generische Klassen}
+\subsection{Keine raw-Types mehr verwenden}
+\subsection{Warum raw-Types schlecht sind}
+\subsection{Beispiele}
+\subsubsection{Schlechtes Beispiel: Verwendung des raw-Types}
+\subsubsection{Gutes Beispiel: Parametrisierbarer Typ (generisch)}
+\subsection{Empfehlung zu Generics}
+
+\section{Präferiere Colections vor Arrays}
+\subsection{Generische Listen sind besser als Arrays}
+\subsection{Kovarianz und Invarianz}
+\subsection{Hintergrund: Reify und erasure}
+\subsection{Es gibt keine generischen Arrays in Java!}
+\subsection{Empfehlung - Collections den Arrays vorziehen}
+
+\section{Thirdparty Datenstrukturen}
+\begin{itemize}
+    \item
+\end{itemize}
+\subsection{Beispiele von Thirdparty-Datenstrukturen Libraries}
+\subsection{Empfehlungen - Thirdparty Collection Libraries}
