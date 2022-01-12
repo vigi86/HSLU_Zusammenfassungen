@@ -1,10 +1,10 @@
 \part{SW 04 - Data Link Layer - Sicherungsschicht}\label{part:sw04}
 \section{Lernziele (Leitfragen)}
 \begin{itemize}
-    \item Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?
+    \item (SW03 - T1) Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?
     \item Was ist der Zweck der Sicherungsschicht?
     \item Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?
-    \item Welches sind die am häufigsten verwendeten Zugriffsverfahren?
+    \item (SW03 - T1) Welches sind die am häufigsten verwendeten Zugriffsverfahren?
     \item Was für Felder findet man in der Sicherungsschicht Frame?
     \item Was sind die wichtigsten Merkmale von MAC Adressen?
     \item Was machen Endgeräte, wenn ihre NIC ein Frame im Medium erkennen?
@@ -16,40 +16,6 @@
 \end{itemize}
 
 \section{Antworten}
-\subsection*{Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?}\label{sub:csma}\index{CSMA - Carrier Sense Multiple Access}
-//TODO Sollte für die Logik zu SW03 T1 verschoben werden.\\
-
-\textbf{CSMA: Carrier Sense Multiple Access}
-\begin{itemize}
-    \item Sender hört den Datenverkehr auf der Leitung ab (= carrier sense)
-    \item Sender wartet, bis der Kanal frei ist
-    \item sobald der Kanal frei ist, darf gesendet werden
-    \item falls mehrere Sender (fast) gleichzeitig anfangen zu senden:\\Kollision $\rightarrow$ Wiederholung nach zufälliger Zeitspanne
-\end{itemize}\,\\
-
-\textbf{CSMA/CA (CA = Collision Avoidance)}
-\begin{itemize}
-    \item Kollisionsvermeidung durch zufällige Wartezeit nach Erkennung eines freien Kanals
-    \item z.B. WLAN 802.11-DCF (Distributed Coordination Function)
-\end{itemize}\,\\
-
-\textbf{CSMA/CD (Collision Detection)}
-\begin{itemize}
-    \item sobald eine Kollision erkannt wird, wird die Übertragung abgebrochen
-    \item z.B. Ethernet
-\end{itemize}\,\\
-
-\begin{tabularx}{\textwidth}{X|X}
-    \multicolumn{1}{X}{CSMA/CD}&\multicolumn{1}{X}{CSMA/CA}\\
-    \hline
-    $\bullet$ Greift nach der Kollision&$\bullet$ Greift vor der Kollision\\
-    $\bullet$ Genutzt in kabelgebundenen Netzwerken&$\bullet$ Genutzt in kabellosen Netzwerken\\
-    $\bullet$ Reduziert die `'recovery time'' nach einer Kollision&$\bullet$ Minimiert Kollisionsgefahr\\
-    $\bullet$ Bei Konflikt wird erneut gesendet&$\bullet$ Sendet zuerst die Info, dass etwas übermittelt wird\\
-    $\bullet$ Effektiver als das einfache CSMA&$\bullet$ ähnlich effizient wie CSMA\\
-\end{tabularx}
-
-
 \subsection*{Was ist der Zweck der Sicherungsschicht?}\label{sub:Sicherungsschicht}
 \begin{itemize}
     \item Kommunikation zwischen Netzwerkkarten der Endgeräten
@@ -71,19 +37,6 @@ Siehe auch \underline{\hyperref[sub:SchichtenOSIModell]{Schichten des OSI Modell
     \label{pic:DataLinkLayer_LLC_MAC}
     \includegraphics[width=\textwidth]{images/DLL_Sublayers.jpg}
     \caption{Subschichten der Sicherungsschicht / des Data Link Layers (\textsuperscript{\textcopyright}Cisco)}
-    \end{center}
-\end{figure}
-
-\subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}\index{CSMA - Carrier Sense Multiple Access}
-Heutzutage wird vor allem das \textbf{CSMA/CD} im Ethernet und \textbf{CSMA/CA} im WLAN verwendet. Altertümliche Zugriffsverfahren waren zwei Varianten von \textbf{Token Passing}.\\[1em]
-Beim \textbf{Token Ring} wird das Netzwerk in Form eines Ringes verlegt. Ein Rechner im Ring ist der Token Master. Er verwaltet und kontrolliert ein Bitmuster, das Token. Dieses wird von Gerät zu Gerät weitergereicht. Ist das Token "`leer"', darf es der momentane Besitzer entnehmen. Er sendet nun Daten zum Empfänger. Der Empfänger quittiert dem Sender den Empfang der Daten, und der Sender reicht daraufhin das Token wieder weiter. Geht dsa Token verloren, wird es vom Master neu generiert.\\[1em]
-Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur dass hier nicht im Ring gearbeitet wird, sondern wieder auf Thin-Wire (Koaxial) oder der universellen Gebäudeverkabelung (UGV). Hierbei wird das Token auf dem Bus weitergereicht. Erreicht es das Ende des Busses, wird es wieder zum Anfang zurückgereicht. Damit wird virtuell die Ringstruktur im Hintergrund wiederhergestellt\cite{Schreiner2019}.
-
-\begin{figure}[H]
-    \begin{center}
-    \label{pic:Token}
-    \includegraphics[width=\textwidth]{images/Token.jpg}
-    \caption{Links: Token Ring. Rechts oben kleines Bild: Token wird auf einem Bus weitergereicht und am Ende wird es zum Anfang zurückgereicht und wieder gesendet.\cite{Schreiner2019}}
     \end{center}
 \end{figure}
 

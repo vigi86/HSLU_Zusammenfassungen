@@ -7,6 +7,7 @@
         \item Was sind die Hauptmerkmale der physikalischen Schicht?
         \item Was ist der Unterschied zwischen \flqq{}Simplex\frqq, \flqq{}half-duplex\frqq{} and \flqq{}full duplex\frqq?
         \item Welches sind die am häufigsten verwendeten Zugriffsverfahren?
+        \item Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?
         \item Was bedeutet „Late Collision“?
         \item Was muss man noch unbedingt über die physikalische Schicht und Zugriffsverfahren wissen?\\
     \end{enumerate}
@@ -60,17 +61,170 @@
 
 \section{Antworten T1}
 \subsection*{Was ist der Zweck der physikalischen Schicht?}
-//TODO
-\subsection*{Was sind die Hauptmerkmale der physikalischen Schicht?}
-//TODO
-\subsection*{Was ist der Unterschied zwischen \flqq{}Simplex\frqq, \flqq{}half-duplex\frqq{} and \flqq{}full duplex\frqq?}
-//TODO
-\subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}
-//TODO
-\subsection*{Was bedeutet „Late Collision“?}
-//TODO
+\begin{itemize}
+    \item Bietet elektrische, mechanische und funktionale Schnittstelle zum Medium
+    \item Definiert die Grösse der Bits (Geschwindigkeit)
+    \item Definiert die Art der Übertragung und Codierung (z.B. elektromagnetische Wellen)
+    \item Kommunikation zwischen Übertragungsmedien
+    \begin{itemize}
+        \item Lichtwellenleiter
+        \item Stromkabel
+        \item Stromnetz
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Was sind die Hauptmerkmale der physikalischen Schicht?}\index{Schichten!Physikalicshe Schicht}
+\begin{itemize}
+    \item Digitale Bit-Übertragung: \textsl{funktioniert indem...}
+    \begin{itemize}
+        \item \textsl{\dots{}über Kabel\dots}
+        \begin{itemize}
+            \item Kupfer, Lichtwellenleiter, Stromnetz
+        \end{itemize}
+        \item \textsl{\dots{}eine Verbindung\dots}
+        \begin{itemize}
+            \item statisches Multiplexing (synchron)
+            \item dynamisches Multiplexing (asynchron)
+        \end{itemize}
+        \item \textsl{\dots{}an die richtigen Steckplätze hergestellt wird.\dots}
+    \end{itemize}
+    \item Definition der Übertragung eines Bits
+    \begin{itemize}
+        \item Dabei nicht nur 0 oder 1, sondern mehr
+        \begin{itemize}
+            \item Lichtintensität (Glasfaser)
+            \item Spannung \& Ströme (elektrische Leitung)
+            \item Binär (Datenstrom)
+        \end{itemize}
+        \item Übertragungsart muss mit Codierung versehen werden
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Was ist der Unterschied zwischen \flqq{}Simplex\frqq, \flqq{}half-duplex\frqq{} and \flqq{}full duplex\frqq?}\index{Kommunikation!Simplex}\index{Kommunikation!Half-Duplex}\index{Kommunikation!Full-Duplex}\index{Simplex}\index{Half-Duplex}\index{Full-Duplex}
+Vergleiche Kommunikationsrichtung, das Senden/Empfangen, Leistung und Beispiele:
+\begin{itemize}
+    \item Simplex
+    \begin{itemize}
+        \item Unidirektional
+        \item Nur Sender schickt Daten
+        \item Schlechteste Leistung in Übertragung
+        \item Tastatur$\rightarrow$Monitor
+    \end{itemize}
+    \item Half-Duplex
+    \begin{itemize}
+        \item Bidirektional: eins auf einmal
+        \item Sender kann Daten senden und empfangen, aber nur ein Sender auf einmal
+        \item Besser als Simplex
+        \item Walkie-Talkie
+    \end{itemize}
+    \item Full-Duplex
+    \begin{itemize}
+        \item Bidirektional: alle gleichzeitig
+        \item Sender schickt und empfängt Daten gleichzeitig
+        \item Beste Leistung
+        \item Telefon
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}\index{Zugriffsverfahren}\index{CSMA - Carrier Sense Multiple Access}\index{Zugriffsverfahren!CSMA}\index{Nichtdeterministische Zugriffsverfahren}\index{Deterministische Zugriffsverfahren}
+Es gibt zwei Oberbegriffe:
+\begin{itemize}
+    \item \textbf{Nichtdeterministischer/stochastische Zugriffsverfahren}
+    \begin{itemize}
+        \item Jeder Teilnehmer kann zu jedem Zeitpunkt einen Kanalzugriff versuchen
+        \item Zuteilungszeitpunkt lässt sich nicht vorherberechnen
+        \item Hohe Netzauslastung \& Wartezeiten
+        \begin{itemize}
+            \item CSMA/CD
+            \item CSMA/CA
+            \item (Siehe \underline{\hyperref[sub:csma]{nächste Frage}})
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Deterministische Zugriffsverfahren (kontrollierter Zugriff)}
+    \begin{itemize}
+        \item Sender zu Beginn einer Datenübertragung eindeutig bestimmt
+        \item Zeitpunkt des Buszugriffs kann vorhergesagt werden (wichtig für Echtzeitanwendungen)
+        \begin{itemize}
+            \item Token-Passing
+            \item Multiplexing-Verfahren
+            \item Polling
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+Heutzutage wird vor allem das \textbf{CSMA/CD} im Ethernet und \textbf{CSMA/CA} im WLAN verwendet. Altertümliche Zugriffsverfahren waren zwei Varianten von \textbf{Token Passing}.\\[1em]
+Beim \textbf{Token Ring} wird das Netzwerk in Form eines Ringes verlegt. Ein Rechner im Ring ist der Token Master. Er verwaltet und kontrolliert ein Bitmuster, das Token. Dieses wird von Gerät zu Gerät weitergereicht. Ist das Token "`leer"', darf es der momentane Besitzer entnehmen. Er sendet nun Daten zum Empfänger. Der Empfänger quittiert dem Sender den Empfang der Daten, und der Sender reicht daraufhin das Token wieder weiter. Geht dsa Token verloren, wird es vom Master neu generiert.\\[1em]
+Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur dass hier nicht im Ring gearbeitet wird, sondern wieder auf Thin-Wire (Koaxial) oder der universellen Gebäudeverkabelung (UGV). Hierbei wird das Token auf dem Bus weitergereicht. Erreicht es das Ende des Busses, wird es wieder zum Anfang zurückgereicht. Damit wird virtuell die Ringstruktur im Hintergrund wiederhergestellt\cite{Schreiner2019}.
+
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:Token}
+    \includegraphics[width=\textwidth]{images/Token.jpg}
+    \caption{Links: Token Ring. Rechts oben kleines Bild: Token wird auf einem Bus weitergereicht und am Ende wird es zum Anfang zurückgereicht und wieder gesendet.\cite{Schreiner2019}}
+    \end{center}
+\end{figure}
+
+\subsection*{Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?)}\label{sub:csma}\index{CSMA - Carrier Sense Multiple Access}
+\textbf{CSMA: Carrier Sense Multiple Access}
+\begin{itemize}
+    \item Sender hört den Datenverkehr auf der Leitung ab (= carrier sense)
+    \item Sender wartet, bis der Kanal frei ist
+    \item sobald der Kanal frei ist, darf gesendet werden
+    \item falls mehrere Sender (fast) gleichzeitig anfangen zu senden:\\Kollision $\rightarrow$ Wiederholung nach zufälliger Zeitspanne
+\end{itemize}\,\\
+
+\textbf{CSMA/CA (CA = Collision Avoidance)}
+\begin{itemize}
+    \item Kollisionsvermeidung durch zufällige Wartezeit nach Erkennung eines freien Kanals
+    \item z.B. WLAN 802.11-DCF (Distributed Coordination Function)
+\end{itemize}\,\\
+
+\textbf{CSMA/CD (Collision Detection)}
+\begin{itemize}
+    \item sobald eine Kollision erkannt wird, wird die Übertragung abgebrochen
+    \item z.B. Ethernet
+\end{itemize}\,\\
+
+\begin{tabularx}{\textwidth}{X|X}
+    \multicolumn{1}{X}{CSMA/CD}&\multicolumn{1}{X}{CSMA/CA}\\
+    \hline
+    $\bullet$ Greift nach der Kollision&$\bullet$ Greift vor der Kollision\\
+    $\bullet$ Genutzt in kabelgebundenen Netzwerken&$\bullet$ Genutzt in kabellosen Netzwerken\\
+    $\bullet$ Reduziert die `'recovery time'' nach einer Kollision&$\bullet$ Minimiert Kollisionsgefahr\\
+    $\bullet$ Bei Konflikt wird erneut gesendet&$\bullet$ Sendet zuerst die Info, dass etwas übermittelt wird\\
+    $\bullet$ Effektiver als das einfache CSMA&$\bullet$ ähnlich effizient wie CSMA\\
+\end{tabularx}
+
+\subsection*{Was bedeutet „Late Collision“?}\index{Late Collision}
+\begin{itemize}
+    \item Definition:
+    \begin{itemize}
+        \item Late Collisions sind ein spezieller Typ von Kollisionen im Ethernet
+        \item Kollision tritt nach den ersten 64 Bytes (512 bits) eines Frames auf (Mindestgrösse)
+    \end{itemize}
+    \item Ursachen:
+    \begin{itemize}
+        \item Ein wesentlich zu langes Netzwerkkabel
+        \item Falsche Duplex-Einstellungen an Netzwerkkarte oder Switch
+    \end{itemize}
+\end{itemize}
+
 \subsection*{Was muss man noch unbedingt über die physikalische Schicht und Zugriffsverfahren wissen?}
-//TODO
+\begin{itemize}
+    \item Übertragung nicht nur "`physisch"' per Kabel
+    \begin{itemize}
+        \item Schall
+        \item Licht
+        \item elektromagnetische Wellen
+    \end{itemize}
+    \item Geräte
+    \begin{itemize}
+        \item Hub
+        \item Repeater
+        \item Kabel
+        \item Antennen
+    \end{itemize}
+\end{itemize}
 
 \section{Antworten T2}
 \subsection*{Was für Topologien findet man in Computernetzwerken?}
