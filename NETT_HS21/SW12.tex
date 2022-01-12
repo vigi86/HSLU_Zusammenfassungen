@@ -2,14 +2,14 @@
 \section{Lernziele (Leitfragen)}
 \begin{itemize}
     \item Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?
-    \item Geben Sie ein Beispiel von einem ‘Man-in-the-middle’ Angriff
-    \item Wie funktioniert einem ‘Trust Exploitation’ Angriff?
+    \item Geben Sie ein Beispiel von einem "`Man-in-the-middle"' Angriff
+    \item Wie funktioniert einem "`Trust Exploitation"' Angriff?
     \item Geben Sie ein Beispiel für eine typische Softwareschwachstelle und eventuelle Folgen deren Nutzung (exploitation)
-    \item Geben Sie ein Beispiel von einem ‘Denial-of-Service’ Angriff
-    \item Wieso sind ‘Denial-of-Service’ Angriffe i.d.R. schwierig zu verhindern?
-    \item Was ist ‘Defense-in-depth’?
+    \item Geben Sie ein Beispiel von einem "`Denial-of-Service"' Angriff
+    \item Wieso sind "`Denial-of-Service"' Angriffe i.d.R. schwierig zu verhindern?
+    \item Was ist "`Defense-in-depth"'?
     \item Wozu werden IDSs und IPSs verwendet? Wie unterschieden sie sich?
-    \item Was Sind ‘Data Loss Prevention Systems’? Geben Sie ein Beispiel eines solchen Systems
+    \item Was Sind "`Data Loss Prevention Systems"'? Geben Sie ein Beispiel eines solchen Systems
     \item Geben Sie drei Beispiele von unsicheren Netzwerkprotokollen und deren entsprechenden sicheren Protokolle
     \item Wieso sind Backups wichtig? Was ist bei der Durchführung von Backups zu beachten (aus Sicherheits- und Betriebssicht)?
     \item Wieso ist Multifaktor Authentifizierung den Passwörtern zu bevorzugen?
@@ -31,22 +31,28 @@
 \section{Antworten}
 \subsection*{Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?}
 Beispielsweise können MAC-Adressen, IP-Adressen wie Default-Gateway, DNS etc. gefälscht werden. Die Folge wäre ein DoS (Denial of Service).
-\subsection*{Geben Sie ein Beispiel von einem ‘Man-in-the-middle’ Angriff}
+
+\subsection*{Geben Sie ein Beispiel von einem "`Man-in-the-middle"' Angriff}
 Ein Angreifer stellt sich zwischen. Der Client (Victim) denkt, er ist mit dem Web Server im Kontakt jedoch ist der MITM ist dazwischen. Umgekehrt denkt der Web Server, dass der MITM der Client ist.
-\subsection*{Wie funktioniert einem ‘Trust Exploitation’ Angriff?}
+
+\subsection*{Wie funktioniert einem "`Trust Exploitation"' Angriff?}
 Eve <-x-> Alice <---> Bob <---> Eve
-Ein Angreifer nutzt das Vertrauen in Netzwerken aus. "Befäll" ein System und kommt durch Vertrauensnetz in das Netzwerk.
+Ein Angreifer nutzt das Vertrauen in Netzwerken aus. "`Befällt"' ein System und kommt durch Vertrauensnetz in das Netzwerk.
+
 \subsection*{Geben Sie ein Beispiel für eine typische Softwareschwachstelle und eventuelle Folgen deren Nutzung (exploitation)}
 RDP
-\subsection*{Geben Sie ein Beispiel von einem ‘Denial-of-Service’ Angriff}
+
+\subsection*{Geben Sie ein Beispiel von einem "`Denial-of-Service"' Angriff}
 Angreifer sendet SYN requests an Webserver
 Webserver sendet SYN ACK reply an user und warter auf SYN ACKUser sendet aber auch SYN requests und der Server weiss nicht mehr, was er tun muss (DoS)
 Zwei Arten von DoS
 Buffer overflow Attacks (Mit Angriff sämtliche Ressourcen aufbrauchen)
-Flood Attacks (Mit Angriff den Server solange «befeuern», bis die Kapazität des Servers aufgebraucht ist)
-\subsection*{Wieso sind ‘Denial-of-Service’ Angriffe i.d.R. schwierig zu verhindern?}
+Flood Attacks (Mit Angriff den Server solange "`befeuern"', bis die Kapazität des Servers aufgebraucht ist)
+
+\subsection*{Wieso sind "`Denial-of-Service"' Angriffe i.d.R. schwierig zu verhindern?}
 Man weiss nicht, ob es ein Angreifer ist oder wirklicher Traffic
-\subsection*{Was ist ‘Defense-in-depth’?}
+
+\subsection*{Was ist "`Defense-in-depth"'?}
 Verschiedene Verteidigungsmechanismen auf verschiedenen Layern bereitstellen.
 
 \subsection*{Wozu werden IDSs und IPSs verwendet? Wie unterschieden sie sich?}
@@ -54,8 +60,10 @@ Verschiedene Verteidigungsmechanismen auf verschiedenen Layern bereitstellen.
     \item Intrusion Detection System: Ein Angriff wird erkannt und geblockt
     \item Intrusion Prevention System: Ein Angriff wird im Vornherein erkannt und unterbrochen.
 \end{itemize}
-\subsection*{Was Sind ‘Data Loss Prevention Systems’? Geben Sie ein Beispiel eines solchen Systems}
+
+\subsection*{Was Sind "`Data Loss Prevention Systems"'? Geben Sie ein Beispiel eines solchen Systems}
 Verhindern, dass sensitive Daten beispielsweise auf USB-Sticks kopiert werden, oder Emails keine sensitive Daten als Anhang haben.
+
 \subsection*{Geben Sie drei Beispiele von unsicheren Netzwerkprotokollen und deren entsprechenden sicheren Protokolle}
 FTP(S), HTTP(S), Telnet <-> SSH.
 
