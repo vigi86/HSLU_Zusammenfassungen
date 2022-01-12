@@ -32,14 +32,20 @@
 \subsection*{Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?}
 Beispielsweise können MAC-Adressen, IP-Adressen wie Default-Gateway, DNS etc. gefälscht werden. Die Folge wäre ein DoS (Denial of Service).
 \subsection*{Geben Sie ein Beispiel von einem ‘Man-in-the-middle’ Angriff}
-Ein Angreifer stellt sich zwischen
+Ein Angreifer stellt sich zwischen. Der Client (Victim) denkt, er ist mit dem Web Server im Kontakt jedoch ist der MITM ist dazwischen. Umgekehrt denkt der Web Server, dass der MITM der Client ist.
 \subsection*{Wie funktioniert einem ‘Trust Exploitation’ Angriff?}
 Eve <-x-> Alice <---> Bob <---> Eve
+Ein Angreifer nutzt das Vertrauen in Netzwerken aus. "Befäll" ein System und kommt durch Vertrauensnetz in das Netzwerk.
 \subsection*{Geben Sie ein Beispiel für eine typische Softwareschwachstelle und eventuelle Folgen deren Nutzung (exploitation)}
 RDP
 \subsection*{Geben Sie ein Beispiel von einem ‘Denial-of-Service’ Angriff}
-
+Angreifer sendet SYN requests an Webserver
+Webserver sendet SYN ACK reply an user und warter auf SYN ACKUser sendet aber auch SYN requests und der Server weiss nicht mehr, was er tun muss (DoS)
+Zwei Arten von DoS
+Buffer overflow Attacks (Mit Angriff sämtliche Ressourcen aufbrauchen)
+Flood Attacks (Mit Angriff den Server solange «befeuern», bis die Kapazität des Servers aufgebraucht ist)
 \subsection*{Wieso sind ‘Denial-of-Service’ Angriffe i.d.R. schwierig zu verhindern?}
+Man weiss nicht, ob es ein Angreifer ist oder wirklicher Traffic
 \subsection*{Was ist ‘Defense-in-depth’?}
 Verschiedene Verteidigungsmechanismen auf verschiedenen Layern bereitstellen.
 
