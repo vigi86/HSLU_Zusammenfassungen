@@ -230,7 +230,7 @@ Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur das
 \subsection*{Was für Topologien findet man in Computernetzwerken?}\label{sub:Topologies}\index{Netzwerk!Topologie}
 Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren. Verschiedene Topologien haben Vor- und Nachteile betreffend Kommunikationsfluss, Ausfallsicherheit (Single Point of Failure) und in ihrer Komplexität (Routing oder physisch). Je nach Art können Topologien kombiniert werden.
 
-\paragraph*{Gängigste Topologie-Typen}
+\paragraph*{Gängigste Topologie-Typen}\index{Netzwerk!Topologie}
 \begin{itemize}
     \item Bus
     \begin{itemize}
@@ -420,12 +420,12 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
     \item \textbf{Goodput (Datenduchsatz):} Gibt die \textbf{Netto-Datenmenge} (ohne Overhead) pro Zeit an, welche von einer Quelle übertragen werden.
 \end{itemize}
 
-\subsection*{Was ist \flqq{}Latency\frqq{} und \flqq{}Jitter\frqq? Wie kann man diese Konzepte visualisieren und verstehen?}
+\subsection*{Was ist \flqq{}Latency\frqq{} und \flqq{}Jitter\frqq? Wie kann man diese Konzepte visualisieren und verstehen?}\index{Latency}\index{Jitter}
 Die Latenz ist die Zeitverzögerung in einem Netzwerk zwischen der Anfrage und der Antwort. Beispielsweise die Zeit, bei dem mein Rechner die Antwort einer DNS-Anfrage bekommt.\\
 Jitter ist die Zeitverzögerung zwischen einzelnen Anfragen.
 
 \subsection*{Was muss man noch unbedingt über Topologien und "`Bandwidth"' wissen?}
-//TODO
+//TODO ja was denn?
 
 \section{Antworten T3}
 \subsection*{Was sind die wichtigsten Merkmale von Kupferkabeln?}\index{Kupferkabel}
@@ -444,14 +444,64 @@ Jitter ist die Zeitverzögerung zwischen einzelnen Anfragen.
     \end{itemize}
 \end{itemize}
 
-\subsection*{Was für Kupferkabelarten werden heutzutage in Computernetzwerken am häufigsten verwendet?}
+\subsection*{Was für Kupferkabelarten werden heutzutage in Computernetzwerken am häufigsten verwendet?}\index{Kupferkabel}
 Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
 
 \subsubsection*{Wie sind sie aufgebaut?}
-//TODO Bilder
+(//TODO Quellen?)\\
+%\begin{multicols*}{2}
+    UTP: verdrillte Aderpaare, Schutzmantel
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:UTP}
+            \includegraphics[width=.5\textwidth]{images/UTP.png}
+            \caption{Unshielded Twisted Pair}
+        \end{center}
+    \end{figure}
+
+    STP: verdrillte Aderpaare, Abschirmung, Schutzmantel
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:STP}
+            \includegraphics[width=.5\textwidth]{images/STP.png}
+            \caption{Shielded Twisted Pair}
+        \end{center}
+    \end{figure}
+%    \columnbreak
+    Koaxial: Innenleiter (Kern), Isolation, Aussenleiter und Abschirmung, Schutzmantel.
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:Coaxial}
+            \includegraphics[width=.5\textwidth]{images/Coaxial_cable_cut.jpg}
+            \caption{Koaxialkabel\cite{wiki}}
+        \end{center}
+    \end{figure}
+%\end{multicols*}
 
 \subsubsection*{Wie sehen die Stecker aus?}
-//TODO Bilder
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:RJ45}
+    \includegraphics[width=.5\textwidth]{images/RJ45-Stecker-Netzwerk.jpg}
+    \caption{RJ45-Stecker für Twisted Pair\cite{wiki}}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:BNC}
+    \includegraphics[width=.5\textwidth]{images/BNC.png}
+    \caption{BNC für Koaxial\cite{wiki}}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:BellingLee}
+    \includegraphics[width=.5\textwidth]{images/belling_lee_male_and_female_connector.jpg}
+    \caption{Männchen und Weibchen Belling-Lee für Koaxial\cite{wiki}}
+    \end{center}
+\end{figure}
 
 \subsection*{Worauf muss bei der Handhabung und Verlegung der Kupferkabel besonders geachtet werden und warum?}
 \begin{itemize}
@@ -483,10 +533,36 @@ Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
 Glasfaserkabel haben eine Glasfaser als Übertragungsmedium und verwenden Licht, Laser oder UV als Übertragungsimpulse.
 
 \subsubsection*{Wie sind sie aufgebaut?}
-//TODO Bild
+Im Prinzip besteht das Glasfaserkabel aus dem Lichtleiter als Kern, ummantelt von einer Führungshülle, einem Gelmantel und zuletzt einem Kunststoff-Schutzmantel.
+
+\begin{multicols*}{2}
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:OpticalFiber}
+            \includegraphics[width=.5\textwidth]{images/optical_fibre_structure.png}
+            \caption{Aufbau des Glasfaserkabels\cite{wiki}}
+        \end{center}
+    \end{figure}
+    \columnbreak
+    \begin{figure}[H]
+        \begin{center}
+        \label{pic:OpticalCable}
+        \includegraphics[width=.5\textwidth]{images/optical_cable.jpg}
+        \caption{Glasfaser Kabelstrang\cite{wiki}}
+        \end{center}
+    \end{figure}
+\end{multicols*}
+
 
 \subsubsection*{Wie sehen die Stecker aus?}
-//TODO Bild
+Es gibt viele verschidene Steckverbindungen, je nachdem wofür das Kabel genutzt wird.
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:OpticalConnectors}
+    \includegraphics[width=\textwidth]{images/Tipos_conectores_fibra_optica.jpg}
+    \caption{Verschiedene Stecker für Glasfaserkabel\cite{wiki}}
+    \end{center}
+\end{figure}
 
 \subsection*{Worauf muss bei der Handhabung und Verlegung von Glasfaserkabeln besonders geachtet werden und warum?}
 Glasfaserkabel sind zwar bis zu einem gewissen Rahmen biegbar, jedoch sollte der Biege-Radius nicht zu klein sein. Dies kann zu Reflexionen innerhalb der Node führen. Auf keinen Fall dürfen sie geknickt werden! Das Ende des Kabels muss stets mit einer Kappe geschützt werden.
@@ -495,7 +571,24 @@ Glasfaserkabel sind zwar bis zu einem gewissen Rahmen biegbar, jedoch sollte der
 Wenn auch minim, so streut und absorbiert auch Glas das Licht (oder UV - Quarzglas). Mit der Distanz nimmt die Intensität des Lichts ab. Wie vorhin erwähnt, können Krümmungen zu Reflexionen führen, welche sich negativ auf die Übertragungsdistanz äusseren.
 
 \subsection*{Wo ist der Unterschied zwischen Multi- und Singlemode (Monomode)- Glasfasern?}
-//TODO
+//TODO Quelle?
+\begin{multicols*}{2}
+    \begin{figure}[H]
+        \begin{center}
+        \label{pic:Monomode}
+        \includegraphics[width=.5\textwidth]{images/single_mode.jpg}
+        \caption{Monomode Glasfaserkabel (Laser)}
+        \end{center}
+    \end{figure}
+    \columnbreak
+    \begin{figure}[H]
+        \begin{center}
+        \label{pic:Multimode}
+        \includegraphics[width=.5\textwidth]{images/multi_mode.jpg}
+        \caption{Multimode Glasfaserkabel (LED)}
+        \end{center}
+    \end{figure}
+\end{multicols*}
 
 \subsection*{Was sind die Vor- und Nachteile von Glasfaserkabel (im Vergleich zu Kupferkabeln)?}
 \begin{itemize}
@@ -513,7 +606,7 @@ Wenn auch minim, so streut und absorbiert auch Glas das Licht (oder UV - Quarzgl
 \end{itemize}
 
 \subsection*{Was muss man noch unbedingt über Glasfaserkabel wissen?}
-//TODO
+//TODO ja was denn?
 
 \section{Antworten T5}
 \subsection*{Was sind die wichtigsten Merkmale von \flqq{}Wireless Media\frqq?}\index{Wireless!Media}
