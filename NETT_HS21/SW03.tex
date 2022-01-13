@@ -271,13 +271,74 @@ Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur das
 //TODO
 
 \section{Antworten T5}
-\subsection*{Was sind die wichtigsten Merkmale von \flqq{}Wireless Media\frqq?}
-//TODO
-\subsection*{Welche Wireless Access Geräte arbeiten auf Layer I?}
-//TODO
-\subsection*{Was für Wireless Standards gibt’s in Computernetzwerken?}
-//TODO
+\subsection*{Was sind die wichtigsten Merkmale von \flqq{}Wireless Media\frqq?}\index{Wireless!Media}
+Wireless beruht auf verschiedene Kommunikationstechnologien, welche kabellose Datenübertragung ermöglichen, anstatt auf kabelgebundene Technologien zurückzugreifen. Das Übertragungsmedium sind also Funkwellen.
+
+\subsection*{Welche Wireless Access Geräte arbeiten auf Layer I?}\index{Wireless!Geräte}
+Wireless Hubs \& Repeater.
+
+\subsection*{Was für Wireless Standards gibt's in Computernetzwerken?}\index{Wireless!Standards}
+\begin{table}[H]
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        WLAN-Generation&WiFi 4&WiFi 5&WiFi 6 / 6E\\
+        \hline
+        IEEE-Standard&IEEE 802.11n&IEEE 802.11ac&IEEE 802.11ax\\
+        \hline
+        \makecell{Max.\\Übertragungsrate}&600 MBit/s&6'936 MBit/s&9'608 MBit/s\\
+        \hline
+        Max. Reichweite&100 m&50 m&50 m\\
+        \hline
+        Frequenzbereich&2,4 + 5 GHz&5 GHz&2,4 + 5 + 6 GHz\\
+        \hline
+        Max. Kanalbreite&40 MHz&160 MHz&160 MHz\\
+        \hline
+        Anwendungsbereiche&\makecell{Haushalte und\\wenige Firmen}&\makecell{Wenige Haushalte\\und viele Firmen}&\makecell{Bald neuer Standard\\für Haushalte und Firmen}\\
+        \hline
+    \end{tabular}}
+\label{tab:WirelessStandards}
+\caption{Wireless Standards und Merkmale}
+\end{table}
+
 \subsubsection*{Was sind ihre Hauptmerkmale und Anwendungsbereiche?}
-//TODO
+Siehe vorherige Tabelle \ref{tab:WirelessStandards} unter \underline{\nameref{tab:WirelessStandards}}.
+
 \subsection*{Was sind die Vor- und Nachteile von \flqq{}Wireless Access\frqq{} Methoden im Vergleich mit \flqq{}Wired Access\frqq?}
-//TODO
+\begin{itemize}
+    \item Vorteile
+    \begin{itemize}
+        \item Schnelle Erweiterung von Netzen
+        \begin{itemize}
+            \item Es müssen keine Kabel gezogen werden.
+        \end{itemize}
+        \item Kurzfristige Skalierung von Usern
+        \begin{itemize}
+            \item Neue Mitarbeiter können schnell und einfach ins Netz. Kostengünstiger und kein "`Kabelsalat"'.
+        \end{itemize}
+        \item Flexibilität / Mobilität
+        \begin{itemize}
+            \item Hotspots \& temporäre Netze
+        \end{itemize}
+    \end{itemize}
+    \item Nachteile
+    \begin{itemize}
+        \item Übertragungsgeschwindigkeit
+        \begin{itemize}
+            \item Viele User teilen sich die verfügbare Bandbreite.
+        \end{itemize}
+        \item Umwelteinflüsse
+        \begin{itemize}
+            \item Funkstörungen durch andere Geräte
+            \item Bauliche Gegebenheiten
+        \end{itemize}
+        \item Nettobandbreite
+        \begin{itemize}
+            \item Theoretische und praktische Geschwindigkeiten liegen teils weit auseinander.
+        \end{itemize}
+        \item Security
+        \begin{itemize}
+            \item Einfacher angreifbar, da kein physischer Zutritt in Gebäude nötig.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
