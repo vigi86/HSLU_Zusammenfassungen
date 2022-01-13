@@ -8,16 +8,16 @@
         \item Was ist der Unterschied zwischen \flqq{}Simplex\frqq, \flqq{}half-duplex\frqq{} and \flqq{}full duplex\frqq?
         \item Welches sind die am häufigsten verwendeten Zugriffsverfahren?
         \item Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?
-        \item Was bedeutet „Late Collision“?
+        \item Was bedeutet "`Late Collision"'?
         \item Was muss man noch unbedingt über die physikalische Schicht und Zugriffsverfahren wissen?\\
     \end{enumerate}
 
-    \item Topologien und ``Bandwidth'' (T2)
+    \item Topologien und "`Bandwidth"' (T2)
     \begin{enumerate}
         \item Was für Topologien findet man in Computernetzwerken?
         \item Wo ist der Unterschied zwischen \flqq{}Bandwidth\frqq, \flqq{}Throughput\frqq{} und \flqq{}Goodput\frqq? Wie kann man diese Konzepte visualisieren und verstehen?
         \item Was ist \flqq{}Latency\frqq{} und \flqq{}Jitter\frqq? Wie kann man diese Konzepte visualisieren und verstehen?
-        \item Was muss man noch unbedingt über Topologien und ``Bandwidth'' wissen?\\
+        \item Was muss man noch unbedingt über Topologien und "`Bandwidth"' wissen?\\
     \end{enumerate}
 
     \item Kupferkabel (T3)
@@ -190,12 +190,12 @@ Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur das
     \hline
     $\bullet$ Greift nach der Kollision&$\bullet$ Greift vor der Kollision\\
     $\bullet$ Genutzt in kabelgebundenen Netzwerken&$\bullet$ Genutzt in kabellosen Netzwerken\\
-    $\bullet$ Reduziert die `'recovery time'' nach einer Kollision&$\bullet$ Minimiert Kollisionsgefahr\\
+    $\bullet$ Reduziert die "'recovery time"' nach einer Kollision&$\bullet$ Minimiert Kollisionsgefahr\\
     $\bullet$ Bei Konflikt wird erneut gesendet&$\bullet$ Sendet zuerst die Info, dass etwas übermittelt wird\\
     $\bullet$ Effektiver als das einfache CSMA&$\bullet$ ähnlich effizient wie CSMA\\
 \end{tabularx}
 
-\subsection*{Was bedeutet „Late Collision“?}\index{Late Collision}
+\subsection*{Was bedeutet "`Late Collision"'?}\index{Late Collision}
 \begin{itemize}
     \item Definition:
     \begin{itemize}
@@ -227,13 +227,204 @@ Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur das
 \end{itemize}
 
 \section{Antworten T2}
-\subsection*{Was für Topologien findet man in Computernetzwerken?}
-//TODO
-\subsection*{Wo ist der Unterschied zwischen \flqq{}Bandwidth\frqq, \flqq{}Throughput\frqq{} und \flqq{}Goodput\frqq? Wie kann man diese Konzepte visualisieren und verstehen?}
-//TODO
+\subsection*{Was für Topologien findet man in Computernetzwerken?}\index{Netzwerk!Topologie}
+Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren. Verschiedene Topologien haben Vor- und Nachteile betreffend Kommunikationsfluss, Ausfallsicherheit (Single Point of Failure) und in ihrer Komplexität (Routing oder physisch). Je nach Art können Topologien kombiniert werden.
+
+\paragraph*{Gängigste Topologie-Typen}
+\begin{itemize}
+    \item Bus
+    \begin{itemize}
+        \item Vorteile
+        \begin{itemize}
+            \item geringe Kosten
+            \item einfache Verkabelung
+            \item keine aktiven Netzwerkkomponenten
+        \end{itemize}
+        \item Nachteile
+        \begin{itemize}
+            \item leicht abhörbar
+            \item kann bei einer Störung leicht blockiert werden
+            \item viele Kollisionen
+        \end{itemize}
+    \end{itemize}
+    \item Ring
+    \begin{itemize}
+        \item Vorteile
+        \begin{itemize}
+            \item keine Kollisionen
+            \item alle Stationen sind Verstärker
+            \item gut skalierbar
+        \end{itemize}
+        \item Nachteile
+        \begin{itemize}
+            \item hohe Latenzen zu entfernten Knoten
+            \item leicht abhörbar
+            \item langsamere Datenübertragung
+            \item hoher Energieaufwand
+        \end{itemize}
+    \end{itemize}
+    \item Stern
+    \begin{itemize}
+        \item Vorteile
+        \begin{itemize}
+            \item leicht erweiterbar
+            \item hoher Datendurchsatz
+            \item Ausfall der Endpunkte hat keinen Einfluss auf das Netz
+        \end{itemize}
+        \item Nachteile
+        \begin{itemize}
+            \item Single Point of Failure beim Verteiler
+        \end{itemize}
+        \item Anwendung: Heimnetzwerke
+    \end{itemize}
+    \item Vermaschtes Netz
+    \begin{itemize}
+        \item Vorteile
+        \begin{itemize}
+            \item grundsätzlich sehr ausfallsicher
+            \item hoher Datendurchsatz
+        \end{itemize}
+        \item Nachteile
+        \begin{itemize}
+            \item hoher Realisierungsaufwand
+        \end{itemize}
+        \item Anwendung: WAN
+    \end{itemize}
+\end{itemize}
+
+\def\faktor{.4}
+\def\rootfarbe{green!20!cyan!50!black}
+\def\ballfarbe{green!50!cyan!75!black}
+
+\tikzset{
+    net root node/.style = {net node, minimum width=3*\faktor cm, ball color=\rootfarbe},
+    net node/.style = {circle, minimum width=2*\faktor cm, inner sep=0pt, outer sep=0pt, ball color=\ballfarbe},
+    net connect/.style = {line width=1pt, draw=black},
+    net thick connect/.style = {net connect, line width=2.5pt},
+}
+
+\begin{multicols}{2}
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:TopologyLine}
+    \begin{tikzpicture}
+    \foreach \i in {0,2,4,6}
+    \path (\i,0) node (n\i) [net node] {};
+    \path [net connect] (n0) -- (n2) -- (n4) -- (n6);
+    % \foreach \i in {0,2,4,6}
+    % \path [net connect] (\i+2,0) -- (\i,0) node [net node] {};
+    % \path node at (8,0) [net node] {};
+    \end{tikzpicture}
+    \caption{Linie}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:TopologyBus}
+    \begin{tikzpicture}
+    \path [net thick connect]
+        (0,0) -- (6,0);
+    \foreach \i/\j in {2/-1,4/-1,1/1,3/1,5/1}
+    \path [net connect] (\i,0) -- (\i,\j) node [net node] {};
+    \end{tikzpicture}
+    \caption{Bus Netz}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \label{pic:TopologyStar}
+        \begin{tikzpicture}
+        \node (root) [net root node] {};
+        \foreach \i in {0,...,5}
+            \path [net connect] (root) -- (-90+\i*60:2) node [net node] {};
+        \end{tikzpicture}
+        \caption{Stern Netz}
+    \end{center}
+\end{figure}
+
+\columnbreak
+\begin{figure}[H]
+    \begin{center}
+        \label{pic:TopologyRing}
+        \begin{tikzpicture}
+            \foreach \i in {0,...,5}
+            \path (-90+\i*60:2) node (n\i) [net node] {};
+            \path [net connect] (n0) -- (n1) -- (n2) -- (n3) -- (n4) -- (n5) -- (n0);
+        \end{tikzpicture}
+        \caption{Ring Netz}
+    \end{center}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{center}
+        \label{pic:TopologyMesh}
+        \begin{tikzpicture}
+        \foreach \i in {0,...,5}
+            \path (-90+\i*60:2) node (n\i) [net node] {};
+        \foreach \i in {0,...,5}
+            \foreach \j in {2,3}
+            \path [net connect]
+                (n\i) -- (n\j);;
+        \end{tikzpicture}
+        \caption{Vermaschtes Netz}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \label{pic:TopologyFullMesh}
+        \begin{tikzpicture}
+        \foreach \i in {0,...,5}
+            \path (-90+\i*60:2) node (n\i) [net node] {};
+        \foreach \i in {0,...,5}
+            \foreach \j in {0,...,5}
+            \path [net connect]
+                (n\i) -- (n\j);;
+        \end{tikzpicture}
+        \caption{Vollvermaschtes Netz}
+    \end{center}
+\end{figure}
+\end{multicols}
+\begin{figure}[H]
+    \begin{center}
+    \label{pic:TopologyTree}
+    \begin{forest}
+      for tree={
+        edge=net connect,
+        if level=0{%
+          net root node,
+          before typesetting nodes={
+            repeat=2{
+              append={[,
+                net node,
+                repeat=3{
+                  append={[, net node]},
+                },
+              ]},
+            },
+          },
+        }{},
+      }
+      []
+    \end{forest}
+    \caption{Baum Netz}
+    \end{center}
+\end{figure}
+
+\subsection*{Wo ist der Unterschied zwischen \flqq{}Bandwidth\frqq, \flqq{}Throughput\frqq{} und \flqq{}Goodput\frqq? Wie kann man diese Konzepte visualisieren und verstehen?}\index{Bandbreite}\index{Bandwith}\index{Throughput}\index{Goodput}
+\begin{itemize}
+    \item \textbf{Bandwith (Bandbreite):} Gibt an, wie viel Daten \textbf{theoretisch} zu einem bestimmten Zeitpunkt von einer Quelle übertragen werdne könnten.
+    \item \textbf{Throughput (Durchsatz):} Gibt an, wie viel Daten \textbf{effektiv} zu einem bestimmten Zeitpunkt von einer Quelle übertragen wurden.
+    \item \textbf{Goodput (Datenduchsatz):} Gibt die \textbf{Netto-Datenmenge} (ohne Overhead) pro Zeit an, welche von einer Quelle übertragen werden.
+\end{itemize}
+
 \subsection*{Was ist \flqq{}Latency\frqq{} und \flqq{}Jitter\frqq? Wie kann man diese Konzepte visualisieren und verstehen?}
-//TODO
-\subsection*{Was muss man noch unbedingt über Topologien und ``Bandwidth'' wissen?}
+Die Latenz ist die Zeitverzögerung in einem Netzwerk zwischen der Anfrage und der Antwort. Beispielsweise die Zeit, bei dem mein Rechner die Antwort einer DNS-Anfrage bekommt.\\
+Jitter ist die Zeitverzögerung zwischen einzelnen Anfragen.
+
+\subsection*{Was muss man noch unbedingt über Topologien und "`Bandwidth"' wissen?}
 //TODO
 
 \section{Antworten T3}
