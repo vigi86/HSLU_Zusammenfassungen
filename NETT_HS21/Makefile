@@ -10,10 +10,10 @@
 all: NETT_HS21.pdf
 
 clean:
-	rm -f *.acn *.acr *.alg *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.glg *.glo *.gls *.idx *.ilg *.ind *.ist *.lof *.log *.lot *.out *.run.xml *.toc
+	rm -f *.acn *.acr *.alg *.aux *.bbl *.bib.bak *.bcf *.blg *.fdb_latexmk *.fls *.glg *.glo *.gls *.idx *.ilg *.ind *.ist *.lof *.log *.lot *.out *.run.xml *.toc
 
-#NETT_HS21.pdf: *.tex *.ilg *.glo *.bib go
-NETT_HS21.pdf: *.tex *.ilg *.glo go
+NETT_HS21.pdf: *.tex *.ilg *.glo *.bib go
+#NETT_HS21.pdf: *.tex *.ilg *.glo go
 	pdflatex NETT_HS21 && pdflatex NETT_HS21
 
 NETT_HS21.tex: go
