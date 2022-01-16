@@ -1,6 +1,6 @@
 \part{SW 12}
 \section{Lernziele (Leitfragen)}
-\begin{itemize}
+\begin{enumerate}
     \item Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?
     \item Geben Sie ein Beispiel von einem "`Man-in-the-middle"' Angriff
     \item Wie funktioniert einem "`Trust Exploitation"' Angriff?
@@ -19,7 +19,7 @@
     \item Wie funktioniert eine moderne Firewall?
     \item Was ist ein «Proxy» und was ist sein Zweck?
     \item Was ist der Zweck einer Web Application Firewall (WAF)?
-\end{itemize}
+\end{enumerate}
 
 \section{Antworten}
 \subsection*{Welche Adressen können in einem typischen TCP/IP Netzwerk gefälscht (spoof) werden? Was kann ein Angreifer erreichen, wenn eine solche Fälschung nicht erkannt oder verhindert wird?}\index{Spoofing}
@@ -28,7 +28,7 @@ Beispielsweise können MAC-Adressen, IP-Adressen wie Default-Gateway, DNS etc. g
 \begin{figure}[H]
     \begin{center}
     \label{pic:Spoofing}
-    \includegraphics[width=\textwidth]{images/ARP_Spoofing.png}
+    \includegraphics[width=.75\textwidth]{images/ARP_Spoofing.png}
     \caption{Beispiel ARP-Spoofing (Quelle: ISF Folien, Prof. Dr. Hänggi)}
     \end{center}
 \end{figure}
@@ -38,7 +38,7 @@ Ein Angreifer stellt sich zwischen. Der Client (Victim) denkt, er ist mit dem We
 \begin{figure}[H]
     \begin{center}
     \label{pic:MITM}
-    \includegraphics[width=\textwidth]{images/mitm.jpg}
+    \includegraphics[width=.9\textwidth]{images/mitm.jpg}
     \caption{Man in the Middle (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
@@ -70,6 +70,7 @@ RDP ist beispielsweise anfällig für Angriffe, wobei ein Angreifer die Kontroll
 Früher konnte man auch, wenn man keine Administratorrechte hatte, über die Konsole mittels den Spooler-Service (Druckerwarteschlange) ein paar lustige Befehle eingeben, um Administratorrechte zu erlangen.\\
 Nun, was heisst früher? Nach kleiner Internetrecherche ist das Problem wiedermal aktuell\footnote{\url{https://www.theregister.com/2021/06/30/windows_print_spool_vuln_rce/}}.
 
+\pagebreak
 \subsection*{Geben Sie ein Beispiel von einem "`Denial-of-Service"' Angriff}\index{DoS - Denial of Service}
 \begin{itemize}
     \item Angreifer sendet SYN requests an Webserver
@@ -161,6 +162,7 @@ Nachteile:
     \item Paket-Inhalt (Daten) nicht kontrolliert
 \end{itemize}
 
+\pagebreak
 \subsection*{Wie funktioniert eine moderne Firewall?}\index{Firewall!Modern}
 \begin{itemize}
     \item System: Software und ev. Hardware

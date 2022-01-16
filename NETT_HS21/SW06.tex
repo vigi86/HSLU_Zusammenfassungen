@@ -1,5 +1,5 @@
 \section{Lernziele (Leitfragen) SW 06}
-\begin{itemize}
+\begin{enumerate}
     \item Wie finde ich meine IPv4 Konfiguration?
     \item Wie finde ich eine IP-Adresse in Verbindung zu einer URL?
     \item Wie finde ich heraus, ob ein Host anhand seiner IP oder URL verfügbar ist?
@@ -12,7 +12,7 @@
     \item Über welche IPv6 unicast Adressen sollte ein richtig konfigurierte Host mindestens verfügen?
     \item Wie sind IPv6 Global Unicast Addresses (GUAs) unterteilt?
     \item Welche Mechanismen werden verwendet, um IPv4 und IPv6 Netzwerken miteinander zu verbinden?
-\end{itemize}
+\end{enumerate}
 
 \section{Antworten}
 \subsection*{Wie finde ich meine IPv4 Konfiguration?}
@@ -111,11 +111,12 @@
 \end{multicols}
 
 \subsection*{Wieso brauchen wir IPv6? Was sind die Nachteile von IPv4?}
-Auf die Länge von 32 bits gibt es lediglich $2^{32}=4'228'250'625$ IPv4 Adressen. Vergleichsweise weniger als die Hälfte der Weltbevölkerung. Es kommt deshalb zu einem Engpass an verfügbaren öffentlichen IPv4 Adressen. IPv6 mit 128 bits hat $2^{128}=3.4\times10^{38}$. Das ist viel mehr als die geschätzte Anzahl Sandkörner auf der Erde ($6.63\times10^{22}$\footnote{\url{https://www.why.is/svar.php?id=4803}}) oder Galaxien im Universum ($10^{22}$ - $10^{24}$\footnote{\url{https://www.esa.int/Science_Exploration/Space_Science/Herschel/How_many_stars_are_there_in_the_Universe}}
+Auf die Länge von 32 bits gibt es lediglich $2^{32}=4'228'250'625$ IPv4 Adressen. Vergleichsweise weniger als die Hälfte der Weltbevölkerung. Es kommt deshalb zu einem Engpass an verfügbaren öffentlichen IPv4 Adressen. IPv6 mit 128 bits hat $2^{128}=3.4\times10^{38}$. Das ist viel mehr als die geschätzte Anzahl Sandkörner auf der Erde ($6.63\times10^{22}$) oder Galaxien im Universum ($10^{22}$ bis $10^{24}$). (Quellen Werte\footnote{\url{https://www.why.is/svar.php?id=4803}}\footnote{\url{https://www.esa.int/Science_Exploration/Space_Science/Herschel/How_many_stars_are_there_in_the_Universe}})
 
 \subsection*{Wie lange sind IPv6 Adressen?}
 16 bytes = 128 bits, wie bereits erwähnt.
 
+\pagebreak
 \subsection*{Was sind die Regeln, um eine IPv6 Adresse zu komprimieren?}
 Es werden möglichst alle (führenden) Nullen komprimiert. Sind mehrere Hextete (vier Hexadezimalwerte) hintereinander nullen, so fasst man es mit einem doppelten Doppelpunkt (::) zusammen. Dies ist aber nur einmal möglich!
 

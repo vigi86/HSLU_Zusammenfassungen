@@ -1,6 +1,6 @@
 \part{SW 04 - Data Link Layer - Sicherungsschicht}\label{part:sw04}
 \section{Lernziele (Leitfragen)}
-\begin{itemize}
+\begin{enumerate}
     \item (SW03 - T1) Was ist der Unterschied zwischen CSMA/CD und CSMA/CA? Wo werden sie verwendet?
     \item Was ist der Zweck der Sicherungsschicht?
     \item Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?
@@ -13,7 +13,7 @@
     \item Was ist der Unterschied zwischen \flqq Unicast\frqq{} und \flqq Broadcast\frqq{} Frames?
     \item Was ist der Zweck ARPs?
     \item Wie funktioniert ARP?
-\end{itemize}
+\end{enumerate}
 
 \section{Antworten}
 \subsection*{Was ist der Zweck der Sicherungsschicht?}\label{sub:Sicherungsschicht}
@@ -25,7 +25,6 @@
 \end{itemize}
 Siehe auch \underline{\hyperref[sub:SchichtenOSIModell]{Schichten des OSI Modells}} (Seite \pageref{sub:SchichtenOSIModell}).
 
-\pagebreak
 \subsection*{Wie ist die Sicherungsschicht aufgeteilt? Was ist die Hauptaufgabe der LLC und MAC Schichten?}\label{sub:LLC_MAC}\index{LLC - Logical Link Control}\index{MAC - Media Access Control}
 \begin{itemize}
     \item Logical Link Control (LLC) kommuniziert zwischen Netzwerksoftware der oberen Schichten und der MAC-Subschicht.
@@ -35,7 +34,7 @@ Siehe auch \underline{\hyperref[sub:SchichtenOSIModell]{Schichten des OSI Modell
 \begin{figure}[H]
     \begin{center}
     \label{pic:DataLinkLayer_LLC_MAC}
-    \includegraphics[width=\textwidth]{images/DLL_Sublayers.jpg}
+    \includegraphics[width=.6\textwidth]{images/DLL_Sublayers.jpg}
     \caption{Subschichten der Sicherungsschicht / des Data Link Layers (\textsuperscript{\textcopyright}Cisco)}
     \end{center}
 \end{figure}
@@ -74,6 +73,7 @@ Das "`Addressing"'-Feld besteht aus zwei Einträgen, nämlich die MAC-Adressen d
     \end{center}
 \end{figure}
 
+\pagebreak
 \subsection*{Was sind die wichtigsten Merkmale von MAC Adressen?}\index{MAC!Adresse}
 \begin{itemize}
     \item 48 bits = 12 hex-Ziffern = 6 bytes
@@ -110,7 +110,7 @@ Ethernet-Switches
     \item Wenn ein Switch einschaltet, ist seine MAC-Adresstabelle leer
 \end{itemize}
 
-
+\pagebreak
 \subsection*{Wie funktioniert der \flqq Learn-and-forward\frqq{} Prozess?}\index{Switch!Learn and Forward}\index{MAC!Adresse}
 I. LEARN: Untersuche die Source-MAC-Adresse
 \begin{enumerate}
@@ -128,7 +128,7 @@ I. LEARN: Untersuche die Source-MAC-Adresse
     \begin{itemize}
         \item[$\rightarrow$] ersetze Port und Timer-Update
     \end{itemize}
-\end{enumerate}\,\\[1em]
+\end{enumerate}\,\\
 
 II. FORWARD: Finde Destination-MAC-Adresse
 \begin{itemize}

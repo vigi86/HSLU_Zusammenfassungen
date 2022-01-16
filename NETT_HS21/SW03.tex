@@ -59,6 +59,7 @@
     \end{enumerate}
 \end{itemize}
 
+\pagebreak
 \section{Antworten T1}
 \subsection*{Was ist der Zweck der physikalischen Schicht?}
 \begin{itemize}
@@ -86,7 +87,7 @@
             \item statisches Multiplexing (synchron)
             \item dynamisches Multiplexing (asynchron)
         \end{itemize}
-        \item \textsl{\dots{}an die richtigen Steckplätze hergestellt wird.\dots}
+        \item \textsl{\dots{}an die richtigen Steckplätze hergestellt wird.}
     \end{itemize}
     \item Definition der Übertragung eines Bits
     \begin{itemize}
@@ -126,6 +127,7 @@ Vergleiche Kommunikationsrichtung, das Senden/Empfangen, Leistung und Beispiele:
     \end{itemize}
 \end{itemize}
 
+\pagebreak
 \subsection*{Welches sind die am häufigsten verwendeten Zugriffsverfahren?}\index{Zugriffsverfahren}\index{CSMA - Carrier Sense Multiple Access}\index{Zugriffsverfahren!CSMA}\index{Nichtdeterministische Zugriffsverfahren}\index{Deterministische Zugriffsverfahren}
 Es gibt zwei Oberbegriffe:
 \begin{itemize}
@@ -226,6 +228,7 @@ Ein \textbf{Token Bus} ist im Prinzip dasselbe Verfahren wie Token Ring, nur das
     \end{itemize}
 \end{itemize}
 
+\pagebreak
 \section{Antworten T2}
 \subsection*{Was für Topologien findet man in Computernetzwerken?}\label{sub:Topologies}\index{Netzwerk!Topologie}
 Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren. Verschiedene Topologien haben Vor- und Nachteile betreffend Kommunikationsfluss, Ausfallsicherheit (Single Point of Failure) und in ihrer Komplexität (Routing oder physisch). Je nach Art können Topologien kombiniert werden.
@@ -292,6 +295,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
     \end{itemize}
 \end{itemize}
 
+\pagebreak
 \def\faktor{.4}
 \def\rootfarbe{green!20!cyan!50!black}
 \def\ballfarbe{green!50!cyan!75!black}
@@ -307,7 +311,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
 \begin{figure}[H]
     \begin{center}
     \label{pic:TopologyLine}
-    \begin{tikzpicture}
+    \begin{tikzpicture}[scale=0.8]
     \foreach \i in {0,2,4,6}
     \path (\i,0) node (n\i) [net node] {};
     \path [net connect] (n0) -- (n2) -- (n4) -- (n6);
@@ -322,7 +326,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
 \begin{figure}[H]
     \begin{center}
     \label{pic:TopologyBus}
-    \begin{tikzpicture}
+    \begin{tikzpicture}[scale=0.8]
     \path [net thick connect]
         (0,0) -- (6,0);
     \foreach \i/\j in {2/-1,4/-1,1/1,3/1,5/1}
@@ -335,7 +339,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
 \begin{figure}[H]
     \begin{center}
         \label{pic:TopologyStar}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
         \node (root) [net root node] {};
         \foreach \i in {0,...,5}
             \path [net connect] (root) -- (-90+\i*60:2) node [net node] {};
@@ -344,11 +348,10 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
     \end{center}
 \end{figure}
 
-\columnbreak
 \begin{figure}[H]
     \begin{center}
         \label{pic:TopologyRing}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
             \foreach \i in {0,...,5}
             \path (-90+\i*60:2) node (n\i) [net node] {};
             \path [net connect] (n0) -- (n1) -- (n2) -- (n3) -- (n4) -- (n5) -- (n0);
@@ -360,7 +363,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
   \begin{figure}[H]
     \begin{center}
         \label{pic:TopologyMesh}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
         \foreach \i in {0,...,5}
             \path (-90+\i*60:2) node (n\i) [net node] {};
         \foreach \i in {0,...,5}
@@ -375,7 +378,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
 \begin{figure}[H]
     \begin{center}
         \label{pic:TopologyFullMesh}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
         \foreach \i in {0,...,5}
             \path (-90+\i*60:2) node (n\i) [net node] {};
         \foreach \i in {0,...,5}
@@ -386,7 +389,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
         \caption{Vollvermaschtes Netz}
     \end{center}
 \end{figure}
-\end{multicols}
+
 \begin{figure}[H]
     \begin{center}
     \label{pic:TopologyTree}
@@ -412,6 +415,7 @@ Topologien beschreiben, wie Geräte in einem Netzwerk miteinander kommunizieren.
     \caption{Baum Netz}
     \end{center}
 \end{figure}
+\end{multicols}
 
 \subsection*{Wo ist der Unterschied zwischen \flqq{}Bandwidth\frqq, \flqq{}Throughput\frqq{} und \flqq{}Goodput\frqq? Wie kann man diese Konzepte visualisieren und verstehen?}\index{Bandbreite}\index{Bandwith}\index{Throughput}\index{Goodput}
 \begin{itemize}
@@ -425,7 +429,7 @@ Die Latenz ist die Zeitverzögerung in einem Netzwerk zwischen der Anfrage und d
 Jitter ist die Zeitverzögerung zwischen einzelnen Anfragen.
 
 \subsection*{Was muss man noch unbedingt über Topologien und "`Bandwidth"' wissen?}
-//TODO ja was denn?
+Bö\dots
 
 \section{Antworten T3}
 \subsection*{Was sind die wichtigsten Merkmale von Kupferkabeln?}\index{Kupferkabel}
@@ -447,10 +451,9 @@ Jitter ist die Zeitverzögerung zwischen einzelnen Anfragen.
 \subsection*{Was für Kupferkabelarten werden heutzutage in Computernetzwerken am häufigsten verwendet?}\index{Kupferkabel}
 Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
 
-\subsubsection*{Wie sind sie aufgebaut?}
-(//TODO Quellen?)\\
-%\begin{multicols*}{2}
-    UTP: verdrillte Aderpaare, Schutzmantel
+\subsubsection*{Wie sind sie aufgebaut?\footnote{Quellen?}}
+\begin{multicols*}{2}
+    UTP: verdrillte Aderpaare, Schutzmantel:
     \begin{figure}[H]
         \begin{center}
             \label{pic:UTP}
@@ -459,7 +462,7 @@ Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
         \end{center}
     \end{figure}
 
-    STP: verdrillte Aderpaare, Abschirmung, Schutzmantel
+    STP: verdrillte Aderpaare, Abschirmung, Schutzmantel:
     \begin{figure}[H]
         \begin{center}
             \label{pic:STP}
@@ -467,8 +470,9 @@ Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
             \caption{Shielded Twisted Pair}
         \end{center}
     \end{figure}
-%    \columnbreak
-    Koaxial: Innenleiter (Kern), Isolation, Aussenleiter und Abschirmung, Schutzmantel.
+
+    \columnbreak
+    Koaxial: Innenleiter (Kern), Isolation, Aussenleiter und Abschirmung, Schutzmantel:
     \begin{figure}[H]
         \begin{center}
             \label{pic:Coaxial}
@@ -476,32 +480,35 @@ Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
             \caption{Koaxialkabel\cite{wiki}}
         \end{center}
     \end{figure}
-%\end{multicols*}
+\end{multicols*}
 
 \subsubsection*{Wie sehen die Stecker aus?}
-\begin{figure}[H]
-    \begin{center}
-    \label{pic:RJ45}
-    \includegraphics[width=.5\textwidth]{images/RJ45-Stecker-Netzwerk.jpg}
-    \caption{RJ45-Stecker für Twisted Pair\cite{wiki}}
-    \end{center}
-\end{figure}
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:BellingLee}
+            \includegraphics[width=.5\textwidth]{images/belling_lee_male_and_female_connector.jpg}
+            \caption{Männchen und Weibchen Belling-Lee für Koaxial\cite{wiki}}
+        \end{center}
+    \end{figure}
 
-\begin{figure}[H]
-    \begin{center}
-    \label{pic:BNC}
-    \includegraphics[width=.5\textwidth]{images/BNC.png}
-    \caption{BNC für Koaxial\cite{wiki}}
-    \end{center}
-\end{figure}
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:BNC}
+            \includegraphics[width=.5\textwidth]{images/BNC.png}
+            \caption{BNC für Koaxial\cite{wiki}}
+        \end{center}
+    \end{figure}
 
-\begin{figure}[H]
-    \begin{center}
-    \label{pic:BellingLee}
-    \includegraphics[width=.5\textwidth]{images/belling_lee_male_and_female_connector.jpg}
-    \caption{Männchen und Weibchen Belling-Lee für Koaxial\cite{wiki}}
-    \end{center}
-\end{figure}
+    \columnbreak
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:RJ45}
+            \includegraphics[width=.5\textwidth]{images/RJ45-Stecker-Netzwerk.jpg}
+            \caption{RJ45-Stecker für Twisted Pair\cite{wiki}}
+        \end{center}
+    \end{figure}
+\end{multicols}
 
 \subsection*{Worauf muss bei der Handhabung und Verlegung der Kupferkabel besonders geachtet werden und warum?}
 \begin{itemize}
@@ -526,20 +533,21 @@ Unshielded Twisted-Pair (UTP), Shielded Twisted-Pair (STP) und Coaxial-Kabel.
 \end{itemize}
 
 \subsection*{Was muss man noch unbedingt über Kupferkabel wissen?}
-//TODO Sie schmecken wohl nach Metall!
+Anfällig für Interferenzen, leitet Strom.
 
+\pagebreak
 \section{Antworten T4}
-\subsection*{Was sind die wichtigsten Merkmale von Glasfaserkabeln?}
+\subsection*{Was sind die wichtigsten Merkmale von Glasfaserkabeln?}\index{Glasfaserkabel}
 Glasfaserkabel haben eine Glasfaser als Übertragungsmedium und verwenden Licht, Laser oder UV als Übertragungsimpulse.
 
 \subsubsection*{Wie sind sie aufgebaut?}
 Im Prinzip besteht das Glasfaserkabel aus dem Lichtleiter als Kern, ummantelt von einer Führungshülle, einem Gelmantel und zuletzt einem Kunststoff-Schutzmantel.
 
-\begin{multicols*}{2}
+\begin{multicols}{2}
     \begin{figure}[H]
         \begin{center}
             \label{pic:OpticalFiber}
-            \includegraphics[width=.5\textwidth]{images/optical_fibre_structure.png}
+            \includegraphics[width=.3\textwidth]{images/optical_fibre_structure.png}
             \caption{Aufbau des Glasfaserkabels\cite{wiki}}
         \end{center}
     \end{figure}
@@ -551,15 +559,14 @@ Im Prinzip besteht das Glasfaserkabel aus dem Lichtleiter als Kern, ummantelt vo
         \caption{Glasfaser Kabelstrang\cite{wiki}}
         \end{center}
     \end{figure}
-\end{multicols*}
-
+\end{multicols}
 
 \subsubsection*{Wie sehen die Stecker aus?}
 Es gibt viele verschidene Steckverbindungen, je nachdem wofür das Kabel genutzt wird.
 \begin{figure}[H]
     \begin{center}
     \label{pic:OpticalConnectors}
-    \includegraphics[width=\textwidth]{images/Tipos_conectores_fibra_optica.jpg}
+    \includegraphics[width=.7\textwidth]{images/Tipos_conectores_fibra_optica.jpg}
     \caption{Verschiedene Stecker für Glasfaserkabel\cite{wiki}}
     \end{center}
 \end{figure}
@@ -570,9 +577,8 @@ Glasfaserkabel sind zwar bis zu einem gewissen Rahmen biegbar, jedoch sollte der
 \subsection*{Woraus resultieren die Längenbeschränkungen der Glasfaserkabelverkabelung?}
 Wenn auch minim, so streut und absorbiert auch Glas das Licht (oder UV - Quarzglas). Mit der Distanz nimmt die Intensität des Lichts ab. Wie vorhin erwähnt, können Krümmungen zu Reflexionen führen, welche sich negativ auf die Übertragungsdistanz äusseren.
 
-\subsection*{Wo ist der Unterschied zwischen Multi- und Singlemode (Monomode)- Glasfasern?}
-//TODO Quelle?
-\begin{multicols*}{2}
+\subsection*{Wo ist der Unterschied zwischen Multi- und Singlemode (Monomode)- Glasfasern?\footnote{Quellen?}}\index{Glasfaserkabel!Multimode}\index{Glasfaserkabel!Singlemode}
+\begin{multicols}{2}
     \begin{figure}[H]
         \begin{center}
         \label{pic:Monomode}
@@ -588,7 +594,7 @@ Wenn auch minim, so streut und absorbiert auch Glas das Licht (oder UV - Quarzgl
         \caption{Multimode Glasfaserkabel (LED)}
         \end{center}
     \end{figure}
-\end{multicols*}
+\end{multicols}
 
 \subsection*{Was sind die Vor- und Nachteile von Glasfaserkabel (im Vergleich zu Kupferkabeln)?}
 \begin{itemize}
@@ -606,8 +612,9 @@ Wenn auch minim, so streut und absorbiert auch Glas das Licht (oder UV - Quarzgl
 \end{itemize}
 
 \subsection*{Was muss man noch unbedingt über Glasfaserkabel wissen?}
-//TODO ja was denn?
+Bö\dots
 
+\pagebreak
 \section{Antworten T5}
 \subsection*{Was sind die wichtigsten Merkmale von \flqq{}Wireless Media\frqq?}\index{Wireless!Media}
 Wireless beruht auf verschiedene Kommunikationstechnologien, welche kabellose Datenübertragung ermöglichen, anstatt auf kabelgebundene Technologien zurückzugreifen. Das Übertragungsmedium sind also Funkwellen.

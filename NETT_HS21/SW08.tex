@@ -1,19 +1,67 @@
 \part{SW 08-09 T1-T5}
-\section{Lernziele (Leitfragen) - T1}
-\begin{itemize}
-    \item Wie wird eine DNS Anfrage bearbeitet?
-    \item Was ist der Unterschied zwischen rekursiver und iterativer DNS?
-    \item Was für DNS Record Arten gibt es?
-    \item Was ist die Topologie des DNS Systems? Ist es zentralisiert?
-    \item Wie kann ich direkt eine DNS Anfrage aus meinem Computer ausführen?
-    \item Was sind die Sicherheitsmerkmale von DNS?
-    \item Was für Sicherheitserweiterungen gibt es für DNS?
-    \item Wie geht DNS mit den verschiedenen IP Versionen um?
-\end{itemize}
+\section{Lernziele (Leitfragen)}
+\begin{enumerate}
+    \item DNS
+    \begin{itemize}
+        \item Wie wird eine DNS Anfrage bearbeitet?
+        \item Was ist der Unterschied zwischen rekursiver und iterativer DNS?
+        \item Was für DNS Record Arten gibt es?
+        \item Was ist die Topologie des DNS Systems? Ist es zentralisiert?
+        \item Wie kann ich direkt eine DNS Anfrage aus meinem Computer ausführen?
+        \item Was sind die Sicherheitsmerkmale von DNS?
+        \item Was für Sicherheitserweiterungen gibt es für DNS?
+        \item Wie geht DNS mit den verschiedenen IP Versionen um?
+    \end{itemize}
+    \item DHCP
+    \begin{itemize}
+        \item Wie erhält ein Host seine IPv4 Konfiguration mit DHCP?
+        \item Welche Nachrichten des DHCP Protokolls sind Broadcasts und wieso?
+        \item Was passiert, wenn mehr als ein DHCP Server in dem lokalen Netzwerk verfügbar ist? Ist das möglich? Ist das wünschenswert?
+        \item Welche Parameter werden typischerweise von einem DHCP Server vergeben?
+        \item Was macht ein Host, wenn er keine IPv4 Konfiguration via DHCP bekommt? Kann er mit anderen Hosts kommunizieren?
+        \item Wie erhält ein Host seine IPv6 Konfiguration mit DHCPv6?
+    \end{itemize}
+    \item SMTP
+    \begin{itemize}
+        \item Wie wird ein E-Mail mit SMTP verschickt (end-to-end)?
+        \item Wie wird der Nutzer des SMTP Servers authentifiziert?
+        \item Welche Sicherheitseigenschaften hat SMTP? Was für Sicherheitserweiterungen gibt es?
+        \item Kriegt die Empfängerin das E-Mail sobald es von dem SMTP Server empfangen wird?
+        \item Wie wird auf E-Mails mit POP3 zugegriffen?
+        \item Wie wird auf E-Mails mit IMAP zugegriffen?
+        \item Was sind die Hauptunterschiede zwischen POP3 und IMAP? Wann wird es empfohlen sie zu verwenden?
+    \end{itemize}
+    \item HTTP(S), HTTP-Methods, REST
+    \begin{itemize}
+        \item Wie wird auf eine Website mit HTTP(S) zugegriffen?
+        \item Was ist der Unterschied zwischen HTTP und HTTPS?
+        \item Was sind die Hauptmerkmale von TLS? Wie funktioniert TLS (hohes Niveau)?
+        \item Was sind andere wichtige Verwendungen von HTTP (ausser Websites zuzugreifen)?
+        \item Was ist ein REST API?
+        \item Was sind die Hauptmethoden von HTTP?
+        \item Wie funktioniert ein REST API?
+        \item Nenne ein Beispiel von einem REST API Endpoint, der die GET Methode verwendet.
+        \item Nenne ein Beispiel von einem REST API Endpoint, der die POST Methode verwendet.
+        \item Nenne ein Beispiel von einem REST API Endpoint, der die PUT Methode verwendet.
+    \end{itemize}
+    \item Remote-Access
+    \begin{itemize}
+        \item Wofür wird SSH verwendet?
+        \item Wie funktioniert SSH (hohes Niveau)?
+        \item Was für Nutzerauthentifizierungsoptionen gibt es? Was wird empfohlen?
+        \item Was ist RDP?
+        \item Wie funktioniert RDP?
+        \item Was ist VNC?
+        \item Wie funktioniert VNC?
+        \item Was ist VDI?
+        \item Wie funktioniert VDI?
+        \item Nenne Beispiele von kommerziellen VDI Lösungen
+        \item (Zusatz) Was ist der Unterschied zwischen RDP und VNC?
+    \end{itemize}
+\end{enumerate}
 
-\section{Antworten}
+\section{Antworten T1}
 \subsection*{Wie wird eine DNS Anfrage bearbeitet?}\index{DNS}
-//TODO Abbildung 15: Grafik aus Unterricht
 \begin{itemize}
     \item Forward Lookup
     \begin{itemize}
@@ -46,11 +94,24 @@
 \end{itemize}
 
 \subsection*{Was ist der Unterschied zwischen rekursiver und iterativer DNS?}\index{DNS!Recursive}\index{DNS!Iterative}
-\paragraph*{Recursive Query}
-//TODO Abbildung 16: Screenshot YT https://www.youtube.com/watch?v=PS0UppB3-fg
-
-\paragraph*{Iterative Query}
-//TODO Abbildung 17: Screenshot YT https://www.youtube.com/watch?v=PS0UppB3-fg
+\footnotetext[4]{\url{https://www.youtube.com/watch?v=PS0UppB3-fg}}
+\begin{multicols*}{2}
+    \begin{figure}[H]
+        \begin{center}
+            \label{pic:DNSRecursive}
+    \includegraphics[width=.5\textwidth]{images/dns_recursive_query.jpg}
+    \caption[DNS Recursive Query]{Ein Recursive-Query findet zwischen dem DNS-Client und dem \textbf{lokalen} DNS-Server statt\footnotemark[4]}
+    \end{center}
+\end{figure}
+\columnbreak
+\begin{figure}[H]
+    \begin{center}
+        \label{pic:DNSIterative}
+        \includegraphics[width=.33\textwidth]{images/dns_iterative_query.jpg}
+        \caption[DNS Iterative Query]{Iterative Queries zwischen lokalen DNS-Server und mehreren externen Domain Name Servern\footnotemark[4]}
+    \end{center}
+\end{figure}
+\end{multicols*}
 
 \subsection*{Was für DNS Record Arten gibt es?}\index{DNS!Records}
 \begin{itemize}
@@ -80,18 +141,7 @@ Domain Name System Security Extensions (DNSSEC) DNSSEC verhindert, dass Angreife
     \item AAAA für ipv6
 \end{itemize}
 
-
-\section{Lernziele (Leitfragen) - T2}
-\begin{itemize}
-    \item Wie erhält ein Host seine IPv4 Konfiguration mit DHCP?
-    \item Welche Nachrichten des DHCP Protokolls sind Broadcasts und wieso?
-    \item Was passiert, wenn mehr als ein DHCP Server in dem lokalen Netzwerk verfügbar ist? Ist das möglich? Ist das wünschenswert?
-    \item Welche Parameter werden typischerweise von einem DHCP Server vergeben?
-    \item Was macht ein Host, wenn er keine IPv4 Konfiguration via DHCP bekommt? Kann er mit anderen Hosts kommunizieren?
-    \item Wie erhält ein Host seine IPv6 Konfiguration mit DHCPv6?
-\end{itemize}
-
-\section{Antworten}
+\section{Antworten T2}
 \subsection*{Wie erhält ein Host seine IPv4 Konfiguration mit DHCP?}\index{DHCP}
 \begin{itemize}
     \item DHCP oder \flqq{}Dynamic Host Configuration Protocol\frqq wird in der Netzwerktechnik verwendet, um einem Client alle nötigen Netzwerkinformationen zuzuweisen, wie:
@@ -148,18 +198,7 @@ Für DHCPv6 gibt es zwei verschiedene Verfahren:
     \item \textbf{Statefull Config:} Der DHCPv6 verteilt IPv6 Präfix als auch die restlichen Parameter Für IPv6 wird das Protokoll DHCPv6 benützt
 \end{itemize}
 
-\section{Lernziele (Leitfragen) - T3}
-\begin{itemize}
-    \item Wie wird ein E-Mail mit SMTP verschickt (end-to-end)?
-    \item Wie wird der Nutzer des SMTP Servers authentifiziert?
-    \item Welche Sicherheitseigenschaften hat SMTP? Was für Sicherheitserweiterungen gibt es?
-    \item Kriegt die Empfängerin das E-Mail sobald es von dem SMTP Server empfangen wird?
-    \item Wie wird auf E-Mails mit POP3 zugegriffen?
-    \item Wie wird auf E-Mails mit IMAP zugegriffen?
-    \item Was sind die Hauptunterschiede zwischen POP3 und IMAP? Wann wird es empfohlen sie zu verwenden?
-\end{itemize}
-
-\section{Antworten}
+\section{Antworten T3}
 \subsection*{Wie wird ein E-Mail mit SMTP verschickt (end-to-end)?}\index{SMTP}
 SMTP - Simple Mail Transfer Protocol gehört zur Anwendungsschicht, bedeutet Simple Mail Transfer Protocol und dient, wie der Name sagt, zum Austauschen von E-Mails. SMTP funktioniert über \textbf{TCP}. Kann auch als Gedankenstütze mit Sending-Mail-To-People genutzt werden.\\[1em]
 Schritte:
@@ -180,20 +219,20 @@ Schritte:
     \item Somit können nur noch Vertrauenswürdige Nutzer Emails über diesen Sender Server versenden.
     \item Statt über den Standardport 25/TCP wird über den Port 587 kommuniziert. Obligatorische Grundlage für E SMTP. Verschiedene Authentifizierungsmechanismen (PLAIN, LOGIN, CRAM-MD5).
 \end{itemize}
-//TODO Abbildung 18: SMTP Eigene Grafik
 
+\pagebreak
 \subsection*{Welche Sicherheitseigenschaften hat SMTP? Was für Sicherheitserweiterungen gibt es?}\index{SMTP!Sicherheit!Erweiterung}
 Eine Vertraulichkeit, Authentizität und Integrität von E-Mails kann durch SMTP allein nicht gewährleistet werden. Clientseitige Verfahren müssen genutzt werden. Ansonsten sind die Absender und Empfänger fälschbar und die E-Mailinhalte grundsätzlich lesbar und veränderbar.
 \begin{itemize}
     \item \textbf{S/MIME} ist eine Technologie, die \textbf{E-Mails verschlüsselt}, um sie vor unerwünschtem Zugriff zu schützen. Ausserdem können die \textbf{E-Mails digital signiert} werden, um den Absender als legitim zu verifizieren.
     \begin{itemize}
-        \item Zugemüse: Meistens sind S/MIME-Zertifikate kostenpflichtig, da sie als Paket auf Corporate-Level angeboten werden. Actalis\footnote{\url{https://extrassl.actalis.it/portal/uapub/freemail?lang=en}} ist eine Root Certificate Authority und bietet kostenlose Zertifikate für ein Jahr aus, welche man jeweils erneuern kann.
+        \item Zugemüse: Meistens sind S/MIME-Zertifikate kostenpflichtig, da sie als Paket auf Corporate-Level angeboten werden. Actalis\footnote{\url{https://extrassl.actalis.it/portal/uapub/freemail?lang=en}} ist eine Root Certificate Authority und bietet kostenlose Zertifikate für eine Mail-Adresse für je ein Jahr aus, welche man jeweils erneuern kann.
     \end{itemize}
-    \item PGP (Pretty Good Privacy) ist eine alternative Methode E-Mails zu signieren und verschlüsseln. Anders als S/MIME, wo eine Root Certificate Authority Zertifikate ausstellt, basiert PGP auf ein Web of Trust.
+    \item \textbf{PGP (Pretty Good Privacy)} ist eine alternative Methode E-Mails zu signieren und verschlüsseln. Anders als S/MIME, wo eine Root Certificate Authority Zertifikate ausstellt, basiert PGP auf ein Web of Trust.
     \begin{itemize}
         \item Zugemüse: Wer sich interessiert, kann hier eine Infografik\footnote{\url{https://emailselfdefense.fsf.org/en/infographic.html}} anschauen und hier eine einfache Anleitung\footnote{\url{https://emailselfdefense.fsf.org/en/index.html}} lesen, um PGP bei sich aufzusetzen. GPG4Win\footnote{\url{https://www.gpg4win.org/}} bietet mit Kleopatra eine benutzerfreundliche Oberfläche zum erstellen und verwalten seiner Schlüssel (auch S/MIME).
     \end{itemize}
-    \item TLS: Verschlüsselt die Verbindung und Daten während der Übertragung von Punkt A nach Punkt B. Der Schlüsselaustausch findet im Hintergrund statt, ohne Einwirken des Benutzers.
+    \item \textbf{TLS}: Verschlüsselt die Verbindung und Daten während der Übertragung von Punkt A nach Punkt B. Der Schlüsselaustausch findet im Hintergrund statt, ohne Einwirken des Benutzers.
 \end{itemize}
 
 \subsection*{Kriegt die Empfängerin das E-Mail sobald es von dem SMTP Server empfangen wird?}\index{SMTP!Empfang}
@@ -208,22 +247,8 @@ Bei IMAP - Internet Message Access Protocol basierten Mailclients werden die Mai
 \subsection*{Was sind die Hauptunterschiede zwischen POP3 und IMAP? Wann wird es empfohlen sie zu verwenden? }
 Beim POP3 werden die Daten lokal abgespeichert und auf dem Server gelöscht. Mit dem IMAP ruft der Client die Daten vom Server ab. Möchte man \textbf{wenig Bandbreite} nutzen, sollte man \textbf{POP3} verwenden. Will man mit \textbf{mehreren Devices} auf die Mails zugreifen und ein sicheres Backup haben, empfiehlt es sich das \textbf{IMAP} zu verwenden.
 
-
-\section{Lernziele (Leitfragen) - T4}
-\begin{itemize}
-    \item Wie wird auf eine Website mit HTTP(S) zugegriffen?
-    \item Was ist der Unterschied zwischen HTTP und HTTPS?
-    \item Was sind die Hauptmerkmale von TLS? Wie funktioniert TLS (hohes Niveau)?
-    \item Was sind andere wichtige Verwendungen von HTTP (ausser Websites zuzugreifen)?
-    \item Was ist ein REST API?
-    \item Was sind die Hauptmethoden von HTTP?
-    \item Wie funktioniert ein REST API?
-    \item Nenne ein Beispiel von einem REST API Endpoint, der die GET Methode verwendet.
-    \item Nenne ein Beispiel von einem REST API Endpoint, der die POST Methode verwendet.
-    \item Nenne ein Beispiel von einem REST API Endpoint, der die PUT Methode verwendet.
-\end{itemize}
-
-\section{Antworten}
+\pagebreak
+\section{Antworten T4}
 \subsection*{Wie wird auf eine Website mit HTTP(S) zugegriffen?}\index{HTTP(S)}
 Nach der DNS-Auflösung wird mit der GET Methode von HTTP(s) auf Webseite über den Port 80 (443 bei HTTPS) zugegriffen. Wird diese GET Anfrage vom Webserver akzeptiert, so sendet er erst Inhalt des Headers des Bereitgestellten HTML Dokuments und im Anschluss den Body. Der Body repräsentiert den Inhalt einer Webseite und ist das, was der User im Interface seines Webbrowsers sieht. Im Anschluss wird die Verbindung beendet.
 
@@ -265,22 +290,8 @@ Anlegen einer Ressource $\rightarrow$ Bsp: Facebook Account erstellen
 \subsection*{Nenne ein Beispiel von einem REST API Endpoint, der die PUT Methode verwendet.}\index{REST API}
 Verändern einer Ressource $\rightarrow$ Bsp: Facebook status ändern
 
-\section{Lernziele (Leitfragen) - T5}
-\begin{itemize}
-    \item Wofür wird SSH verwendet?
-    \item Wie funktioniert SSH (hohes Niveau)?
-    \item Was für Nutzerauthentifizierungsoptionen gibt es? Was wir empfohlen?
-    \item Was ist RDP?
-    \item Wie funktioniert RDP?
-    \item Was ist VNC?
-    \item Wie funktioniert VNC?
-    \item Was ist VDI?
-    \item Wie funktioniert VDI?
-    \item Nenne Beispiele von kommerziellen VDI Lösungen
-    \item (Zusatz) Was ist der Unterschied zwischen RDP und VNC?
-\end{itemize}
-
-\section{Antworten}
+\pagebreak
+\section{Antworten T5}
 \subsection*{Wofür wird SSH verwendet?}\index{SSH}
 Secure Shell (SSH) bezeichnet ein Protokoll, in welchem Clients auf entfernte Hosts zugreifen können. Administratoren können damit beispielsweise einen Computer durch Fernzugriff konfigurieren und betreuen. Wie der Name "`Shell"' bereits andeutet, ist die GUI eine textbasierte Kommando-Konsole. Die Shell selbst ist ein Kommando-Übersetzer und gibt Instruktionen an den Betriebssystem-Kern (Kernel) weiter.
 
@@ -305,7 +316,7 @@ Ablauf:
     \end{center}
 \end{figure}
 
-\subsection*{Was für Nutzerauthentifizierungsoptionen gibt es? Was wir empfohlen?}\index{Authentifizierung}
+\subsection*{Was für Nutzerauthentifizierungsoptionen gibt es? Was wird empfohlen?}\index{Authentifizierung}
 \begin{itemize}
     \item SSH
     \item 2-Factor-Authentication / Multi-Factor-Authentication (MFA)
@@ -344,9 +355,8 @@ VNC - Virtual Network Computing wird im übergeordneten als Remote Desktop Shari
     \item User muss nur einen VNC Viewer auf einem lokalen Computer (client) haben. Dieser verbindet sich von entfernt auf einen anderen Computer, wo VNC als Server installiert ist.
     \item VNC ist Plattformunabhängig, beide Computer müssen lediglich TCP/IP aktiviert haben und offene Standard-Ports (TCP 5800, 5900) mit zugelassenem Traffic.
 \end{itemize}
-//TODO Abbildung 19: VNC, Screenshot von vpnchecked.com
 
-\subsection*{(Zusätzlich) Was ist der Unterschied zwischen RDP und VNC?}\index{RDP}\index{Remotedesktop!RDP}\index{VNC}\index{Remotedesktop!VNC}
+\subsection*{(Zusätzlich) Was ist der Unterschied zwischen RDP und VNC?\footnote{\url{https://www.parallels.com/blogs/ras/vnc-vs-rdp/}}}\index{RDP}\index{Remotedesktop!RDP}\index{VNC}\index{Remotedesktop!VNC}
 \begin{itemize}
     \item Grundsätzlich: zwei verschiedene Protokolle
     \begin{itemize}
@@ -357,12 +367,11 @@ VNC - Virtual Network Computing wird im übergeordneten als Remote Desktop Shari
     \item RDP unterstützt SSL/TLS und bekommt Security Updates
     \item Nicht jede VNC Software akzeptiert SSH, VNC gibt den Clients \flqq{}Full Access\frqq
 \end{itemize}
-//TODO Quelle https://www.parallels.com/blogs/ras/vnc-vs-rdp/
 
 \subsection*{Was ist VDI?}\index{VDI}\index{Remotedesktop!VDI}
 Die VDI - Virtual Desktop Infrastructure sorgt dafür, dass ein Geschäftscomputer von überall her zugreifbar ist.
 
-\subsection*{Wie funktioniert VDI?}\index{VDI}\index{Remotedesktop!VDI}
+\subsection*{Wie funktioniert VDI?\footnote{\url{https://azure.microsoft.com}}}\index{VDI}\index{Remotedesktop!VDI}
 \begin{itemize}
     \item Komplexer als einfache RDP weil noch Server etc. virtualisiert drinnen mithängen.
     \item Desktop OS ist meisten in einem Zentralisierten Server oder einem physischen Datencenter gehostet.
@@ -372,7 +381,6 @@ Die VDI - Virtual Desktop Infrastructure sorgt dafür, dass ein Geschäftscomput
         \item NonPersistent - Einheitliche Desktops, wo man auf das zugreifen kann, was man braucht. Desktop geht zurück in Einheitlichen Status nachdem der User sich ausloggt
     \end{itemize}
 \end{itemize}
-//TODO Quelle azure.microsoft.com
 
 \subsection*{Nenne Beispiele von kommerziellen VDI Lösungen}\index{VDI}\index{Remotedesktop!VDI}
 \begin{itemize}
