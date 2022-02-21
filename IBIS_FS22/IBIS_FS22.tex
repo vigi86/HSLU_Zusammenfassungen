@@ -1,0 +1,115 @@
+\documentclass[10pt,a4paper]{article}
+% Sprachgebundene Pakete
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% --
+\usepackage[table]{xcolor}
+\usepackage{amssymb, csquotes, enumitem, fancyhdr, forest, graphicx, float, lastpage, makecell, makeidx, multicol, multirow, sectsty, tabularx, textcomp, tikz, xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[hang,flushmargin]{footmisc}
+% \usepackage[acronym,nopostdot,toc]{glossaries}
+% \setacronymstyle{long-short}
+
+% \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+% \addbibresource{bibliography.bib}
+\makeindex
+% \makeglossaries
+% \loadglsentries{Glossar.tex}
+
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
+\setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=*}
+\setlength\parindent{0pt}
+
+% \definecolor{dunkelblau}{rgb}{0,0.4,0.6}
+%\subsectionfont{\color{dunkelblau}}
+
+\title{IBIS FS 2022}
+\author{Victor Fernández}
+\date{\today}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+% muss nach Änderung der margin kommen!
+\pagestyle{fancy}
+\fancyhf{} %reset
+\fancyhead[L]{HSLU}
+\fancyhead[C]{IBIS}
+\fancyhead[R]{\thepage/\pageref{LastPage}}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.2pt} % Strich in Kopfzeile
+
+% \newcommand{\todo}[1]{\textcolor{red}{#1//\\[1em]}}
+
+\begin{document}
+%\footnotemark
+%\footnotetext{blabla}
+\maketitle
+\tableofcontents
+\thispagestyle{empty}
+\pagebreak
+\input{SW01.tex}
+% \pagebreak
+% \input{SW02.tex}
+% \pagebreak
+% \input{SW03.tex}
+% \pagebreak
+% \input{SW04.tex}
+% \pagebreak
+% \input{SW05.tex}
+% \pagebreak
+% \input{SW06.tex}
+% \pagebreak
+% \input{SW07.tex}
+% \pagebreak
+% \input{SW08.tex}
+% \pagebreak
+% \input{SW11.tex}
+% \pagebreak
+% \input{SW12.tex}
+% \pagebreak
+% \input{SW13.tex}
+
+%! Verzeichnisse (Quellen, Abbildung, Abkürzung)
+% Abbildungsverzeichnis
+% \newpage
+% \phantomsection\label{sec:Abbildungsverzeichnis}\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+% \listoffigures
+
+% Akronyme
+% \newpage
+% \glsaddall
+% \printglossary[type=\acronymtype, nonumberlist]
+
+% Glossar
+% \newpage
+% \printglossary[title={Glossar}, nonumberlist]
+
+% Index
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Index}
+\printindex
+\thispagestyle{fancy}
+
+% Tabellenverzeichnis
+% \newpage
+% \phantomsection
+% \addcontentsline{toc}{section}{Tabellenverzeichnis}
+% \listoftables
+% \thispagestyle{fancy}
+
+% Quellen
+% \newpage
+% \phantomsection
+% \addcontentsline{toc}{section}{Quellen}
+% \printbibliography[title={Quellen}]
+\end{document}
